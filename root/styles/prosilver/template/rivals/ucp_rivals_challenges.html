@@ -1,0 +1,61 @@
+<!-- INCLUDE ucp_header.html -->
+
+<h2>{L_PENDING_MATCHES}</h2>
+
+<form action="{U_ACTION}" method="post">
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	<fieldset>
+		<table class="tablebg" cellspacing="1">
+			<tr class="genmed rvcenter">
+				<td>{L_GROUP_ID}</td>
+				<td class="rv120">{L_RIVALS_DATETIME}</td>
+				<td class="rv60">{L_ACCEPT}</td>
+				<td class="rv60">{L_DECLINE}</td>
+			</tr>
+			<tr class="genmed">
+				<td class="row3" colspan="4">&nbsp;</td>
+			</tr>
+			<!-- BEGIN block_ladders -->
+			<tr class="genmed">
+				<td class="subcat" colspan="4">{L_PLATFORM}: <strong>{block_ladders.PLATFORM}</strong>, {L_LADDER}: <strong>{block_ladders.LADDER}</strong>, {L_SUBLADDER}: <strong>{block_ladders.SUBLADDER}</strong> {block_ladders.LADDER_ICON}</td>
+			</tr>
+			<!-- IF .block_ladders.block_challenges -->
+			<!-- BEGIN block_challenges -->
+			<tr class="genmed">
+				<td class="{block_ladders.block_challenges.ROW_COLOR}"><a href="{block_ladders.block_challenges.U_CHALLENGER}">{block_ladders.block_challenges.CHALLENGER}</a> 
+				{block_ladders.block_challenges.CLASSIFICATA} {block_ladders.block_challenges.CHICKEN_RISK}</td>
+				<td class="{block_ladders.block_challenges.ROW_COLOR} rvcenter">{block_ladders.block_challenges.TIME}</td>
+				<td class="{block_ladders.block_challenges.ROW_COLOR} rvcenter"><input type="checkbox" name="accept[]" value="{block_ladders.block_challenges.CHALLENGE_ID}" /></td>
+				<td class="{block_ladders.block_challenges.ROW_COLOR} rvcenter"><input type="checkbox" name="decline[]" value="{block_ladders.block_challenges.CHALLENGE_ID}" /></td>
+			</tr>
+			<tr class="genmed">
+				<td class="{block_ladders.block_challenges.ROW_COLOR}" colspan="4">{L_COMMENT}: {block_ladders.block_challenges.DETAILS}</td>
+			</tr>
+			<tr class="genmed">
+				<td class="row3" colspan="4">&nbsp;</td>
+			</tr>
+			<!-- END block_challenges -->
+			<!-- ELSE -->
+			<tr class="bg1">
+				<td class="row1" colspan="4">{L_NO_PENDING_MATCHES}</td>
+			</tr>
+			<!-- ENDIF -->
+			<!-- END block_ladders -->
+			<tr>
+				<td class="cat rvcenter" colspan="4"><input type="submit" name="submit" value="{L_SUBMIT}" class="rvbutton2" /></td>
+			</tr>
+		</table>
+	</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+{S_FORM_TOKEN}
+</form>
+
+<p><br /></p>
+
+<fieldset>
+<p><img src="{ROOT_PATH}rivals/images/chickenrisk.gif" alt="" class="rivalsicon" />{L_CHICKEN_RISK_EXPLAIN}</p>
+</fieldset>
+
+<!-- INCLUDE ucp_footer.html -->

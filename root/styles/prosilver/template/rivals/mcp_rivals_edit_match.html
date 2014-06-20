@@ -1,0 +1,224 @@
+<!-- INCLUDE mcp_header.html -->
+<h2>{L_EDIT_RIVALS_CONTESTED_MATCH}</h2>
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+<!-- BEGIN block_match -->
+<form method="post" action="">
+<fieldset>
+	<legend><strong>{L_MATCH_ID}: {block_match.MATCH_ID} ({block_match.RANKED})</strong> - {L_ACCEPTED}: {block_match.ACCEPT_TM}, {L_REPORTED}: {block_match.REPORT_TM}</legend>
+	
+	<p></p>
+	
+<!-- IF block_match.TOURNNT -->
+	<table class="tablebg" cellspacing="1">
+		<tr>
+			<th align="center">{L_CLAN}</th>
+			<th align="center">{L_WINNER}</th>
+			<th align="center"><!-- IF block_match.HOMEAWAY -->{L_RITORNO}<!-- ELSE -->{L_SCORE}<!-- ENDIF --></th>
+			<!-- IF block_match.HOMEAWAY --><th class="rvcenter">{L_ANDATA}</th><!-- ENDIF -->
+		</tr>
+		<tr>
+			<td class="row3 rvcenter">{block_match.MATCH_ER}</td>
+			<td class="row3 rvcenter"rowspan="2">
+				<select name="winner">
+					<option value="{block_match.ID_ER}" {block_match.WINNERER}>{block_match.MATCH_ER}</option>
+					<option value="{block_match.ID_EE}" {block_match.WINNEREE}>{block_match.MATCH_EE}</option>
+				</select>
+				<!-- IF block_match.HOMEAWAY -->{L_FIRST_HOME}: {block_match.FIRST_HOME}<!-- ENDIF -->
+			</td>
+			<td class="row3 rvcenter"><input name="er_score" type="text" class="inputbox autowidth" value="{block_match.ER_POINT}" size="5" maxlength="4" /></td>
+			<!-- IF block_match.HOMEAWAY --><td class="row3 rvcenter"><input name="er_score_home" type="text" class="inputbox autowidth" value="{block_match.ER_POINT_HOME}" size="5" maxlength="4" /></td><!-- ENDIF -->
+		</tr>
+		<tr>
+			<td class="row3 rvcenter">{block_match.MATCH_EE}</td>
+			<td class="row3 rvcenter"><input name="ee_score" type="text" class="inputbox autowidth" value="{block_match.EE_POINT}" size="5" maxlength="4" /></td>
+			<!-- IF block_match.HOMEAWAY --><td class="row3 rvcenter"><input name="ee_score_home" type="text" class="inputbox autowidth" value="{block_match.EE_POINT_HOME}" size="5" maxlength="4" /></td><!-- ENDIF -->
+		</tr>
+		<!-- IF block_match.MVP1 > 0 || block_match.MVP2 > 0 || block_match.MVP3 > 0 -->
+		<tr>
+			<td class="row3" colspan="6">
+				{L_MVPS}: <input name="mvp1" type="text" class="inputbox autowidth" value="{block_match.MVP1}" size="8" maxlength="8" />, 
+				<input name="mvp2" type="text" class="inputbox autowidth" value="{block_match.MVP2}" size="8" maxlength="8" />, 
+				<input name="mvp3" type="text" class="inputbox autowidth" value="{block_match.MVP3}" size="8" maxlength="8" />
+			</td>
+		</tr>
+		<!-- ENDIF -->
+	</table>
+
+	<!-- IF block_match.ADVSTATS -->
+	<p class="cat_title2">{L_ADVANC_STATS}</p>
+	<p>{L_MCP_ADVSTATS_LGND}</p>
+	<table cellspacing="1" class="tablebg">
+	<tr class="gemed rvcenter">
+		<th></th>
+		<th>{L_KILLS}</th>
+		<th>{L_DEADS}</th>
+		<th>{L_ASSISTS}</th>
+	</tr>
+	<tr>
+		<td class="cat rvleft" colspan="5">&bull; {block_match.MATCH_ER}</td>
+	</tr>
+	<!-- BEGIN er_ustats -->
+	<tr>
+	    <td class="row3 rvleft">{er_ustats.USERNAME}<input type="hidden" name="stats[{er_ustats.USER_ID}][user_id]" value="" /></td>
+		<td class="row1 rvcenter"><input name="stats[{er_ustats.USER_ID}][kills]" type="text" class="inputbox autowidth" value="{er_ustats.KILL}" size="4" maxlength="8" /></td>
+		<td class="row1 rvcenter"><input name="stats[{er_ustats.USER_ID}][morti]" type="text" class="inputbox autowidth" value="{er_ustats.DEAD}" size="4" maxlength="8" /></td>
+		<td class="row1 rvcenter"><input name="stats[{er_ustats.USER_ID}][assist]" type="text" class="inputbox autowidth" value="{er_ustats.ASSIST}" size="4" maxlength="8" /></td>
+	</tr>
+	<!-- END er_ustats -->
+	<tr>
+		<td class="cat rvleft" colspan="5">&bull; {block_match.MATCH_EE}</td>
+	</tr>
+	<!-- BEGIN ee_ustats -->
+	<tr>
+	    <td class="row3 rvleft">{ee_ustats.USERNAME}<input type="hidden" name="stats[{ee_ustats.USER_ID}][user_id]" value="" /></td>
+		<td class="row1 rvcenter"><input name="stats[{ee_ustats.USER_ID}][kills]" type="text" class="inputbox autowidth" value="{ee_ustats.KILL}" size="4" maxlength="8" /></td>
+		<td class="row1 rvcenter"><input name="stats[{ee_ustats.USER_ID}][morti]" type="text" class="inputbox autowidth" value="{ee_ustats.DEAD}" size="4" maxlength="8" /></td>
+		<td class="row1 rvcenter"><input name="stats[{ee_ustats.USER_ID}][assist]" type="text" class="inputbox autowidth" value="{ee_ustats.ASSIST}" size="4" maxlength="8" /></td>
+	</tr>
+	<!-- END ee_ustats -->
+	</table>
+	<!-- ENDIF -->
+	
+	<p class="quick rvcenter">
+		<input type="hidden" name="er_id" value="{block_match.ID_ER}" />
+		<input type="hidden" name="ee_id" value="{block_match.ID_EE}" />
+		<input type="hidden" name="editedmatch_id" value="{block_match.MATCH_ID}" />
+		<input type="hidden" name="tourid" value="{block_match.TOURNM_ID}" />
+		<input type="hidden" name="tmnt" value="69" />
+		<input type="submit" name="submit" value="{L_EDIT}" class="rvbutton2" />
+	</p>
+	
+<!-- ELSE -->
+
+	<table class="tablebg" cellspacing="1">
+	<tr>
+		<th class="rvcenter">{L_CLAN}</th>
+		<th class="rvcenter">{L_WINNER}</th>
+		<!-- IF block_match.POINTRES --><th class="rvcenter">{L_SCORE}</th><!-- ENDIF -->
+		<!-- IF block_match.DECERTO --><th class="rvcenter">{L_SCORE} {block_match.MODE1}</th><!-- ENDIF -->
+		<!-- IF block_match.DECERTO --><th class="rvcenter">{L_SCORE} {block_match.MODE2}</th><!-- ENDIF -->
+		<!-- IF block_match.DECERTO --><th class="rvcenter">{L_SCORE} {block_match.MODE3}</th><!-- ENDIF -->
+	</tr>
+	<tr>
+	    <td class="row3" align="center">{block_match.MATCH_ER} [{L_IP}: <a href="{block_match.U_IP_ER}" onclick="popup(this.href, 700, 500, '_whois'); return false;">{block_match.IP_ER}</a>]</td>
+		<td class="row3" align="center" rowspan="2">
+			<select name="winner">
+				<option value="{block_match.ID_ER}" {block_match.WINNERER}>{block_match.MATCH_ER}</option>
+				<option value="{block_match.ID_EE}" {block_match.WINNEREE}>{block_match.MATCH_EE}</option>
+				<!-- IF block_match.CALCIO --><option value="{block_match.ID_PP}" {block_match.WINNERPP}>{L_PAREGGIO}</option><!-- ENDIF -->
+			</select>
+		</td>
+		<!-- IF block_match.POINTRES --><td class="row3" align="center"><input name="er_score" type="text" class="inputbox autowidth" value="{block_match.ER_POINT}" size="5" maxlength="4" /></td><!-- ENDIF -->
+		<!-- IF block_match.DECERTO --><td class="row3" align="center"><input name="er_scorem1" type="text" class="inputbox autowidth" value="{block_match.ER_SCORE1}" size="5" maxlength="4" /></td><!-- ENDIF -->
+		<!-- IF block_match.DECERTO --><td class="row3" align="center"><input name="er_scorem2" type="text" class="inputbox autowidth" value="{block_match.ER_SCORE2}" size="5" maxlength="4" /></td><!-- ENDIF -->
+		<!-- IF block_match.DECERTO --><td class="row3" align="center"><input name="er_scorem3" type="text" class="inputbox autowidth" value="{block_match.ER_SCORE3}" size="5" maxlength="4" /></td><!-- ENDIF -->
+	</tr>
+	<tr>
+	    <td class="row3" align="center">{block_match.MATCH_EE}  [{L_IP}: <a href="{block_match.U_IP_EE}" onclick="popup(this.href, 700, 500, '_whois'); return false;">{block_match.IP_EE}</a>]</td>
+		<!-- IF block_match.POINTRES --><td class="row3" align="center"><input name="ee_score" type="text" class="inputbox autowidth" value="{block_match.EE_POINT}" size="5" maxlength="4" /></td><!-- ENDIF -->
+		<!-- IF block_match.DECERTO --><td class="row3" align="center"><input name="ee_scorem1" type="text" class="inputbox autowidth" value="{block_match.EE_SCORE1}" size="5" maxlength="4" /></td><!-- ENDIF -->
+		<!-- IF block_match.DECERTO --><td class="row3" align="center"><input name="ee_scorem2" type="text" class="inputbox autowidth" value="{block_match.EE_SCORE2}" size="5" maxlength="4" /></td><!-- ENDIF -->
+		<!-- IF block_match.DECERTO --><td class="row3" align="center"><input name="ee_scorem3" type="text" class="inputbox autowidth" value="{block_match.EE_SCORE3}" size="5" maxlength="4" /></td><!-- ENDIF -->
+	</tr>
+	<!-- IF block_match.CALCIO -->
+	<tr>
+	    <td class="row3" colspan="6">{block_match.MATCH_ER} {L_TEAM}: <input name="er_team" type="text" class="inputbox autowidth" value="{block_match.ER_TEAM}" size="20" maxlength="248" /> || 
+			{block_match.MATCH_EE} {L_TEAM}: <input name="ee_team" type="text" class="inputbox autowidth" value="{block_match.EE_TEAM}" size="20" maxlength="248" />
+		</td>
+	</tr>
+	<!-- ENDIF -->
+	<!-- IF block_match.MVP1 > 0 || block_match.MVP2 > 0 || block_match.MVP3 > 0 -->
+	<tr>
+	    <td class="row3" colspan="6">{L_MVPS}: <input name="mvp1" type="text" class="inputbox autowidth" value="{block_match.MVP1}" size="8" maxlength="8" />, 
+		<input name="mvp2" type="text" class="inputbox autowidth" value="{block_match.MVP2}" size="8" maxlength="8" />, 
+		<input name="mvp3" type="text" class="inputbox autowidth" value="{block_match.MVP3}" size="8" maxlength="8" />
+		</td>
+	</tr>
+	<!-- ENDIF -->
+	</table>
+	
+	<!-- IF block_match.ADVSTATS -->
+	<p class="cat_title2">{L_ADVANC_STATS}</p>
+	<p>{L_MCP_ADVSTATS_LGND}</p>
+	<table cellspacing="1" class="tablebg">
+	<tr class="gemed rvcenter">
+		<th></th>
+		<th>{L_KILLS}</th>
+		<th>{L_DEADS}</th>
+		<th>{L_ASSISTS}</th>
+		<th>{L_GOALSF}</th>
+		<th>{L_GOALSA}</th>
+	</tr>
+	<tr>
+		<td class="cat rvleft" colspan="7">&bull; {block_match.MATCH_ER}</td>
+	</tr>
+	<!-- BEGIN er_ustats -->
+	<tr>
+	    <td class="row3 rvleft">{er_ustats.USERNAME}<input type="hidden" name="stats[{er_ustats.USER_ID}][user_id]" value="" /></td>
+		<td class="row1 rvcenter"><input name="stats[{er_ustats.USER_ID}][kills]" type="text" class="inputbox autowidth" value="{er_ustats.KILL}" size="4" maxlength="8" /></td>
+		<td class="row1 rvcenter"><input name="stats[{er_ustats.USER_ID}][morti]" type="text" class="inputbox autowidth" value="{er_ustats.DEAD}" size="4" maxlength="8" /></td>
+		<td class="row1 rvcenter"><input name="stats[{er_ustats.USER_ID}][assist]" type="text" class="inputbox autowidth" value="{er_ustats.ASSIST}" size="4" maxlength="8" /></td>
+		<td class="row1 rvcenter"><input name="stats[{er_ustats.USER_ID}][goalf]" type="text" class="inputbox autowidth" value="{er_ustats.GOAL_F}" size="4" maxlength="8" /></td>
+		<td class="row1 rvcenter"><input name="stats[{er_ustats.USER_ID}][goals]" type="text" class="inputbox autowidth" value="{er_ustats.GOAL_A}" size="4" maxlength="8" /></td>
+	</tr>
+	<!-- END er_ustats -->
+	<tr>
+		<td class="cat rvleft" colspan="7">&bull; {block_match.MATCH_EE}</td>
+	</tr>
+	<!-- BEGIN ee_ustats -->
+	<tr>
+	    <td class="row3 rvleft">{ee_ustats.USERNAME}<input type="hidden" name="stats[{ee_ustats.USER_ID}][user_id]" value="" /></td>
+		<td class="row1 rvcenter"><input name="stats[{ee_ustats.USER_ID}][kills]" type="text" class="inputbox autowidth" value="{ee_ustats.KILL}" size="4" maxlength="8" /></td>
+		<td class="row1 rvcenter"><input name="stats[{ee_ustats.USER_ID}][morti]" type="text" class="inputbox autowidth" value="{ee_ustats.DEAD}" size="4" maxlength="8" /></td>
+		<td class="row1 rvcenter"><input name="stats[{ee_ustats.USER_ID}][assist]" type="text" class="inputbox autowidth" value="{ee_ustats.ASSIST}" size="4" maxlength="8" /></td>
+		<td class="row1 rvcenter"><input name="stats[{ee_ustats.USER_ID}][goalf]" type="text" class="inputbox autowidth" value="{ee_ustats.GOAL_F}" size="4" maxlength="8" /></td>
+		<td class="row1 rvcenter"><input name="stats[{ee_ustats.USER_ID}][goals]" type="text" class="inputbox autowidth" value="{ee_ustats.GOAL_A}" size="4" maxlength="8" /></td>
+	</tr>
+	<!-- END ee_ustats -->
+	</table>
+	<!-- ENDIF -->
+	
+	<p class="quick rvcenter">
+		<input type="hidden" name="editedmatch_id" value="{block_match.MATCH_ID}" />
+		<input type="hidden" name="er_id" value="{block_match.ID_ER}" />
+		<input type="hidden" name="ee_id" value="{block_match.ID_EE}" />
+		<input type="hidden" name="xladder" value="{block_match.LADDER_ID}" />
+		<input type="submit" name="submit" value="{L_EDIT}" class="rvbutton2" />
+	</p>
+<!-- ENDIF -->
+</fieldset>
+{S_HIDDEN_FIELDS}
+{S_FORM_TOKEN}
+</form>
+<!-- END block_match -->
+
+<p><br /></p>
+
+<form method="post" action="">
+<fieldset>
+	<p class="cat_title2">{L_CLAN_CHAT}</p>
+	
+	<div class="chatfield">
+		<ul>
+			<!-- BEGIN block_match_chat -->
+			<li>
+				<span class="msg_time">{block_match_chat.CHAT_TIME} </span> 
+				<strong><a href="{block_match_chat.POSTER_URL}">{block_match_chat.POSTER_NAME}</a></strong> <!-- IF block_match_chat.CLAN_NAME -->[{L_CLAN}: <a href="{block_match_chat.CLAN_URL}">{block_match_chat.CLAN_NAME}</a>] <!-- ENDIF --> >>
+				<span class="msg_text">{block_match_chat.CHAT_TEXT}</span>
+			</li>
+			<!-- END block_match_chat -->
+		</ul>
+	</div>
+	<p class="rvcenter">
+		<strong>{L_CHAT_DESC}</strong><br />
+		<textarea name="chat_text" cols="10" rows="2" class="inputbox narrow"></textarea><br />
+		<input type="submit" name="chatting" value="{L_SUBMIT}" class="rvbutton2" />
+	</p>
+</fieldset>
+{S_FORM_TOKEN}
+</form>
+
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- INCLUDE mcp_footer.html -->

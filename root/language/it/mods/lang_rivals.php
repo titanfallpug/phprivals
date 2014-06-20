@@ -1,0 +1,1370 @@
+<?php
+/**
+*
+* phpRivalsMOD [Italian]
+*
+* @package language
+* @version $Id: lang_rivals.php 2.0 rev.003 $
+* @copyright (c) 2011 Soshen <nipponart.org>
+* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+*/
+
+/**
+* DO NOT CHANGE
+*/
+if (!defined('IN_PHPBB'))
+{
+	exit;
+}
+
+if (empty($lang) || !is_array($lang))
+{
+	$lang = array();
+}
+
+// DEVELOPERS PLEASE NOTE
+//
+// All language files should use UTF-8 as their encoding and the files must not contain a BOM.
+//
+// Placeholders can now contain order information, e.g. instead of
+// 'Page %s of %s' you can (and should) write 'Page %1$s of %2$s', this allows
+// translators to re-order the output of data while ensuring it remains correct
+//
+// You do not need this where single placeholders are used, e.g. 'Message %d' is fine
+// equally where a string contains only two placeholders which are used to wrap text
+// in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
+//
+// Some characters you may want to copy&paste:
+// ’ » “ ” …
+
+$lang	= array_merge($lang, array(
+// DEFINITION FOR 2.0 START -->
+    'MEMBER_UPDATE_LIKE_COFOUNDER'		=> 'USER IMPOSTATO COME COFONDATORE',
+	'COF_SI'							=> 'Livello: CoFondatore',
+	'COF_NO' 							=> 'Livello: Membro',
+	'ASSIGN_AS_COLEADER' 				=> 'Assegna come CoFondatore Clan',
+	'DA_TEMPO' 							=> 'Giocata da:',
+	'STATUS' 							=> 'Status:',
+	'CARATTERISTICHE' 					=> 'Caratteristiche Ladder:',
+	'COMBATTENTI' 						=> 'Clans nel match:',
+	'VITTORIOSO' 						=> 'Ha vinto:',
+	'LEGENDA_COFOUNDER' 				=> 'L’utente impostato come CoFondatore ha la possibilità di amministrare il Clan, invitare e rimuovere membri dal Clan, sfidare altri Clan',
+	'NOAZIONE' 							=> 'Lascia così',
+	'MEMBER_UPDATED' 					=> 'Azione avvenuta con successo',
+	'TITOLO_PAGINA_MVP' 				=> 'CLASSIFICA GENERALE MVPs:',
+	'NU' 								=> 'N°',
+	'UTENTE' 							=> 'Utente',
+	'CLAN' 								=> 'Clan',
+	'REGISTRATO' 						=> 'Giocando dal',
+	'MVP' 								=> 'MVP',
+	'GIOCANDO_PER' 						=> 'Con il Clan: ',
+	'DAL' 								=> 'Dal: ',
+	'NO_MEMBERS_MVP' 					=> 'NESSUN UTENTE HA DEGLI MVPs',
+	'GROUP_SITO' 						=> 'Sito del clan: ',
+	'UTENTE_DEL_CLAN_SCELTO' 			=> 'Utente del clan scelto',
+	'EDIT_MVP_LEGENDA' 					=> 'Filtra gli utenti limitandoli al clan a cui appartengono',
+	'MVP_BASE_USER' 					=> 'MVP che ha in questo momento',
+	'A_CUI_SOMMO' 						=> 'Sommaci questo: ',
+	'MVP_MENU' 							=> 'Top MVP',
+	'PARTITA' 							=> 'Match',
+	'THE_WINNER_IS' 					=> 'Vince:',
+	'UWAR_INFO' 						=> 'Informazioni match',
+	'TITOLO_PAGINA_UWAR' 				=> 'Ultimi match giocate',
+	'GIOCATA_IL' 						=> 'Giocata il ',
+	'GIOCATA_SU' 						=> 'su',
+	
+	'MVPLIST_NAME' 						=> 'Nome classifica MVP',
+	'MVPLIST_DESC' 						=> 'Descrizione classifica MVP',
+	'MVPLIST_PLATFORM' 					=> 'Numero identificativo Piattaforma',
+	'MVPLIST_PLATFORM_ISTR' 			=> '[Attenzione] Se la ladder a cui vuoi collegare una classifiva MVP non appare nella lista, vuol dire che in quella non hai attivato l’opzione MVP.',
+	'MVPLIST_LADDER' 					=> 'Numero identificativo Ladder',
+	'MVPLIST_LADDER_ISTR' 				=> '[Esempio] Il numero da prendere da un url della ladder è quello in grassetto:<br />
+url/rivals.php?action=subladders&ladder_id=<strong>4</strong>&sid=030556093e593a3a5a766510eddaa6dd',
+	'TITOLO_PAGINA_MVP_DESC' 			=> 'Classifica TOP MVPs organizzata secondo le ladder. Limitata a utenti con MVP maggiore di 0',
+	'TITOLO_PAGINA_MVP_CHART' 			=> 'TOP MVP su',
+	'MVP_CHART_UPDATED' 				=> 'Classifiche mvp aggiornate',
+	'CLAN_ATTENDI_WAR' 					=> 'Clan in cerca di un match',
+	'AZIONE' 							=> 'Azione',
+	'SU_LADDER' 						=> 'Sulla Ladder',
+	'FINO_ALLE'							=> 'Fino alle',
+	'GROUP_POSITION'					=> 'Posizione su ladder',
+	'CERCA_WAR_AGGIUNGITI' 				=> 'Cerchi avversari per un match? Proponiti con il modulo sotto!',
+	'DOVE_CERCHI' 						=> 'Gioca su: ',
+	'TRA_QUANTO' 						=> 'Stai in attesa per: ',
+	'NOUWAR'							=> 'Non ci sono Clans che cercano avversari per una sfida.',
+	'IL_CLAN' 							=> 'Il Clan',
+	'DICE_DI_AVER_VINTO' 				=> 'sostiene di aver vinto',
+	'A' 								=> 'a',
+	'PUNTEGGIO' 						=> 'Punteggio',
+	'TU' 								=> 'Tu =',
+	'ALTRO' 							=> 'L’ altro =',
+	'TITOLO_PAGINA_RANDOM' 				=> 'Mappe del giorno',
+	'TITOLO_PAGINA_RANDOM_DESC' 		=> 'Queste sono le mappe, piste, o altro, del giorno. Vengono caricate casualmente.',
+	'NO_GIOCO_RANDOM' 					=> 'Nessun gioco impostato',
+	
+	'ACP_RIVALS_NEW_RULES' 				=> 'Aggiungi nuova pagina regole',
+	'PLATFORM_ID' 						=> 'ID Piattaforma',
+	'LADDER_ID' 						=> 'ID Ladder',
+	'CREA_NUOVA' 						=> 'Crea nuova regola',
+	'ACP_RIVALS_ALTRO_RULES' 			=> 'Modifica o cancella pagina regole',
+	'LEGENDA_TEXTAREA' 					=> 'I campi di testo supportano la formattazione html. Per impaginare il testo quindi usate gli appositi campi:<br /><br />&lt;b&gt;TESTO&lt;/b&gt; per il testo in grassetto<br />
+	&lt;i&gt;TESTO&lt;/i&gt; per il testo in corsivo<br />
+    &lt;u&gt;TESTO&lt;/u&gt; per il testo sottolineato<br /> 
+    &lt;p align=&quot;center&quot;&gt;PROVA&lt;/p&gt; per centrare <em>-&gt; [right, left]</em><br />
+    &lt;font size=&quot;NUMERO&quot;&gt;TESTO&lt;/font&gt;<br/>
+    &lt;font color=&quot;COLORE&quot;&gt;TESTO&lt;/font&gt; per colorare il testo<br/>
+    <em> -&gt; [rosso: #FF0000, blu: #0000FF, giallo: #FFFF00, verde: #00FF00, bianco: #FFFFFF, nero: #000000, ecc...]</em>',
+	'REQUISITI' 						=> 'Requisiti per l’iscrizione',
+	'REG_GENERALI' 						=> 'Regole generali',
+	'CONFIG' 							=> 'Configurazione per la Clan War',
+	'VIETATO' 							=> 'È vietato',
+	'TITOLO_PAGINA_RULES_LADDER' 		=> 'Regole ladder',
+	'NO_RULES' 							=> '<br />Questa ladder ha una sola regola: Non ci sono regole!<br /><br />',
+	'RULES_CHART_ADDED' 				=> 'Regola della ladder aggiunta',
+	'RULES_CHART_UPDATED' 				=> 'Regola della ladder modificata correttamente',
+	'RULES_CHART_DELETED' 				=> 'Regola della ladder cancellata',
+	'PLATFORM_UPDATED' 					=> 'Piattaforma modificato',
+	'MPV_LIST_ADDED' 					=> 'Classifica MVP aggiunta',
+	'NO_UWAR' 							=> 'Su questa ladder non è stata ancora giocata alcun match',
+	
+	'REPORTED_MATCHES_DECERTO' 			=> 'Matches in attesa di conferma da chi ha perso per la modalità DECERTO',
+	'UNREPORTED_MATCHES_DECERTO' 		=> 'Matches non ancora non riportate per la modalità DECERTO',
+	'CLAN_TEMPO' 						=> 'Clan - Data',
+	'PUNTEGGIO_PARZIALE' 				=> 'Punteggio parziale',
+	'CERCA_E_DISTRUGGI' 				=> 'Cerca &amp; Distruggi su',
+	'DOMINIO' 							=> 'Demolizione su',
+	'BANDIERA' 							=> 'Cattura la bandiera su',
+	'DECERTO_UPDATED' 					=> 'Opzioni decerto aggiornate',
+	'CONFIGURE_DECERTO' 				=> 'Configura la Ladder su cui è attivo il sistema Decerto',
+	'U_SFIDA' 							=> 'SFIDA',
+	'SFIDA_ACCETTATA' 					=> 'Sfida accettata correttamente<br />ora la troverai nella pagina Amministra matches accettati',
+	'NON_SFIDARE_TE_STESSO' 			=> 'Non puoi sfidare te stesso',
+	'MOTIVO_ANINIMI' 					=> '* Sì, è normale che non è indicato il nome del clan. Il lasciarli anonimi assicura che vengano sfidati anche i clan più forti.<br />',
+	'ORDINE_GIOCO' 						=> 'Ordine di gioco:',
+	'CED_SHORT' 						=> 'C&amp;D',
+	'DOMINIO_SHORT' 					=> 'Demolizione',
+	'BANDIERA_SHORT'					=> 'Cat. Bandiera',
+	'FONDATORE' 						=> 'Livello: Fondatore',
+	'GROUP_DELETED' 					=> 'Clan cancellato',
+	'COFONDATORE_ALTRO_CLAN' 			=> 'Questo utente è già cofondatore o fondatore di un altro clan<br />Mi spiace ma per questo non è possibile procedere con l’operazione richiesta',
+	
+	'PUNTI_VINCITORE' 					=> 'Punti del vincitore',
+	'PUNTI_PERDENTE' 					=> 'Punti del perdente',
+	'COMPILA_SOLO_SE' 					=> 'Compila i moduli sottostanti solo se è la ladder DECERTO',
+	
+	'LADDER_LIST_IMPORTANTE' 			=> '<strong>Il tuo clan non appare in questa lista? Il motivo è semplice: non è attivo poiché non lo hai inserito in alcuna ladder.<br /><br />
+  ISCRIVI SUBITO IL TUO CLAN IN UNA LADDER! <a href="./rivals.php?action=platforms">CLICCA QUI</a></strong>',
+  
+    'ATTIVO' 							=> 'attivo',
+	'NON_ATTIVO' 						=> 'non attivo',
+	'LISTA_CLAN_COMPLETA'  				=> 'Lista completa clan registrati',
+	'LISTA_CLAN_COMPLETA_DESC' 			=> 'se risultate come "non attivo" dovete iscrivervi in una ladder!',
+	'ROLE' 								=> 'Livello',
+	'COF_SI_SHORT' 						=> 'ViceCapitano',
+	'COF_NO_SHORT' 						=> 'Membro',
+	'FONDATORE_SHORT' 					=> 'Capitano',
+	
+	'LEGENDA' 							=> '<h2>Legenda icone</h2>',
+	'CORONA' 							=> 'Chi ha questo titolo è il Clan con la migliore differenza tra vittorie e sconfitte. Se vincerai contro di lui avrai punti extra!',
+	'TOMBA' 							=> 'Chi ha questo titolo è il Clan con la peggiore differenza tra vittorie e sconfitte.',
+	'CALDO' 							=> 'Clan in lunga serie positiva. Se vincerai contro di lui avrai punti extra!',
+	'FREDDO' 							=> 'Clan in lunga serie negativa.',
+	'LADDER_STATUS' 					=> 'Attività',
+	'LADDER_GROUP_PARI' 				=> 'Pareggi',
+	'PAREGGIO' 							=> 'Pareggio',
+	'LADDER_GROUP_GOAL_FATTI' 			=> 'Goals fatti',
+	'LADDER_GROUP_GOAL_SUBITI' 			=> 'Goals subiti',
+	'LEG_CAPOCAN' 						=> 'Trofeo CAPOCANNONIERE. Chi ha questo titolo è il Clan con la miglior differenza reti.',
+	'LEG_PIUGOAL' 						=> 'Chi ha questo titolo è il Clan con la peggior differenza reti.',
+	'PAVIDO'							=> '<em>Gruppo scappato</em>',
+	'GROUP_UNDELETABLE' 				=> 'Il tuo Clan ha già giocato 5 matches o più. Per preservare le statistiche del sito non puoi cancellarlo.<br />
+	Se vuoi partecipare con un altro Clan, semplicemente registrane uno nuovo.',
+	'REPORTED_MATCHES_CALCIO' 			=> 'Matches in attesa di conferma per ladder con regole "Calcio"',
+	'UNREPORTED_MATCHES_CALCIO' 		=> 'Matches non ancora non riportate per ladder con regole "Calcio"',
+	'HA_RIPORTATO_IL_RISULTATO' 		=> 'ha riportato il risultato di:',
+	'CONFIRM_CALCIO' 					=> 'Conferma',
+	'CONTEST_CALCIO' 					=> 'Contesta',
+	'REPORT_CALCIO' 					=> 'Riporta risultato',
+	'STANDARD_LADDER' 					=> 'Ladder normale',
+	'DECERTO_LADDER' 					=> 'Ladder con regole Decerto (FPS)',
+	'CPC_LADDER' 						=> 'Ladder con regole CPC (FPS)',
+	'CALCIO_LADDER' 					=> 'Ladder tipo calcio',
+	'LEGENDA_LADDER' 					=> '<strong>Questi i tipi di ladder creabili e le differenze che implicano:</strong><br />
+	NORMALE = Ladder standard per tutti i giochi.<br />
+	DECERTO = Mostra le 3 modalità di gioco indicate in ordine random, su mappe random.<br />
+	CPC = Mostra 3 mappe generate casualmente.<br />
+	CALCIO = Differente sistema di punteggi che comprende anche la possibilità di pareggiare. Calcola i goals fatti e subiti.
+	Ha quindi un sistema di calcolo punteggi personalizzato.<br />',
+	'MATCH_DELETED' 					=> 'Match cancellato.<br />Se era classificato è stato riconteggiato e aggiornato anche il punteggio sulla ladder',
+	'EDIT_MATCH' 						=> 'Edita un match',
+	'EDIT_MATCH_EXP' 					=> 'Cancellate un match ritenuto illegittimo; fate attenzione che cancellare un match classificato comporta un aggiornamento
+	del punteggio sulla ladder corrispettiva',
+	'NON_SEI_NELLA_LADDER' 				=> 'Non puoi sfidare questo clan in quanto non sei iscritto alla ladder corrispettiva',
+	'HAI_UN_MATCH_IN_CERCA' 			=> 'Stai cercando una sfida su',
+	'CLAN_ATTENDI_WAR_IO' 				=> 'Le tue proposte di match in attesa',
+	'NOUWAR_IO' 						=> 'Non stai cercando alcun match al momento',
+	'AVATAR_EXPLAIN'					=> '<em>Max 160kb - Dimensioni: min 100x100px, max 500x500px</em>',
+	'RETURN_UCP' 						=> 'Torna alla pagina UCP',
+	'MVP1' 								=> 'MVP round 1',
+	'MVP2' 								=> 'MVP round 2',
+	'MVP3' 								=> 'MVP round 3',
+	'IMPOSTA_MVP_MATCH' 				=> 'IMPOSTA GLI MVP DELLA PARTITA',
+	'IMPOSTA_MVP_MATCH_LEGENDA' 		=> '<em>Spunta per ogni round in corrispondenza del giocatore che ha ottenuto un MVP</em>',
+	'GIOCATO_SU' 						=> 'Giocata su',
+	'CON_MVP' 							=> 'Con i seguenti MVPs',
+	'NONCLASSIFICATA2' 					=> '<br />(Partita non classificata)',
+	'SFIDATO_TROPPO' 					=> 'ERRORE! Negli ultimi giorni ha sfidato troppe volte questo clan. Per evitare abusi di furbetti non è possibile sfidarlo ulteriormente al momento.<br />Riprova fra qualche giorno',
+	'NO_DETTAGLIO' 						=> 'Nessuna descrizione presente',
+	'LADDER_MVP' 						=> 'Abilita MVP su questa ladder?',
+	'ABILITA_SU_LADDER' 				=> 'Collega alla ladder',
+	'ATTIVA_SU' 						=> '<strong>Collegata a</strong>',
+	'RULES_DOPPIA' 						=> 'Hai già impostato regole per questa ladder, smemorato!',
+	'NON_QUADRATA' 						=> 'Hai inserito un immagine non quadrata. Per favore inserisci immagini con dimensioni X e Y uguali.',
+	
+	'ACP_RIVALS_NEW_RANDOM' 			=> 'Aggiungi un nuovo gioco e delle nuove mappe',
+	'GAME_NAME' 						=> 'Nome del gioco',
+	'GAME_SHORT_NAME' 					=> 'Nome abbreviato del gioco',
+	'UPLOAD_MAP_IMAGES' 				=> 'Carica un archivio con le immagini',
+	'MAX_10' 							=> 'Limita a 10 caratteri il nome breve',
+	'ONLY_ZIP' 							=> 'Le immagini devono essere dentro un file <strong>.ZIP</strong>',
+	'ACP_RIVALS_RANDOM_ANTEPRIMA' 		=> 'Vedi anteprima giochi inseriti',
+	'SELEZIONA_GIOCO_RANDOM' 			=> 'Seleziona il gioco da visualizzare',
+	'MOSTRA' 							=> 'Mostra',
+	'ANTEPRIMA_RANDOM' 					=> 'Anteprima:',
+	'RANDOM_DELETED' 					=> 'Gioco e rispettive mappe cancellate',
+	'RANDOM_ADDED'						=> 'Gioco con rispettive mappe correttamente inserito, controlla l’anteprima',
+	'ZIP_MANCANTE' 						=> 'NON HAI CARICATO LO ZIP CON LE IMMAGINI!<br /><br />%sTORNA INDIETRO!%s',
+	'NON_PIU_MVP' 						=> 'Il match è segnato come concluso, non è più possibile impostarne gli MVPs',
+	'GIA_MVP' 							=> 'Hai già impostato gli MVPs di questa partita!',
+	'LADDERS_CHIUSE' 					=> 'Ladders chiuse',
+	
+	'VUOTO' 							=> 'Vuoto',
+	'SLOT' 								=> 'slot',
+	'GRUPPI_PRENOTATI' 					=> 'Gruppi iscritti al torneo',
+	'POSITION' 							=> 'Posiziona',
+	'POSIZIONE_OCCUPATA' 				=> 'Posizione occupata',
+	'NO_RECORD_DATA' 					=> 'Nessun record presente',
+	
+	'TOURNAMENT_ADV' 					=> 'Torneo avanzato',
+	'TOURNAMENT_FORALL' 				=> 'Aperto a tutti',
+	'TOURNAMENT_DIRECTELIM' 			=> 'Eliminazione diretta',
+	'TOURNAMENT_ROUNDROBIN' 			=> 'Round Robin',
+	'ORGANIZZA_TORNEO' 					=> 'Organizza torneo',
+	'STEP' 								=> 'FASE',
+	'DISPONI_CLAN' 						=> 'Disponi clan nel tabellone',
+	'PUBBLICA' 							=> 'Pubblica torneo',
+	'ROUNDS' 							=> 'Round',
+	'NO_PAREGGI_TORNEO' 				=> 'Nei tornei ad eliminazione diretta il pareggio non è ammesso.<br /><br />%sTORNA INDIETRO!%s',
+	'T_RISULTATO_RIPORTATO' 			=> 'Risultato riportato correttamento. Ora attendi che il tuo avversario confermi.',
+	'MOSTRA_DETTAGLIO' 					=> 'Mostra dettagli',
+	'NASCONDI_DETTAGLIO'				=> 'Nascondi dettagli',
+	'MVP_ROUND_1' 						=> 'MVP round1',
+	'MVP_ROUND_2' 						=> 'MVP round2',
+	'MVP_ROUND_3' 						=> 'MVP round3',
+	'HA_GIOCATO' 						=> 'Ha giocato',
+	'KILLS' 							=> 'Kills',
+	'DEADS' 							=> 'Morti',
+	'ASSIST' 							=> 'Assist',
+	'T_RISULTATO_CONFERMATO' 			=> 'Risultato confermato correttamente',
+	'T_CONTESTA_TESTO' 					=> 'Questo è un messaggio automatico.<br />
+	Il clan [url=%s/rivals.php?action=group_profile&group_id=%s]%s[/url] ha contestato un risultato riportato nel torneo %s.<br />
+	Vai nel pannello moderatore per controllare la situazione. Grazie.',
+	
+	'T_CONTESTA_TESTO_USER' 			=> 'Questo è un messaggio automatico.<br />
+	[url=%s/memberlist.php?mode=viewprofile&u=%s]%s[/url] ha contestato un risultato riportato nel torneo %s.<br />
+	Vai nel pannello moderatore per controllare la situazione. Grazie.',
+	
+	'WAITED_TOURNAMENTS' 				=> 'Matches in attesa di conferma',
+	'SEGNALA_INATTIVITA' 				=> 'segnala inattività',
+	'T_SEGNALA_INATTIVO' 				=> ' non sta rispondendo a un match riportato in un torneo.',
+	'T_POCO_TEMPO' 						=> 'Devi aspettare almeno 3 giorni prima di segnalare un’inattività!<br />%sTORNA INDIETRO!%s',
+	'TORNEO_INIZIATO' 					=> 'Torneo iniziato',
+	'TORNEO_CHIUSO' 					=> 'Torneo chiuso',
+	'GAMERNAME' 						=> 'Gamername',
+	'RATIO' 							=> 'Ratio',
+	'MVPS' 								=> 'MVPs',
+	'SLOT_LIBERI' 						=> 'Slots disponibili',
+	'TOURNAMENT_ACCESS' 				=> 'Accesso al torneo',
+	'NO_MEMBERS_DATA'					=> 'Nessun dato trovato',
+	'INIZIATO'							=> 'In corso',
+	'CHIUSO' 							=> 'Terminato',
+	'PRONTO_A_PARTIRE' 					=> 'Pronto a partire',
+	'CLOSE' 							=> 'Chiudi',
+	'TOURNAMENT_DELETED' 				=> 'Torneo cancellato correttamente',
+	'CPC' 								=> 'CPC',
+	'DECERTO' 							=> 'Decerto',
+	'AGGIUNGI_DECERTO' 					=> 'Aggiungi un nuovo gioco con regole decerto',
+	'DECERTO_GIOCO' 					=> 'Nome gioco',
+	'DECERTO_GIOCO_CORTO' 				=> 'Nome corto gioco',
+	'MAX_5' 							=> '<em>Massimo 5 caratteri</em>',
+	'DECERTO_MODE1' 					=> 'Prima modalità',
+	'DECERTO_MODE2' 					=> 'Seconda modalità',
+	'DECERTO_MODE3' 					=> 'Terza modalità',
+	'DECERTO_CPC'						=> 'Tipo di sistema',
+	'LEGENDA_CPC' 						=> '<em>** Decerto implica un sistema random di modalità e di mappe collegate. CPC invece prevede il random solo per le mappe.</em>',
+	'AGGIUNGI_DECERTO_DETTAGLI' 		=> 'Aggiungi mappe a una modalità',
+	'DECERTO_MAPPA' 					=> 'Nome mappa',
+	'DECERTO_MODE' 						=> 'Modalià',
+	'AZIONI' 							=> 'Azioni',
+	'DECERTO_GIOCHI_E_MODALITA' 		=> 'Lista dati inseriti',
+	'NO_RECORD' 						=> 'Nessun dato inserito',
+	'AGGIUNGI_CPC' 						=> 'Aggiungi un nuovo gioco con regole CPC',
+	'DECERTO_MODO' 						=> 'Nome modalità',
+	'LADDER_SHORTY' 					=> 'Collega a Decerto o CPC:',
+	'STANDARD_T' 						=> 'Torneo normale',
+	'DECERTO_T' 						=> 'Torneo Decerto',
+	'CPC_T' 							=> 'Torneo CPC',
+	'TOURNAMENT_DECERTO' 				=> 'Tipo sistema torneo',
+	'MODALITA' 							=> 'Ordine modalità di gioco ',
+	'ORDINE_MAPPE' 						=> '<br /> Ordine Mappe ',
+	'ORDINE_MAPPE_E_MODI' 				=> 'Ordine mappe e modalià di gioco',
+	'SHORTY_PRESENTE' 					=> 'Il nome breve che hai scelto è stato usato per un altro record',
+	'MPV_LIST_ZERO' 					=> 'ERRORE: non ha selezionato una ladder o non hai inserito il nome relativo alla classifica stessa.',
+	
+	'IMG_DISALLOWED_EXTENSION' 			=> 'Hai caricato come logo un file diverso da quelli permessi. Si accettano solo immagini png, jpg, gif!',
+	'IMG_WRONG_FILESIZE' 				=> 'Hai caricato come logo un file immagine troppo pesante: il limite è 160KB',
+	'IMG_WRONG_SIZE' 					=> 'Hai caricato un file immagine o troppo grande o troppo piccolo. Dimensioni minime 100x100 pxs, massime 500x500 pxs.',
+	'IMG_DISALLOWED_CONTENT' 			=> 'Tipo file non ammesso.',
+	'IMG_PARTIAL_UPLOAD' 				=> 'Upload non completato.',
+	'IMG_NOT_UPLOADED' 					=> 'File non caricato correttamente.',
+	
+	'LOGOMEN_DISALLOWED_EXTENSION' 		=> 'Hai caricato come logo un file diverso da quelli permessi. Si accettano solo immagini png, jpg, gif!',
+	'LOGOMEN_WRONG_FILESIZE' 			=> 'Hai caricato come logo un file immagine troppo pesante: il limite è 160KB',
+	'LOGOMEN_WRONG_SIZE' 				=> 'Hai caricato un file immagine di dimensioni diverse da quelle indicate.',
+	'LOGOMEN_DISALLOWED_CONTENT' 		=> 'Tipo file non ammesso.',
+	'LOGOMEN_PARTIAL_UPLOAD' 			=> 'Upload non completato.',
+	'LOGOMEN_NOT_UPLOADED' 				=> 'File non caricato correttamente.',
+	
+	'FAVOURITE_MAP' 					=> 'Mappe favorite',
+	'FAVOURITE_MAP_EXPLAIN'				=> '<br /><em>Scrivi le mappe favorite dei vari giochi separate da una virgola ,</em>',
+	'FAVOURITE_TEAM' 					=> 'Team favoriti',
+	'FAVOURITE_TEAM_EXPLAIN' 			=> '<br /><em>Scrivi le squadre favorite che usi nei giochi sportivi separate da una virgola , </em>',
+	'CLAN_NAME_USED' 					=> 'Questo nome del Clan è già stato usato da un altro gruppo. Per favore cambialo.',
+	'INVITEMEMBR' 						=> 'Invita membro',
+	'PENDINGMEMBER' 					=> 'Membri pendenti',
+	'ASSISTS' 							=> 'Assists',
+	'GOALSF' 							=> 'Goals F',
+	'GOALSA' 							=> 'Goals S',
+	'RATIO' 							=> 'Ratio',
+	'INVITE_USERNAME' 					=> 'Inserisci l’username o l’user ID dell’utente che vuoi invitare:',
+	'FOUNDER' 							=> 'Fondatore',
+	'PLATFORM_LOGO' 					=> 'Logo piattaforma',
+	'PLATFORM_LOGO_EXP'					=> '<em>Solo immagini 400x100 pxs</em>',
+	'LADDER_LOGO' 						=> 'Logo ladder',
+	'LADDER_LOGO_EXP' 					=> '<em>Solo immagini 900x150 pxs</em>',
+	'LADDERS_ATTIVE' 					=> 'Ladders attive',
+	'CLAN_PARTECIPANTI' 				=> 'clan partecipanti: ',
+	'LADDER_ADVSTATS' 					=> 'Abilita le statistiche avanzate:',
+	'JOIN_LEAVE' 						=> 'Partecipa o esci',
+	'COMMENT' 							=> 'Commento',
+	'REPORT_RESULT' 					=> 'Riporta risultato',
+	'CLASSIFICATA' 						=> 'Classificata',
+	'NONCLASSIFICATA' 					=> 'Amichevole',
+	'TYPE' 								=> 'Tipo',
+	'MAPSET' 							=> 'Mapset:',
+	'INFORMAZIONI_WAR' 					=> 'Informazioni sulla sfida',
+	'LADDER_WIN_SYSTEM' 				=> 'Sistema scelta vincitore',
+	'SCORE_RELATED' 					=> 'Calcolato dal punteggio',
+	'WIN_RELATED' 						=> 'Selezionato manualmente',
+	'RISULTATO' 						=> 'Risultato',
+	'RISULTATO_NO_SCORE' 				=> 'Nei campi risultato puoi inserire solo numeri!<br /><br />%sTorne Indietro%s!',
+	'LADDER_NOT_ALLOW_DRAW' 			=> 'La ladder del match che hai riportato non accetta il risultato di pareggio!<br /><br />%sTorne Indietro%s!',
+	'LIBERO' 							=> ' Libero',
+	'MODES_ORDER' 						=> 'Ordine modalità:',
+	'RISULTATO_DECERTO' 				=> 'Risultato decerto',
+	'MODE1' 							=> 'Modo1',
+	'MODE2' 							=> 'Modo2',
+	'MODE3' 							=> 'Modo3',
+	'CALCIO_NON_RISULTATO_PER_SCELTA' 	=> 'ERRORE! La ladder Calcio deve avere il sistema vincitore calcolato dal punteggio.',
+	'NAME_LADDER_EMPTY' 				=> 'ERRORE! Il nome ladder non può essere vuoto',
+	'DECERTO_NON_RISULTATO_PER_SCELTA' 	=> 'ERRORE! La ladder Decerto deve avere il sistema vincitore calcolato dal punteggio.',
+	'DEVI_COLLEGARE_DECERTO_CPC' 		=> 'ERRORE! Se crei ladder CPC e Decerto devi poi collegarle a una modalità relativa.',
+	'LADDER_MOD' 						=> 'User ID moderatore ladder',
+	'LADDER_DESC' 						=> 'Descrizione ladder',
+	'OPTIONAL' 							=> '(facoltativo)',
+	'MOD_ID_NON_NUMERIC' 				=> 'Hai inserito un user ID non valido nel campo moderatore ladder!',
+	'TEAM_USED' 						=> ' Team usato',
+	'RISULTATO_GIA_RIPORTATO' 			=> 'Hai già riportato questo risultato!<br /><br />%sTORNA INDIETRO!%s',
+	'GAMERTAG' 							=> 'GamerTag',
+	'GOALF' 							=> 'Goals fatti',
+	'GOALS' 							=> 'Goals subiti',
+	'NO_MVP' 							=> 'Nessun MVP',
+	'ROUND1' 							=> 'Round 1',
+	'ROUND2' 							=> 'Round 2',
+	'ROUND3' 							=> 'Round 3',
+	'STATISTICHE_AVANZATE_OK' 			=> 'Statistiche avanzate correttamente inserite',
+	'LOADING_ADVSTATS'					=> 'Caricomento form statistiche avanzate...',
+	'STATS_SOLO_NUMERI' 				=> 'ERRORE! Hai inserito nei campi valori non numerici!<br /><br />%sTORNA INDIETRO!%s',
+	'REPORTED_TEXT' 					=> 'Il clan %s%s%s %s ha riportato il seguente risultato, per una sfida %s:',
+	'VINCE' 							=> 'Vince: ',
+	'CONFIRM_RESULT'					=> 'Conferma',
+	'CONTESTA_RESULT' 					=> 'Contesta',
+	'ADVANC_STATS' 						=> 'Statistiche avanzate',
+	'USERS_LEADERBOARD' 				=> 'Leaderboard utenti',
+	'EXP' 								=> 'Score',
+	'PLAYED_TIME' 						=> 'Giocata:',
+	'CHALLANGER' 						=> 'Sfidante',
+	'CHALLANGEE' 						=> 'Sfidato',
+	'STATS' 							=> 'Stats',
+	'LATEST_WAR_TITLE' 					=> 'Ultimi Clan matches giocati',
+	'CURRENT_LOGO' 						=> 'Logo corrente',
+	'ATTENZIONE_CANCEL' 				=> 'Attenzione! Cancellando la ladder verranno elimitate anche le statistiche e i match relativi!',
+	
+	'MATCH_FROM_MATCHFINDER' 			=> 'Match accettato dal sistema di matchfinder.',
+	'HAI_UN_MATCHFINDER_INSERITO' 		=> 'Stai già cercando un avversario su quella ladder!',
+	'LOGIN_TO_TEAM' 					=> 'Per usare queste funzioni devi aver fatto login a un Clan.<br /><br />%sTORNA INDIETRO!%s',
+	'WELCOMETXT' 						=> 'Benvenuto %s nel pannello di controllo Clan. Attualmente risulta che non hai effettuato login a nessun clan.<br />
+	In questa setuazione potrai solo gestire i match per le ladder 1vs1, tutte le altre funzioni legate ai clan sono limitate ai Founder e CoFounder di almeno 1 team.<br />
+	Buon divertimento e gioca correttamente!',
+	'OTHER_CLAN_I' 						=> '<em>clicca sul nome del clan per amministrarlo</em>',
+	'1VS1_MATCHES' 						=> '1vs1 matches',
+	'CLAN_MATCHES' 						=> 'Clan matches',
+	'ICON_ADVSTATS'						=> 'Statistiche avanzate attive',
+	'ICON_LADDER'						=> 'Icona ladder',
+	'1ICON_LADDER'						=> 'Ladder di tipo Decerto',
+	'2ICON_LADDER' 						=> 'Ladder di tipo CPC',
+	'3ICON_LADDER'						=> 'Ladder di tipo Calcio',
+	'MEMBERSHIP_LOCKED'					=> 'Ladder chiusa al join',
+	'ICON_MVP'							=> 'Sistema MVP attivo',
+	'PLATFORM_SHORT'					=> 'P',
+	'LADDER_SHORT'						=> 'L',
+	'SUBLADDER_SHORT'					=> 'S',
+	'ADVSTATS_AT_LEAST_2'				=> 'Almeno 1 giocatore per clan deve aver partecipato al match!<br /><br />%sTORNA INDIETRO%s!',
+	'1VS1LADDER'						=> 'Ladder 1vs1 user based',
+	'VS'								=> 'vs',
+	'SUBLADDER_1VS1'					=> 'Subladder 1vs1 user based',
+	'SUBLADDER_1VS1_SHORT'				=> ' (user based)',
+	'LEFT_LADDER_USER'					=> 'Hai correttamente abbandonato la ladder.',
+	'JOINED_WITH_LADDER_USER'			=> 'Da ora stai partecipando a questa ladder.',
+	'NUM_USERS'							=> 'Numero partecipanti',
+	'FINISHED_MATCHES_USERS'			=> 'Matches giocati',
+	'LADDER_RULES'						=> 'Regole per:',
+	'NONEXISTANT_USER'					=> 'Utente non trovato. Sicuro che esista?',
+	'NONEXISTANT_USER2'					=> 'L’utente che hai sfidato non partecipa alla ladder scelta.',
+	'USER_ID_NAME'						=> 'User ID o username',
+	'USERS_PARTECIPANTI'				=> 'utenti partecipanti',
+	'ROUND_W'							=> 'Vinte o Kills',
+	'ROUND_L'							=> 'Perse o Kills',
+	'TICKED_TEXT'						=> 'Descrizione problema:',
+	'RIPORTI_TICKET_FOR'				=> 'Stai segnalando un problema per sul match:',
+	'MATCHID_NONDEF'					=> 'non definita',
+	'MATCHID_TIPOONEONE'				=> '(1vs1 user based)',
+	'LATEST_WAR_USERS_TITLE'			=> 'Ultimi matches 1vs1 user based',
+	'USER_LADDER_HISTORY'				=> 'Storico ladder 1vs1 utente',
+	'SCORE'								=> 'Punti',
+	'WINS'								=> 'Vittorie',
+	'LOSSES'							=> 'Sconfitte',
+	'STREAK'							=> 'Andamento',
+	'LADDER_PROFILE_GSTATS'				=> '<em><strong>- Statistiche generali ladder</strong></em>',
+	'USER_LADDER_LATESTMATCH'			=> 'Ultimi matches dell’utente',
+	'RTH_LADDER'						=> 'Ladder RTH',
+	'4ICON_LADDER'						=> 'Ladder di tipo RTH',
+	'RTH'								=> 'RTH',
+	'ELO_DESC'							=> '<strong>ELO:</strong> Il sistema ELO, nato per il ranking scacchistico, assegna i punteggi di vittorie e sconfitte in base alla differenza di score e posizione dei clans che si sono sfidati.',
+	'SWAP_DESC'							=> '<strong>SWAP:</strong> Se vince il clan più in basso in classifica prende il posto dell’altro.',
+	'RTH_DESC'							=> '<strong>RTH:</strong> Tutti i clan partono da 50 punti e vinci il primo che arriva a 1000. Se chi vince ha meno punti dell’altro ruberà il 50% dei suoi punti, il 35% se sono pari e il 20% (dallo sconfitto) se chi vince è il team con più punti.',
+	'CHICKEN_RISK_EXPLAIN'				=> 'Se vedete questo logo vicino al nome di un clan che vi ha sfidato per quella ladder siete a rischio Chicken. Se declinate ancora una volta un match i vostri punti saranno
+	decurtati del 25% e avrete una segnalazione come Chicken. Una volta subite 3 segnalazioni del genere il Chicken logo verrà mostrato pubblicamente nella vostra pagina clan e nella pagine subladder relativa.',
+	'POLLO_EXP'							=> 'Se un clan ha questa icona vicino vuol dire che ha rifiutato match contro avversari per timore più di 3 volte... ahahah...',
+	'TROFEI'							=> 'Trofei',
+	'CHICKENALT'						=> 'Bad Chicken',
+	'CHICKENTXT'						=> 'Questo clan si è comportato da pollo',
+	'STREAKTEBALT'						=> 'Trofeo andamento +10',
+	'STREAKTEBTXT'						=> 'Questo clan ha raggiunto una striscia +10',
+	'LADDERWONALT'						=> 'Trofeo vittoria ladder',
+	'LADDERWONTXT'						=> 'Questo clan ha vinto una ladder',
+	'PATENTEALT'						=> 'Logo licenza',
+	'PATENTETXT'						=> 'Livello licenza clan',
+	'APERTA_A_TUTTI'					=> 'Aperta a tutti',
+	'APERTA_ALMENO_B'					=> 'Solo con licenza B o A',
+	'APERTA_SOLO_A'						=> 'Solo clan con licenza A',
+	'LADDER_LIMIT'						=> 'Limite al join',
+	'LICENZA_INSUFFICIENTE'				=> 'Mi spiace ma questa ladder è limitata ai clan con licenza uguale o superiore alla <strong>%s</strong>.<br />
+	Il tuo clan invece ha una licenza di livello <strong>%s</strong>.<br/>%sTORNE INDIETRO!%s',
+	'LICENZA_USER_INSUFFICIENTE'		=> 'Mi spiace ma questa ladder è limitata agli utenti con licenza uguale o superiore alla <strong>%s</strong>.<br />
+	Tu invece hai una licenza di livello <strong>%s</strong>.<br/>%sTORNE INDIETRO!%s',
+	'LICENCE'							=> 'Licenza ladder',
+	'POLLI_PRESI'						=> 'Comportato da pollo',
+	'POWNERALT'							=> 'Logo powner',
+	'POWNERTXT'							=> 'Powner award',
+	'POWNS_PRESI'						=> 'Powns award ottenuti',
+	'LADDER_WINNER_IS'					=> 'Ladder RTH vinta da: ',
+	'LICENZA_A'							=> 'Licenza A',
+	'LICENZA_B'							=> 'Licenza B',
+	'LICENZA_C'							=> 'Licenza C',
+	'SELECT_CLANS'						=> 'Seleziona i clans del match',
+	'SPECIFICA_LADDER'					=> 'Devi selezionare la ladder di gioco del match!',
+	'EDITMATCH_NO_CLAN'					=> 'Devi selezionare i clans che hanno giocato il match!',
+	'EDITMATCH_SAME_CLAN'				=> 'Non può esserci un match tra lo stesso clan!',
+	
+	'MATCH_ID'							=> 'ID match',
+	'LATEST_MATCHES_REPORTED'			=> 'Ultimo match giocato (e riportato) tra i due clans',
+	'MATCH_NON_RESETTABLE'				=> 'Match non resettabile',
+	'NO_MATCH_RECURSIVE'				=> 'Nessun match trovato tra i due clans nella ladder selezionata!',
+	'MATCH_RESETTATO'					=> 'Match correttamente resettato.',
+	'REPORTER'							=> 'Riportato da:',
+	'MATCH_UPDATED'						=> 'Match editato correttamente.',
+	'NO_MATCH_RECURSIVE_USER'			=> 'Nessun match trovato tra i due users nella ladder selezionata!',
+	'LATEST_MATCHES_REPORTED_USER'		=> 'Ultimo match giocato (e riportato) tra i due users',
+	
+	'TEAM'								=> 'Team',
+	'EDIT_RIVALS_CONTESTED_MATCH'		=> 'Edita un match contestato',
+	'EDIT'								=> 'Edita',
+	'MID_NON_IMPOSTATA'					=> 'ERRORE non stai editando alcun match esistente!',
+	'YOU_CANT_EDIT_THAT_MATCH'			=> 'Non hai i permessi per editare questo match!',
+	'LOG_MATCH_EDITED'					=> '<strong>Match ID:%s editato.</strong><br />» %s vs %s',
+	'ULTIME_AZIONI_MODERATORI'			=> 'Ultime azioni moderatori ladder',
+	'MOD_STRAIGHT'						=> 'Moderazione matches ristretta',
+	'MOD_STRAIGHT_EXPL'					=> 'Se attivato un moderatore ladder potrà editare solo i match della sua ladder, altrimenti ogni moderatore può editare tutti i match contestati.',
+	'MATCHES_CLANS'						=> 'Clans matches',
+	'MATCHES_USERS'						=> 'Users matches',
+	'RESULT'							=> 'Risultato',
+	'WINNERIS'							=> 'vince',
+	'09'								=> '#^09',
+	
+	'IMG_CLAN_CHART'					=> 'Ultimi matches clan',
+	'IMG_USER_CHART'					=> 'Ultimi matches user',
+	'IMG_SUBLADDER_RULES'				=> 'Regole ladder',
+	'IMG_REQUEST_JOIN'					=> 'Chiedi di entrare nel clan',
+	'IMG_CHALLANGE'						=> 'Sfida questo clan',
+	'UCP_RIVALS'						=> 'Amministra il clan',
+	'SELECT_CLAN'						=> 'Seleziona un Clan',
+	'STATS_UPDATED'						=> 'Statistiche utenti e MVP aggiornati.',
+	
+	'REMOVE_FROM_LADDER'				=> 'Rimuovi dalla ladder?',
+	'OLD_SEASONS'						=> 'Stagioni concluse',
+	'CURRENT_SEASONS'					=> 'Stagione in corso',
+	'HIBERNATION'						=> 'Ibernati',
+	'FROSTED_STATUS_ACTIVATE'			=> '<strong>Da questo momento hai impostato il tuo stato come Ibernato. Ora non perderai più punti per il timeout da inattività.<br />Se però rimani per più di 5 settimane come Ibernato sarai
+	espulso dalla ladder.<br />Per ritornare attivo gratuitamente basta accettare una sfida o via comando manuale nel pannello di controllo clan.</strong><br />Se eri primo nella ladder sei stato retrocesso in seconda posizione.',
+	'ON'								=> 'Su',
+	'GIORNI'							=> ' giorni ',
+	'MINUTI'							=> ' minuti ',
+	'ORE'								=> ' ore ',
+	'SECONDI'							=> ' secondi ',
+	'CLAN_FROSTED'						=> 'Attualmente sei congelato nelle seguenti ladder',
+	'TI_RIMANGONO'						=> 'Ti rimangono:',
+	'DEFROST'							=> 'Scongelami',
+	'SBLOCCA'							=> 'Sblocca',
+	'FROSTED_STATUS_REMOVED'			=> 'Status congelato rimosso dalle ladders indicate',
+	'HIBERNATION_COST'					=> 'Costo in punti per impostare status Ibernato',
+	'HIBERNATION_COST_EXPL'				=> 'Nelle ladder RTH il costo è fisso in 25 punti.',
+	'LADDER_KICKOUT_TIME'				=> 'Limite in <strong>giorni</strong> di inattività sfide',
+	'LADDER_KICKOUT_TIME_EXPL'			=> 'Tempo massimo <strong>in giorni</strong> dopo il quale una sfida non accettata o rifiutata viene eliminata sottraendo i punti penalità.',
+	'LADDER_KICKOUT_POINTS'				=> 'Punti sottratti quando una sfida viene cancellata per inattività',
+	'LADDER_KICKOUT_POINTS_EXPL'		=> 'Nelle ladder RTH viene rimosso sempre il 10% dei punti.',
+	'DELETE_AVATAR'						=> 'cancella immagine',
+	'REMOVE_FROSTING'					=> 'Rimuovi status congelato',
+	'DOUBLE_CHECK'						=> 'Non puoi selezionare accetta e rifiuta allo stesso tempo!<br />%sTORNA INDIETRO!%s',
+	'USER_PENDING_COMPLETE'				=> 'Amministrazione utenti pendenti completa',
+	'PMPENDINGMEMBERTXT_DECLINED'		=> 'L’utente %s ha rifiutato il tuo invito al far parte del clan. Mi spiace.',
+	'BBCODE_SMILE_ACTIVE'				=> '<em>BBCODE e SMILES attivi</em>',
+	'SMSG_DESC'							=> 'Usa questo form per inserire brevi messaggi (250 caratteri massimo) nella pagine profilo del tuo clan.',
+	'CHARACTER_LEFT'					=> 'Caratteri rimanenti',
+	'ENTER_SMSG_TEXT'					=> 'Il testo dello short message è obbligatorio!',
+	'SMSG_INSERTED'						=> 'Short message correttamente inserito.',
+	'LATEST_SMSG'						=> 'Ultimi short messages inseriti',
+	'GROUP_CHAT'						=> 'Chat del Clan',
+	'LOG_SMSG_REMOVED'					=> 'Cancellato short message al Clan <strong>%s</strong>.',
+	'TOURNAMENT_USERLEADERBOARD'		=> 'Users leaderboard torneo',
+	'GAME'								=> 'Match ',
+	
+	'FIRST_HOME'						=> 'La squadra che deve giocare in casa la prima sfida è',
+	'REPORT'							=> 'Riporta',
+	'ANDATA'							=> 'Andata',
+	'RITORNO'							=> 'Ritorno',
+	'CANT_MENAGE_THIS_MATCH'			=> 'Non puoi gestire questo match!<br />%sTORNA INDIETRO!%s',
+	'INFOS'								=> 'Informazioni',
+	'CONTEST'							=> 'Contesta',
+	'TOURNAMENT_HOMEAWAY'				=> 'Eliminazione andata e ritorno',
+	'TOURNAMENT_ADVSTATS'				=> 'Attiva statistiche avanzata FPS',
+	'TOURNAMENT_USERBASED'				=> 'Sistema iscritti torneo',
+	'CLAN_BASED'						=> 'Basato sui clans',
+	'USER_BASED'						=> 'Basato sugli utenti (1vs1)',
+	'LICENZE_LIMIT'						=> 'Limitazione su licenza',
+	'APERTA_A_C'						=> 'Licenza C - Aperto a tutti',
+	'TOURNAMENT_HOMEAWAY_SHORT'			=> 'Home / Away',
+	'APERTA_B_A'						=> 'Richiesta licenza A o B',
+	'APERTA_A'							=> 'Richiesta licenza A',
+	'TOURNAMENT_LOGO'					=> 'Logo del torneo',
+	'TOURNAMENT_LOGO_EXP'				=> '<em>Dimensioni obbligatorie: 200x80 pxs</em>',
+	'USER_NOTINVITED'					=> 'Questo è un torneo ad invito e tu non sei tra quelli che possono partecipare!',
+	'SUBSCRIPTED_AT_NOW'				=> '<strong>Al momento sono iscritti a questo torneo:</strong>',
+	'CLAN_WINS_RATIO'					=> 'Ratio vittorie/sconfitte',
+	'PLAYED'							=> 'Matches giocati',
+	'ALLTIME_STATS'						=> 'Statistiche alltime',
+	'TOTAL_RATIO'						=> 'Ratio generale',
+	'CLAN_XP'							=> 'XP Clan',
+	'REPUTATION'						=> 'Reputazione clan',
+	'VOTA_COMPORTAMENTO_CLAN'			=> 'Vota l’avversario',
+	'REPUTATION_1VS1'					=> 'Reputazione utente nella ladder',
+	'RIPORTA_RISULTATO_DI'				=> 'Stai riportando il match: ',
+	'ADVANCED_STATS'					=> 'Statistiche avanzate',
+	'DONATE_US'							=> 'Se ti piace questo script mandaci una donazione!',
+	'REPORTER_SAME_YOU'					=> 'Non puoi confermare un match che hai riportato tu!<br />%sTORNA INDIETRO!%s',
+	'MCP_ADVSTATS_LGND'					=> 'Lascia 0 in tutti i campi di un user per non riportarlo, ossia per considerarlo come non giocante.',
+	'CHAT_DESC'							=> 'Usa questa chat per scambiare messaggi con i founder e cofounder dei clan del match.',
+	'CLAN_CHAT'							=> 'Match chat',
+	'LADDER_STAFF'						=> 'Ladder staff',
+	
+	'MOD_CHATWRITE'						=> '[SYSTEM] Un moderatore ti ha risposto',
+	'MOD_CHATWRITETEXT'					=> 'Un moderatore ha inviato un messaggio nella chat del match contestato.<br />Vai nell’apposita sezione del Pannello di controllo clan e dai un’occhiata. Grazie.',
+	'ENTRA_CHAT'						=> 'ENTRA NELLA CHAT',
+	'MOD_CHATWRITE_USER'				=> '[SYSTEM] Nuovo messaggio sulla Match Chat',
+	'MOD_CHATWRITETEXT_USER'			=> '%s ha inviato un nuovo messaggio nella vostra Match Chat.<br />Vai nell’apposita sezione del Pannello di controllo clan e dai un’occhiata. Grazie.',
+	'GAMES'								=> 'Giochi:',
+	
+	'CLAN_CONVERTOR_FOR_20'				=> 'RivalsMod 2.0 convertor tool per Clans',
+	'CLAN_CONVERTOR_FOR_20_LEGEND'		=> 'Con questo tool puoi importare i clans e i relativi membri da una ladder con phpRivalsMOD versione <= 1.4 alla nuova 2.0.<br />
+Quando il processo è completo controlla che tutto sia andato a buon fine e quindi cancella i vecchi clan da ACP GESTIONE GRUPPI.<br />Infine ricordati poi di rimuovere questo file php dal tuo server, per sicurezza.',
+	'ALREADY_CLAN_IN_NEW_TABLE'			=> 'Alcuni clans sono stati rilevati nella nuova tebella della versione 2.0. Forse hai già effettuato il processo di importazione.',
+	'IMPORTATION_FINISHED'				=> 'Tutti i vecchi clan sono stati importati. Controlla che tutto sia andato a buon fine,<br />va alla pagina <a href="%s">ACP Rivals</a>.',
+	'MATCHRESULTS'						=> 'Risultato match',
+	'USER_NOT_IN_LADDER'				=> 'Non fai parte di nessuna ladder né come clan né come utente, non puoi pertanto sfidare nessuno.',
+	'CLAN_LADDER'						=> 'Ladders clan based',
+	'USER_LADDER'						=> 'Ladders user based',
+	'MINS'								=> 'min',
+	'MATCH_PLAYED_AT_TODAY'				=> 'Matches giocati ad oggi: ',
+	'RANDOM_MAP'						=> 'Mappe del giorno',
+	'LATEST_WAR'						=> 'Ultimi matches giocati',
+	'CLAN_MATCH'						=> 'Clan matches',
+	'USER_MATCH'						=> 'User matches',
+	'CLAN_FULL'							=> 'Lista completa clans',
+	'LIST_ONLY_ACTIVE'					=> 'TROPPA CONFUSIONE? GUARDA LA LISTA SEMPLIFICATA DEI CLAN ATTIVI PER LADDER!',
+	'CLAN_FILTERED'						=> 'Lista clans filtrata',
+	'RESUME_DESC'						=> 'In questa pagina hai la possibilità di recuperare un clan bloccato o bannato. Nel farlo dovrai assegnare il nuovo founder (che può essere anche il vecchio). 
+<br />In tal caso gli altri utenti verranno resettati a livello base, poi sarà il nuovo founder a riassegnare loro il corretto livello secondo la nuova organizzazione del clan',
+	'RESUME'							=> 'Ripristina',
+	'MOSTRA_SOLO_CHIUSI'				=> 'Mostra solo clan bloccato o bannati',
+	
+	'TOTALS'							=> 'Totali',
+	'ACTIVES'							=> 'Attivi',
+	'CLOSED'							=> 'Chiusi / Bannati',
+	'CONTESTED_MATCHES'					=> 'Matches contestati',
+	'PENDING_MATCHES_USER'				=> 'Matches in attesa 1vs1 utenti',
+	'ONGOING_MATCHES_USER'				=> 'Matches in corso 1vs1 utenti',
+	'FINISHED_MATCHES_USER'				=> 'Matches conclusi 1vs1 utenti',
+	'CONTESTED_MATCHES_USER'			=> 'Matches contestati 1vs1 utenti',
+	'ONGOING_TOURNAMENTS'				=> 'Tornei in corso',
+	
+	'EMPTY'								=> 'Nessuna',
+	'ICON_DECERTO_NO'					=> 'Sistema decerto non attivo',
+	'ICON_DECERTO'						=> 'Sistema decerto attivo',
+	'ICON_CPC_NO'						=> 'Sistema cpc non attivo',
+	'ICON_CPC'							=> 'Sistema cpc attivo',
+	'ICON_SOCCER_NO'					=> 'Sistema football non attivo',
+	'ICON_SOCCER'						=> 'Sistema football attivo',
+	'1VS1LADDER_NO'						=> 'Ladder basata su clan',
+	'1VS1LADDER'						=> 'Ladder 1vs1 basata sugli utenti',
+	'RTH_LADDER_NO'						=> 'Ladder standard, RTH disattivato',
+	'RTH_LADDER'						=> 'Ladder di tipo RTH, Road to Heaven',
+	'ICON_ADVSTATS_NO'					=> 'Sistema statistiche avanzate non attivo',
+	'ICON_MVP_NO'						=> 'Sistema MVP non attivo',
+	
+	'PM_TOURNAMENT_TXT'					=> 'Siamo lieti di avvisarti che il torneo [b]%s[/b] è iniziato, controlla nella pagina di amministrazione clan contro chi dovrai giocare.<br />Grazie.',
+	'CHAT'								=> 'Chat',
+	'CLAN_TOT_LEVEL'					=> 'Livello totale Clan',
+	'LEVEL'								=> 'Livello',
+	'PARI'								=> 'Pareggio',
+	'NO_LEFT_LADDER'					=> 'Mi spiace hai già giocato più di un match in questa ladder non puoi più abbandonarla. Se non vuoi più giocare usa la funzione Ibernazione per bloccarti.<br />Qui non c’è la dashboard...',
+	
+	'LADDER_DELETE_TXT'					=> 'Sei sicuro di voler cancellare la ladder?<br />Così facendo saranno cancellate anche tutte le subladders e le statistiche relative.<br />
+Se sono stati giocati matches la cosa migliore è sempre archiviare e non cancellare!.<br /><br />
+<p class="rvcenter">%sNO%s - %sSÌ%s</p>',
+	'SUBLADDER_DELETE_TXT'				=> 'Sei sicuro di voler cancellare la ladder?<br />Così facendo saranno cancellate anche tutte le statistiche relative.<br />
+Se sono stati giocati matches la cosa migliore è sempre archiviare e non cancellare!.<br /><br />
+<p class="rvcenter">%sNO%s - %sSÌ%s</p>',
+
+	'LEAVE_YOU'							=> 'Cancellati',
+	'REMOVED_FROM_TOURNAMENT'			=> 'L’iscrizione al torneo è stata correttamente cancellata',
+	'TOURNAMENT_NAME_EMPTY'				=> 'Il nome del torneo non può essere vuoto!',
+	'TOURNAMENT_MINUSER_0'				=> 'Nei tornei STRICTED il campo “Componenti minimi clan” è obbligatorio!',
+	'TOURNAMENT_MAXUSER_0'				=> 'Nei tornei STRICTED il campo “Componenti massimi clan” è obbligatorio!',
+	'TOURNAMENT_MIN_MBR'				=> 'Componenti minimi clan',
+	'TOURNAMENT_MAX_MBR'				=> 'Componenti massimi clan',
+	'TOURNAMENT_STRICTED'				=> 'Torneo ristretto',
+	'TOURNAMENT_USER_NOT_STRICTED'		=> 'I tornei 1vs1 basati sugli utenti non possono essere anche STRICTED!',
+	'ZERO_FREE'							=> 'Lascia 0 per non porre il limite',
+	'TOURNAMENT_MEMBERS_FAILED'			=> 'Il tuo clan non può partecipare a questo torneo che richiede un minimo di %s membri.',
+	'NO_ROSTER_FOR_CLAN'				=> 'Il tuo clan ha più membri del numero massimo per questo torneo. Per poter partecipare devi creare una Roster LineUP con un minimo di %s membri e un massimo di %s membri.',
+	'TOURNAMENT_SIGN_UP_ROSTERS'		=> 'Iscrivi roster al torneo',
+	'NO_ONE_COMPATIBILE_ROSTER'			=> 'Non hai alcuna Roster LineUP compatibile con questo torneo. Crea o modificane una in modo che rispetti questo numero di utenti:',
+	'ROSTER_ALREADY_IN'					=> 'Questa Roster LineUP è già iscritta al torneo!',
+	'TOURNAMENT_REMOVE_ROSTERS'			=> 'Cancella iscrizione Rosters dal tournament',
+	'ONLY_STRICTED'						=> 'Questo valore è considerato solo con modalità stricted attiva',
+	'LINEUP_SHORT'						=> 'LineUP',
+	'BEFORE_REFRESH'					=> 'secondi prima del refresh',
+	'NOSHOW'							=> 'Non giocata',
+	'TOURN_CLAN_NOT_GOOD'				=> 'Non esiste nessun abbinamento tra le ID inserite nel torneo!',
+	'EDIT_MATCH_TOURNAMENT'				=> 'Amministra matches tornei',
+	'SELECT_WHO_WIN_THIS_ROUND'			=> 'Assegna una vittoria a tavolino per un round',
+	'MATCH_UP_DONE'						=> 'Vittoria correttamente assegnata.',
+	'YOUR_VERSION'						=> 'È uscita una nuova versione! La tua è la ',
+	'LATEST_VERSION'					=> 'mentre l’ultima disponibile è la ',
+	'UPDATE_NOW'						=> 'Scarica subito la nuova versione e aggiorna',
+	
+	'HIBERNATION_CONFIRM_TXT'			=> '<p class="rvcenter">Lo status di ibernazione vi permette di non perdere punti pur non accettando o declinando sfide. È molto utile se per alcuni giorni non potrete giocare dei matches.<br />
+Per uscirne basterà accettare un match o usare l’apposito comando nel Pannello di Controllo Clan.<br />
+Questa azione ha un costo unitario di <strong>%s punti</strong>. Se invece siete primi in classifica, onde evitare un uso improprio, l’entrare in ibernazione vi farà perdere la prima posizione retrocedendovi al secondo posto.<br /><br />
+%s - %s</p>',
+	'ANNULLA'							=> 'Annulla',
+	
+	'PM_MATCH_UNCONFIRM_ADV'			=> '[SYSTEM] Attenzione match non confermato',
+	'PM_MATCH_UNCONFIRM_ADV_TXT'		=> 'Non hai confermato o contestato il match contro %s.<br />Hai 24 ore per farlo altrimenti il sistema provvederà a confermarlo al tuo posto.',
+	'ACCEPTED'							=> 'Accettata',
+	'REPORTED'							=> 'Riportata',
+	'DA'								=> ' da',
+	'UNREPORTED'						=> 'non riportata',
+	
+	'MAX_HOURS'							=> 'Tempo massimo di attesa conferma',
+	'MAX_HOURS_EXPL'					=> 'Tempo massimo <strong>in ore</strong> per confermare un match dopo il quale il sistema fa automaticamente.',
+	'MIN_POST'							=> 'Post minimi utente per giocare',
+	'BANNED_GROUP'						=> 'Imposta il gruppo degli utenti bannati',
+	'DONOTUSE'							=> 'Non specificato',
+	'USER_CANT_PLAY'					=> 'Mi spiace ma non puoi giocare sul sistema RivalsMOD. Per poterlo fare è necessario:<br />- Essere registrati<br />- Non essere bannati<br />- Avere almeno %s posts',
+	'SEL_USER_CANT_PLAY'				=> 'Mi spiace ma l’utente scelto giocare sul sistema RivalsMOD. Per poterlo fare è necessario:<br />- Essere registrati<br />- Non essere bannati<br />- Avere almeno %s posts',
+	'SELECT_USERS_MATCH'				=> 'Seleziona i giocatori del match',
+	'CONFIRMED_MATCHES'					=> 'Matches confermati',
+	'GUID_CHARA'						=> '(Usa 0->9 & a->z)',
+	'UAC_CHARA'							=> '(Usa 0->9)',
+	'GUID'								=> 'GUID',
+	'UAC'								=> 'UAC',
+	'RANDOM_GEN'						=> 'Genera',
+	'UAC_USED'							=> 'Il numero UAC scelto è già in usa da un altro clan. Cambialo.',
+	'GUID_USED'							=> 'La GUID scelta è già in usa da un altro clan. Cambiala.',
+	'UAC_NON_SIX'						=> 'La UAC inserita non è corretta. Devi usare un numero di 6 cifre.',
+	'GUID_NON_ALPHANUM'					=> 'La GUID inserita non è corretta. Devi usare solo numeri e lettere per un totale di 8 cifre.',
+	'BEST_POSITION'						=> 'Miglior piazzamento',
+	'STATS_LADDER'						=> 'Stastistiche ladders',
+	'STATS_TOURNAMENT'					=> 'Statistiche tornei',
+	'USER_TOURNAMENT_HISTORY'			=> 'Storico tornei 1vs1',
+	'PLATFORM_NAME_EMPTY'				=> 'Il nome della Piattaforma non può essere vuoto!',
+	
+	'ANY_MAPS_SAVED'					=> 'Nessun Mapset salvato',
+	'EMPTY_RANDOM_MAP_FIELD'			=> 'I campi nome gioco e nome abbreviato sono obbligatori!',
+	'RANDOM_ADDED_NOIMGS'				=> 'Gioco senza mapset correttamente inserito. Prima di poterlo usare pubblicamente dovrai inserire almeno un’immagine manualmente.',
+	'ADD_MAP_MANUALLY'					=> 'Aggiungi manualmente una mappa al gioco',	
+	'MAP_DISALLOWED_EXTENSION' 			=> 'Hai caricato come mappa un file diverso da quelli permessi. Si accettano solo immagini png, jpg, gif!',
+	'MAP_WRONG_FILESIZE' 				=> 'Hai caricato come mappa un file immagine troppo pesante: il limite è 80KB.',
+	'MAP_WRONG_SIZE' 					=> 'Hai caricato un file immagine di dimensioni diverse da 300x170pxs.',
+	'MAP_DISALLOWED_CONTENT' 			=> 'Tipo file non ammesso.',
+	'MAP_PARTIAL_UPLOAD' 				=> 'Upload non completato.',
+	'MAP_GENERAL_UPLOAD_ERROR'			=> 'Errore sconosciuto nel processo di uploading.',
+	'LOGOMEN_GENERAL_UPLOAD_ERROR'		=> 'Errore sconosciuto nel processo di uploading.',
+	'IMG_GENERAL_UPLOAD_ERROR'			=> 'Errore sconosciuto nel processo di uploading.',
+	'MAP_NOT_UPLOADED' 					=> 'File non caricato correttamente.',
+	'MAP_MANUALLY_ADDED'				=> 'Mappa correttamente aggiunta al mapset.',
+	'ADD_MAP_MANUALLY_DESC'				=> 'Puoi caricare manualmente una mappa. Sono ammesse immagini png, jpg, <strong>gif</strong>, di massimo 80KB, e dimensioni 300x170pxs.',
+	'ANY_GAMES_SAVED'					=> 'Nessun gioco salvato',
+	'DECERTO_ACTIVATION_DESC'			=> 'Per poter utilizzare una sistema cpc per una ladder dovete avervi inserito almeno 3 mappe; per la modalità decerto servono invece 3 mappe per ogni modalità.',
+	'ANY_MATCHES_SELECTED'				=> 'Non hai selezionato nessun matches! Sveglia!',
+	'ANY_MATCHES_FOUNDED'				=> 'Nessun match presente al momento.',
+	'REFRESH'							=> 'Ricarica pagina ora',
+	'MAX_FOR_ROSTER'					=> 'Se attivo puoi impostare il numero massimo giocatori per clan obbligatorio per il sistema Rosters.',
+	'PLAYERS'							=> 'Giocatori',
+	'ANY_MVP_LIST_ADDED'				=> 'Nessuna classifica MVP creata.',
+	
+	//Page Header addon
+	'PROFILE_GROUP'						=> 'Profilo clan',
+	'CLAN_LIST'							=> 'Lista clan',
+	'TOURNAMENTS'						=> 'Tornei',
+	
+	//Leagues addon start
+	'NO_LEAGUES'					=> 'Nessuna lega creata.',
+	'ADD_NEW_LEAGUE'				=> 'Gestisci leghe',
+	'LEAGUE_NAME'					=> 'Nome lega',
+	'LEAGUE_LOGO'					=> 'Logo lega',
+	'LEAGUE_LOGO_EXP'				=> 'Accettate img jpeg, jpg, gif, png... 900x150 pxs.',
+	'LEAGUE_DESC'					=> 'Descrizione lega',
+	'BBCODE_ACTIVE'					=> '<em>BBcode e smiles attive</em>',
+	'LEAGUE_STARTDATE'				=> 'Data di inizio lega',
+	'LEAGUE_CYCLE'					=> 'Numero cicli lega',
+	'LEAGUE_WIN_SYSTEM'				=> 'Sistema report vittoria',
+	'LAEGUE_ADVSTATS'				=> 'Arriva statistiche avanzate',
+	'LAEGUE_MVP'					=> 'Abilita sistema MVP',
+	'LEAGUE_TYPE'					=> 'Tipo di lega',
+	'LEAGUE_SHORTY'					=> 'Collega a un sistema decerto o cpc',
+	'LEAGUE_A_CLANS'				=> 'Numero clans in First Division',
+	'LAEGUE_STRIGHT'				=> 'Lega ristretta',
+	'LAEGUE_STRIGHT_DESC'			=> 'Col sistema ristretto verrà considerato anche il numero massimo di membri per clan. Se un clan ne ha di più dovrà creare il roster team che non potrà cambiare durante un ciclo lega.',
+	'LEAGUE_MIN_MBR'				=> 'Componenti minimi clan',
+	'LEAGUE_MAX_MBR'				=> 'Componenti massimi clan',
+	'LAEGUE_NETLIM'					=> 'Sistema di controllo via network',
+	'LAEGUE_STRIGHT_DESC'			=> 'Se attivato il sistema controlla i membri dei clan che si inscrivono verificando la gamertag relativa e il punteggio utente.',
+	'LEAGUE_MIN_NETSCR'				=> 'Punteggio minimo network per utente',
+	'SAVED_LEAGUES'					=> 'Leghe create',
+	'START_TIME'					=> 'Data di inizio',
+	'SUBSCRIBED'					=> 'Iscritti',
+	'LEAGUE_ADDED'					=> 'Lega aggiunta correttamente',
+	'LAEGUE_ONEONE'					=> 'Lega 1vs1 basata sugli utenti',
+	'UNACTIVE'						=> 'Disattivato',
+	'XBOX'							=> 'XboX Live',
+	'PSN'							=> 'PSN',
+	'STEAM'							=> 'Steam',
+	'XFIRE'							=> 'XFire',
+	'SETUP'							=> 'Configura divisioni',
+	'LEAGUE_UPDATED'				=> 'Lega correttamente aggiornata',
+	'NAME_LEAGUE_EMPTY'				=> 'Il nome della lega non può essere vuoto!',
+	'SHOW_ALL'						=> 'Mostra tutte',
+	'SHOW_WAITS'					=> 'Mostra solo pronte a partire',
+	'SHOW_CURRENT'					=> 'Mostra solo in corso',
+	'SHOW_CLOSED'					=> 'Mostra solo chiuse',
+	'ICON_LIMIT_NO'					=> 'Nessun limite network per utente',
+	'ICON_LIMIT_XBOX'				=> 'Sistema limitato XboX Live',
+	'ICON_LIMIT_PSN'				=> 'Sistema limitato PSN',
+	'ICON_LIMIT_STEAM'				=> 'Sistema limitato Steam',
+	'ICON_LIMIT_XFIRE'				=> 'Sistema limitato XFire',
+	'LEAGUES'						=> 'Leghe',
+	'1VS1LEAGUE'					=> 'Lega basata sul sistema 1vs1 utenti',
+	'1VS1LEAGUE_NO'					=> 'Lega basata sui clans',
+	'ARCHIVED_LEAGUES'				=> 'Vecchie leghe',
+	'USER_ROSTER_ALREADY_IN'		=> 'L’utente che hai provato a inserire è già presente nella Roster LineUP.<br />%sTORNA INDIETRO!%s',
+	'USER_ROSTER_ADDED'				=> 'Utente aggiunto alla Roster LineUP scelta.',
+	'ROSTER_ADDED'					=> 'Roster LineUP aggiunta.',
+	'ROSTER_DELETED'				=> 'Roster LineUP cancellata correttamente.',
+	'ROSTER_UPDATED'				=> 'Roster LineUP correttamente aggiornata.',
+	'SETUP_ROSTER'					=> 'Amministra Rosters LineUP',
+	'CREA_UN_ROSTER'				=> 'Crea una nuova Roster LineUP',
+	'ROSTER_NAME'					=> 'Roster LineUP nome',
+	'ADD_USER_TO_ROSTER'			=> 'Aggiungi un utente a una LineUP',
+	'MAKE'							=> 'Crea',
+	'ROSTER_LIST'					=> 'Gestisci Rosters LineUP create',
+	'ROSTER_EXP'					=> 'Livello LineUP',
+	'POINTS'						=> '<em>punti</em>',
+	'USER_EXP'						=> 'EXP utente',
+	'EDIT_ROSTER'					=> 'Edita nome LineUP',
+	'DELETE_ROSTER'					=> 'Cancella LineUP',
+	'REMOVE_MBRS'					=> 'Rimuovi utenti dalla LineUP',
+	'ROSTERS'						=> 'Rosters LineUP',
+	'NO_ROSTERS'					=> 'Questo clan non ha alcuna Roster LineUP al momento.',
+	'LEADER'						=> 'Leader',
+	'SET_LEADER'					=> 'Imposta leader',
+	'ROSTER_LEADER_TEXT'			=> 'Il Roster Leader o Team Leader avrà la possibilità di riportare/confermare i risultati in tornei e leghe, dove partecipa, assieme ai fondatori e cofondatori del main clan.',
+	'ROSTER_IN_COMPETITION'			=> 'Il Roster selezionato al momento sta partecipando a una competizione e quindi non è possibile cambiarne la LineUP.',
+	'ROSTER_IN_COMPETITION_DEL'		=> 'Il Roster selezionato al momento sta partecipando a una competizione e quindi non è possibile cancellarlo.',
+	'ROSTER_NAME_EMPTY'				=> 'Il nome della Roster LineUP non può essere vuoto!',
+	'ROSTER_NAME_USED'				=> 'Il nome della Roster LineUP che hai inserito è già in uso.',
+	//Leagues addon end
+	
+//##############################################################################################################################################
+// BASE VERSION START FROM HERE --->
+	'ADMIN_NO_ONGOING'				=> 'Il Clan non ha partite in corso.',
+	'ALL'							=> 'Tutti',
+	'ADD_GROUP_TO_LADDER'			=> 'Aggiungi Clan alla Ladder',
+	'ADD_GROUP_TO_TOURNAMENT'		=> 'Aggiungi Clan al Torneo',
+	'ARCHIVED_TOURNAMENTS'			=> 'Vecchi Tornei',
+	'ARCHIVE_TOURNAMENT'			=> 'Vecchio Torneo?',
+	'ACCEPT'						=> 'Accetta',
+	'ADD_CHALLENGE'					=> 'Aggiungi una sfida',
+	'ADD_GROUP'						=> 'Aggiungi un Clan',
+	'ADD_LADDER'					=> 'Crea una Ladder',
+	'ADD_PLATFORM'					=> 'Aggiungi una piattaforma',
+	'ADD_SUBLADDER'					=> 'Aggiungi una Sub-Ladder',
+	'ADD_TOURNAMENT'				=> 'Aggiungi un Torneo',
+	'ADD_TO_MATCH_FINDER'			=> 'Aggiungi il tuo Clan alla lista "Clan in cerca di match"',
+	'ALREADY_IN_LADDER'				=> 'Il tuo Clan è già nella Ladder.',
+	'ALREADY_IN_TOURNAMENT'			=> 'Il tuo Clan è già iscritto a questo Torneo',
+	'ASSIGN_AS_BACKUP'				=> 'Assegnato come Backup Leader',
+	'ASSIGN_AS_LEADER'				=> 'Assegnato a Leader',
+
+	'BRACKETS_CANT_GENERATE'		=> 'Lo schema non può essere creato perché o non hai registrato il tuo Clan o il Torneo non è iniziato.',
+	'BEST_RANK'						=> 'Miglior posizione occupata',
+	'BYE_GROUP'						=> 'BYE clan in uso nei tornei',
+
+	'CANT_INVITE_YOURSELF'			=> 'Non puoi autoinvitarti!',
+	'CHALLENGE'						=> 'sfida',
+	'CHALLENGES_UPDATED'			=> 'Il match è stato aggiornato',
+	'CHALLENGE_ADDED'				=> 'Il match è stata creata.',
+	'CHEATER'						=> 'Hai provato a usare un trucco? Perché non sei capace!',
+	'CHEATING'						=> 'Qualcuno ha fatto il furbo',
+	'CHALLENGE_UNRANKED'			=> 'Non classificata',
+
+	'GROUP_NOTINVITED'				=> 'Il tuo gruppo non è stato invitato a questo Torneo.',
+	'GROUP_MOVED'					=> 'Il Clan è stato spostato alla nuova Ladder.',
+	'GROUP_ADDED'					=> 'Il Clan è stato creato; ora puoi effettuare il login.',
+	'GROUP_REMOVED_TOURNAMENT'		=> 'Il Clan è stato rimosso dal Torneo.',
+	'GROUP_DESC'					=> 'Informazioni Clan',
+	'GROUP_ID'						=> 'Clan ID',
+	'GROUP_INFORMATION'				=> 'Informazioni Clan',
+	'GROUP_LADDER'					=> 'Clan Ladder',
+	'GROUP_LEADER'					=> 'Clan Leader',
+	'GROUP_LOGIN'					=> 'Clan Login',
+	'GROUP_LOGO'					=> 'Clan Logo',
+	'GROUP_LOSSES'					=> 'Sconfitte Clan',
+	'GROUP_MEMBERS'					=> 'Membri Clan',
+	'GROUP_NAME'					=> 'Nome Clan',
+	'GROUP_NOTIN_LADDER'			=> 'Per usare questa feature devi prima essere inserito in una Ladder.<br /><br />%sTorna indietro%s!',
+	'GROUP_NOTSIGNED_UP_LADDER'		=> 'Il tuo Clan non è in alcuna Ladder: non puoi fare login.',
+	'GROUP_SCORE'					=> 'Punteggio Clan',
+	'GROUP_SIGNED_UP'				=> 'Il tuo Clan è stato registrato per il Torneo.',
+	'GROUP_STREAK'					=> 'Andamento Clan',
+	'GROUP_TAG'						=> 'Clan Tag',
+	'GROUP_UPDATED'					=> 'Il Clan è stato aggiornato',
+	'GROUP_WINS'					=> 'Vittorie Clan',
+	'CONFIGUREATION_UPDATED'		=> 'La configurazione è stata aggiornata.',
+	'CONFIGURE_RIVALS'				=> 'Configura Rivals',
+	'CURRENT_RANK'					=> 'Classifica',
+	'CURRENT_SEASON'				=> 'Stagione in corso',
+	'CONFIRM_WIN'					=> 'Conferma la vittoria',
+	'CONTEST_RESULT'				=> 'Contesta il risultato',
+	'CONFIGURATION_NOT_COMPLETE'	=> 'Non hai configurato il tuo forum BYE clan (clan automatico che sostituisce nei tornei in corso eventuali clan che si ritirano). Fallo nella pagina configurazione generale.',
+
+	'DECLINE'						=> 'Rifiuta',
+	'DETAILS'						=> 'Dettagli',
+	
+	// MOD
+	'CURRENT_CLAN_LOGO'             => 'Logo Clan',
+
+	'ELO'							=> 'ELO',
+	'EDIT_BRACKETS'					=> 'Edita posizioni nel tabellone',
+	'END_SEASON'					=> 'Fine stagione',
+	'EDIT_GROUP'					=> 'Edita Clan',
+	'EDIT_SEASON'					=> 'Edita stagione',
+	'EDIT_GROUPS'					=> 'Scegli il clan da editare',
+	'EDIT_FINISHED'					=> 'Edita match terminato',
+	'EDIT_TOURNAMENT'				=> 'Edita un Torneo',
+	'EDIT_TOURNAMENTS'				=> 'Edita Tornei',
+	'ENTER_GROUP_NAME'				=> 'Devi inserire il nome del Clan!',
+	'EXTENSION_NOT_ALLOWED'			=> 'Il tipo di file che hai provato a caricare non è accettato.',
+	'EXTRA'							=> 'Dettagli',
+
+	'FILTER'						=> 'Filtri',
+	'FINAL_ROUND'					=> 'Finali',
+	'FIND_GROUP'					=> 'Cerca Clan',
+	'FINISHED'						=> 'Terminata',
+	'FINISHED_MATCHES'				=> 'Matches Conclusi',
+
+	'INSTALLER_COMPLETE'			=> 'phpRivals Mod è stato installato. Assicurati di leggere le istruzioni aggiuntiva in install.xml per le modifiche al core di PHPBB. Successivamente cancella la directory di installazione.
+<br /><br />
+Grazie di aver scelto phpRivals Mod,
+Soshen',
+	'INVITE_ONLY'					=> 'Solo a invito',
+	'INVITED_CLANS'					=> 'Invita Clan/Utenti indicando le ID (uno per linea)',
+	'INSTALLER_FOUNDER'				=> 'Devi essere il founder del forum per far partire questo script.',
+	'INSTALLER_MF'					=> 'Uno o più moduli hanno avuto problemi. Rimuovi ogni phpRivals Mod modulo dal tuo phpBB ACP.',
+	'INSTALL_OR_UPGRADE'			=> 'Vuoi installare o aggiornare Rivals? Clicca sì per "Installare" e No per "aggiornare".',
+	'INVITE_USER'					=> 'Invita un utente',
+	'ISSUE_A_TICKET'				=> 'Invia un Ticket',
+
+	'JOINED_GROUP'					=> 'Da ora fai parte del Clan. Benvenuto!<br /><em>Ora la tua sessione sarà rigenerata</em>',
+	'JOINED_WITH_LADDER'			=> 'Il tuo Clan da ora fa parte della Ladder.',
+	'JOIN_LADDER'					=> 'Entra nella ladder',
+	'GROUP_AVATAR'                  => 'Nessun logo caricato',
+	'CHALLENGE_IMG'                 => 'Sfida',
+	'REQUEST_TO_JOIN_IMG'           => 'Richiedi di entrare nel clan',
+
+	'LADDER_STRING_FORMAT'			=> 'GIOCO: %s, LADDER: %s, SUBLADDER: %s',
+	'LAST_RANK'						=> 'Ultimo Rank',
+	'LADDER_RANKING'				=> 'Ladder Ranking System',
+	'LADDER'						=> 'Ladder',
+	'LADDER_JOIN_LOCKED'			=> 'Non puoi lasciare la Ladder, è bloccata dal sistema.',
+	'LADDERS'						=> 'Ladders',
+	'LADDER_ADDED'					=> 'Ladder aggiunta.',
+	'LADDER_GROUP_ID'				=> 'ID',
+	'LADDER_CL'						=> 'Mostra bottone sfida nella Ladder?',
+	'LADDER_TYPE'					=> 'Tipo Ladder',
+	'LADDER_RESET_STATS'			=> 'Reset Statistiche',
+	'LADDER_RM'						=> 'Membri richiesti',
+	'LADDER_GROUP_LOSSES'			=> 'Sconfitte',
+	'LADDER_GROUP_NAME'				=> 'Nome Clan',
+	'LADDER_GROUP_SCORE'			=> 'Punteggio',
+	'LADDER_GROUP_STREAK'			=> 'Striscia',
+	'LADDER_GROUP_WINS'				=> 'Vittore',
+	'LADDER_MOVED'					=> 'La ladder’s è stata spostata.',
+	'LADDER_NAME'					=> 'Nome Ladder',
+	'REQUIRED_MEMBERS_FAILED'		=> 'Il tuo clan non può partecipare alla ladder. Sono necessari almeno %s membri.',
+	'LADDER_PARENT'					=> 'Ladder correlata',
+	'LADDER_PLATFORM'				=> 'Ladder Piattaforma',
+	'LADDER_RULES'					=> 'Regole Ladder',
+	'LADDER_UPDATED'				=> 'Ladder aggiornata.',
+	'LEAVE_LADDER'					=> 'Lascia la ladder',
+	'LEFT_LADDER'					=> 'Il tuo Clan ha lasciato la Ladder.',
+	'LEFT_TO_RIGHT'					=> 'Da sinistra a destra',
+	'LOSER'							=> 'Sconfitto',
+	'LOSER_BRACKET'					=> 'Striscia scontitte',
+	'LOSS'							=> 'Meno',
+	'LADDER_RADIO_LOCKED'			=> 'Sblocca',
+	'LADDER_RADIO_LOCKED2'			=> 'Blocca',
+	'LADDER_LOCKED'					=> 'Ladder bloccata',
+
+	'MANAGE_MEMBERS'				=> 'Amministra utenti',
+	'MANAGE_TOURNAMENTS'			=> 'Amministra tornei',
+	'MATCHCOMM'						=> 'Clan Short Message',
+	'MATCHCOMM_MESSAGE'				=> 'Messaggi',
+	'MATCHCOMM_NOTE'				=> 'La Match Chat è aggiornata ogni 5 secondi. Sii paziente.',
+	'MATCHCOMM_UNREAD'				=> 'Messaggi non letti',
+	'MATCHCOMM_WRONG_MATCH'			=> 'Il tuo Clan non partecipa a questo match. Non puoi mandare messaggi',
+	'MATCHES'						=> 'Matches',
+	'MATCH_FINDER'					=> 'Cerca un match',
+	'MATCH_FINDER_ADDED'			=> 'Il tuo Clan è stato inserito tra quelli che cercano un match.<br />Quano qualcuno si proporrà per una sfida apparirà sulla pagina 
+"<strong>Comferma il risultato di un match</strong> o su <strong>Amministra sfide 1vs1</strong>" della sezione Amministra Clan.',
+	'MATCH_HISTORY'					=> 'Storico dei matches del Clan',
+	'MATCH_REPORTED'				=> 'Match correttamente riportato.',
+	'MATCH_RESULTS'					=> 'Risultato match',
+	'MATCH_WITHIN'					=> 'Prossimo match',
+	'MEMBER_ASSIGNED_AS_BACKUP'		=> 'Il membro è stato assegnato come backup leader.',
+	'MEMBER_ASSIGNED_AS_LEADER'		=> 'Il membro è stato promosso come nuovo leader.',
+	'MEMBER_REMOVED'				=> 'Membro rimosso.',
+	'MOVE_DOWN'						=> 'Scendi',
+	'MOVE_RIGHT'					=> 'Sali',
+	'MOVE_LEFT'						=> 'Indietro',
+	'MOVE_UP'						=> 'Avanti',
+	'MUST_ADD_PLATFORM'				=> 'Devi creare una piattaforma prima di affettuare questa azione.',
+	'MUST_ADD_LADDER'				=> 'Devi creare una ladder prima di affettuare questa azione.',
+	'MOVE_STATS'					=> 'Spostare davvero tutte le statistiche?',
+	'MOVE_GROUP_LADDER'				=> 'Sposta Clan alla Ladder',
+
+	'NO_REPORTED_MATCHES'			=> 'Non ci sono matches riportate.',
+	'NO_UNREPORTED_MATCHES'			=> 'Non ci sono matches di cui indicare il risultato.',
+	'NONEXISTANT_GROUP'				=> 'Il Clan richiesto non esiste.',
+	'NONEXISTANT_GROUP2'			=> 'Il Clan richiesto non esiste in questa Ladder.',
+	'NOT_READY'						=> 'Non pronto',
+	'NO_ADMIN'						=> 'Non puoi accedere a questa sezione poiché non sei un amministratore.',
+	'NO_ARCHIVED_TOURNAMENTS'		=> 'Non ci sono Tornei archiviati.',
+	'NO_GROUPSIN_LADDER'			=> 'Al momento non ci sono Clans nella Ladder.',
+	'NO_GROUPS_FOUND'				=> 'Nessun Clans trovato.',
+	'NO_GROUPS_MATCH_FINDER'		=> 'Non ci sono Clans in cerca di sfide al momento.',
+	'NO_MATCHCOMMS'					=> 'Non vi è alcun matchComms. Il tuo clan non sta partecipando a nessun match.',
+	'NO_MATCHES'					=> 'Questo Clan non ha giocato alcun match.',
+	'NO_MEMBERS'					=> 'Questo Clan non ha membri.',
+	'NO_REPORT_READY'				=> 'Non puoi ancora inviare il report.',
+	'NO_ONGOING_MATCHES'			=> 'There are currently no on-going matches.',
+	'NO_OTHER_GROUPS'				=> 'Non hai altri Clans.',
+	'NO_PENDING_MATCHES'			=> 'Non ci sono matches in corso.',
+	'NO_PENDING_MEMBERS'			=> 'Nessun membro in stallo.',
+	'NO_SHOW'						=> 'Non giocata',
+	'NO_SUBLADDERS'					=> 'Non ci sono Sub-Ladder per questa Ladder.',
+	'NO_TOURNAMENTS'				=> 'Nessun Torneo in corso.',
+	'NUMBER_OF_GROUPS'				=> 'Numero di Clans',
+	'NUM_GROUPS'					=> 'Clans',
+
+	'ONGOING'						=> 'In corso',
+	'ONGOING_MATCHES'				=> 'Matches in corso',
+	'OTHER'							=> 'Altro',
+	'OTHER_TYPE'					=> 'Altro',
+
+	'PENDING'						=> 'In attesa',
+	'PENDING_MATCHES'				=> 'Matches in attesa',
+	'PENDING_MEMBERS'				=> 'Membri in attesa',
+	'PLATFORM'						=> 'Piattaforma',
+	'PLATFORMS'						=> 'Piattaforme',
+	'PLATFORM_ADDED'				=> 'Piattaforma aggiunta.',
+	'PLATFORM_NAME'					=> 'Nome piattaforma',
+	'PLATFORM_UPDATE'				=> 'Piattaforma cancellata.',
+	'PMWINCONFIRMED'				=> '[SYSTEM] Vittoria Confermata',
+	'PMWINCONFIRMEDTXT'				=> 'Questo è un messaggio di sistema automatico.
+
+[b]%s[/b] ha confirmato la tua vittoria.
+
+Non rispondere a questo messaggio,
+Grazie.',
+	'PM_TOURNAMENTINVITE'			=> '[SYSTEM] Invito al Torneo',
+	'PM_TOURNAMENTINVITETXT'		=> 'Questo è un messaggio di sistema automatico.
+
+Sei stato invitato al torneo [b]%s[/b]. Per accettare clicca [url=%s]QUI[/url] e iscriviti al suddetto torneo.
+
+Non rispondere a questo messaggio,
+Grazie.',
+
+	'PMCONFIRMWIN'					=> '[SYSTEM] Conferma vittoria',
+	'PMCONFIRMWINTXT'				=> 'Questo è un messaggio di sistema automatico.
+
+[b]%s[/b] ha segnalato una vittoria contro di te. Devi confermare la sconfitta nella sezione CONFERMA RISULTATO WARS nel menù AMMINISTRA CLAN o, se loro non hanno vinto, puoi contestare il risultato.
+
+Non rispondere a questo messaggio,
+Grazie.',
+	'PMPENDINGMEMBERTXT'			=> 'Questo è un messaggio di sistema automatico.
+
+[b]%s[/b] ha chiesto di entrare nel tuo clan, %s. Puoi accettare o meno nel menù Pannello di Controllo Clan, Amministra Membri.
+
+Non rispondere a questo messaggio,
+Grazie.',
+	'PMPENDINGMEMBER'				=> '[SYSTEM] Richiesta di entrare nel clan',
+	'PMINTVITETXT'					=> 'Questo è un messaggio di sistema automatico.
+
+[b]%s[/b] ti ha invitato nel suo clan. Accetti ?
+[url=%s%s]Sì[/url] o [url=%s%s]No[/url]
+
+Non rispondere a questo messaggio,
+Grazie.',
+	'PMINVITE'						=> '[SYSTEM] Invito al Clan',
+	'PMREQUEST_APPROVED'			=> '[SYSTEM] Richiesta approvata',
+	'PMREQUEST_APPROVEDTXT'			=> 'Questo è un messaggio di sistema automatico.
+
+Il clan [b]%s[/b] ha accettato la tua richiesta di entrare nel suo clan. Benvenuto :).
+
+Non rispondere a questo messaggio,
+Grazie.',
+	'PMREQUEST_DECLINED'			=> '[SYSTEM] Richiesta rifiutata',
+	'PMREQUEST_DECLINEDTXT'			=> 'Questo è un messaggio di sistema automatico.
+
+Il clan [b]%s[/b] ha rifiutato la tua richiesta di entrare nel Clan. Mi spiace :(.
+
+Non rispondere a questo messaggio,
+Grazie.',
+	'PMTICKET'						=> '[SYSTEM] Ticket',
+	
+	'PMTICKETTXT'					=> 'Questo è un messaggio di sistema automatico.
+
+[url=%s/rivals.php?action=group_profile&group_id=%s]%s[/url] ti ha inviato un ticket.
+Relativo al match ID: %s - %s.
+
+[quote]%s[/quote]
+
+Allegato:
+[url]%s/rivals/uploads/%s[/url]',
+
+	'PMTICKETTXT_USER'				=> 'Questo è un messaggio di sistema automatico.
+
+[url=%s/memberlist.php?mode=viewprofile&u=%s]%s[/url] ti ha inviato un ticket.
+Relativo al match ID: %s - %s.
+
+[quote]%s[/quote]
+
+Allegato:
+[url]%s/rivals/uploads/%s[/url]',
+
+	'PMTICKETTXT_NOMATCH'			=> 'Questo è un messaggio di sistema automatico.
+
+[url=%s/memberlist.php?mode=viewprofile&u=%s]%s[/url] ti ha inviato un ticket.
+
+[quote]%s[/quote]
+
+Allegato:
+[url]%s/rivals/uploads/%s[/url]',
+
+	'PMTICKETTXT_NOATTCHMATCH'		=> 'Questo è un messaggio di sistema automatico.
+
+[url=%s/memberlist.php?mode=viewprofile&u=%s]%s[/url] ti ha inviato un ticket.
+
+[quote]%s[/quote]',
+	
+	'PMTICKET_TUR_TIMEOUT'			=> 'Questo è un messaggio di sistema automatico.<br />[url=%s/rivals.php?action=group_profile&group_id=%s]%s[/url] ti ha inviato un ticket.<br />
+	Relativamente a una mancata conferma di un match da torneo:<br />
+	
+	[quote]%s[/quote]
+	
+	Grazie',
+
+	'PMTICKETTXT_NOATTACH'			=> 'Questo è un messaggio di sistema automatico.
+
+[url=%s/rivals.php?action=group_profile&group_id=%s]%s[/url] ti ha inviato un ticket.
+Relativo al match ID: %s - %s.
+
+[quote]%s[/quote]',
+
+	'PMTICKETTXT_NOATTACH_USER'		=> 'Questo è un messaggio di sistema automatico.
+
+[url=%s/memberlist.php?mode=viewprofile&u=%s]%s[/url] ti ha inviato un ticket.
+Relativo al match ID: %s - %s.
+
+[quote]%s[/quote]',
+
+	'PM_TREPORTED'					=> '[SYSTEM] Conferma match di Torneo',
+	'PM_TREPORTEDTXT'				=> 'Questo è un messaggio di sistema automatico.
+
+[b]%s[/b] ha confermato la tua vittoria nel torneo, [b]%s[/b]. Congratulazioni sei avanzato nel tabellone.
+
+Non rispondere a questo messaggio,
+Grazie.',
+	'PM_TREPORT'					=> '[SYSTEM] Conferma vittoria',
+	'PM_TREPORTTXT'					=> 'Questo è un messaggio di sistema automatico.
+
+[b]%s[/b] ha riportato una vittoria contro di te nel torneo, [b]%s[/b].
+
+Devi confermare che [b]%s[/b] ha effettivamente vinto oppure contestare.
+
+Non rispondere a questo messaggio,
+Grazie.',
+	'PM_CHALLENGEDELETED'			=> '[SYSTEM] Match cancellato',
+	'PM_CHALLENGEDELETEDTXT'		=> 'Questo è un messaggio di sistema automatico.
+
+La sfida contro [b]%s[/b] è stata annullata poiché [b]%s[/b] ha rifiutato o non ha compiuto azioni in merito entro il tempo massimo stabilito.
+
+Non rispondere a questo messaggio,
+Grazie.',
+	'PM_CHALLENGE'					=> '[SYSTEM] Sfida inviata by %s',
+	'PM_CHALLENGEACCEPTED'			=> '[SYSTEM] Sfida accettata',
+	'PM_CHALLENGEACCEPTEDTXT'		=> 'Questo è un messaggio di sistema automatico.
+
+[b]%s[/b] ha accettato il match.
+
+Non rispondere a questo messaggio,
+Grazie.',
+	'PM_CHALLENGEDECLINED'			=> '[SYSTEM] Sfida rifiutata',
+	'PM_CHALLENGEDECLINEDTXT'		=> 'Questo è un messaggio di sistema automatico.
+
+Il clan [b]%s[/b] ha rifiutato il match.
+
+Non rispondere a questo messaggio,
+Grazie.',
+	'PM_CHALLENGETXT'				=> 'Questo è un messaggio di sistema automatico.
+
+Il clan [b]%s[/b] su (Gioco: %s, Ladder: %s, Subladder: %s) ti ha inviato una proposta per un match. Fai login nella pagina di amministrazione clan e accetta o declina la proposta.
+
+Non rispondere a questo messaggio,
+Grazie.',
+	'PM_CHALLENGETXT_USER'				=> 'Questo è un messaggio di sistema automatico.
+
+L’utente [b]%s[/b] su (Gioco: %s, Ladder: %s, Subladder: %s) ti ha inviato una proposta per un match. Fai login nella pagina di amministrazione clan e accetta o declina la proposta.
+
+Non rispondere a questo messaggio,
+Grazie.',
+	'PM_CHALLENGETXT2'				=> 'Questo è un messaggio di sistema automatico.
+
+Il clan [b]%s[/b] su (Gioco: %s, Ladder: %s, Sfidante: %s) ti ha invitato a un match [b]non classificata[/b]. Fai login nella pagina di amministrazione clan e accetta o declina la proposta.
+
+Non rispondere a questo messaggio,
+Grazie.',
+	'PM_CHALLENGETXT2_USER'				=> 'Questo è un messaggio di sistema automatico.
+
+L’utente [b]%s[/b] su (Gioco: %s, Ladder: %s, Sfidante: %s) ti ha invitato a un match [b]non classificata[/b]. Fai login nella pagina di amministrazione clan e accetta o declina la proposta.
+
+Non rispondere a questo messaggio,
+Grazie.',
+	'PM_TOURNAMENT'					=> '[SYSTEM] Torneo',
+	'PM_TOURNAMENTMSG'				=> 'Questo è un messaggio automatico.
+
+[url=%s]%s[/url] ha confermato il risultato nel torneo %s.
+
+Grazie.',
+	'PM_TOURNAMENTMSG2'				=> 'Questo è un messaggio di sistema automatico.
+
+[url=%s]%s[/url] ha riportato un risultato di un match contro di te nel torneo %s.
+
+Grazie.',
+	'POS'							=> 'POS',
+	'POSTED'						=> 'postato',
+
+	'QUIT'							=> 'Esci',
+
+	'REPORTED_TOURNAMENTS'			=> 'Matches Tornei RIPORTATE da confermare',
+	'REPORTED_MATCHES'				=> 'Matches in attesa di conferma da chi ha perso',
+	'REPORT_WIN'					=> 'Riporta una vittoria',
+	'RANKING_RANGE'					=> 'Mi spiace ma il Clan che vuoi sfidare non è alla tua portata. I Clas devono essere di almeno 3 valori sopra o sotto il tuo rank.',
+	'READY'							=> 'Pronto',
+	'REMOVE_GROUP_TOURNAMENT'		=> 'Clan rimosso dal torneo.',
+	'REPORT_MATCH'					=> 'Riporta un match',
+	'REQUEST_DECLINED'				=> 'Hai rifiutato la proposta.',
+	'REQUEST_SENT'					=> 'La tua richiesta di entrare nel Clan è stata inviata. Ora pazianta per la risposta.',
+	'REPORT_TOURNAMENT'				=> 'Riporta una match di Torneo',
+	'REQUEST_TO_JOIN'				=> 'Richiedi di entrare',
+	'RIGHT_TO_LEFT'					=> 'Da destra a sinistra',
+	'RIVALS_DATETIME'				=> 'Data',
+	'RIVALS_DISALLOWED_EXTENSION'	=> 'Il tipo di file %s non è accettato.',
+	'RIVALS_EMPTY_FILEUPLOAD'		=> 'Il file inviato è vuoto!',
+	'RIVALS_INVALID_FILENAME'		=> '%s ha un nomefile non valido',
+	'RIVALS_NOT_UPLOADED'			=> 'Il file non può essere inviato.',
+	'RIVALS_PARTIAL_UPLOAD'			=> 'Il file inviato non è completo',
+	'RIVALS_PHP_SIZE_NA'			=> 'Le dimennsioni del file inviato sono eccessive.<br />Non si possono definire le dimensioni secondo il php.ini.',
+	'RIVALS_PHP_SIZE_OVERRUN'		=> 'Le dimennsioni del file inviato sono eccessive, il massimo è %d MB.<br />Scusate ma questo è definito nel php.ini del server e non è colpa nostra!',
+	'RIVALS_TITLE'					=> 'Clan system',
+	'REPORTED_TOURNAMRNTS'			=> 'Riporta una match da Torneo',
+	'ROUND'							=> 'Round %d',
+
+	'SPOTS'							=> 'Slots',
+	'SEASON'						=> 'Stagione',
+	'SEASON_EDITTED'				=> 'Stagione editata.',
+	'SEASON_NAME'					=> 'Nome stagione',
+	'SEASON_STARTED'				=> 'La stagione è stata inserita nella Ladder.',
+	'SEASON_ENDED'					=> 'Stagione finita e archiviata. Ora puoi far partire un’altra stagione per questa Ladder.',
+	'SEARCH_AVAILABLE_GROUPS'		=> 'Cerca Clans disponibili',
+	'SEED_OR_RANDOM'				=> 'Vuoi inviare le info del Torneo a mano o random? Clacca Sì per "Random" e No per "Manualmente".',
+	'SEED_TOURNAMENT'				=> 'Invia Torneo',
+	'SIGNUP'						=> 'Iscriviti',
+	'SIGN_UP'						=> 'Iscriviti',
+	'STARTED'						=> 'Iniziato',
+	'START_TOURNAMENT'				=> 'Avvia Torneo',
+	'STATISTICS'					=> 'Statistiche',
+	'START_SEASON'					=> 'Avvia Stagione',
+	'SUBLADDER'						=> 'Sub-ladder',
+	'SWAP'							=> 'Swap',
+
+	'TOURNAMENT_INVITE'				=> 'Solo a invito',
+	'TICKET_FILE'					=> 'Screenshot/Video (Opzionale)',
+	'TICKET_RECEIVER'				=> 'Ricevitore Ticket',
+	'TICKET_SENT'					=> 'Il ticket è stato inviato. Sii paziente per la risposta.',
+	'TICKET_TYPE'					=> 'Tipo di problema',
+	'TOURNAMENT'					=> 'Torneo',
+	'TOURNAMENT_ADDED'				=> 'Torneo aggiunto.',
+	'TOURNAMENT_BRACKETS'			=> 'Andamento Torneo',
+	'TOURNAMENT_DIRECTION'			=> 'Schema Torneo',
+	'TOURNAMENT_DOUBLEELIM'			=> 'Doppie Eliminatorie',
+	'TOURNAMENT_FULL'				=> 'Slots del Torneo già pieni. non puoi partecipare.',
+	'TOURNAMENT_STARTS'				=> 'Inizia',
+	'TOURNAMENT_STARTDATE'			=> 'Data di inizio Torneo',
+	'TOURNAMENT_INFO'				=> 'Informazioni Torneo',
+	'TOURNAMENT_LADDER'				=> 'Ladder Torneo',
+	'TOURNAMENT_NAME'				=> 'Nome Torneo',
+	'TOURNAMENT_QUITTED'			=> 'Il tuo Clan ha abbandonato il Torneo.',
+	'TOURNAMENT_REPORTED'			=> 'Report del Torneo inviato.',
+	'TOURNAMENT_REPORT_INFO'		=> 'Hai riportato per il Torneo "%s" e il tuo avversario è %s nel %s tabellone.',
+	'TOURNAMENT_REPORTS'			=> 'Reports Torneo',
+	'TOURNAMENT_SINGLEELIM'			=> 'Eliminatorie dirette',
+	'TOURNAMENT_SPOTS'				=> 'Slots aperti: %d<br />Informazioni: %s <br /><br /><a href="%s">Torna indietro</a>',
+	'TOURNAMENT_TYPE'				=> 'Tipo Torneo',
+	'TOURNAMENT_UPDATED'			=> 'Torneo aggiornato.',
+
+	'UNASSIGNED'					=> 'Non assegnato',
+	'UNSTARTED'						=> 'Non partito',
+	'UNREPORTED_MATCHES'			=> 'Matches non ancora non riportati',
+	'UPGRADE_COMPLETE'				=> 'Il tuo sistema è stato aggiornato.',
+	'UPGRADE_NA'					=> 'Il tuo sistema non può essere aggiornato.',
+	'USER_ADDED_TO_GROUP'			=> 'Utente aggiunto ai membri.',
+	'USER_INVITED'					=> 'Utente invitato via PM.',
+	'USER_REMOVED_FROM_PENDING'		=> 'La richiesta dell’utente è stata rifiutata.',
+
+	'VIEW_BRACKETS'					=> 'Vedi Tabellone',
+	'VIEW_PROFILE'					=> 'Vedi profilo',
+
+	'WELCOME_CCP'					=> 'Benvenuto nel Pannello di Controllo Clan',
+	'WELCOME_CCPTXT'				=> '<br />Attualmente sei loggato al Clan %s<strong>%s</strong>%s. Questa schermata ti dà un rapido compo d’occhio della statistiche. Usa i links sulla sinistra per controllare il tuo Clan.<br /><br />',
+	'WELCOME_RIVALS'				=> 'Benvenuto su phpRivals Mod',
+	'WELCOME_RIVALSTXT'				=> 'Grazie per aver scelto phpRivals Mod.  Questa schermata ti dà un rapido compo d’occhio della statistiche. Usa i links sulla sinistra per controllare il tuo phpRivals Mod.',
+	'WIN'							=> 'Vinto',
+	'WINNER'						=> 'Vincitore',
+	'WINNER_BRACKET'				=> 'Tabellone di gioco',
+	'WINNER_ROUND'					=> 'Vincitore!',
+	'WORST_RANK'					=> 'Peggiore',
+
+	'YOUR_APART_OF_GROUP'			=> 'Si è riscontrato un problema con la tua proposta. Riprova.',
+	'YOUR_OTHER_GROUPS'				=> 'I tuoi altri Clans',
+	'UPLOAD_AVATAR_URL_EXPLAIN'     => 'Carica un’immagine come logo del clan',
+
+	'USER_NOT_FOUND'				=> 'Username o ID inserita non corretta. Utente non trovato.',
+	'UNREPORTED_TOURNAMENTS'		=> 'Matches Torneo non riportate',
+	
+	// UCP HOME
+	'MATCH_CHAT'			=> 'MATCH CHAT',
+	'MATCH_CHAT_TXT'		=> 'Entra nella chat delle tue sfide in corso. Parla con i tuoi avversari.',
+	'ROSTER_LINUP'			=> 'ROSTER LINEUP',
+	'ROSTER_LINUP_TXT'		=> 'Amministra la tua Roster LineUP,<br />ossia i vari sottoteam.',
+	'USER_TOURNAMENT'		=> 'TORNEI UTENTE 1VS1',
+	'USER_TOURNAMENT_TXT'	=> 'Gestisci i tornei utente contro utente, ossia quelli 1vs1.',
+	'USER_MATCH'			=> 'MATCHES UTENTI 1VS1',
+	'USER_MATCH_TXT'		=> 'Amministra le sfide e i matches utenti, ossia quelli 1vs1.',
+	'ADD_USER_MATCH'		=> 'SFIDA ALTRI UTENTI',
+	'ADD_USER_MATCH_TXT'	=> 'Sfida un altro utente purché<br />sia iscritto nelle tue stesse ladders.',
+	'EDIT_CLAN'				=> 'EDITA IL CLAN',
+	'EDIT_CLAN_TXT'			=> 'Modifica nome, logo, descrizione, mappe preferite, ecc...',
+	'SMSG'					=> 'CLAN SHORT MSG',
+	'SMSG_TXT'				=> 'Inserisci brevi messaggi nel profilo pubblico del tuo clan.',
+	'MEN_MEMBERS'			=> 'MEMBRI DEL CLAN',
+	'MEN_MEMBERS_TXT'		=> 'Gestisci i membri del clan. Puoi invitare, rimuovere e promuovere.',
+	'SEND_TICKET'			=> 'INVIA UN TICKET',
+	'SEND_TICKET_TXT'		=> 'Invia un ticket allo staff.<br />Non solo per problemi!',
+	'FIND_MATCH'			=> 'TROVA UN MATCH',
+	'FIND_MATCH_TXT'		=> 'Proponiti per essere sfidato o cerca un avversario dalla lista.',
+	'ADD_MATCH'				=> 'SFIDA ALTRI CLAN',
+	'ADD_MATCH_TXT'			=> 'Sfida un altro clan purché sia iscritto nelle tue stesse ladders.',
+	'PENDING_MATCH'			=> 'SFIDE RECEVUTE',
+	'PENDING_MATCH_TXT'		=> 'Accetta o declina le sfide che hai recevuto da altri clans.',
+	'REPORT_MATCHES'		=> 'RIPORTA RISULTATI',
+	'REPORT_MATCHES_TXT'	=> 'Riporta il risultato di una sfida precedentemente accettata.',
+	'CONFIRM_MATCH'			=> 'CONFERMA RISULTATI',
+	'CONFIRM_MATCH_TXT'		=> 'Conferma o contesta il risultato di una sfida già riportata.',
+	'CLAN_TOURNAMENT'		=> 'TORNEI PER CLAN',
+	'CLAN_TOURNAMENT_TXT'	=> 'Gestisci tutti i matches dei tornei clan contro clan a cui partecipi.',
+));
+
+?>

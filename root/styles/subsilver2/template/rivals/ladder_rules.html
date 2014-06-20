@@ -1,0 +1,47 @@
+<!-- INCLUDE overall_header.html -->
+<div id="pagecontent">
+<!-- BEGIN block_rules -->
+<p class="bigtitolo">{L_TITOLO_PAGINA_RULES_LADDER}: {block_rules.PLATFORM}, {block_rules.MAIN_LADDER}, {block_rules.NOME_LADDER}</p>
+	<table class="tablebg" width="100%" cellspacing="1">
+		<tr>
+			<th class="row3 subcat">{L_REQUISITI}</th>
+		</tr>
+		<tr>
+			<td class="{block_rules.ROW_COLOR}">
+				<span class="rules">{block_rules.REQUISITI}</span>
+			</td>
+       </tr>
+	   	<tr>
+			<th class="row3 subcat">{L_REG_GENERALI}</th>
+		</tr>
+		<tr>
+			<td class="{block_rules.ROW_COLOR}">
+				<span class="rules">{block_rules.REGOLE_GENERALI}</span>
+			</td>
+       </tr>
+	   	<tr>
+			<th class="row3 subcat">{L_CONFIG}</th>
+		</tr>
+		<tr>
+			<td class="{block_rules.ROW_COLOR}">
+				<span class="rules">{block_rules.CONFIGURAZIONE}</span>
+			</td>
+       </tr>
+	   	<tr>
+			<th class="row3 subcat">{L_VIETATO}</th>
+		</tr>
+		<tr>
+			<td class="{block_rules.ROW_COLOR}">
+				<span class="rules">{block_rules.DIVIETI}</span>
+			</td>
+       </tr>
+	</table>
+	<!-- BEGINELSE -->
+	<table class="tablebg" width="100%" cellspacing="1" style="margin: 10px 0 10px 0;">
+		<tr>
+			<th colspan="4" class="row3 rvcenter">{L_NO_RULES}</th>
+		</tr>
+	</table>
+	<!-- END block_rules -->
+</div>
+<!-- INCLUDE overall_footer.html --> 

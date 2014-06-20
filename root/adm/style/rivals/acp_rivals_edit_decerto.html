@@ -1,0 +1,136 @@
+<!-- INCLUDE overall_header.html -->
+
+<script type="text/javascript">
+function setVisibility(id, visibility) {
+document.getElementById(id).style.display = visibility;
+}
+</script>
+
+<!-- IF ERROR -->
+	<p class="errorbox"><span class="gensmall">{ERROR}</span></p>
+<!-- ENDIF -->
+
+<form method="post" action="{U_ACTION}">
+	<fieldset>
+		<legend>{L_AGGIUNGI_DECERTO}</legend>
+		
+		<dl>
+			<dt><label for="decerto_gioco">{L_DECERTO_GIOCO}:</label></dt>
+			<dd><input type="text" class="inputbox autowidth" name="decerto_gioco" id="decerto_gioco" maxlength="248" value="" /></dd>
+			
+			<dt><label for="decerto_gioco_corto">{L_DECERTO_GIOCO_CORTO}:</label></dt>
+			<dd><input type="text" class="inputbox autowidth" name="decerto_gioco_corto" id="decerto_gioco_corto" size="5" maxlength="5" value="" /> {L_MAX_5}</dd>
+			
+			<dt><label for="decerto_mode1">{L_DECERTO_MODE1}:</label></dt>
+			<dd><input type="text" class="inputbox autowidth" name="decerto_mode1" id="decerto_mode1" maxlength="248" value="" /></dd>
+			
+			<dt><label for="decerto_mode2">{L_DECERTO_MODE2}:</label></dt>
+			<dd><input type="text" class="inputbox autowidth" name="decerto_mode2" id="decerto_mode2" maxlength="248" value="" /></dd>
+			
+			<dt><label for="decerto_mode3">{L_DECERTO_MODE3}:</label></dt>
+			<dd><input type="text" class="inputbox autowidth" name="decerto_mode3" id="decerto_mode3" maxlength="248" value="" /></dd>
+		</dl>
+
+		<p class="quick">
+			<input type="submit" name="submit_game" value="{L_SUBMIT}" class="button1" />
+		</p>
+	</fieldset>
+</form>
+
+<form method="post" action="{U_ACTION}">
+	<fieldset>
+		<legend>{L_AGGIUNGI_CPC}</legend>
+		<dl>
+			<dt><label for="decerto_gioco_cpc">{L_DECERTO_GIOCO}:</label></dt>
+			<dd><input type="text" class="inputbox autowidth" name="decerto_gioco" id="decerto_gioco_cpc" maxlength="248" value="" /></dd>
+			
+			<dt><label for="decerto_gioco_corto_cpc">{L_DECERTO_GIOCO_CORTO}:</label></dt>
+			<dd><input type="text" class="inputbox autowidth" name="decerto_gioco_corto" id="decerto_gioco_corto_cpc" size="5" maxlength="5" value="" /> {L_MAX_5}</dd>
+			
+			<dt><label for="decerto_mode1_cpc">{L_DECERTO_MODO}:</label></dt>
+			<dd><input type="text" class="inputbox autowidth" name="decerto_mode1" id="decerto_mode1_cpc" maxlength="248" value="" /></dd>
+		</dl>
+
+		<p class="quick">
+			<input type="submit" name="submit_cpc" value="{L_SUBMIT}" class="button1" />
+		</p>
+	</fieldset>
+</form>
+
+<p>{L_LEGENDA_CPC}</p>
+
+<hr />
+
+<p><br /></p>
+
+<form method="post" action="{U_ACTION}">
+<fieldset>
+	<legend>{L_AGGIUNGI_DECERTO_DETTAGLI}</legend>
+	<dl>
+		<dt><label for="gioco_dec">{L_DECERTO_GIOCO}:</label></dt>
+		<dd>
+			<select name="gioco_dec" id="gioco_dec" class="inputbox autowidth">
+			<!-- BEGIN giochi -->
+				<option value="{giochi.LINKER}">[{giochi.CPC}] {giochi.NOME_GIOCO} - {giochi.MODALITA}</option>
+				<!-- BEGINELSE -->
+				<option value="">{L_ANY_GAMES_SAVED}</option>
+			<!-- END giochi -->
+			</select>
+		</dd>
+		<dt><label for="decerto_mappa">{L_DECERTO_MAPPA}:</label></dt>
+		<dd><input type="text" class="inputbox autowidth" name="decerto_mappa" id="decerto_mappa" maxlength="248" value="" /></dd>
+	</dl>
+
+	<p class="quick">
+		<input type="submit" name="submit_game_dettaglio" value="{L_SUBMIT}" class="button1" />
+	</p>
+</fieldset>
+</form>
+
+<hr />
+
+<p><br /></p>
+
+<fieldset>
+	<legend>{L_DECERTO_GIOCHI_E_MODALITA}</legend>
+	
+	<p>{L_DECERTO_ACTIVATION_DESC}</p>
+	
+		<table cellspacing="1">
+			<tr>
+				<th>{L_DECERTO_GIOCO}</th>
+				<th>{L_DECERTO_MODE}</th>
+				<th>{L_DECERTO_CPC}</th>
+				<th>{L_AZIONI}</th>
+			</tr>
+			<!-- BEGIN categorie_decerto -->
+			<tr>
+				<td class="row3">{categorie_decerto.NOME_GIOCO} ({categorie_decerto.NOME_GIOCO_CORTO}) <img src="{ROOT_PATH}/style/rivals/{categorie_decerto.ACTIVE}.gif" alt="{categorie_decerto.ACTIVE}" style="vertical-align:middle;" /></td>
+				<td class="row3">{categorie_decerto.MODALITA}</td>
+				<td class="row3">{categorie_decerto.CPC}</td>
+				<td class="row3"><a href="{categorie_decerto.U_DELETE}">{L_DELETE}</a> - <a href="#" onclick="setVisibility('dettaglio{categorie_decerto.SELETTORE}', 'block');">{L_MOSTRA_DETTAGLIO}</a></td>
+			</tr>
+			<tr>
+				<td class="row3" colspan="4">
+					<div id="dettaglio{categorie_decerto.SELETTORE}" style="display: none;">
+						<a href="#" onclick="setVisibility('dettaglio{categorie_decerto.SELETTORE}', 'none');">{L_NASCONDI_DETTAGLIO}</a>
+						<br />
+						<ul style="list-style:none;margin-top:20px;">
+							<!-- BEGIN mappe -->
+							<li><strong>{mappe.MAPPA}</strong> - [<a href="{mappe.U_DELETE}">{L_DELETE}</a>]</li>
+							<!-- BEGINELSE -->
+							<li>{L_ANY_MAPS_SAVED}</li>
+							<!-- END mappe -->
+						</ul>
+					</div>
+				</td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr>
+				<td class="row3" colspan="4">{L_NO_RECORD}</td>
+			</tr>
+			<!-- END categorie_decerto -->
+		</table>
+	</fieldset>
+
+<!-- INCLUDE overall_footer.html -->

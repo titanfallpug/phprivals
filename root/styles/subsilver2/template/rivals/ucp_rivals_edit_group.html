@@ -1,0 +1,67 @@
+<!-- INCLUDE ucp_header.html -->
+
+<div class="panel">
+	
+	<form id="editclan" action="{U_ACTION}" method="post" enctype="multipart/form-data">
+	
+		<!-- IF ERROR -->
+		<p class="rv_errorbox"><span class="gensmall">{ERROR}</span></p>
+		<!-- ENDIF -->
+
+		<table class="tablebg" width="100%" cellspacing="1">
+			<tr>
+				<th colspan="3" valign="middle">{L_EDIT_GROUP}</th>
+			</tr>
+			<tr class="genmed">
+				<td class="row1"><strong>{L_GROUP_NAME}</strong>:</td>
+				<td class="row2"><input type="text" name="group_name" value="{GROUP_NAME}" class="inputbox autowidth" size="50" maxlength="248" /></td>
+				<td class="row3 rvcenter"><strong>{L_DELETE}</strong> <input type="checkbox" name="group_delete" value="1" /></td>
+			</tr>
+			<tr class="genmed">
+				<td class="row1"><strong>{L_GROUP_SITO}</strong>:</td>
+				<td class="row2" colspan="2"><input type="text" name="group_sito" value="{GROUP_SITO}" class="inputbox autowidth" size="50" maxlength="248" /></td>
+			</tr>
+			<tr class="genmed">
+				<td class="row1"><strong>{L_GROUP_DESC}</strong>:</td>
+				<td class="row2" colspan="2"><textarea cols="40" rows="5" name="group_desc" class="inputbox narrow">{GROUP_DESC}</textarea></td>
+			</tr>
+			<tr class="genmed"> 
+				<td class="row1 rv160"><strong class="genmed">{L_CURRENT_IMAGE}: </strong><br /><span class="gensmall">{L_AVATAR_EXPLAIN}</span></td>
+				<td class="row2 rvcenter" colspan="2" >
+					<br />
+					<!-- IF AVATAR --><img src="{ROOT_PATH}images/rivals/clanlogo/{AVATAR}" alt="{AVATAR}" width="{AVATAR_X}" height="{AVATAR_Y}" /><br />
+					<br /><input type="checkbox" class="radio" name="logo_delete" />&nbsp;<span class="gensmall">{L_DELETE_AVATAR}</span>
+					<!-- ENDIF -->
+				</td>
+			</tr>
+			<tr class="genmed"> 
+				<td class="row1 rv160"><strong class="genmed">{L_GROUP_LOGO}: </strong><br /><span class="gensmall">{L_UPLOAD_AVATAR_URL_EXPLAIN}</span></td>
+				<td class="row2" colspan="2"><input type="file" name="group_logo" id="group_logo" /></td>
+			</tr>
+			<tr class="genmed">
+				<td class="row1"><strong>{L_FAVOURITE_MAP}</strong>: {L_FAVOURITE_MAP_EXPLAIN}</td>
+				<td class="row2" colspan="2"><input type="text" name="clan_favouritemap" size="50" maxlength="248" value="{FAVMAP}" class="inputbox autowidth" /></td>
+			</tr>
+			<tr class="genmed">
+				<td class="row1"><strong>{L_FAVOURITE_TEAM}</strong>: {L_FAVOURITE_TEAM_EXPLAIN}</td>
+				<td class="row2" colspan="2"><input type="text" name="clan_favouriteteam" size="50" maxlength="248" class="inputbox autowidth" value="{FAVTEAM}" /></td>
+			</tr>
+			<tr class="genmed">
+				<td class="row1"><strong>{L_GUID}</strong>:</td>
+				<td class="row2" colspan="2"><input type="text" name="guid" id="guid" size="10" maxlength="8" class="inputbox autowidth" value="{GUID}" /> {L_GUID_CHARA} <input type="button" value="{L_RANDOM_GEN}" onclick="randomGUID();" class="rvbutton2" /></td>
+			</tr>
+			<tr class="genmed">
+				<td class="row1"><strong>{L_UAC}</strong>:</td>
+				<td class="row2" colspan="2"><input type="text" name="uac" size="8" maxlength="6" class="inputbox autowidth" value="{UAC}" /> {L_UAC_CHARA} <input type="button" value="{L_RANDOM_GEN}" onclick="randomUAC();" class="rvbutton2" /></td>
+			</tr>
+			<tr class="genmed">
+				<td class="cat rvcenter" colspan="3"><input type="hidden" name="group_id" value="{GROUP_ID}" /><input type="submit" name="submit" value="{L_SUBMIT}" class="rvbutton2" /></td>
+			</tr>
+		</table>
+		
+	{S_HIDDEN_FIELDS}
+	{S_FORM_TOKEN}
+	</form>
+</div>
+
+<!-- INCLUDE ucp_footer.html -->

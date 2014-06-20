@@ -1,0 +1,60 @@
+<!-- INCLUDE overall_header.html -->
+
+<div id="pagecontent">
+    
+	<fieldset>
+		<p class="bigtitolo">{L_LISTA_CLAN_COMPLETA}</p>
+		<p class="subtitle"><a href="{CLANACTIVEPG}">{L_LIST_ONLY_ACTIVE}</a></p>
+		<p>*{L_LISTA_CLAN_COMPLETA_DESC}</p>
+	</fieldset>
+	
+	<fieldset>
+		<p class="filtrino">
+			<!-- BEGIN block_tutti --><a href="{block_tutti.U_TUTTI}" class="i_all">{L_ALL}</a>  - <a href="{block_tutti.U_09}" class="i_all">{L_09}</a> <!-- END block_tutti -->
+			<!-- BEGIN block_alphas --><a href="{block_alphas.U_ALPHA}" class="i_abcdz">{block_alphas.ALPHA}</a><!-- END block_alphas -->
+		</p>
+
+		<p class="breadcrumbs"><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a></p>
+		<!-- IF PAGINATION --><p class="datetime">{PAGINATION}</p><!-- ENDIF -->
+	</fieldset>
+
+	<div class="forumbg">
+		<div class="inner"><span class="corners-top"><span></span></span>	
+		<fieldset>
+			<table class="tablebg" width="100%" cellspacing="1">
+				<tr class="genmed rvcenter">
+					<th class="row3">{L_LADDER_GROUP_NAME}</th>
+					<th class="row3">{L_AZIONE}</th>
+					<th class="row3">{L_GROUP_ID}</th>
+					<th class="row3">{L_STATUS}</th>
+				</tr>
+				<!-- BEGIN clan_list -->
+				<tr class="genmed">
+					<td class="{clan_list.ROW_COLOR}"><a href="{clan_list.U_ACTION}"><strong class="gen">{clan_list.GROUP_NAME}</strong></a></td>
+					<td class="{clan_list.ROW_COLOR} rv100 rvcenter"><a href="{clan_list.U_CHALLENGE}">{clan_list.WAR}</a></td>
+					<td class="{clan_list.ROW_COLOR} rv50 rvcenter">{clan_list.GROUP_ID}</td>
+					<td class="{clan_list.ROW_COLOR} rv100 rvcenter">{clan_list.STATUS}</td>
+				</tr>
+				<!-- BEGINELSE -->
+				<tr>
+					<td class="row1 rvcenter" colspan="5">{L_NO_GROUPS_FOUND}</td>
+				</tr>
+				<!-- END clan_list -->
+			</table>
+		</fieldset>
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+	
+	<fieldset>
+		<p class="filtrino"><br />
+			<!-- BEGIN block_tutti --><a href="{block_tutti.U_TUTTI}" class="i_all">{L_ALL}</a>  - <a href="{block_tutti.U_09}" class="i_all">{L_09}</a> <!-- END block_tutti -->
+			<!-- BEGIN block_alphas --><a href="{block_alphas.U_ALPHA}" class="i_abcdz">{block_alphas.ALPHA}</a><!-- END block_alphas -->
+		</p>
+
+		<p class="breadcrumbs"><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a></p>
+		<!-- IF PAGINATION --><p class="datetime">{PAGINATION}</p><!-- ENDIF -->
+	</fieldset>
+
+</div>
+
+<!-- INCLUDE overall_footer.html --> 

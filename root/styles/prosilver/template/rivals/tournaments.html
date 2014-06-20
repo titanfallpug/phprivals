@@ -1,0 +1,70 @@
+<!-- INCLUDE overall_header.html -->
+
+<p class="cat_title2 rvcenter">{L_TOURNAMENTS}</p>
+
+<fieldset>
+<table class="tablebg">
+	<!-- BEGIN block_tournaments -->
+	<tr class="genmed">
+		<td class="{block_tournaments.ROW_COLOR} rvcenter rv200">
+			<img src="{ROOT_PATH}images/rivals/tournamentlogo/{block_tournaments.TOURNAMENT_LOGO}" alt="{block_tournaments.TOURNAMENT_NAME}" title="{block_tournaments.TOURNAMENT_NAME}" />
+		</td>
+		<td class="{block_tournaments.ROW_COLOR} rvcenter">
+			<span class="tourament_title">{block_tournaments.TOURNAMENT_NAME}</span>
+			<!-- IF block_tournaments.USERBASED -->{block_tournaments.USERBASED}<!-- ENDIF -->
+		</td>
+		<td class="{block_tournaments.ROW_COLOR} rvcenter rv240">
+			&bull; {L_TOURNAMENT_TYPE}: {block_tournaments.TIPO}<br />
+			&bull; {L_SLOT_LIBERI}: {block_tournaments.SLOTS}<br />
+			&bull; {L_TOURNAMENT_STARTS}: {block_tournaments.TIME}<br />
+			&bull; {block_tournaments.LICENZA}
+		</td>
+		<td class="{block_tournaments.ROW_COLOR} rvcenter rv200">
+			<!-- IF block_tournaments.SHOW_SIGNUP -->
+			<a href="{block_tournaments.U_ACTION3}">{L_SIGNUP}</a><br />
+			<!-- ENDIF -->
+			<!-- IF block_tournaments.SHOW_REMOVE -->
+			<a href="{block_tournaments.U_ACTION4}">{L_LEAVE_YOU}</a><br />
+			<!-- ENDIF -->
+			<!-- IF block_tournaments.SHOW_INVITE -->
+			{L_INVITE_ONLY}
+			<!-- ENDIF -->
+			<a href="{block_tournaments.U_ACTION}">{L_VIEW_BRACKETS}</a><br />
+			<a href="{block_tournaments.U_ACTION2}">{L_DETAILS}</a>
+		</td>
+	</tr>
+	<!-- BEGINELSE -->
+	<tr class="genmed">
+		<td class="row1" colspan="5">{L_NO_TOURNAMENTS}</td>
+	</tr>
+	<!-- END block_tournaments -->
+</table>
+</fieldset>
+<br />
+<fieldset>
+	<p class="cat_title2 rvcenter">{L_ARCHIVED_TOURNAMENTS} {SEASON_NAME}</p>
+	<p class="breadcrumbs">{PAGE_NUMBER}</p>
+	<!-- IF PAGINATION --><p class="datetime">{PAGINATION}</p><!-- ENDIF -->
+	
+	<table class="tablebg">
+		<!-- BEGIN block_archivedtournaments -->
+		<tr class="genmed">
+			<td class="{block_archivedtournaments.ROW_COLOR} rvcenter rv100"><strong>{block_archivedtournaments.TIME}</strong></td>
+			<td class="{block_archivedtournaments.ROW_COLOR} rvcenter"><strong>{block_archivedtournaments.TOURNAMENT_NAME}</strong></td>
+			<td class="{block_archivedtournaments.ROW_COLOR} rvcenter rv100"><a href="{block_archivedtournaments.U_ACTION}">{L_VIEW_BRACKETS}</a></td>
+		</tr>
+		<!-- BEGINELSE -->
+		<tr class="genmed">
+			<td class="row1" colspan="3">{L_NO_ARCHIVED_TOURNAMENTS}</td>
+		</tr>
+		<!-- END block_archivedtournaments -->
+	</table>
+	
+	<p>&nbsp;</p>
+	<p class="breadcrumbs">{PAGE_NUMBER}</p>
+	<!-- IF PAGINATION --><p class="datetime">{PAGINATION}</p><!-- ENDIF -->
+</fieldset>
+
+<p class="rvcenter"><em><a href="http://www.nipponart.org/phprivals-mod">phpRivals Mod 2.0 by Soshen</a> - based on phpBB Rivals by Tyler N. King</em></p>
+
+<!-- INCLUDE overall_footer.html -->

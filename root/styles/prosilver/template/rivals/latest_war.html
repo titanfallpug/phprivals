@@ -1,0 +1,234 @@
+<!-- INCLUDE overall_header.html -->
+
+<div id="clanpage" class="clanpage tabs">
+
+	<div>
+		<ul class="tabs-nav">
+			<li class="active"><span class="left"></span><a id="clanmatch-tab" href="#clanmatch" onclick="return ShowSection(this);">{L_CLAN_MATCH}</a><span class="right"></span></li>
+			<li><span class="left"></span><a id="usermatch-tab" href="#usermatch" onclick="return ShowSection(this);">{L_USER_MATCH}</a><span class="right"></span></li>
+		</ul>
+	</div>
+	
+	<div id="pagecontent" class="main4tabs">
+	
+		<div id="view-clanmatch" class="tabs-panel panel-active">
+			<fieldset>
+				<p class="bigtitolo" id="clanchart">{L_LATEST_WAR_TITLE}</p>
+			</fieldset>
+			
+			<div class="forumbg">
+				<div class="inner"><span class="corners-top"><span></span></span>	
+					<fieldset>
+						<table class="table1" cellspacing="1">
+							<thead>
+								<tr class="genmed rvcenter">
+									<th>{L_PLAYED_TIME}</th>
+									<th>{L_CHALLANGER}</th>
+									<th></th>
+									<th>{L_CHALLANGEE}</th>
+									<th>{L_INFORMAZIONI_WAR}</th>
+									<th>{L_LADDER}</th>
+									<th>{L_STATS}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- BEGIN block_matchhistory -->
+								<tr class="genmed">
+									<td class="{block_matchhistory.ROW_COLOR} rvcenter rv80">{block_matchhistory.DATE}</td>
+									<td class="{block_matchhistory.ROW_COLOR} rvcenter">
+										<a href="{block_matchhistory.U_ER}" class="clanname">{block_matchhistory.CHALLANGER}<!-- IF block_matchhistory.SCORE --> ({block_matchhistory.ER_SCORE})<!-- ENDIF --></a>
+										<!-- IF block_matchhistory.CALCIO --><br />({block_matchhistory.ER_TEAM})<!-- ENDIF -->
+									</td>
+									<td class="{block_matchhistory.ROW_COLOR} rvcenter rv15">{L_VS}</td>
+									<td class="{block_matchhistory.ROW_COLOR} rvcenter">
+										<a href="{block_matchhistory.U_EE}" class="clanname">{block_matchhistory.CHALLANGEE}<!-- IF block_matchhistory.SCORE --> ({block_matchhistory.EE_SCORE})<!-- ENDIF --></a>
+										<!-- IF block_matchhistory.CALCIO --><br />({block_matchhistory.EE_TEAM})<!-- ENDIF -->
+									</td>
+									<td class="{block_matchhistory.ROW_COLOR} rv300">
+										<ul>
+											<!-- IF not block_matchhistory.SCORE --><li class="rivalsli"><span class="rivalwinner">{L_RESULT}: {block_matchhistory.THEWINNER}</span></li><!-- ENDIF -->
+											<li class="rivalsli">{L_MAPSET}<!-- IF block_matchhistory.MAP1 eq '-' -->{L_LIBERO}</li><!-- ELSE IF --></li>
+											<li class="rivalsli">-[1] {block_matchhistory.MAP1} - <!-- IF block_matchhistory.DECERTO -->{block_matchhistory.MODE1}: [{block_matchhistory.MODE1_ER_SCOR} - {block_matchhistory.MODE1_EE_SCOR}]<!-- ENDIF --></li>
+											<li class="rivalsli">-[2] {block_matchhistory.MAP2} - <!-- IF block_matchhistory.DECERTO -->{block_matchhistory.MODE2}: [{block_matchhistory.MODE2_ER_SCOR} - {block_matchhistory.MODE2_EE_SCOR}]<!-- ENDIF --></li>
+											<li class="rivalsli">-[3] {block_matchhistory.MAP3} - <!-- IF block_matchhistory.DECERTO -->{block_matchhistory.MODE3}: [{block_matchhistory.MODE3_ER_SCOR} - {block_matchhistory.MODE3_EE_SCOR}]<!-- ENDIF --></li>
+										<!-- ENDIF -->
+											<li class="rivalsli">{block_matchhistory.CLASSIFICATA}</li>
+										</ul>
+									</td>
+									<td class="{block_matchhistory.ROW_COLOR} rv200">
+										<a href="{block_matchhistory.U_LADDER}">
+											<strong>{L_PLATFORM}</strong>: {block_matchhistory.PLATFORM}<br />
+											<strong>{L_LADDER}</strong>: {block_matchhistory.LADDER}<br />
+											<strong>{L_SUBLADDER}</strong>: {block_matchhistory.SUBLADDER}
+										</a>
+									</td>
+									<td class="{block_matchhistory.ROW_COLOR} rv30">
+										<!-- IF block_matchhistory.ADVSTATS || block_matchhistory.MVP -->
+										<a href="#" onmouseover="toggleDiv('div{block_matchhistory.MATCH_ID}',1)" onmouseout="toggleDiv('div{block_matchhistory.MATCH_ID}',0)"><img src="{ROOT_PATH}rivals/images/info.gif" alt="{L_INFO}" /></a>
+										<!-- ELSE IF -->
+										<img src="{ROOT_PATH}rivals/images/info_no.gif" alt="{L_INFO}" />
+										<!-- ENDIF -->
+										
+										<div id="div{block_matchhistory.MATCH_ID}" class="rivalpopup_clan">
+											<!-- IF block_matchhistory.MVP -->
+											<ul>
+												<li>[ {L_MVPS} ] {L_ROUND1}: <strong>{block_matchhistory.MVP1}</strong></li>
+												<li>[ {L_MVPS} ] {L_ROUND2}: <strong>{block_matchhistory.MVP2}</strong></li>
+												<li>[ {L_MVPS} ] {L_ROUND3}: <strong>{block_matchhistory.MVP3}</strong></li>
+											</ul>
+											<!-- ENDIF -->
+											<table cellpadding="1" cellspacing="0" class="tablebg430" border="1">
+												<!-- IF block_matchhistory.CALCIO -->
+												<thead>
+													<tr class="genmed rvcenter">
+														<th class="row1 rvleft">{L_USERNAME}</th>
+														<th class="row1">{L_GAMERNAME}</th>
+														<th class="row1 rv50">{L_RATIO}</th>
+														<th class="row1 rv30">{L_GOALSF}</th>
+														<th class="row1 rv30">{L_GOALSA}</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- BEGIN block_advstats -->
+													<tr class="genmed rvcenter">
+														<td class="rvleft">{block_advstats.USERNAME}</td>
+														<td>{block_advstats.USERGT}</td>
+														<td class="rv50">{block_advstats.RATIOC}%</td>
+														<td class="rv30">{block_advstats.GOALS_F}</td>
+														<td class="rv30">{block_advstats.GOALS_S}</td>
+													</tr>
+													<!-- BEGINELSE -->
+													<tr class="genmed rvcenter">
+														<td></td>
+													</tr>
+													<!-- END block_advstats -->
+												<!-- ELSE IF -->
+												<thead>
+													<tr class="genmed rvcenter">
+														<th class="row1 rvleft">{L_USERNAME}</th>
+														<th class="row1">{L_GAMERNAME}</th>
+														<th class="row1 rv50">{L_RATIO}</th>
+														<th class="row1 rv30">{L_KILLS}</th>
+														<th class="row1 rv30">{L_DEADS}</th>
+														<th class="row1 rv30">{L_ASSISTS}</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- BEGIN block_advstats -->
+													<tr class="genmed rvcenter">
+														<td class="rvleft">{block_advstats.USERNAME}</td>
+														<td>{block_advstats.USERGT}</td>
+														<td class="rv50">{block_advstats.RATIO}%</td>
+														<td class="rv30">{block_advstats.KILLS}</td>
+														<td class="rv30">{block_advstats.DEADS}</td>
+														<td class="rv30">{block_advstats.ASSISTS}</td>
+													</tr>
+													<!-- BEGINELSE -->
+													<tr class="genmed rvcenter">
+														<td></td>
+													</tr>
+													<!-- END block_advstats -->
+												<!-- ENDIF -->
+												</tbody>
+											</table>
+										</div>
+										
+									</td>
+								</tr>
+								<!-- BEGINELSE -->
+								<tr class="genmed rvcenter">
+									<td class="row1" colspan="7">{L_NO_MATCHES}</td>
+								</tr>
+								<!-- END block_matchhistory -->
+							</tbody>
+						</table>
+					</fieldset>
+				<span class="corners-bottom"><span></span></span></div>
+			</div>
+		</div>
+		
+		<div id="view-usermatch" class="tabs-panel">
+			<fieldset>
+				<p class="bigtitolo" id="userchart">{L_LATEST_WAR_USERS_TITLE}</p>
+			</fieldset>
+			<div class="forumbg">
+				<div class="inner"><span class="corners-top"><span></span></span>	
+					<fieldset>
+						<table class="table1" cellspacing="1">
+							<thead>
+								<tr class="rvcenter">
+									<th>{L_PLAYED_TIME}</th>
+									<th>{L_CHALLANGER}</th>
+									<th></th>
+									<th>{L_CHALLANGEE}</th>
+									<th>{L_INFORMAZIONI_WAR}</th>
+									<th>{L_LADDER}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- BEGIN block_matchhistory_user -->
+								<tr class="genmed">
+									<td class="{block_matchhistory_user.ROW_COLOR} rvcenter rv80">{block_matchhistory_user.DATE}</td>
+									<td class="{block_matchhistory_user.ROW_COLOR} rvcenter">
+										<a href="{block_matchhistory_user.U_ER}" class="clanname">{block_matchhistory_user.CHALLANGER}<!-- IF block_matchhistory_user.SCORE --> ({block_matchhistory_user.ER_SCORE})<!-- ENDIF --></a>
+										<!-- IF block_matchhistory_user.CALCIO --><br />({block_matchhistory_user.ER_TEAM})<!-- ENDIF -->
+									</td>
+									<td class="{block_matchhistory_user.ROW_COLOR} rvcenter rv15">
+										{L_VS}
+									</td>
+									<td class="{block_matchhistory_user.ROW_COLOR} rvcenter">
+										<a href="{block_matchhistory_user.U_EE}" class="clanname">{block_matchhistory_user.CHALLANGEE}<!-- IF block_matchhistory_user.SCORE --> ({block_matchhistory_user.EE_SCORE})<!-- ENDIF --></a>
+										<!-- IF block_matchhistory_user.CALCIO --><br />({block_matchhistory_user.EE_TEAM})<!-- ENDIF -->
+									</td>
+									<td class="{block_matchhistory_user.ROW_COLOR} rv300">
+										<ul>
+											<!-- IF not block_matchhistory_user.SCORE --><li class="rivalsli"><span class="rivalwinner">{L_RESULT}: {block_matchhistory_user.THEWINNER}</span></li><!-- ENDIF -->
+											<li class="rivalsli">{L_MAPSET}<!-- IF block_matchhistory_user.MAP1 eq '-' -->{L_LIBERO}</li><!-- ELSE IF --></li>
+											<li class="rivalsli">-[1] {block_matchhistory_user.MAP1} - <!-- IF block_matchhistory_user.DECERTO -->{block_matchhistory_user.MODE1}: [{block_matchhistory_user.MODE1_ER_SCOR} - {block_matchhistory_user.MODE1_EE_SCOR}]<!-- ENDIF --></li>
+											<li class="rivalsli">-[2] {block_matchhistory_user.MAP2} - <!-- IF block_matchhistory_user.DECERTO -->{block_matchhistory_user.MODE2}: [{block_matchhistory_user.MODE2_ER_SCOR} - {block_matchhistory_user.MODE2_EE_SCOR}]<!-- ENDIF --></li>
+											<li class="rivalsli">-[3] {block_matchhistory_user.MAP3} - <!-- IF block_matchhistory_user.DECERTO -->{block_matchhistory_user.MODE3}: [{block_matchhistory_user.MODE3_ER_SCOR} - {block_matchhistory_user.MODE3_EE_SCOR}]<!-- ENDIF --></li>
+										<!-- ENDIF -->
+											<li class="rivalsli">{block_matchhistory_user.CLASSIFICATA}</li>
+										</ul>
+									</td>
+									<td class="{block_matchhistory_user.ROW_COLOR} rv200">
+										<a href="{block_matchhistory_user.U_LADDER}">
+											<strong>{L_PLATFORM}</strong>: {block_matchhistory_user.PLATFORM}<br />
+											<strong>{L_LADDER}</strong>: {block_matchhistory_user.LADDER}<br />
+											<strong>{L_SUBLADDER}</strong>: {block_matchhistory_user.SUBLADDER}
+										</a>
+									</td>
+								</tr>
+								<!-- BEGINELSE -->
+								<tr class="genmed rvcenter">
+									<td class="row1" colspan="7">{L_NO_MATCHES}</td>
+								</tr>
+								<!-- END block_matchhistory_user -->
+							</tbody>
+						</table>
+					</fieldset>
+				<span class="corners-bottom"><span></span></span></div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<script type="text/javascript">
+<!--
+function toggleDiv(id,flagit) {
+if (flagit=="1"){
+if (document.layers) document.layers[''+id+''].display = "block"
+else if (document.all) document.all[''+id+''].style.display = "block"
+else if (document.getElementById) document.getElementById(''+id+'').style.display = "block"
+}
+else
+if (flagit=="0"){
+if (document.layers) document.layers[''+id+''].display = "none"
+else if (document.all) document.all[''+id+''].style.display = "none"
+else if (document.getElementById) document.getElementById(''+id+'').style.display = "none"
+}
+}
+//-->
+</script>
+<!-- INCLUDE overall_footer.html --> 

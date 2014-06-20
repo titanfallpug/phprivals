@@ -1,0 +1,86 @@
+<!-- INCLUDE overall_header.html -->
+
+<div class="forumbg">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<fieldset>
+		<table class="tablebg" cellspacing="1" cellpadding="0" style="margin-top: 5px;">
+			<tr>
+				<td class="row1">
+					<p class="imgbutton"><!-- IF U_MEMBERSHIP --><a href="{U_MEMBERSHIP}">{JIMAGES}</a> <!-- ENDIF -->
+					<!-- IF U_HIBERNATION --><a href="{U_HIBERNATION}">{HIBERNAT_IMG}</a> <!-- ENDIF -->
+					<a href="{U_RULES}">{RULESIMG}</a> .:. {L_NUM_GROUPS}: {TOT_CLANS} .:. {L_FINISHED_MATCHES}: {TOT_WARS}</p>
+					<p class="breadcrumbs">{PAGE_NUMBER}</p>
+					<!-- IF PAGINATION --><p class="datetime">{PAGINATION}</p><!-- ENDIF -->
+				</td>
+			</tr>
+		</table>
+		</fieldset>
+		
+		<hr />
+
+		<!-- IF LAD_WINNER --><fieldset><p class="ladwinner">{L_LADDER_WINNER_IS}<a href="{U_LADWINNER}">{LAD_WINNER}</a></p></fieldset><!-- ENDIF -->
+
+		<fieldset>
+		<table class="table1" cellspacing="1">
+			<thead>
+				<tr class="rvcenter">
+					<th class="rv60">{L_POS}</th>
+					<th>{L_LADDER_GROUP_NAME}</th>
+					<th class="rv80">{L_LADDER_GROUP_SCORE}</th>
+					<th class="rv60">{L_LADDER_GROUP_WINS}</th>
+					<th class="rv60">{L_LADDER_GROUP_LOSSES}</th>
+					<th class="rv60">{L_RATIO}</th>
+					<th class="rv60">{L_LADDER_GROUP_STREAK}</th>
+					<th class="rv60">{L_LADDER_STATUS}</th>
+					<th class="rv40">{L_LADDER_GROUP_ID}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN block_groups -->
+				<tr class="genmed rvcenter">
+					<td class="{block_groups.ROW_COLOR}"><strong>{block_groups.POS}</strong> {block_groups.UP_DOWN}</td>
+					<td class="{block_groups.ROW_COLOR} rvleft"><a href="{block_groups.U_ACTION}">{block_groups.GROUP_NAME}</a> <!-- IF block_groups.U_CHALLENGE_LINK -->[<a href="{block_groups.U_CHALLENGE_LINK}">{L_CHALLENGE}</a>]<!-- ENDIF --> 
+					<!-- IF block_groups.POLLO -->&nbsp; {block_groups.CHICKEN} <!-- ENDIF -->&nbsp; {block_groups.HOT_COLD} &nbsp; {block_groups.BEST}</td>
+					<td class="{block_groups.ROW_COLOR}">{block_groups.GROUP_SCORE}</td>
+					<td class="{block_groups.ROW_COLOR}">{block_groups.GROUP_WINS}</td>
+					<td class="{block_groups.ROW_COLOR}">{block_groups.GROUP_LOSSES}</td>
+					<td class="{block_groups.ROW_COLOR}">{block_groups.GROUP_RATIO}</td>
+					<td class="{block_groups.ROW_COLOR}">{block_groups.GROUP_STREAK}</td>
+					<td class="{block_groups.ROW_COLOR}">{block_groups.STATUS}</td>
+					<td class="{block_groups.ROW_COLOR}">{block_groups.GROUP_ID}</td>
+				</tr>
+				<!-- BEGINELSE -->
+				<tr class="genmed rvcenter">
+					<td class="row1" colspan="9">{L_NO_MEMBERS_DATA}</td>
+				</tr>
+				<!-- END block_groups -->
+			</tbody>
+		</table>
+		</fieldset>
+
+		<fieldset>
+		<table class="tablebg" cellspacing="1" cellpadding="0" style="margin-top: 5px;">
+			<tr>
+				<td class="row1">
+					<p class="breadcrumbs">{PAGE_NUMBER}</p>
+					<p class="datetime">{PAGINATION}</p>
+				</td>
+			</tr>
+		</table>
+		</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<!-- IF ADVSTATS --><!-- INCLUDE rivals/subladders_advstats.html --><!-- ENDIF -->
+
+<hr />
+<fieldset>
+	{L_LEGENDA}
+	<p><img src="{T_TEMPLATE_PATH}/rivals/imgs_rival/crown.gif" class="rvmiddle" alt="" /> {L_CORONA}</p>
+	<p><img src="{T_TEMPLATE_PATH}/rivals/imgs_rival/tomb.png" class="rvmiddle" alt="" /> {L_TOMBA}</p>
+	<p><img src="{T_TEMPLATE_PATH}/rivals/imgs_rival/hot.png" class="rvmiddle" alt="" /> {L_CALDO}</p>
+	<p><img src="{T_TEMPLATE_PATH}/rivals/imgs_rival/cold.png" class="rvmiddle" alt="" /> {L_FREDDO}</p>
+	<!-- IF POLLO --><p><img src="{ROOT_PATH}/rivals/images/pollosmall.png" class="rvmiddle" alt="" /> {L_POLLO_EXP}</p><!-- ENDIF -->
+</fieldset>
+
+<!-- INCLUDE overall_footer.html -->

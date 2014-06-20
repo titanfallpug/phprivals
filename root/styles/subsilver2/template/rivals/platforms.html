@@ -1,0 +1,28 @@
+<!-- INCLUDE overall_header.html -->
+
+	
+		<table class="tablebg" width="100%" cellspacing="1">
+			<tr>
+				<th></th>
+				<th>{L_PLATFORM_LOGO}</th>
+				<th>{L_PLATFORM}</th>
+				<th>{L_LADDERS}</th>
+			</tr>
+			<!-- BEGIN block_platforms -->
+			<tr class="genmed">
+				<td class="{block_platforms.ROW_COLOR} rvcenter rv40"><strong>#{block_platforms.COUNT}</strong></td>
+				<td class="{block_platforms.ROW_COLOR} rvcenter rv400">
+					<a href="{block_platforms.U_ACTION}"><img src="{ROOT_PATH}images/rivals/platformlogo/{block_platforms.PLATFORM_LOGO}" alt="{block_platforms.PLATFORM_NAME}" title="{block_platforms.PLATFORM_NAME}" /></a>
+				</td>
+				<td class="{block_platforms.ROW_COLOR} rvcenter"><a href="{block_platforms.U_ACTION}"><span class="bigname">{block_platforms.PLATFORM_NAME}</span></a></td>
+				<td class="{block_platforms.ROW_COLOR} rvcenter rv80">{block_platforms.NUM_LADDERS}</td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr>
+				<td class="row1 rvmiddle rvleft" colspan="4">{L_NO_RECORD_DATA}</td>
+			</tr>
+			<!-- END block_platforms -->
+		</table>
+
+	
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,28 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- BEGIN block_mvp -->
+<form method="post" action="{block_mvp.U_ACTION}">
+	<fieldset>
+		<legend>{L_ACP_RIVALS_EDIT_MVP_LIST}</legend>
+		<dl>
+			<dt><label for="nome_mvp_{block_mvp.MVP_ID}">{L_MVPLIST_NAME}:</label></dt>
+			<dd><input type="text" size="70" name="nome_mvp" id="nome_mvp_{block_mvp.MVP_ID}" class="inputbox autowidth" value="{block_mvp.MVP_NAME}" /> | <strong>{L_DELETE}</strong> <input type="checkbox" name="delete" value="1" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="descrizione_mvp_{block_mvp.MVP_ID}">{L_MVPLIST_DESC}:</label></dt>
+			<dd><input type="text" size="125" name="descrizione_mvp" id="descrizione_mvp_{block_mvp.MVP_ID}" class="inputbox autowidth" value="{block_mvp.MVP_DESC}" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="platform_mvp_{block_mvp.MVP_ID}">{L_ATTIVA_SU}:</label></dt>
+			<dd><span id="platform_mvp_{block_mvp.MVP_ID}">[{block_mvp.PLATFORM_MVP}] - ({block_mvp.MAIN_LADDER}) - {block_mvp.LADDER_MVP}</span></dd>
+		</dl>
+
+		<p class="quick">
+			<input type="hidden" name="mvp_id" value="{block_mvp.MVP_ID}" />
+			<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+		</p>
+	</fieldset>
+</form>
+<!-- END block_mvp -->
+
+<!-- INCLUDE overall_footer.html -->

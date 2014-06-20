@@ -1,0 +1,46 @@
+<!-- INCLUDE overall_header.html -->
+<table cellspacing="1" width="550">
+	<caption>{L_WINNER_BRACKET}</caption>
+	<tbody>
+		<!-- BEGIN block_rounds -->
+		{block_rounds.TD}
+		<tr>
+			<td scope="row" {block_rounds.TD_OPTION}>&nbsp;</td>
+		</tr>
+		<!-- END block_rounds -->
+	</tbody>
+</table>
+
+<br />
+<form method="post" action="">
+<table cellspacing="1">
+	<caption>{L_GRUPPI_PRENOTATI}</caption>
+	<col class="col1" />
+	<thead>
+		<tr>
+			<th>{L_GROUP_NAME}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<!-- BEGIN non_assegnati -->
+		<tr>
+			<td>
+				{non_assegnati.CLAN} ({non_assegnati.NUMMERO})
+				<input type="hidden" class="inputbox autowidth" name="id_clan[]" value="{non_assegnati.CLAN_ID}" />
+				<input type="hidden" class="inputbox autowidth" name="posizione[]" value="{non_assegnati.NUMMERO}" />
+				<input type="hidden" class="inputbox autowidth" name="tournament_id" value="{non_assegnati.TOURNAMENT}" />
+			</td>
+		</tr>
+		<!-- END non_assegnati -->
+		<tr>
+			<td class="row3" align="center" >
+				{BOTTONE}
+			</td>
+		</tr>
+	</tbody>
+</table>
+{S_HIDDEN_FIELDS}
+{S_FORM_TOKEN}
+</form>
+
+<!-- INCLUDE overall_footer.html -->

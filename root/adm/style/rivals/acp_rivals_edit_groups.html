@@ -1,0 +1,252 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF GROUP_LEADER && not CLAN_CLOSED -->
+<form method="post" action="{U_ACTION}">
+<fieldset>
+	<legend>{L_EDIT_GROUPS}</legend>
+	<dl>
+		<dt><label for="group_name">{L_GROUP_NAME}:</label></dt>
+		<dd><input type="text" name="group_name" id="group_name" value="{GROUP_NAME}" class="inputbox autowidth" size="40" /> | <strong>{L_DELETE}</strong> <input type="checkbox" name="group_delete" value="1" />
+			| <strong>{L_CLOSE}</strong> <input type="checkbox" name="group_ban" value="1" {CLOSED} />
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="group_sito">{L_GROUP_SITO}:</label></dt>
+		<dd><input type="text" name="group_sito" id="group_sito" value="{GROUP_SITO}" class="inputbox autowidth" size="40" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="group_desc">{L_GROUP_DESC}:</label></dt>
+		<dd><textarea cols="40" rows="5" name="group_desc" id="group_desc" class="inputbox narrow">{GROUP_DESC}</textarea></dd>
+	</dl>
+	<dl>
+		<dt><label for="clan_favouritemap">{L_FAVOURITE_MAP}:</label></dt>
+		<dd><input type="text" name="clan_favouritemap" id="clan_favouritemap" value="{FAVMAP}" class="inputbox autowidth" size="40" /><br />{L_FAVOURITE_MAP_EXPLAIN}</dd>
+	</dl>
+	<dl>
+		<dt><label for="clan_favouritemap">{L_FAVOURITE_TEAM}:</label></dt>
+		<dd><input type="text" name="clan_favouriteteam" id="clan_favouriteteam" value="{FAVTEAM}" class="inputbox autowidth" size="40" /><br />{L_FAVOURITE_TEAM_EXPLAIN}</dd>
+	</dl>
+	<dl>
+		<dt><label for="group_level">{L_LICENCE}:</label></dt>
+		<dd>
+			<select name="group_level" id="group_level" class="inputbox autowidth">
+				<option value="0" {LICENCEC}>{L_LICENZA_C}</option>
+				<option value="1" {LICENCEB}>{L_LICENZA_B}</option>
+				<option value="2" {LICENCEA}>{L_LICENZA_A}</option>
+			</select>
+		</dd>
+	</dl>
+	<!-- IF AVATAR -->
+	<dl>
+		<dt><label for="logo_delete">{L_GROUP_LOGO}:</label></dt>
+		<dd><img src="{IMGPATH}{AVATAR}" alt="{AVATAR}" width="200" height="200" /><br />
+			{L_DELETE_AVATAR} <input type="checkbox" name="logo_delete" id="logo_delete" value="1" />
+		</dd>
+	</dl>
+	<!-- ENDIF -->
+	<p class="quick">
+		<input type="hidden" name="group_id" value="{GROUP_ID}" /><input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	</p>
+</fieldset>
+
+<fieldset>
+	<legend>{L_MOVE_GROUP_LADDER}</legend>
+	<dl>
+		<dt><label for="move_ladder">{L_LADDER}:</label></dt>
+		<dd>
+			<strong>{L_FROM}</strong><br />
+			<select name="move_from_ladder" id="move_from_ladder" class="inputbox autowidth">
+				<option value="0">----------------------------</option>
+				<!-- BEGIN block_ladders2 -->
+				<option value="{block_ladders2.LADDER_ID}">P: {block_ladders2.PLATFORM}, L: {block_ladders2.LADDER}, S: {block_ladders2.SUBLADDER}</option>
+				<!-- END block_ladders2 -->
+			</select><br />
+			<strong>to</strong><br />
+			<select name="move_ladder" id="move_ladder" class="inputbox autowidth">
+				<option value="0">----------------------------</option>
+				<!-- BEGIN block_ladders3 -->
+				<optgroup label="{block_ladders3.LADDER_NAME} ({block_ladders3.PLATFORM})">
+				<!-- BEGIN block_subladders3 -->
+				<option value="{block_ladders3.block_subladders3.LADDER_ID}">-- {block_ladders3.block_subladders3.LADDER_NAME}</option>
+				<!-- END block_subladders3 -->
+				</optgroup>
+				<!-- END block_ladders3 -->
+			</select>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="move_stats">{L_MOVE_STATS}</label></dt>
+		<dd><input type="checkbox" name="move_stats" id="move_stats" value="1" class="inputbox autowidth" /></dd>
+	</dl>
+</fieldset>
+
+<!-- BEGIN block_ladders -->
+<fieldset>
+	<legend>P: {block_ladders.PLATFORM}, L: {block_ladders.LADDER}, S: {block_ladders.SUBLADDER}</legend>
+	<dl>
+		<dt>&nbsp;</dt>
+		<dd><strong>{L_REMOVE_FROM_LADDER}</strong> <input type="checkbox" name="delete_ladder[]" value="{block_ladders.LADDER_ID}" /></dd>
+	</dl>
+	<!-- IF block_ladders.FROST -->
+	<dl>
+		<dt>&nbsp;</dt>
+		<dd><strong>{L_REMOVE_FROSTING}</strong> <input type="checkbox" name="delete_frost[]" value="{block_ladders.LADDER_ID}" /></dd>
+	</dl>
+	<!-- ENDIF -->
+	<dl>
+		<dt><label for="group_wins">{L_GROUP_WINS}:</label></dt>
+		<dd><input type="text" name="group_wins[]" id="group_wins" value="{block_ladders.GROUP_WINS}" class="inputbox autowidth" /><input type="hidden" name="group_ladder[]" value="{block_ladders.LADDER_ID}" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="group_losses">{L_GROUP_LOSSES}:</label></dt>
+		<dd><input type="text" name="group_losses[]" id="group_losses" value="{block_ladders.GROUP_LOSSES}" class="inputbox autowidth" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="group_score">{L_GROUP_SCORE}:</label></dt>
+		<dd><input type="text" name="group_score[]" id="group_score" value="{block_ladders.GROUP_SCORE}" class="inputbox autowidth" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="group_streak">{L_GROUP_STREAK}:</label></dt>
+		<dd><input type="text" name="group_streak[]" id="group_streak" value="{block_ladders.GROUP_STREAK}" class="inputbox autowidth" /></dd>
+	</dl>
+</fieldset>
+<!-- END block_ladders -->
+<fieldset>
+	<p class="quick">
+		<input type="hidden" name="group_id" value="{GROUP_ID}" /><input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	</p>
+</fieldset>
+
+<fieldset>
+	<legend>{L_ADD_GROUP_TO_LADDER}</legend>
+	<dl>
+		<dt>
+			<label for="add_to_ladder">{L_LADDER_NAME}</label>
+		</dt>
+		<dd>
+			<select name="add_to_ladder" id="add_to_ladder" class="inputbox autowidth">
+				<option value="0">----------------------------</option>
+				<!-- BEGIN block_ladders3 -->
+				<optgroup label="{block_ladders3.LADDER_NAME} ({block_ladders3.PLATFORM})">
+				<!-- BEGIN block_subladders3 -->
+				<option value="{block_ladders3.block_subladders3.LADDER_ID}">-- {block_ladders3.block_subladders3.LADDER_NAME}</option>
+				<!-- END block_subladders3 -->
+				</optgroup>
+				<!-- END block_ladders3 -->
+			</select>
+		</dd>
+	</dl>
+</fieldset>
+
+<fieldset>
+	<p class="quick">
+		<input type="hidden" name="group_id" value="{GROUP_ID}" /><input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	</p>
+</fieldset>
+
+<fieldset>
+	<legend>{L_ADD_GROUP_TO_TOURNAMENT}</legend>
+	<dl>
+		<dt>
+			<label for="add_to_tournament">{L_TOURNAMENT_NAME}</label>
+		</dt>
+		<dd>
+			<select name="add_to_tournament" id="add_to_tournament" class="inputbox autowidth">
+				<option value="0">----------------------------</option>
+				<!-- BEGIN block_tournaments -->
+				<option value="{block_tournaments.TOURNAMENT_ID}"> {block_tournaments.TOURNAMENT_NAME}</option>
+				<!-- END block_tournaments -->
+			</select>
+		</dd>
+	</dl>
+</fieldset>
+
+<fieldset>
+	<p class="quick">
+		<input type="hidden" name="group_id" value="{GROUP_ID}" /><input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	</p>
+</fieldset>
+{S_HIDDEN_FIELDS}
+{S_FORM_TOKEN}
+</form>
+
+<!-- ELSEIF GROUP_LEADER && CLAN_CLOSED -->
+<form method="post" action="{U_ACTION}">
+<fieldset>
+	{L_RESUME_DESC}
+	
+	<hr />
+	<h2>{GROUP_NAME}</h2>
+	
+	<!-- BEGIN block_members -->
+	<dl>
+		<dt>{block_members.USERNAME} ({block_members.GAMERNAME})</dt>
+		<dd>{block_members.LEVEL} - <input type="radio" name="newfounder" value="{block_members.USER_ID}" class="radio" /></dd>
+	</dl>
+	<!-- END block_members -->
+	
+	<p class="quick">
+		<input type="hidden" name="group_id" value="{GROUP_ID}" /><input type="submit" name="resume" value="{L_RESUME}" class="button1" />
+	</p>
+</fieldset>
+{S_HIDDEN_FIELDS}
+{S_FORM_TOKEN}
+</form>
+<!-- ELSE -->
+
+<form method="post" action="{U_ACTION}">
+<fieldset>
+	<legend>{L_EDIT_GROUPS}</legend>
+	<dl>
+		<dt>
+		  <label for="group_id">{L_GROUP_NAME}:</label>
+		</dt>
+		<dd>
+			<select name="group_id" id="group_id" onchange="javascript:switch_it(this.value);">
+				<option value="0">----------------------------</option>
+				<!-- BEGIN clan_select -->
+				<option value="{clan_select.CLAN_ID}"> {clan_select.CLAN_NAME}</option>
+				<!-- END clan_select -->
+			</select>
+			<span id="filter"><br />{L_MOSTRA_SOLO_CHIUSI}: <input type="checkbox" name="closed" id="closed" class="radio" value="1" onclick="this.form.submit();" {ONLYCCK} /></span>
+		</dd>
+	</dl>
+
+	<p class="quick">
+		<input type="submit" value="{L_SUBMIT}" class="button1" />
+	</p>
+</fieldset>
+{S_FORM_TOKEN}
+</form>
+
+<script type="text/javascript">
+function dE(n, s, type)
+{
+	if (!type)
+	{
+		type = 'block';
+	}
+
+	var e = document.getElementById(n);
+	if (!s)
+	{
+		s = (e.style.display == '' || e.style.display == 'block') ? -1 : 1;
+	}
+	e.style.display = (s == 1) ? type : 'none';
+}
+
+function switch_it ( value )
+{
+	if ( value == 0 )
+	{
+		dE ( 'filter', 1 );
+	}
+	else
+	{
+	dE ( 'filter', -1 );
+	}
+}
+</script>
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->

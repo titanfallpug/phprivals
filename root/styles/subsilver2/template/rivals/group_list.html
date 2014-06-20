@@ -1,0 +1,111 @@
+<!-- INCLUDE overall_header.html -->
+
+<table class="tablebg" cellspacing="1" style="margin-top: 5px;">
+	<tr class="genmed">
+		<td class="row1">
+			<p>	
+				<!-- BEGIN block_tutti --><a href="{block_tutti.U_TUTTI}" class="i_all">{L_ALL}</a>  - <a href="{block_tutti.U_09}" class="i_all">{L_09}</a> <!-- END block_tutti -->
+				<!-- BEGIN block_alphas -->
+					<a href="{block_alphas.U_ALPHA}" class="i_abcdz">{block_alphas.ALPHA}</a> 
+				<!-- END block_alphas -->
+			</p>
+			<p class="breadcrumbs"><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a></p>
+			<!-- IF PAGINATION --><p class="datetime">{PAGINATION}</p><!-- ENDIF -->
+		</td>
+	</tr>
+</table>
+
+
+<form action="{U_ACTION}" method="post">
+<table class="tablebg" cellspacing="1" style="margin-top: 5px;">
+	<tr class="genmed">
+		<td class="row1">{L_LADDER}:</td>
+		<td class="row1">
+			<select name="ladder_id" id="ladder_id1" class="rival_select" >
+				<option value="0">-- {L_ALL}</option>
+				<!-- BEGIN block_ladders -->
+				<optgroup label="{block_ladders.LADDER_NAME} ({block_ladders.PLATFORM})">
+				<!-- BEGIN block_subladders -->
+				<option value="{block_ladders.block_subladders.LADDER_ID}" {block_ladders.block_subladders.LADDER_SELECT}>-- {block_ladders.block_subladders.LADDER_NAME}</option>
+				<!-- END block_subladders -->
+				</optgroup>
+				<!-- END block_ladders -->
+			</select>
+
+			<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+		</td>
+ 	</tr>
+</table>
+{S_FORM_TOKEN}
+</form>
+
+<p>&nbsp;</p>
+<p><span id="mappa_decerto">{L_LADDER_LIST_IMPORTANTE}</span></p>
+<p>&nbsp;</p>
+
+	
+		<table class="tablebg" width="100%" cellspacing="1">
+			<tr class="genmed rvcenter">
+				<th>{L_LADDER_GROUP_NAME}</th>
+				<th>{L_GROUP_MEMBERS}</th>
+			</tr>
+			<!-- BEGIN block_groups -->
+			<tr class="genmed">
+				<td class="{block_groups.ROW_COLOR}"><a href="{block_groups.U_ACTION}">{block_groups.GROUP_NAME}</a> <!-- BEGIN block_challenge -->[<a href="{block_groups.block_challenge.U_CHALLENGE}">{L_CHALLENGE}</a>]<!-- END block_challenge --></td>
+				<td class="{block_groups.ROW_COLOR} rvcenter">{block_groups.GROUP_MEMBERS}</td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr class="genmed">
+				<td class="row1 rvcenter" colspan="5">{L_NO_GROUPS_FOUND}</td>
+			</tr>
+			<!-- END block_groups -->
+			<tr>
+				<td class="cat" colspan="2">&nbsp;</td>
+			</tr>
+		</table>
+	
+
+<hr />
+
+<form action="{U_ACTION}" method="post">
+<table class="tablebg" width="100%" cellspacing="1">
+	<tr class="genmed">
+		<td class="row1">{L_LADDER}:</td>
+		<td class="row1">
+			<select name="ladder_id" id="ladder_id2" class="rival_select" >
+				<option value="0">-- {L_ALL}</option>
+				<!-- BEGIN block_ladders -->
+				<optgroup label="{block_ladders.LADDER_NAME} ({block_ladders.PLATFORM})">
+				<!-- BEGIN block_subladders -->
+				<option value="{block_ladders.block_subladders.LADDER_ID}" {block_ladders.block_subladders.LADDER_SELECT}>-- {block_ladders.block_subladders.LADDER_NAME}</option>
+				<!-- END block_subladders -->
+				</optgroup>
+				<!-- END block_ladders -->
+			</select>
+
+			<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+		</td>
+ 	</tr>
+</table>
+{S_FORM_TOKEN}
+</form>
+
+
+<table class="tablebg" width="100%" cellspacing="1">
+	<tr class="genmed">
+		<td class="row1">
+			<p class="breadcrumbs"><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a></p>
+			<!-- IF PAGINATION --><p class="datetime">{PAGINATION}</p><!-- ENDIF -->
+			<br />
+			<p>	
+				<!-- BEGIN block_tutti --><a href="{block_tutti.U_TUTTI}" class="i_all">{L_ALL}</a>  - <a href="{block_tutti.U_09}" class="i_all">{L_09}</a> <!-- END block_tutti -->
+				<!-- BEGIN block_alphas -->
+					<a href="{block_alphas.U_ALPHA}" class="i_abcdz">{block_alphas.ALPHA}</a> 
+				<!-- END block_alphas -->
+			</p>
+		</td>
+	</tr>
+</table>
+
+
+<!-- INCLUDE overall_footer.html -->

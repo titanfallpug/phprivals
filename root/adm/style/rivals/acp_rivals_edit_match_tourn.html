@@ -1,0 +1,85 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF SELECTOR -->
+<form method="post" action="{U_ACTION}">
+<fieldset>
+	<legend>{L_EDIT_MATCH_TOURNAMENT}</legend>
+	
+	<!-- IF ERROR --><p class="error">{ERROR}</p><!-- ENDIF -->
+	
+	<dl>
+		<dt><label for="tournament_id">{L_TOURNAMENT}:</label></dt>
+		<dd>
+			<select name="tournament_id" id="tournament_id">
+				<option value="0" selected="selected">----------------------------</option>
+				<!-- BEGIN tourn_select -->
+				<option value="{tourn_select.TID}"> {tourn_select.TNAME}<!-- IF tourn_select.TONE--> {L_MATCHID_TIPOONEONE}<!-- ENDIF --></option>
+				<!-- END tourn_select -->
+			</select>
+		</dd>
+		
+		<dt><label for="round">{L_ROUNDS}</label></dt>
+		<dd><input type="text" name="round" id="round" value="1" class="inputbox autowidth" size="10" /></dd>
+		<dt><label for="clan1">{L_SELECT_CLANS}</label></dt>
+		<dd>
+			{L_LADDER_GROUP_ID}: 
+			<input type="text" name="clan1" id="clan1" value="0" class="inputbox autowidth" size="10" /> {L_VS} 
+			<input type="text" name="clan2" id="clan2" value="0" class="inputbox autowidth" size="10" />
+		</dd>
+		
+	</dl>
+
+	<p class="quick">
+		<input type="submit" value="{L_SUBMIT}" name="select" class="button1" />
+	</p>
+</fieldset>
+{S_FORM_TOKEN}
+</form>
+<!-- ELSE -->
+<h2>{L_SELECT_WHO_WIN_THIS_ROUND}</h2>
+
+<form method="post" action="{U_ACTION}">
+<fieldset>
+	<!-- BEGIN tourn_match -->
+	<legend>{tourn_match.TORNEO} - {tourn_match.ROUND}° {L_ROUNDS}</legend>
+	
+	<p><strong>{L_REPORTED}: {tourn_match.TTIME}</strong></p>
+	
+	<dl>
+		<dt><label for="winner">{L_WINNER}:</label></dt>
+		<dd>
+			<select name="winner" id="winner">
+				<option value="{tourn_match.GROUP1}">{tourn_match.GROUP1_NAME}</option>
+				<option value="{tourn_match.GROUP2}">{tourn_match.GROUP2_NAME}</option>
+			</select>
+		</dd>
+	</dl>
+	
+	<p class="quick">
+		<input type="hidden" name="tournament_id" value="{tourn_match.TOURN_ID}" />
+		<input type="hidden" name="round" value="{tourn_match.ROUND}" />
+		<input type="submit" value="{L_SUBMIT}" name="submit" class="button1" />
+	</p>
+	<!-- END tourn_match -->
+	
+	<h3>{L_CLAN_CHAT}</h3>
+	
+	<div style="display: block; width: 100%; min-height: 30px; max-height: 300px; background: #F9F9F9; border: 1px solid #DDDDDD; overflow: auto;">
+		<ul style="list-style: none;">
+			<!-- BEGIN block_match_chat -->
+			<li style="border: 1px solid #F0F4F7;">
+				<span class="msg_time">{block_match_chat.CHAT_TIME} </span> 
+				<strong><a href="{block_match_chat.POSTER_URL}">{block_match_chat.POSTER_NAME}</a></strong> <!-- IF block_match_chat.CLAN_NAME -->[{L_CLAN}: <a href="{block_match_chat.CLAN_URL}">{block_match_chat.CLAN_NAME}</a>] <!-- ENDIF --> >>
+				<span class="msg_text">{block_match_chat.CHAT_TEXT}</span>
+			</li>
+			<!-- END block_match_chat -->
+		</ul>
+	</div>
+	
+</fieldset>
+{S_HIDDEN_FIELDS}
+{S_FORM_TOKEN}
+</form>
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->

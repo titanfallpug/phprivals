@@ -1,0 +1,90 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- BEGIN block_rules -->
+<h2>{L_TITOLO_PAGINA_RULES_LADDER}: {block_rules.PLATFORM}, {block_rules.MAIN_LADDER}, {block_rules.NOME_LADDER}</h2>
+<!-- END block_rules -->
+
+<div class="forumbg">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	
+		<!-- BEGIN block_rules -->
+		
+		<fieldset>
+			<table class="table1" cellspacing="1">
+				<thead>
+					<tr>
+						<th>{L_REQUISITI}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="{block_rules.ROW_COLOR} rules">{block_rules.REQUISITI}</td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		<hr />
+		<fieldset>
+			<table class="table1" cellspacing="1">
+				<thead>
+					<tr>
+						<th>{L_REG_GENERALI}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="{block_rules.ROW_COLOR} rules">{block_rules.REGOLE_GENERALI}</td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		<hr />
+		<fieldset>
+			<table class="table1" cellspacing="1">
+				<thead>
+					<tr>
+						<th>{L_CONFIG}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="{block_rules.ROW_COLOR} rules">{block_rules.CONFIGURAZIONE}</td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		<hr />
+		<fieldset>
+			<table class="table1" cellspacing="1">
+				<thead>
+					<tr>
+						<th>{L_VIETATO}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="{block_rules.ROW_COLOR} rules">{block_rules.DIVIETI}</td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		<!-- BEGINELSE -->
+		<fieldset>
+			<table class="table1" cellspacing="1">+
+				<thead>
+					<tr>
+						<th> </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="bg1">
+						<td class="rules">{L_NO_RULES}</td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+		<!-- END block_rules -->
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<!-- INCLUDE overall_footer.html --> 

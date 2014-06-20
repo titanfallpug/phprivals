@@ -1,0 +1,46 @@
+<!-- INCLUDE overall_header.html -->
+
+<form action="{U_ACTION}" method="post" enctype="multipart/form-data">
+	<div class="forumbg">
+	
+	<h2>{L_ADD_GROUP}</h2>
+		
+	<!-- IF ERROR -->
+		<p class="rv_errorbox"><span class="gensmall">{ERROR}</span></p>
+	<!-- ENDIF -->
+		
+		<table class="tablebg" width="100%" cellspacing="1">
+			<tr class="genmed">
+				<td class="row1"><strong>{L_GROUP_NAME}</strong>:</td>
+				<td class="row2"><input type="text" class="inputbox autowidth" name="group_name" size="40" maxlength="248"<!-- IF GROUP_NAME --> value="{GROUP_NAME}"<!-- ENDIF --> /></td>
+			</tr>
+				<tr class="genmed">
+				<td class="row1"><strong>{L_GROUP_SITO}</strong></td>
+				<td class="row2"><input type="text" class="inputbox autowidth" name="group_sito" size="40" maxlength="248"<!-- IF GROUP_SITO --> value="{GROUP_SITO}"<!-- ENDIF --> /></td>
+			</tr>
+			<tr class="genmed">
+				<td class="row1"><strong>{L_GROUP_LOGO}</strong>:<br /><span class="gensmall">{L_UPLOAD_AVATAR_URL_EXPLAIN}<br />{L_AVATAR_EXPLAIN}</span></td>
+				<td class="row2"><input type="file" name="group_logo" id="rival_select" /></td>
+			</tr>
+			<tr class="genmed">
+				<td class="row1" valign="top"><strong>{L_GROUP_DESC}</strong>:</td>
+				<td class="row2"><textarea name="group_desc" cols="40" rows="5" class="inputbox narrow" ><!-- IF GROUP_DESC -->{GROUP_DESC}<!-- ENDIF --></textarea></td>
+			</tr>
+			<tr class="genmed">
+				<td class="row1"><strong>{L_FAVOURITE_MAP}</strong><br /><span class="gensmall">{L_FAVOURITE_MAP_EXPLAIN}</span></td>
+				<td class="row2"><input type="text" class="inputbox autowidth" name="clan_favouritemap" size="40" maxlength="248"<!-- IF GROUP_MAP --> value="{GROUP_MAP}"<!-- ENDIF --> /></td>
+			</tr>
+			<tr class="genmed">
+				<td class="row1"><strong>{L_FAVOURITE_TEAM}</strong><br /><span class="gensmall">{L_FAVOURITE_TEAM_EXPLAIN}</span></td>
+				<td class="row2"><input type="text" class="inputbox autowidth" name="clan_favouriteteam" size="40" maxlength="248"<!-- IF GROUP_TEAM --> value="{GROUP_TEAM}"<!-- ENDIF --> /></td>
+			</tr>
+			<tr>
+				<td class="cat" align="center" colspan="2"><input type="submit" name="submit" value="{L_SUBMIT}" class="rvbutton2" /></td>
+			</tr>
+		</table>
+
+	</div>
+{S_FORM_TOKEN}
+</form>
+
+<!-- INCLUDE overall_footer.html -->

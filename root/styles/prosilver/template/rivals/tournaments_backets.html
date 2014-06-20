@@ -1,0 +1,80 @@
+<!-- INCLUDE overall_header.html -->
+
+<p class="bigtitolo">{L_WINNER_BRACKET}</p>
+
+<div class="boxtournament">
+<fieldset>
+<table class="tablebg">
+	<tbody>
+		<tr class="bg1">
+			<!-- BEGIN block_rounds -->
+			<td class="tdround" colspan="4"><span class="roundtitle">[ {block_rounds.S_ROUND} ]</span><br />
+				<table width="360px" cellspacing="0" cellpadding="0">
+					<!-- BEGIN block_data -->
+					<tr class="bg2">
+						<td class="{block_rounds.block_data.S_COLOR}">{block_rounds.block_data.S_DATA}</td>
+						<!-- IF block_rounds.S_FINAL -->
+						<td class="{block_rounds.block_data.S_COLOR2}">{block_rounds.block_data.S_POINTS}</td>
+						{block_rounds.block_data.SEPARE}
+						{block_rounds.block_data.THEWINNER}
+						<!-- ELSE -->
+						<td class="rowFF">&nbsp;<br /></td>
+						<!-- ENDIF -->
+					</tr>
+					<!-- END block_data -->
+				</table>
+			</td>
+			<td class="sepiaor">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<!-- END block_rounds -->
+		</tr>
+	</tbody>
+</table>
+</fieldset>
+</div>
+
+<!-- IF DECERTO --><p class="bigtitolo">{L_ORDINE_MAPPE_E_MODI}<br /><span class="subtitle clanselect">{DECERTO}</span></p><!-- ENDIF -->
+
+<!-- IF .adv_stats -->
+<br />
+<p class="bigtitolo">{L_TOURNAMENT_USERLEADERBOARD}</p>
+<fieldset>
+	<p class="breadcrumbs">{PAGE_NUMBER}</p>
+	<p class="datetime">{PAGINATION}</p>
+	<table class="tablebg">
+		<thead>
+		<tr>
+			<th class="cat rvcenter"><h4>{L_NU}</h4></th>
+			<th class="cat rvcenter"><h4>{L_USERNAME}</h4></th>
+			<th class="cat rvcenter"><h4>{L_GAMERNAME}</h4></th>
+			<th class="cat rvcenter"><h4>{L_CLAN}</h4></th>
+			<th class="cat rvcenter"><h4>{L_KILLS}</h4></th>
+			<th class="cat rvcenter"><h4>{L_DEADS}</h4></th>
+			<th class="cat rvcenter"><h4>{L_RATIO}</h4></th>
+			<th class="cat rvcenter"><h4>{L_ASSIST}</h4></th>
+			<th class="cat rvcenter"><h4>{L_MVPS}</h4></th>
+		</tr>
+		</thead>
+			<!-- BEGIN adv_stats -->
+			<tr>
+				<td class="{adv_stats.ROW_COLOR} rvcenter rv15">{adv_stats.NUM}</td>
+				<td class="{adv_stats.ROW_COLOR}"><span class="genmed"><a href="{adv_stats.USER_LINK}">{adv_stats.GIOCATORE}</a></span></td>
+				<td class="{adv_stats.ROW_COLOR} rvcenter rv160">{adv_stats.GAMERNAME}</td>
+				<td class="{adv_stats.ROW_COLOR} rvcenter rv180"><a href="{adv_stats.CLAN_LINK}">{adv_stats.CLAN}</a></td>
+				<td class="{adv_stats.ROW_COLOR} rvcenter rv60">{adv_stats.KILLS}</td>
+				<td class="{adv_stats.ROW_COLOR} rvcenter rv60">{adv_stats.MORTI}</td>
+				<td class="{adv_stats.ROW_COLOR} rvcenter rv60">{adv_stats.RATIO}</td>
+				<td class="{adv_stats.ROW_COLOR} rvcenter rv60">{adv_stats.ASSIST}</td>
+				<td class="{adv_stats.ROW_COLOR} rvcenter rv60">{adv_stats.MVP}</td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr>
+				<td class="row1 rvcenter" colspan="9">{L_NO_MEMBERS_DATA}</td>
+			</tr>
+			<!-- END adv_stats -->
+	</table>
+	<p class="breadcrumbs">{PAGE_NUMBER}</p>
+    <p class="datetime">{PAGINATION}</p>
+</fieldset>
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->

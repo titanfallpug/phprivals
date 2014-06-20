@@ -1,0 +1,331 @@
+<!-- INCLUDE ucp_header.html -->
+
+<script type="text/javascript">
+function setVisibility(id, visibility) {
+document.getElementById(id).style.display = visibility;
+}
+</script>
+
+<div style="padding: 2px;">
+	
+	<!-- IF .non_riportate -->
+	<h2>{L_UNREPORTED_TOURNAMENTS}</h2>
+
+	<form action="{U_ACTION}" method="post">
+
+		<fieldset>
+		<table class="tablebg" width="100%" cellspacing="1">
+			<tr class="genmed">
+				<th class="row3 rvcenter rv200">{L_TOURNAMENT} ({L_ROUNDS})</th>
+				<th class="row3 rvcenter" colspan="2">{L_OPTIONS}</th>
+			</tr>
+			<!-- BEGIN non_riportate -->
+			<tr class="genmed">
+				<td class="{non_riportate.ROW_COLOR}">
+					<strong>{non_riportate.TORNEO} ({non_riportate.ROUND})</strong>
+					<span class="clanvote"><a href="#" class="rvbutton_chat" onclick="window.open('{non_riportate.MATCH_CHAT}', '_matchchat', 'HEIGHT=300,resizable=yes,WIDTH=750');return false;">{L_CHAT}</a></span>
+				</td>
+				<td class="{non_riportate.ROW_COLOR}">
+					<!-- IF non_riportate.HOME_AWAY -->
+					{L_FIRST_HOME}: {non_riportate.FIRST_HOME}<br />
+					{L_ANDATA}>> <a href="{non_riportate.MIOURL}">{non_riportate.MIOCLAN}</a>: <input name="tournament[{non_riportate.ID_TORNEO}][miei_point_home]" type="text" class="inputbox autowidth" value="0" size="4" maxlength="3" /> 
+					- vs -
+					<a href="{non_riportate.AVV_URL}">{non_riportate.AVVERSARIO}</a>: <input type="text" name="tournament[{non_riportate.ID_TORNEO}][vs_point_home]" value="0" class="inputbox autowidth" size="4" maxlength="3" />
+					<span class="rvright">{L_VOTA_COMPORTAMENTO_CLAN}:
+					<br />
+					{L_RITORNO}>>
+					<!-- ENDIF -->
+					<a href="{non_riportate.MIOURL}">{non_riportate.MIOCLAN}</a>: <input name="tournament[{non_riportate.ID_TORNEO}][miei_point]" type="text" class="inputbox autowidth" value="0" size="4" maxlength="3" /> 
+					- vs -
+					<a href="{non_riportate.AVV_URL}">{non_riportate.AVVERSARIO}</a>: <input type="text" name="tournament[{non_riportate.ID_TORNEO}][vs_point]" value="0" class="inputbox autowidth" size="4" maxlength="3" />
+					<span class="clanvote">
+						{L_VOTA_COMPORTAMENTO_CLAN}:
+						<select name="tournament[{non_riportate.ID_TORNEO}][vsrep]">
+							<option value="1">1/5</option>
+							<option value="2">2/5</option>
+							<option value="3">3/5</option>
+							<option value="4">4/5</option>
+							<option value="5">5/5</option>
+						</select>
+					</span>
+				</td>
+				<td class="{non_riportate.ROW_COLOR} rvcenter rv120">
+					{L_REPORT}: <input type="checkbox" name="tournament[{non_riportate.ID_TORNEO}][tournamentrep]" class="radio" value="1" />
+					<input type="hidden" name="tournament[{non_riportate.ID_TORNEO}][tournamentroud]" value="{non_riportate.ROUND}" />
+					<input type="hidden" name="tournament[{non_riportate.ID_TORNEO}][rep_pos]" value="{non_riportate.MIAPOS}" />
+				</td>
+			</tr>
+			<!-- IF non_riportate.ADVSTATS -->
+			<tr class="genmed">
+				<td class="row1" colspan="3">
+				<input type="button" name="type" value='{L_MOSTRA_DETTAGLIO}' onclick="setVisibility('dettaglio{non_riportate.SELETTORE}', 'block');" /> <input type=button name=type value='{L_NASCONDI_DETTAGLIO}' onclick="setVisibility('dettaglio{non_riportate.SELETTORE}', 'none');" /> 
+		   
+				<table class="tablebghidded" id="dettaglio{non_riportate.SELETTORE}">
+					<tr>
+						<td colspan="5" scope="row">
+							{L_MVP_ROUND_1}: 
+							<select name="tournament[{non_riportate.ID_TORNEO}][mvp1]" class="botton1">
+								<option value="0" class="clanselect">---- {non_riportate.MIOCLAN}</option>
+							<!-- BEGIN blocco_user_1 -->
+								<option value="{blocco_user_1.USER_ID}">{blocco_user_1.USERNAME}</option>
+							<!-- END blocco_user_1 -->
+								<option value="0" class="clanselect">---- {non_riportate.AVVERSARIO}</option>
+							<!-- BEGIN blocco_user_2 -->
+									<option value="{blocco_user_2.USER_ID}">{blocco_user_2.USERNAME}</option>
+							<!-- END blocco_user_2 -->
+							</select>
+							
+							- {L_MVP_ROUND_2}: 
+							<select name="tournament[{non_riportate.ID_TORNEO}][mvp2]" class="botton1">
+								<option value="0" class="clanselect">---- {non_riportate.MIOCLAN}</option>
+							<!-- BEGIN blocco_user_1 -->
+								<option value="{blocco_user_1.USER_ID}">{blocco_user_1.USERNAME}</option>
+							<!-- END blocco_user_1 -->
+								<option value="0" class="clanselect">---- {non_riportate.AVVERSARIO}</option>
+							<!-- BEGIN blocco_user_2 -->
+								<option value="{blocco_user_2.USER_ID}">{blocco_user_2.USERNAME}</option>
+							<!-- END blocco_user_2 -->
+							</select>
+							
+							- {L_MVP_ROUND_3}: 
+							<select name="tournament[{non_riportate.ID_TORNEO}][mvp3]" class="botton1">
+								<option value="0" class="clanselect">---- {non_riportate.MIOCLAN}</option>
+							<!-- BEGIN blocco_user_1 -->
+								<option value="{blocco_user_1.USER_ID}">{blocco_user_1.USERNAME}</option>
+							<!-- END blocco_user_1 -->
+								<option value="0" class="clanselect">---- {non_riportate.AVVERSARIO}</option>
+							<!-- BEGIN blocco_user_2 -->
+								<option value="{blocco_user_2.USER_ID}">{blocco_user_2.USERNAME}</option>
+							<!-- END blocco_user_2 -->
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="5"></td>
+					</tr>
+					<tr>
+						<td class="row3 rvleft">{L_USERS}</td>
+						<td class="row3 rvcenter rv160">{L_GAMERNAME}</td>
+						<td class="row3 rvcenter rv50">{L_KILLS}</td>
+						<td class="row3 rvcenter rv50">{L_DEADS}</td>
+						<td class="row3 rvcenter rv50">{L_ASSIST}</td>
+					</tr>
+					<tr>
+						<td colspan="5" class="rvcenter"><span class="cat_title2">{non_riportate.MIOCLAN}</span></td>
+					</tr>
+					<!-- BEGIN blocco_user_1 -->
+					<tr>
+						<td class="row1 rvleft">{blocco_user_1.USERNAME}<input type="hidden" name="stats[{non_riportate.ID_TORNEO}_{blocco_user_1.USER_ID}][group_id]" value="{non_riportate.MIOID}" /></td>
+						<td class="row1 rvcenter">{blocco_user_1.GAMERNAME}</td>
+						<td class="row1 rvcenter"><input name="stats[{non_riportate.ID_TORNEO}_{blocco_user_1.USER_ID}][kills]" type="text" class="inputbox autowidth" value="0" size="4" /></td>
+						<td class="row1 rvcenter"><input name="stats[{non_riportate.ID_TORNEO}_{blocco_user_1.USER_ID}][morti]" type="text" class="inputbox autowidth" value="0" size="4" /></td>
+						<td class="row1 rvcenter"><input name="stats[{non_riportate.ID_TORNEO}_{blocco_user_1.USER_ID}][assist]" type="text" class="inputbox autowidth" value="0" size="4" /></td>
+					</tr> 
+					<!-- END blocco_user_1 -->
+					<tr>
+						<td colspan="5" class="rvcenter"><span class="cat_title2">{non_riportate.AVVERSARIO}</span></td>
+					</tr>
+					<!-- BEGIN blocco_user_2 -->
+					<tr>
+						<td class="row2 rvleft">{blocco_user_2.USERNAME}<input type="hidden" name="stats[{non_riportate.ID_TORNEO}_{blocco_user_2.USER_ID}][group_id]" value="{non_riportate.AVVERSARIOID}" /></td>
+						<td class="row2 rvcenter">{blocco_user_2.GAMERNAME}</td>
+						<td class="row2 rvcenter"><input name="stats[{non_riportate.ID_TORNEO}_{blocco_user_2.USER_ID}][kills]" type="text" class="inputbox autowidth" value="0" size="4" /></td>
+						<td class="row2 rvcenter"><input name="stats[{non_riportate.ID_TORNEO}_{blocco_user_2.USER_ID}][morti]" type="text" class="inputbox autowidth" value="0" size="4" /></td>
+						<td class="row2 rvcenter"><input name="stats[{non_riportate.ID_TORNEO}_{blocco_user_2.USER_ID}][assist]" type="text" class="inputbox autowidth" value="0" size="4" /></td>
+					</tr>
+					<!-- END blocco_user_2 -->
+				</table>
+				</td>
+			</tr>
+			<!-- ENDIF -->
+			<!-- BEGINELSE -->
+			<tr class="genmed">
+				<td class="row1 rvcenter" colspan="3">{L_NO_TOURNAMENTS}</td>
+			</tr>
+			<tr>
+				<td class="cat" colspan="3">&nbsp;</td>
+			</tr>
+			<!-- END non_riportate -->
+			<tr>
+				<th class="rvcenter" colspan="3">
+					<input type="submit" name="submit" value="{L_REPORT_CALCIO}" class="rvbutton2" />
+				</th>
+			</tr>
+		</table>
+		</fieldset>
+		
+	{S_HIDDEN_FIELDS}
+	{S_FORM_TOKEN}
+	</form>
+
+	<p><br /></p>
+	<!-- ENDIF -->
+	
+	<!-- IF .riportate -->
+	<h2>{L_REPORTED_TOURNAMENTS}</h2>
+
+	<form action="{U_ACTION}" method="post">
+
+		<fieldset>
+		<table class="tablebg" width="100%" cellspacing="1">
+			<tr class="genmed">
+				<th class="row3 rvcenter rv200">{L_TOURNAMENT} ({L_ROUNDS})</th>
+				<th class="row3 rvcenter">{L_INFOS}</th>
+				<th class="row3 rvcenter rv60">{L_CONFIRM}</th>
+				<th class="row3 rvcenter rv60">{L_CONTEST}</th>
+			</tr>
+			<!-- BEGIN riportate -->
+			<tr class="genmed">
+				<td class="{riportate.ROW_COLOR}">
+					<strong>{riportate.TORNEO} ({riportate.ROUND})</strong>
+					<span class="clanvote"><a href="#" class="rvbutton_chat" onclick="window.open('{riportate.MATCH_CHAT}', '_matchchat', 'HEIGHT=300,resizable=yes,WIDTH=750');return false;">{L_CHAT}</a></span>
+				</td>
+				<!-- IF riportate.HOME_AWAY -->
+				<td class="{riportate.ROW_COLOR}">
+					{L_FIRST_HOME}: {riportate.FIRST_HOME}<br />
+					{L_ANDATA}>> <a href="{riportate.MIOURL}">{riportate.MIOCLAN}</a>: {riportate.MIEI_PUNTI_HM} - vs - {riportate.AVV_PUNTI_HM} :<a href="{riportate.AVV_URL}">{riportate.AVVERSARIO}</a><br />
+					{L_RITORNO}>> <a href="{riportate.MIOURL}">{riportate.MIOCLAN}</a>: {riportate.MIEI_PUNTI} - vs - {riportate.AVV_PUNTI} :<a href="{riportate.AVV_URL}">{riportate.AVVERSARIO}</a><br />
+					<span class="clanvote">
+						{L_VOTA_COMPORTAMENTO_CLAN}:
+						<select name="vsrep_{riportate.ID_TORNEO}">
+							<option value="1">1/5</option>
+							<option value="2">2/5</option>
+							<option value="3">3/5</option>
+							<option value="4">4/5</option>
+							<option value="5">5/5</option>
+						</select>
+					</span>
+				</td>
+				<!-- ELSE -->
+				<td class="{riportate.ROW_COLOR}">
+					<a href="{riportate.MIOURL}">{riportate.MIOCLAN}</a>: {riportate.MIEI_PUNTI} - vs - {riportate.AVV_PUNTI} :<a href="{riportate.AVV_URL}">{riportate.AVVERSARIO}</a>
+					<span class="clanvote">
+						{L_VOTA_COMPORTAMENTO_CLAN}:
+						<select name="vsrep_{riportate.ID_TORNEO}">
+							<option value="1">1/5</option>
+							<option value="2">2/5</option>
+							<option value="3">3/5</option>
+							<option value="4">4/5</option>
+							<option value="5">5/5</option>
+						</select>
+					</span>
+				</td>
+				<!-- ENDIF -->
+				<td class="{riportate.ROW_COLOR} rvcenter rv60">
+					<input type="checkbox" name="confirmed[]" class="radio" value="{riportate.ID_TORNEO}" />
+				</td>
+				<td class="{riportate.ROW_COLOR} rvcenter rv60">
+					<input type="checkbox" name="contested[]" class="radio" value="{riportate.ID_TORNEO}" />
+				</td>
+			</tr>
+			<!-- IF riportate.ADVSTATS -->
+			<tr>
+				<td class="{riportate.ROW_COLOR}" colspan="4">
+					<input type="button" name="type" value="{L_MOSTRA_DETTAGLIO}" onclick="setVisibility('dettaglio2{riportate.SELETTORE}', 'block');" /> 
+					<input type="button" name="type" value="{L_NASCONDI_DETTAGLIO}" onclick="setVisibility('dettaglio2{riportate.SELETTORE}', 'none');" />
+					<table class="tablebghidded"  id="dettaglio2{riportate.SELETTORE}">
+						<tr>
+							<td class="rvcenter">{L_MVP} {L_ROUNDS} 1: {riportate.MVP1} -=- {L_MVP} {L_ROUNDS} 2: {riportate.MVP2} -=- {L_MVP} {L_ROUNDS} 3: {riportate.MVP3}<br />&nbsp;</td>
+						</tr>
+						<tr>
+							<td class="row3 rvleft">{L_USERS}</td>
+							<td class="row3 rvcenter rv160">{L_GAMERNAME}</td>
+							<td class="row3 rvcenter rv50">{L_KILLS}</td>
+							<td class="row3 rvcenter rv50">{L_DEADS}</td>
+							<td class="row3 rvcenter rv50">{L_ASSIST}</td>
+						</tr>
+						<tr>
+							<td colspan="5" class="rvcenter"><span class="cat_title2">{riportate.MIOCLAN}</span></td>
+						</tr>
+						<!-- BEGIN riportate_user1 -->
+						<tr>
+							<td class="row1 rvleft">{riportate_user1.USERNAME}</td>
+							<td class="row1 rvcenter">{riportate_user1.GAMERNAME}</td>
+							<td class="row1 rvcenter">{riportate_user1.KILLS}</td>
+							<td class="row1 rvcenter">{riportate_user1.MORTI}</td>
+							<td class="row1 rvcenter">{riportate_user1.ASSIST}</td>
+						</tr> 
+						<!-- END riportate_user1 -->
+
+						<tr>
+							<td colspan="5" class="rvcenter"><span class="cat_title2">{riportate.AVVERSARIO}</span></td>
+						</tr>
+						<!-- BEGIN riportate_user2 -->
+						<tr>
+							<td class="row2 rvleft">{riportate_user2.USERNAME}</td>
+							<td class="row2 rvcenter">{riportate_user2.GAMERNAME}</td>
+							<td class="row2 rvcenter">{riportate_user2.KILLS}</td>
+							<td class="row2 rvcenter">{riportate_user2.MORTI}</td>
+							<td class="row2 rvcenter">{riportate_user2.ASSIST}</td>
+						</tr>
+						<!-- END riportate_user2 -->
+					</table>
+				</td>
+			</tr>
+			<!-- ENDIF -->
+			<!-- BEGINELSE -->
+			<tr class="genmed">
+				<td class="row1 rvcenter" colspan="4">{L_NO_TOURNAMENTS}</td>
+			</tr>
+			<!-- END riportate -->
+			<tr>
+				<th class="rvcenter" colspan="4"><input type="submit" name="confirm" value="{L_SUBMIT}" class="rvbutton2" /></th>
+			</tr>
+		</table>
+		</fieldset>
+		
+	{S_FORM_TOKEN}
+	</form>
+
+	<p><br /></p>
+	<!-- ENDIF -->
+	
+	<!-- IF .in_attesa -->
+	<h2>{L_WAITED_TOURNAMENTS}</h2>
+
+	<form action="{U_ACTION}" method="post">
+
+		<fieldset>
+		<table class="tablebg" width="100%" cellspacing="1">
+			<!-- BEGIN in_attesa -->
+			<tr class="genmed">
+				<td colspan="2" class="{in_attesa.ROW_COLOR} rvcenter">
+					<a href="{in_attesa.MIOURL}">{in_attesa.MIOCLAN}</a> - VS - <a href="{in_attesa.AVV_URL}">{in_attesa.AVVERSARIO}</a> 
+					-=- {L_GIOCATA_SU} {in_attesa.TORNEO} {L_ROUNDS} {in_attesa.ROUND} ({in_attesa.STIME})
+				</td>
+				
+				<td class="{in_attesa.ROW_COLOR} rvcenter rv160">
+					{L_REPORT}: <input type="checkbox" name="tournament2[{in_attesa.ID_TORNEO}][tournamentrep]" class="radio" value="1" />
+					<input type="hidden" name="tournament2[{in_attesa.ID_TORNEO}][uid]" value="{in_attesa.UID}" />
+					<input type="hidden" name="tournament2[{in_attesa.ID_TORNEO}][round]" value="{in_attesa.ROUND}" />
+				</td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr class="genmed">
+				<td class="row1 rvcenter" colspan="3">{L_NO_TOURNAMENTS}</td>
+			</tr>
+			<!-- END in_attesa -->
+			<tr>
+				<th class="rvcenter" colspan="3">
+					<input type="submit" name="inattivo" value="{L_SEGNALA_INATTIVITA}" class="rvbutton2" />
+				</th>
+			</tr>
+		</table>
+		</fieldset>
+		
+	{S_HIDDEN_FIELDS}
+	{S_FORM_TOKEN}
+	</form>
+	<!-- ENDIF -->
+	
+	<!-- IF not .non_riportate && not .riportate && not .in_attesa -->
+	<div class="panel">
+		<div class="inner"><span class="corners-top"><span></span></span>
+		<fieldset>
+			<h2 style="text-align:center;margin:20px 0 20px 0;">{L_ANY_MATCHES_FOUNDED}</h2>
+		</fieldset>
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+	<!-- ENDIF -->
+</div>
+<!-- INCLUDE ucp_footer.html -->

@@ -1,0 +1,64 @@
+<!-- INCLUDE overall_header.html -->
+<div id="pagecontent">
+    
+	<h2 class="rvcenter">{L_USER_LEADERBOARD}</h2>
+
+	<div class="forumbg">
+		<div class="inner"><span class="corners-top"><span></span></span>	
+			<fieldset>
+				<table id="memberlist" class="table1" cellspacing="1">
+					<thead>
+						<tr class="genmed rvcenter">
+							<th>{L_NU}</th>
+							<th colspan="2">{L_UTENTE}</th>
+							<th>{L_USER_EXP}</th>
+							<th>{L_EXP}</th>
+							<th>{L_MVPS}</th>
+							<th>{L_RATIO}</th>
+							<th>{L_WINS}</th>
+							<th>{L_LOSSES}</th>
+							<th>{L_DAL}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- BEGIN block_members -->
+						<tr class="genmed rvcenter rvmiddle">
+							<td class="{block_members.ROW_COLOR} rv20">{block_members.NUM}</td>
+							<td class="{block_members.ROW_COLOR} rv30">
+								<!-- IF block_members.AVATAR -->{block_members.AVATAR}
+								<!-- ELSE --><img src="{T_THEME_PATH}/images/no_avatar.gif" alt="{block_members.IMGALT}" width="30" height="30" /><!-- ENDIF -->
+							</td>
+							<td class="{block_members.ROW_COLOR}">{block_members.MEMBER_NAME}<!-- IF block_members.GAMERNAME --><br />({block_members.GAMERNAME})<!-- ENDIF --></td>
+							<td class="{block_members.ROW_COLOR}">{block_members.SCORE} {L_POINTS}</td>
+							<td class="{block_members.ROW_COLOR}">{block_members.XP}</td>
+							<td class="{block_members.ROW_COLOR}">{block_members.MVPS}</td>
+							<td class="{block_members.ROW_COLOR}">{block_members.RATIO}%</td>
+							<td class="{block_members.ROW_COLOR}">{block_members.WINS}</td>
+							<td class="{block_members.ROW_COLOR}">{block_members.LOSSES}</td>
+							<td class="{block_members.ROW_COLOR} rv160">{block_members.ONLINE_DA}</td>
+						</tr>
+						<!-- BEGINELSE -->
+						<tr>
+							<td class="row1 rvcenter" colspan="10">{L_NO_MEMBERS_MVP}</td>
+						</tr>
+						<!-- END block_members -->
+					</tbody>
+				</table>
+				
+				<fieldset>
+				<table class="tablebg" cellspacing="1" cellpadding="0" style="margin-top: 5px;">
+					<tr>
+						<td class="row1">
+							<p class="breadcrumbs">{TOTALS} {L_USERS} - {PAGE_NUMBER}</p>
+							<!-- IF PAGINATION --><p class="datetime">{PAGINATION}</p><!-- ENDIF -->
+						</td>
+					</tr>
+				</table>
+				</fieldset>
+				
+			</fieldset>
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+</div>
+
+<!-- INCLUDE overall_footer.html --> 

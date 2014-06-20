@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
+	<header>
+		<meta name="generator" content="MODX file generated with PP MODX Creator by tumba25 (online version)"/>
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<title lang="en"><![CDATA[phpRivals MOD subsilver2 template edits]]></title>
+		<description lang="en"><![CDATA[This installation will make the edits for subsilver2 template.
+****************
+
+PHPRivals MOD 2.0 is a mod version of phpRivals by Tyler N. King 1.12 version.
+
+A clan based ladder and tournament system that allows users to challenge other clans and record their matches. Be the no.1 on the chart!
+
+I've added so many new features like mvps, advanced stats, compatibly with decerto, random map for days and match, ladders for footballs games, reporting system by result or score, new point system RTH (Road To Heaven), hibernation function, ladder and tournaments for clans and users.
+Clans are in a new table and do not appear as groups anymore.
+
+Many more features have also been included.
+
+------------------------
+BETA TESTERS TEAM credit:
+- Sonoma
+- Dutch_com_freak
+- kapote
+- Chrome-Gaming
+- Mattigb
+- Super64
+- Addicted2Play.com
+
+*****************************
+
+------------------------
+Translation credit:
+- [ Portuguese ] : nenuc0
+- [ French ] : toxic
+
+*****************************
+
+Go to my site to find map packs for games, new languages and imagesets...
+http://www.nipponart.org
+
+Have fun!]]></description>
+		<description lang="it"><![CDATA[Questa installazione aggiunge le modifiche necessarie allo stile subsilver2.
+****************
+
+PHPRivals MOD 2.0 è una versione modificata di phpRivals by Tyler N. King 1.12 version.
+
+Un sistema per tornei, ladder e leghe che permette a persone e clan di sfidarsi nei loro videogiochi preferiti tracciando le loro statistiche... per scoprire chi è il migliore.
+
+Ho aggiunto numerose nuove features come il sistema mvp, le statistiche avanzate, la compatibilità con le modalità decerto, mappa random del giorno e per ogni matches, ladder e tornei per giochi di calcio, sistema ibernazione, sistema per riportare risultati basato sul punteggio o sul risultato secco, un nuovo sistema di punti RTH (road to heaven), ladder e tornei per utenti oltre che per clan...
+
+... ora i clan sono in una tabella separata e non incasinano più i gruppi...
+
+... e tanto altro.
+
+
+------------------------
+BETA TESTERS TEAM credit:
+- Sonoma
+- Dutch_com_freak
+- kapote
+- Chrome-Gaming
+- Mattigb
+- Super64
+- Addicted2Play.com
+
+*****************************
+
+------------------------
+Translation credit:
+- [ Portuguese ] : nenuc0
+- [ French ] : toxic
+
+*****************************
+
+Nel mio sito troverete map pack già fatti, nuovi file di lingua e imageset...
+http://www.nipponart.org
+
+Have fun!]]></description>
+		<author-notes lang="en"><![CDATA[The third party scripts belong to their respective creators.
+
+Open Flash Chart:
+http://teethgrinder.co.uk/open-flash-chart-2/
+
+CKEditor:
+http://ckeditor.com/]]></author-notes>
+		<author-notes lang="it"><![CDATA[Gli script aggiuntivi sono copyrights dei rispettivi creatori.
+
+Open Flash Chart:
+http://teethgrinder.co.uk/open-flash-chart-2/
+
+CKEditor:
+http://ckeditor.com/]]></author-notes>
+		<author-group>
+			<author>
+				<username><![CDATA[Soshen]]></username>
+				<homepage><![CDATA[http://www.nipponart.org/]]></homepage>
+				<email><![CDATA[soshen@nipponart.org]]></email>
+				<contributions-group>
+					<contributions status="current" position="Developer"/>
+				</contributions-group>
+			</author>
+		</author-group>
+		<mod-version>2.0.0</mod-version>
+		<installation>
+			<level>easy</level>
+			<time>300</time>
+			<target-version>3.0.9</target-version>
+		</installation>
+		<link-group>
+			<link type="parent" href="../install_mod.xml" lang="en">Main install file</link>
+		</link-group>
+	</header>
+	<action-group>
+		<copy>
+			<file from="root/styles/subsilver2/*.*" to="styles/subsilver2/*.*"/>
+		</copy>
+		<open src="styles/subsilver2/template/memberlist_view.html">
+			<edit>
+				<find><![CDATA[<td><b class="genmed">{PROFILE_FIELD1_VALUE}</b></td>
+				</tr>
+			<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[			
+		<!-- PHPRIVALS MOD START -->
+				<tr>
+					<td class="gen" align="{S_CONTENT_FLOW_END}" nowrap="nowrap">{L_LADDER_PROFILE_GSTATS}: </td>
+					<td></td>
+				</tr>
+				<!-- IF GAMERNAME -->
+				<tr>
+					<td class="gen" align="{S_CONTENT_FLOW_END}" nowrap="nowrap">{L_GAMERNAME}: </td>
+					<td><b class="genmed">{GAMERNAME}</b></td>
+				</tr>
+				<!-- ENDIF -->
+				<tr>
+					<td class="gen" align="{S_CONTENT_FLOW_END}" nowrap="nowrap">{L_MVPS}: </td>
+					<td><b class="genmed">{MVP}</b></td>
+				</tr>
+				<tr>
+					<td class="gen" align="{S_CONTENT_FLOW_END}" nowrap="nowrap">{L_USER_EXP}: </td>
+					<td><b class="genmed">{LADDER_LVL} {L_POINTS}</b></td>
+				</tr>
+				<tr>
+					<td class="gen" align="{S_CONTENT_FLOW_END}" nowrap="nowrap">{L_EXP}: </td>
+					<td><b class="genmed">{EXP}</b></td>
+				</tr>
+				<!-- IF GWINS -->
+				<tr>
+					<td class="gen" align="{S_CONTENT_FLOW_END}" nowrap="nowrap">{L_WINS}: </td>
+					<td><b class="genmed">{GWINS}</b></td>
+				</tr>
+				<!-- ENDIF -->
+				<!-- IF GLOSSES -->
+				<tr>
+					<td class="gen" align="{S_CONTENT_FLOW_END}" nowrap="nowrap">{L_LOSSES}: </td>
+					<td><b class="genmed">{GLOSSES}</b></td>
+				</tr>
+				<!-- ENDIF -->
+				<tr>
+					<td class="gen" align="{S_CONTENT_FLOW_END}" nowrap="nowrap">{L_LICENCE}: </td>
+					<td><img src="{ROOT_PATH}rivals/images/{LICENCE}" alt="{L_PATENTEALT}" title="{L_PATENTETXT}" /></td>
+				</tr>
+				<!-- IF POLLO -->
+				<tr>
+					<td class="gen" align="{S_CONTENT_FLOW_END}" nowrap="nowrap">{L_POLLI_PRESI}: </td>
+					<td><b class="genmed">{POLLO}x<img src="{ROOT_PATH}/rivals/images/chickenbig.gif" alt="{L_CHICKENALT}" title="{L_CHICKENTXT}" class="rvmiddle" /></b></td>
+				</tr>
+				<!-- ENDIF -->
+				<!-- IF POWNER -->
+				<tr>
+					<td class="gen" align="{S_CONTENT_FLOW_END}" nowrap="nowrap">{L_POWNS_PRESI}: </td>
+					<td><b class="genmed">{POWNER}x<img src="{ROOT_PATH}/rivals/images/powner.gif" alt="{L_POWNERALT}" title="{L_POWNERTXT}" class="rvmiddle" /></b></td>
+				</tr>
+				<!-- ENDIF -->
+				<!-- IF REPVALUE -->
+				<tr>
+					<td class="gen" align="{S_CONTENT_FLOW_END}" nowrap="nowrap">{L_REPUTATION_1VS1}: </td>
+					<td><b class="genmed"><img src="{REPUTATION}" alt="{L_REPUTATION}" title="{REPVALUE}" class="rvmiddle" /> ({REPVALUE}/5)</b></td>
+				</tr>
+				<!-- ENDIF -->
+		<!-- PHPRIVALS MOD END -->
+			]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[<td class="row1" colspan="2"><div class="postbody" style="padding: 10px;">{SIGNATURE}</div></td>
+		</tr>
+	<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[<!-- PHPRIVALS MOD START -->
+	<!-- IF INTOURNAMENT -->
+		<tr>
+			<td class="cat" colspan="2" align="center"><h4>{L_USER_TOURNAMENT_HISTORY}</h4></td>
+		</tr>
+		<tr>
+			<td class="row1" colspan="2">
+				<div class="postbody" style="padding: 10px;">
+					<fieldset>
+						<!-- BEGIN block_tourstats -->
+						<p><strong>{block_tourstats.TOUR_NAME}</strong> [<a href="{block_tourstats.TOUR_URL}">{L_VIEW_BRACKETS}</a>] &bull; {L_STATUS} {block_tourstats.TOUR_STATUS} &bull; {L_BEST_POSITION}: {block_tourstats.TOUR_POSITION}</p>
+						<!-- END block_tourstats -->
+					</fieldset>
+				</div>
+			</td>
+		</tr>
+	<!-- ENDIF -->
+	<!-- IF INLADDER -->
+		<tr>
+			<td class="cat" colspan="2" align="center"><h4>{L_USER_LADDER_HISTORY}</h4></td>
+		</tr>
+		<tr>
+			<td class="row1" colspan="2">
+				<table class="tablebgtrasparent">
+					<!-- BEGIN block_ladders -->
+						<tr>
+							<td colspan="2"><h4 class="h4profile"><a href="{block_ladders.U_LADDER}">P: {block_ladders.PLATFORM}, L: {block_ladders.LADDER}, S: {block_ladders.SUBLADDER}</a></h4></td>
+						</tr>
+						<tr>
+							<td class="gen rvright">{L_WINS}: </td>
+							<td><strong class="gen">{block_ladders.WINS}</strong></td>
+						</tr>
+						<tr>
+							<td class="gen rvright">{L_LOSSES}: </td>
+							<td><strong class="gen">{block_ladders.LOSSES}</strong></td>
+						</tr>
+						<tr>
+							<td class="gen rvright">{L_LADDER_GROUP_PARI}: </td>
+							<td><strong class="gen">{block_ladders.PAREGGI}</strong></td>
+						</tr>
+						<tr>
+							<td class="gen rvright">{L_STREAK}: </td>
+							<td><strong class="gen">{block_ladders.STREAK}</strong></td>
+						</tr>
+						<tr>
+							<td class="gen rvright">{L_SCORE}: </td>
+							<td><strong class="gen">{block_ladders.SCORE}</strong></td>
+						</tr>
+						<tr>
+							<td class="gen rvright">{L_CURRENT_RANK}: </td>
+							<td><strong class="gen">{block_ladders.CURRENT_RANK} ({L_LAST_RANK}: {block_ladders.LAST_RANK})</strong></td>
+						</tr>
+						<tr>
+							<td class="gen rvright">{L_BEST_RANK}: </td>
+							<td><strong class="gen">{block_ladders.BEST_RANK} ({L_WORST_RANK}: {block_ladders.WORST_RANK})</strong></td>
+						</tr>
+					<!-- END block_ladders -->
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td class="cat" colspan="2" align="center"><h4>{L_USER_LADDER_LATESTMATCH}</h4></td>
+		</tr>
+		<tr>
+			<td class="row1" colspan="2">
+				<table width="100%" cellspacing="1" cellpadding="2" border="0">
+					<tr>
+						<td class="cat rvcenter"><h4>{L_PLAYED_TIME}</h4></td>
+						<td class="cat rvcenter"><h4>{L_CHALLANGER}</h4></td>
+						<td class="cat rvcenter"></td>
+						<td class="cat rvcenter"><h4>{L_CHALLANGEE}</h4></td>
+						<td class="cat rvcenter"><h4>{L_INFORMAZIONI_WAR}</h4></td>
+						<td class="cat rvcenter"><h4>{L_LADDER}</h4></td>
+					</tr>
+					<!-- BEGIN block_matchhistory -->
+					<tr class="genmed">
+						<td class="{block_matchhistory.ROW_COLOR} rvcenter rv80">{block_matchhistory.DATE}</td>
+						<td class="{block_matchhistory.ROW_COLOR} rvcenter">
+							<a href="{block_matchhistory.U_ER}" class="clanname">{block_matchhistory.CHALLANGER}<!-- IF block_matchhistory.SCORE --> ({block_matchhistory.ER_SCORE})<!-- ENDIF --></a>
+							<!-- IF block_matchhistory.CALCIO --><br />({block_matchhistory.ER_TEAM})<!-- ENDIF -->
+						</td>
+						<td class="{block_matchhistory.ROW_COLOR} rvcenter rv15">
+							 VS
+						</td>
+						<td class="{block_matchhistory.ROW_COLOR} rvcenter">
+							<a href="{block_matchhistory.U_EE}" class="clanname">{block_matchhistory.CHALLANGEE}<!-- IF block_matchhistory.SCORE --> ({block_matchhistory.EE_SCORE})<!-- ENDIF --></a>
+							<!-- IF block_matchhistory.CALCIO --><br />({block_matchhistory.EE_TEAM})<!-- ENDIF -->
+						</td>
+						<td class="{block_matchhistory.ROW_COLOR} rv300">
+							<ul>
+								<li class="rivalsli">{L_MAPSET}<!-- IF block_matchhistory.MAP1 eq '-' -->{L_LIBERO}</li><!-- ELSE IF --></li>
+								<li class="rivalsli">-[1] {block_matchhistory.MAP1} - <!-- IF block_matchhistory.DECERTO -->{block_matchhistory.MODE1}: [{block_matchhistory.MODE1_ER_SCOR} - {block_matchhistory.MODE1_EE_SCOR}]<!-- ENDIF --></li>
+								<li class="rivalsli">-[2] {block_matchhistory.MAP2} - <!-- IF block_matchhistory.DECERTO -->{block_matchhistory.MODE2}: [{block_matchhistory.MODE2_ER_SCOR} - {block_matchhistory.MODE2_EE_SCOR}]<!-- ENDIF --></li>
+								<li class="rivalsli">-[3] {block_matchhistory.MAP3} - <!-- IF block_matchhistory.DECERTO -->{block_matchhistory.MODE3}: [{block_matchhistory.MODE3_ER_SCOR} - {block_matchhistory.MODE3_EE_SCOR}]<!-- ENDIF --></li>
+							<!-- ENDIF -->
+								<li class="rivalsli">{block_matchhistory.CLASSIFICATA}</li>
+							</ul>
+						</td>
+						<td class="{block_matchhistory.ROW_COLOR} rv200">
+							<a href="{block_matchhistory.U_LADDER}">
+								<strong>{L_PLATFORM}</strong>: {block_matchhistory.PLATFORM}<br />
+								<strong>{L_LADDER}</strong>: {block_matchhistory.LADDER}<br />
+								<strong>{L_SUBLADDER}</strong>: {block_matchhistory.SUBLADDER}
+							</a>
+						</td>
+					</tr>
+					<!-- BEGINELSE -->
+					<tr class="genmed" align="center">
+						<td class="row1" colspan="7">{L_NO_MATCHES}</td>
+					</tr>
+					<!-- END block_matchhistory -->
+				</table>
+			</td>
+		</tr>
+	<!-- ENDIF -->
+<!-- PHPRIVALS MOD END -->]]></action>
+			</edit>
+		</open>
+		<open src="styles/subsilver2/template/overall_footer.html">
+			<edit>
+				<find><![CDATA[<!-- IF TRANSLATION_INFO --><br />{TRANSLATION_INFO}<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[<!-- phpRIVALSMOD START --><br /><a href="http://www.nipponart.org/">phpRivals Mod</a> &copy; Soshen<!-- phpRIVALSMOD END -->]]></action>
+			</edit>
+		</open>
+		<open src="styles/subsilver2/template/overall_header.html">
+			<edit>
+				<find><![CDATA[</head>]]></find>
+				<action type="before-add"><![CDATA[<!-- RIVALSMOD ADDON START -->
+<script type="text/javascript" src="{ROOT_PATH}rivals/jsfunction2.js"></script>
+<!-- RIVALSMOD ADDON END -->]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[<div id="menubar">]]></find>
+				<action type="after-add"><![CDATA[	
+		<!-- MENU RIVALSMOD BEGIN -->
+		<table class="tablebg" width="100%" cellspacing="1" cellpadding="0" style="margin: 0 0 5px 0;">
+		<tr>
+			<td class="row1">
+				<p class="breadcrumbs">
+					<a href="{U_PLATFORMS}" title="{L_PLATFORMS}" class="icon-ucp">{L_PLATFORMS}</a>
+					<!-- IF S_USER_LOGGED_IN -->
+					&#187; <a href="{U_ADDGROUP}" title="{L_ADDGROUP}" class="icon-ucp">{L_ADDGROUP}</a>
+					&#187; <a href="{U_GROUPCP}" title="{L_GROUPCP}" class="icon-ucp">{L_GROUPCP}</a>
+					<!-- ENDIF -->
+					&#187; <a href="{U_LIST_FULL}" title="{L_LIST_FULL}">{L_LIST_FULL}</a>
+					&#187; <a href="{U_UWAR}" title="{L_UWAR_MENU}">{L_UWAR_MENU}</a>
+					&#187; <a href="{U_MVP}" title="{L_MVP_MENU}">{L_MVP_MENU}</a>
+					&#187; <a href="{U_TOURNAMENTS}" title="{L_TOURNAMENTS}">{L_TOURNAMENTS}</a>
+					&#187; <a href="{U_RANDOM}" title="{L_RANDOM}">{L_RANDOM}</a>
+					<!-- IF S_USER_LOGGED_IN and S_MOD_RIVALS -->&#187; <a href="{U_RIVALS_MCP}" title="{L_RIVALS_MCP}">{RIVALS_MCP_L}</a><!-- ENDIF -->
+				</p>
+			</td>
+		</tr>
+		</table>
+		 <!-- MENU RIVALSMOD END -->
+		 ]]></action>
+			</edit>
+		</open>
+		<open src="styles/subsilver2/template/ucp_profile_profile_info.html">
+			<edit>
+				<find><![CDATA[<td class="row2"><input class="post" type="text" name="location" size="30" maxlength="100" value="{LOCATION}" /></td>
+</tr>]]></find>
+				<action type="after-add"><![CDATA[<!-- phpRIVALSMOD START -->
+<tr> 
+	<td class="row1" width="35%"><b class="genmed">{L_UCP_GAMER_NAME}: </b><br /><span>{L_GAMER_NAME_EXPLAIN}</span></td>
+	<td class="row2"><input type="text" name="gamer_name" size="30" maxlength="100" value="{GAMER_NAME}" class="post" /></td>
+</tr>
+<!-- phpRIVALSMOD END -->]]></action>
+			</edit>
+		</open>
+		<open src="styles/subsilver2/template/viewtopic_body.html">
+			<edit>
+				<find><![CDATA[<!-- IF postrow.POSTER_FROM --><br /><b>{L_LOCATION}:</b> {postrow.POSTER_FROM}<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[							
+				<!-- phpRIVALSMOD START -->
+					<!-- IF postrow.MVP --><br /><strong>{L_MVP_TOPIC}:</strong> {postrow.MVP}<!-- ENDIF -->
+					<!-- IF postrow.GAMERNAME --><br /><strong>{L_GAMERNAME}:</strong> {postrow.GAMERNAME}<!-- ENDIF -->
+					<!-- IF postrow.RATIO --><br /><strong>{L_RATIO}:</strong> {postrow.RATIO}<!-- ENDIF -->
+				<!-- phpRIVALSMOD END -->
+]]></action>
+			</edit>
+		</open>
+		<open src="styles/subsilver2/theme/stylesheet.css">
+			<edit>
+				<find><![CDATA[/* Layout]]></find>
+				<action type="before-add"><![CDATA[/* RivalsMOD
+ ------------ */
+@import url("phprivalmod.css");
+
+]]></action>
+			</edit>
+		</open>
+		<diy-instructions lang="en"><![CDATA[Purge your template(s), theme(s) and imageset(s) cache.]]></diy-instructions>
+		<diy-instructions lang="it"><![CDATA[Svuota la cache dello stile: templete, theme, imageset.]]></diy-instructions>
+	</action-group>
+</mod>

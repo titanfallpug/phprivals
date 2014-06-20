@@ -1,0 +1,58 @@
+<!-- INCLUDE overall_header.html -->
+
+<form method="post" action="{U_ACTION}">
+<fieldset>
+	<legend>{L_CONFIGURE_RIVALS}</legend>
+	<dl>
+		<dt><label for="ticket_receiver">{L_TICKET_RECEIVER}:</label></dt>
+		<dd><input type="text" class="inputbox autowidth" name="ticket_receiver" id="ticket_receiver" value="{CONFIG}" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="bye_group">{L_BYE_GROUP}:</label></dt>
+		<dd><input type="text" class="inputbox autowidth" name="bye_group" id="bye_group" value="{BYE_GROUP}" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="frost_cost">{L_HIBERNATION_COST}:</label></dt>
+		<dd><input type="text" class="inputbox autowidth" name="frost_cost" id="frost_cost" value="{FROST_COS}" /><br /><em>{L_HIBERNATION_COST_EXPL}</em></dd>
+	</dl>
+	<dl>
+		<dt><label for="kicked_time">{L_LADDER_KICKOUT_TIME}:</label></dt>
+		<dd><input type="text" class="inputbox autowidth" name="kicked_time" id="kicked_time" value="{KICK_DAY}" /><br /><em>{L_LADDER_KICKOUT_TIME_EXPL}</em></dd>
+	</dl>
+	<dl>
+		<dt><label for="inactiv_penality">{L_LADDER_KICKOUT_POINTS}:</label></dt>
+		<dd><input type="text" class="inputbox autowidth" name="inactiv_penality" id="inactiv_penality" value="{INACT_PEN}" /><br /><em>{L_LADDER_KICKOUT_POINTS_EXPL}</em></dd>
+	</dl>
+	<dl>
+		<dt><label for="modstraight">{L_MOD_STRAIGHT}:</label></dt>
+		<dd><input type="checkbox" name="modstraight" id="modstraight" value="1" class="radio" {MODSTRIGT} /><br /><em>{L_MOD_STRAIGHT_EXPL}</em></dd>
+	</dl>
+	
+	<dl>
+		<dt><label for="maxreporthours">{L_MAX_HOURS}:</label></dt>
+		<dd><input type="text" class="inputbox autowidth" name="maxreporthours" id="maxreporthours" value="{MAXHOURS}" /><br /><em>{L_MAX_HOURS_EXPL}</em></dd>
+	</dl>
+	<dl>
+		<dt><label for="minpost">{L_MIN_POST}:</label></dt>
+		<dd><input type="text" class="inputbox autowidth" name="minpost" id="minpost" value="{MINPOST}" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="bannedgroup">{L_BANNED_GROUP}:</label></dt>
+		<dd>
+			<select name="bannedgroup" id="bannedgroup">
+				<option value="0"{SELECT0}>{L_DONOTUSE}</option>
+				<!-- BEGIN groups -->
+				<option value="{groups.GROUP_ID}"{groups.GROUP_SELECT}>{groups.GROUP_NAME}</option>
+				<!-- END groups -->
+			</select>
+		</dd>
+	</dl>
+
+	<p class="quick">
+		<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	</p>
+</fieldset>
+{S_FORM_TOKEN}
+</form>
+
+<!-- INCLUDE overall_footer.html -->

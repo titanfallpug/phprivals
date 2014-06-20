@@ -1,0 +1,56 @@
+<!-- INCLUDE overall_header.html -->
+
+
+		<table class="tablebg" width="100%" cellspacing="1">
+		<!-- BEGIN block_ladders -->
+			<tr>
+				<td colspan="8" class="row2 rvcenter rvmiddle">
+					<a href="{block_ladders.U_LADDERRULES}"><img src="{ROOT_PATH}images/rivals/ladderlogo/{block_ladders.LADDER_LOGO}" alt="{block_ladders.LADDER_NAME}" title="{block_ladders.LADDER_NAME}" /></a>
+				</td>
+			</tr>
+			<tr>
+				<th colspan="8" class="row3 rvcenter rvmiddle">
+					{L_LADDERS_ATTIVE}
+				</th>
+			</tr>
+			<!-- BEGIN block_subladders -->
+			<tr>
+				<td class="row1 rvleft rvtop">
+					<a href="{block_ladders.block_subladders.U_ACTION}" class="forumlink"><span class="subladdername">{block_ladders.block_subladders.LADDER_NAME}</span></a>
+					<span class="clanpartecipanti">(<!-- IF block_ladders.block_subladders.ONEONE -->{L_USERS_PARTECIPANTI}<!-- ELSE IF -->{L_CLAN_PARTECIPANTI}<!-- ENDIF --> {block_ladders.block_subladders.NUM_GROUPS})</span><br />
+					<span class="forumdesc">{block_ladders.block_subladders.LADDER_LIMIT} {block_ladders.block_subladders.LADDER_DESC}</span>
+				</td>
+				<td class="row1 rvcenter rvmiddle rv30">{block_ladders.block_subladders.IMG_1VS1}</td>
+				<td class="row1 rvcenter rvmiddle rv30">{block_ladders.block_subladders.DECERTO_ICON}</td>
+				<td class="row1 rvcenter rvmiddle rv30">{block_ladders.block_subladders.CPC_ICON}</td>
+				<td class="row1 rvcenter rvmiddle rv30">{block_ladders.block_subladders.CALCIO_ICON}</td>
+				<td class="row1 rvcenter rvmiddle rv30">{block_ladders.block_subladders.IMG_RTH}</td>
+				<td class="row1 rvcenter rvmiddle rv30">{block_ladders.block_subladders.IMG_ADVSTATS}</td>
+				<td class="row1 rvcenter rvmiddle rv30">{block_ladders.block_subladders.IMG_MVP}</td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr>
+				<td class="row1 rvmiddle rvleft" colspan="8"> </td>
+			</tr>
+			<!-- END block_subladders -->
+			
+			<tr>
+				<th class="row3 rvcenter rvmiddle" colspan="8">
+					{L_LADDERS_CHIUSE}
+				</th>
+			</tr>
+			<!-- BEGIN block_subladders_locked -->
+			<tr>
+				<td class="row1 rvmiddle rvleft" colspan="8">
+					<img src="{T_TEMPLATE_PATH}/rivals/imgs_rival/lucchetto.png" class="rvmiddle" alt="" /> <a href="{block_ladders.block_subladders_locked.U_ACTION}" class="forumlink">{block_ladders.block_subladders_locked.LADDER_NAME}</a>
+				</td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr>
+				<td class="row1 rvmiddle rvleft" colspan="8">{L_NO_RECORD_DATA}</td>
+			</tr>
+			<!-- END block_subladders_locked -->
+		<!-- END block_ladders -->
+		</table>
+	
+<!-- INCLUDE overall_footer.html -->

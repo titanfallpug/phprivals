@@ -1,0 +1,47 @@
+<!-- INCLUDE overall_header.html -->
+<form method="post" action="{U_ACTION}" id="limit">
+	<fieldset>
+		<legend>{L_SELECT_CLAN}</legend>
+		<p><select name="group_id" id="group_id" class="inputbox autowidth" onchange="document.forms['limit'].submit();">
+				<option value="0" selected="selected">-----</option>
+			<!-- BEGIN clan_select -->
+				<option value="{clan_select.CLAN_ID}">{clan_select.CLAN_NAME}</option>
+			<!-- END clan_select -->
+			</select>
+		</p>
+	</fieldset>
+{S_FORM_TOKEN}
+</form>
+
+<!-- BEGIN block_ladders -->
+<!-- IF block_ladders.SUBLADDER -->
+
+<form method="post" action="{U_ACTION}">
+	<fieldset>
+		<legend>[{L_PLATFORM_SHORT}] {block_ladders.PLATFORM}, [{L_LADDER_SHORT}] {block_ladders.LADDER}, [{L_SUBLADDER_SHORT}] {block_ladders.SUBLADDER}</legend>
+		<!-- BEGIN block_members -->
+		<dl>
+			<dt><a href="{block_members.U_MEMBERPROFILE}">{block_members.MEMBER_NAME}</a>:
+				<input type="hidden" name="stats[{block_members.MEMBER_ID}][user_id]" value="" />
+				<input type="hidden" name="stats[{block_members.MEMBER_ID}][mpayed]" value="{block_members.MEMBER_PLAYED}" />
+			</dt>
+			<dd>{L_MVPS}: <input name="stats[{block_members.MEMBER_ID}][mvps]" type="text" class="inputbox autowidth" value="{block_members.MEMBER_MVP}" size="4" maxlength="8" /></dd>
+			<dd>{L_KILLS}: <input name="stats[{block_members.MEMBER_ID}][kills]" type="text" class="inputbox autowidth" value="{block_members.MEMBER_KILLS}" size="4" maxlength="8" /></dd>
+			<dd>{L_DEADS}: <input name="stats[{block_members.MEMBER_ID}][morti]" type="text" class="inputbox autowidth" value="{block_members.MEMBER_DEADS}" size="4" maxlength="8" /></dd>
+			<dd>{L_ASSISTS}: <input name="stats[{block_members.MEMBER_ID}][assist]" type="text" class="inputbox autowidth" value="{block_members.MEMBER_ASSISTS}" size="4" maxlength="8" /></dd>
+			<dd>{L_GOALF}: <input name="stats[{block_members.MEMBER_ID}][goalf]" type="text" class="inputbox autowidth" value="{block_members.MEMBER_GOALF}" size="4" maxlength="8" /></dd>
+			<dd>{L_GOALS}: <input name="stats[{block_members.MEMBER_ID}][goals]" type="text" class="inputbox autowidth" value="{block_members.MEMBER_GOALA}" size="4" maxlength="8" /></dd>
+		</dl>
+		<!-- END block_members -->
+		<p class="quick">
+			<input type="hidden" name="xgroup_id" value="{block_ladders.GROUPID}" />
+			<input type="hidden" name="xladder_id" value="{block_ladders.LADDERID}" />
+			<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+		</p>
+	</fieldset>
+{S_FORM_TOKEN}
+</form>
+<!-- ENDIF -->
+<!-- END block_ladders -->
+
+<!-- INCLUDE overall_footer.html -->

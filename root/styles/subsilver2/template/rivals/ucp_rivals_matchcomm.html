@@ -1,0 +1,60 @@
+<!-- INCLUDE ucp_header.html -->
+
+<div style="padding: 2px;">
+	<h2>{L_MATCHCOMM}</h2>
+
+	<!-- IF ERROR -->
+	<p><span class="gensmall error">{ERROR}</span></p>
+	<!-- ENDIF -->
+	
+		<form action="{U_ACTION}" method="post">
+			<fieldset>
+			<table class="tablebg" width="100%" cellspacing="1">
+				<tr class="genmed">
+					<td class="row1 rvcenter" colspan="2">
+						<p>{L_SMSG_DESC}</p>
+						<br />
+						<textarea name="smsg_text" cols="30" rows="2" class="inputbox narrow" onkeypress="check_length(this.form);" onkeydown="check_length(this.form);"></textarea>
+						<br />
+						<p><input size="3" value="250" name="text_num" /> {L_CHARACTER_LEFT} - {L_BBCODE_SMILE_ACTIVE}</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="cat rvcenter" colspan="2"><input type="submit" name="submit" value="{L_SUBMIT}" class="rvbutton2" /></td>
+				</tr>
+			</table>
+			</fieldset>
+		{S_FORM_TOKEN}
+		</form>
+
+		<p><br /></p>
+
+		<fieldset>
+		<legend>{L_LATEST_SMSG}</legend>
+		<!-- BEGIN block_smsg -->
+		<dl>
+			<dt><a href="{block_smsg.DEL_WORK}"><img src="{ROOTH_PATH}rivals/images/delete.png" alt="{L_DELETE}" title="{L_DELETE}" class="rivalsicon" /></a> {block_smsg.SMSG_TIME}</dt>
+			<dd>{block_smsg.SMSG_TEXT}</dd>
+		</dl>
+		<!-- END block_smsg -->
+	</fieldset>
+</div>	
+
+<script type="text/javascript">
+<!--
+function check_length(smsg)
+{
+	maxLen = 250;
+	if (smsg.smsg_text.value.length >= maxLen)
+	{
+		smsg.smsg_text.value = smsg.smsg_text.value.substring(0, maxLen);
+	}
+	else
+	{
+		smsg.text_num.value = maxLen - smsg.smsg_text.value.length;
+	}
+}
+//-->
+</script>
+
+<!-- INCLUDE ucp_footer.html -->

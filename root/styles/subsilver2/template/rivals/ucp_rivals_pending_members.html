@@ -1,0 +1,41 @@
+<!-- INCLUDE ucp_header.html -->
+<div style="padding: 2px;">
+
+	<h2>{L_PENDING_MEMBERS}</h2>
+
+	<form action="{U_ACTION}" method="post">
+
+		<table class="tablebg" width="100%" cellspacing="1">
+			<tr class="genmed">
+				<th class="row3 rvcenter">{L_USERNAME}</th>
+				<th class="row3 rvcenter">{L_OPTIONS}</th>
+			</tr>
+			<!-- BEGIN block_pendingmembers -->
+			<tr class="genmed">
+				<td class="{block_pendingmembers.ROW_COLOR} rvtop">
+					<span class="topictitle"><a href="{block_pendingmembers.U_PROFILE}">{block_pendingmembers.MEMBER_NAME}</a></span>
+				</td>
+				<td class="{block_pendingmembers.ROW_COLOR}">
+					<input type="checkbox" name="accept[]" value="{block_pendingmembers.MEMBER_ID}" /> <strong>{L_ACCEPT}</strong>
+					<input type="checkbox" name="decline[]" value="{block_pendingmembers.MEMBER_ID}" /> <strong>{L_DECLINE}</strong>
+				</td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr class="genmed">
+				<td colspan="2" class="row2">{L_NO_PENDING_MEMBERS}</td>
+			</tr>
+			<!-- END block_pendingmembers -->
+			<tr>
+				<td class="cat rvcenter" colspan="2">
+					<!-- IF .block_pendingmembers -->
+					<input type="submit" name="submit" value="{L_SUBMIT}" class="rvbutton2" />
+					<!-- ENDIF -->
+				</td>
+			</tr>
+		</table>
+	
+	{S_FORM_TOKEN}
+	</form>
+
+</div>
+<!-- INCLUDE ucp_footer.html -->

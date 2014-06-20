@@ -1,0 +1,73 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF ERROR -->
+	<p class="errorbox"><span class="gensmall">{ERROR}</span></p>
+<!-- ENDIF -->
+
+<form method="post" action="{U_ACTION}" enctype="multipart/form-data">
+	<fieldset>
+		<legend>{L_ACP_RIVALS_NEW_RANDOM}</legend>
+		<dl>
+			<dt><label for="gioco">{L_GAME_NAME}</label></dt>
+			<dd><input type="text" size="50" id="gioco" name="gioco" class="inputbox autowidth" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="short_name">{L_GAME_SHORT_NAME}</label></dt>
+			<dd><input type="text" size="10" id="short_name" name="short_name" class="inputbox autowidth" /> <i>{L_MAX_10}</i></dd>
+		</dl>
+		<dl>
+			<dt><label for="images">{L_UPLOAD_MAP_IMAGES}</label></dt>
+			<dd><input type="file" class="inputbox autowidth" name="images" id="images" /> <i>{L_ONLY_ZIP}</i></dd>
+		</dl>
+			<p class="quick">
+			<input type="submit" name="newrandom" value="{L_SUBMIT}" class="button1" />
+		</p>
+	</fieldset>
+{S_FORM_TOKEN}
+</form>
+
+<hr />
+
+<form method="post" action="{U_ACTION}">
+	<fieldset>
+		<legend>{L_ACP_RIVALS_RANDOM_ANTEPRIMA}</legend>
+		
+		{L_SELEZIONA_GIOCO_RANDOM} 
+		<select name="where" id="where" class="inputbox autowidth">
+			<!-- BEGIN selettore -->
+			<option value="{selettore.SHORT}">{selettore.GIOCO}</option>
+			<!-- BEGINELSE -->
+			<option value="">{L_ANY_MAPS_SAVED}</option>
+			<!-- END selettore -->
+		</select>
+		<input type="submit" name="selettore" id="selettore" value="{L_MOSTRA}" class="button1" /> <input type="submit" name="cancella" id="cancella" value="{L_DELETE}" class="button1" />
+	</fieldset>
+{S_FORM_TOKEN}
+</form>
+
+<!-- IF .mappa -->
+<fieldset>
+	<legend>{L_ANTEPRIMA_RANDOM}</legend>
+	<!-- BEGIN mappa --><h2><strong>{mappa.GIOCO}</strong> ({mappa.SHORT})</h2><!-- END mappa -->
+	
+	<!-- BEGIN block_mappa -->
+	<span><img src="{block_mappa.URL}/{block_mappa.IMG}" alt="" /><a href="{block_mappa.DELLK}" style="z-index:100;position:relative;vertical-align:top;left:-15px;"><img src="{ROOT_PATH}/style/rivals/delete.png" alt="{L_DELETE}" title="{L_DELETE}" /></a></span>
+	<!-- END block_mappa -->
+</fieldset>
+
+<!-- IF S_SHOW_MANUAL_UPLOAD -->
+<form method="post" action="" enctype="multipart/form-data">
+	<fieldset>
+		<legend>{L_ADD_MAP_MANUALLY}</legend>
+		<p>{L_ADD_MAP_MANUALLY_DESC}</p>
+		
+		{S_HIDDEN_MAPID}
+		<input type="file" class="inputbox autowidth" name="mapimg" id="mapimg" /> <input type="submit" name="add1map" value="{L_ADD}" class="button1" />
+	</fieldset>
+{S_HIDDEN_FIELDS}
+{S_FORM_TOKEN}
+</form>
+<!-- ENDIF -->
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,30 @@
+<!-- INCLUDE overall_header.html -->
+
+<form method="post" action="{U_ACTION}">
+	<fieldset>
+		<legend>{L_ACP_RIVALS_ADD_MVP_LIST}</legend>
+		<dl>
+			<dt><label for="platform_name">{L_MVPLIST_NAME}:</label></dt>
+			<dd><input type="text" size="70" id="platform_name" name="nome_mvp" class="inputbox autowidth" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="platform_desc">{L_MVPLIST_DESC}:</label></dt>
+			<dd><input type="text" size="125" id="platform_desc" name="descrizione_mvp" class="inputbox autowidth" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="mvp_ladder">{L_ABILITA_SU_LADDER}:</label></dt>
+			<dd>
+				<select name="mvp_ladder" id="mvp_ladder" class="inputbox autowidth">{S_LADDER}</select>
+			</dd>
+		</dl>
+
+		<p class="quick">
+			<input type="hidden" name="mvp_id" value="{MVP_ID}" />
+			<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+		</p>
+	</fieldset>
+</form>
+
+<p>1: {L_MVPLIST_PLATFORM_ISTR}</p>
+
+<!-- INCLUDE overall_footer.html -->

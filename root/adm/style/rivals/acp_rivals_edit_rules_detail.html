@@ -1,0 +1,58 @@
+<!-- INCLUDE overall_header.html -->
+<script type="text/javascript" src="style/ckeditor/ckeditor.js"></script>
+
+<!-- BEGIN block_rules_detail -->
+<form method="post" action="{U_ACTION}">
+<fieldset>
+	<legend>{block_rules_detail.PLATFORM}, {block_rules_detail.MAIN_LADDER}, {block_rules_detail.LADDER_NAME}</legend>
+	
+	<dl>
+		<dt><label for="rules_ladder">{L_LADDER_ID}:</label></dt>
+		<dd><input type="text" size="8" name="rules_ladder" id="rules_ladder" class="inputbox autowidth" value="{block_rules_detail.LADDER_ID}" />  | <strong>{L_PLATFORM_ID}</strong> <input type="text" size="8" name="rules_platform" id="rules_platform" class="inputbox autowidth" value="{block_rules_detail.PLATFORM_ID}" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="requisiti_iscrizione">{L_REQUISITI}:</label></dt>
+		<dd><textarea cols="100" rows="12" name="requisiti_iscrizione" id="requisiti_iscrizione">{block_rules_detail.REQUISITI}</textarea></dd>
+	</dl>
+			<script type="text/javascript">
+			//<![CDATA[
+				CKEDITOR.replace( 'requisiti_iscrizione' );
+			//]]>
+			</script>
+	<dl>
+		<dt><label for="regole_generali">{L_REG_GENERALI}:</label></dt>
+		<dd><textarea cols="100" rows="12" name="regole_generali" id="regole_generali" class="inputbox autowidth">{block_rules_detail.REG_GENERALI}</textarea></dd>
+	</dl>
+			<script type="text/javascript">
+			//<![CDATA[
+				CKEDITOR.replace( 'regole_generali' );
+			//]]>
+			</script>
+	<dl>
+		<dt><label for="configurazione">{L_CONFIG}:</label></dt>
+		<dd><textarea cols="100" rows="12" name="configurazione" id="configurazione" class="inputbox autowidth">{block_rules_detail.CONFIG}</textarea></dd>
+	</dl>
+			<script type="text/javascript">
+			//<![CDATA[
+				CKEDITOR.replace( 'configurazione' );
+			//]]>
+			</script>
+	<dl>
+		<dt><label for="divieti">{L_VIETATO}:</label></dt>
+		<dd><textarea cols="100" rows="12" name="divieti" id="divieti" class="inputbox autowidth">{block_rules_detail.VIETATO}</textarea></dd>
+	</dl>
+			<script type="text/javascript">
+			//<![CDATA[
+				CKEDITOR.replace( 'divieti' );
+			//]]>
+			</script>
+			
+	<p class="quick">
+		<input type="hidden" name="rules" value="{block_rules_detail.RULES_ID}" />
+		<input type="submit" name="modifica" value="{L_SUBMIT}" class="button1" />
+	</p>
+</fieldset>
+</form>
+<!-- END block_rules_detail -->
+
+<!-- INCLUDE overall_footer.html -->

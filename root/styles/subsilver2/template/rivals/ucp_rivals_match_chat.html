@@ -1,0 +1,106 @@
+<!-- IF LIGHTBOX -->
+	<!-- INCLUDE simple_header.html -->
+<!-- ELSE -->
+	<!-- INCLUDE ucp_header.html -->
+<!-- ENDIF -->
+
+<div style="padding: 2px;">
+
+	<h2>{L_CLAN_CHAT}</h2>
+
+	<!-- IF MATCHDET -->
+	<form action="{U_ACTION}" method="post">
+		<div class="panel">
+			<fieldset>
+				<div class="chatfield">
+					<ul>
+						<!-- BEGIN block_match_chat -->
+						<li>
+							<span class="msg_time">{block_match_chat.CHAT_TIME} </span> 
+							<strong><a href="{block_match_chat.POSTER_URL}">{block_match_chat.POSTER_NAME}</a></strong> <!-- IF block_match_chat.CLAN_NAME -->[{L_CLAN}: <a href="{block_match_chat.CLAN_URL}">{block_match_chat.CLAN_NAME}</a>] <!-- ENDIF --> >>
+							<span class="msg_text">{block_match_chat.CHAT_TEXT}</span>
+						</li>
+						<!-- END block_match_chat -->
+					</ul>
+				</div>
+				<p class="rvcenter">
+					<strong>{L_CHAT_DESC}</strong><br />
+					<textarea name="chat_text" cols="10" rows="2" class="inputbox narrow"></textarea><br />
+					<input type="hidden" name="mid" value="{ID_MATCH}" />
+					<input type="hidden" name="lb" value="{LIGHTBOX}" />
+					<input type="hidden" name="twar" value="{ID_TMATCH}" />
+					<input type="hidden" name="uwar" value="{ID_UMATCH}" />
+					<input type="submit" name="submit" value="{L_SUBMIT}" class="rvbutton2" />
+					<input type="submit" name="refresh" value="{L_REFRESH}" class="rvbutton2" onclick="window.location.reload()" />
+					<br /><strong><span id="countDown"></span> {L_BEFORE_REFRESH}</strong><br />{L_BBCODE_SMILE_ACTIVE}
+				</p>
+			</fieldset>
+		</div>
+	{S_HIDDEN_FIELDS}
+	{S_FORM_TOKEN}
+	</form>
+	<!-- ELSE -->
+	<div class="panel">
+			<fieldset>
+				<ul class="chatfieldmain">
+					<!-- BEGIN block_match -->
+					<li class="rvchatlist">
+						{block_match.CHALLANGER} {L_VS} {block_match.CHALLANGEE} [{L_ON}: {block_match.PLATFORM}, {block_match.LADDER}, {block_match.SUBLADDER}]
+						<span class="rvbutton rvfloatright"><a href="{block_match.EDIT_URL}">{L_ENTRA_CHAT}</a></span>
+					</li>
+					<!-- END block_match -->
+					
+					<!-- BEGIN block_match_tournament -->
+					<li class="rvchatlist">
+						{block_match_tournament.CHALLANGER} {L_VS} {block_match_tournament.CHALLANGEE} [{L_TOURNAMENT}: {block_match_tournament.TOURNAMENT}]
+						<span class="rvbutton rvfloatright"><a href="{block_match_tournament.EDIT_URL}">{L_ENTRA_CHAT}</a></span>
+					</li>
+					<!-- END block_match_tournament -->
+				</ul>
+			</fieldset>
+	</div>
+	<!-- ENDIF -->
+</div>
+<!-- IF MATCHDET -->
+<script type="text/javascript">
+window.onload = function()
+{
+	/* Refresh countdown mod by Soshen */
+	startCountDown(50, 1000, myFunction);
+}
+
+function startCountDown(i, p, f)
+{
+	var pause = p;
+	var fn = f;
+	var countDownObj = document.getElementById("countDown");
+	countDownObj.count = function(i)
+	{
+		countDownObj.innerHTML = i;
+		if (i == 0)
+		{
+			fn();
+			return;
+		}
+		setTimeout(function()
+		{
+			countDownObj.count(i - 1);
+		},
+		pause
+		);
+	}
+	countDownObj.count(i);
+}
+
+function myFunction()
+{
+	window.location.reload(true);
+}
+</script>
+<!-- ENDIF -->
+
+<!-- IF LIGHTBOX -->
+	<!-- INCLUDE simple_footer.html -->
+<!-- ELSE -->
+	<!-- INCLUDE ucp_footer.html -->
+<!-- ENDIF -->

@@ -1,0 +1,133 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF ERRORE -->
+	<p class="errorbox"><span class="gensmall">{ERRORE}</span></p>
+<!-- ENDIF -->
+
+<form method="post" action="{U_ACTION}">
+<fieldset>
+	<legend>{L_ACP_RIVALS_EDIT_SUBLADDER}</legend>
+	
+	<dl>
+		<dt><label for="ladder_name">{L_LADDER_NAME}:</label></dt>
+		<dd><input type="text" size="25" name="ladder_name" id="ladder_name" value="{LADDER_NAME}" class="inputbox autowidth" /> | <strong>{L_DELETE}?</strong> <input type="checkbox" name="delete" value="1" class="radio" /></dd>
+	</dl>
+	<!-- IF NON1VS1 -->
+	<dl>
+		<dt><label for="ladder_rm">{L_LADDER_RM}: {L_OPTIONAL}</label></dt>
+		<dd><input type="text" name="ladder_rm" id="ladder_rm" class="inputbox autowidth" value="{LADDER_RM}" /></dd>
+	</dl>
+	<!-- ENDIF -->
+	<dl>
+		<dt><label for="ladder_reset">{L_LADDER_RESET_STATS}</label></dt>
+		<dd><input type="checkbox" name="ladder_reset" id="ladder_reset" value="1" class="radio" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="ladder_cl">{L_LADDER_CL}</label></dt>
+		<dd><input type="checkbox" name="ladder_cl" id="ladder_cl" {LADDER_CL} value="1" class="radio" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="win_system">{L_LADDER_WIN_SYSTEM}:</label></dt>
+		<dd><input type="radio" name="win_system" id="win_system" value="0" class="radio" {LADDER_WINSYS1} /> {L_SCORE_RELATED} | <input type="radio" name="win_system" id="win_system2" value="1" class="radio" {LADDER_WINSYS2} /> {L_WIN_RELATED}</dd>
+	</dl>
+	<dl>
+		<dt><label for="ladder_limit">{L_LADDER_LIMIT}:</label></dt>
+		<dd>
+			<select name="ladder_limit" id="ladder_limit" class="inputbox autowidth">
+					<option value="0" {LADDER_LIMIT_0}>{L_APERTA_A_TUTTI}</option>
+					<option value="1" {LADDER_LIMIT_1}>{L_APERTA_ALMENO_B}</option>
+					<option value="2" {LADDER_LIMIT_2}>{L_APERTA_SOLO_A}</option>
+			</select>
+		</dd>
+    </dl>
+	<!-- IF NON1VS1 -->
+	<dl>
+		<dt><label for="ladder_mvp">{L_LADDER_MVP}</label></dt>
+		<dd><input type="checkbox" name="ladder_mvp" id="ladder_mvp" {LADDER_MVP} value="1" class="radio" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="ladder_advstats">{L_LADDER_ADVSTATS}</label></dt>
+		<dd><input type="checkbox" name="ladder_advstats" id="ladder_advstats" class="radio" value="1" {LADDER_ADVSTAT} /></dd>
+	</dl>
+	<!-- ENDIF -->
+	<dl>
+	<dt><label for="ladder_style">{L_LADDER_TYPE}:</label></dt>
+			<dd>
+			<select name="ladder_style" id="ladder_style" class="inputbox autowidth">
+					<option value="0" {LADDER_STYLE_0}>{L_STANDARD_LADDER}</option>
+					<option value="1" {LADDER_STYLE_1}>{L_DECERTO_LADDER}</option>
+					<option value="2" {LADDER_STYLE_2}>{L_CPC_LADDER}</option>
+					<option value="3" {LADDER_STYLE_3}>{L_CALCIO_LADDER}</option>
+			</select>
+			 <a href="#" onmouseover="toggleDiv('divstyle',1)" onmouseout="toggleDiv('divstyle',0)"><img src="{INFOLOGO}" alt="" /></a>
+			</dd>
+	</dl>
+	<dl>
+		 	<dt><label for="shorty">{L_LADDER_SHORTY}</label></dt>
+			<dd>
+			<select name="shorty" id="shorty" class="inputbox autowidth" >
+			<option value="0">-------------</option>
+			        <!-- BEGIN block_decerto -->
+					<option value="{block_decerto.NOMECORTO}" {block_decerto.SELECTED}>{block_decerto.NOMELUNGO} [{block_decerto.TIPO}]</option>
+					<!-- END block_decerto -->
+			</select>
+			</dd>
+	</dl>
+	<dl>
+		<dt><label for="ladder_ranking">{L_LADDER_RANKING}:</label></dt>
+		<dd><input type="radio" name="ladder_ranking" id="ladder_ranking" {LADDER_RANKING} value="0" class="radio" /> {L_ELO} | 
+			<input type="radio" name="ladder_ranking" id="ladder_ranking1" {LADDER_RANKING2} value="1" class="radio" /> {L_SWAP} | 
+			<input type="radio" name="ladder_ranking" id="ladder_ranking2" {LADDER_RANKING3} value="2" class="radio" /> {L_RTH} 
+			<a href="#" onmouseover="toggleDiv('divrank',1)" onmouseout="toggleDiv('divrank',0)"><img src="{INFOLOGO}" alt="" /></a>
+			</dd>
+	</dl>
+	<dl>
+		<dt><label for="ladder_locked">{L_LADDER_LOCKED}:</label></dt>
+		<dd><input type="radio" name="ladder_locked" id="ladder_locked" value="0" class="radio" {LADDER_LOCKED} /> {L_LADDER_RADIO_LOCKED} | <input type="radio" name="ladder_locked" id="ladder_locked2" value="1" class="radio" {LADDER_LOCKED2} /> {L_LADDER_RADIO_LOCKED2}</dd>
+	</dl>
+	<dl>
+		<dt><label for="ladder_mod">{L_LADDER_MOD}: {L_OPTIONAL}</label></dt>
+		<dd><input type="text" name="ladder_mod" id="ladder_mod" class="inputbox autowidth" value="{LADDER_MOD}" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="ladder_desc">{L_LADDER_DESC}:</label></dt>
+		<dd><textarea name="ladder_desc" id="ladder_desc" cols="40" rows="5" class="inputbox narrow">{LADDER_DESC}</textarea></dd>
+	</dl>
+
+	<p class="quick">
+		<input type="hidden" name="ladder_id" value="{LADDER_ID}" />
+		{L_ATTENZIONE_CANCEL}
+		<input type="submit" value="{L_SUBMIT}" name="submit" class="button1" />
+	</p>
+</fieldset>
+</form>
+
+<div id="divstyle" class="acplegend1" style="display:none; width:430px; position:absolute; margin-left:200px; margin-top:-370px; z-index:3 ! important;  background: #c0c0c0; border: 1px solid #103f5a;">
+{L_LEGENDA_LADDER}
+</div>
+<div id="divrank" class="acplegend" style="display:none; width:430px; position:absolute; margin-left:200px; margin-top:-330px; z-index:3 ! important;  background: #c0c0c0; border: 1px solid #103f5a;">
+<ul>
+<li>{L_ELO_DESC}</li>
+<li>{L_SWAP_DESC}</li>
+<li>{L_RTH_DESC}</li>
+</ul>
+</div>
+
+<script type="text/javascript">
+<!--
+function toggleDiv(id,flagit) {
+if (flagit=="1"){
+if (document.layers) document.layers[''+id+''].display = "block"
+else if (document.all) document.all[''+id+''].style.display = "block"
+else if (document.getElementById) document.getElementById(''+id+'').style.display = "block"
+}
+else
+if (flagit=="0"){
+if (document.layers) document.layers[''+id+''].display = "none"
+else if (document.all) document.all[''+id+''].style.display = "none"
+else if (document.getElementById) document.getElementById(''+id+'').style.display = "none"
+}
+}
+//-->
+</script>
+<!-- INCLUDE overall_footer.html -->

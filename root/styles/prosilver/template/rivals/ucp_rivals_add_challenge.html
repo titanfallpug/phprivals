@@ -1,0 +1,50 @@
+<!-- INCLUDE ucp_header.html -->
+
+<h2>{L_ADD_CHALLENGE}</h2>
+
+<!-- IF ERROR -->
+<p class="rv_errorbox"><span class="gensmall">{ERROR}</span></p>
+<!-- ENDIF -->
+
+<form action="{U_ACTION}" method="post" id="make_challenge">
+<div class="panel">
+
+	<div class="inner"><span class="corners-top"><span></span></span>
+	<fieldset>
+		<dl>
+			<dt><label for="challengee"><!-- IF USERLADDER -->{L_USER_ID_NAME}<!-- ELSE IF -->{L_GROUP_ID}<!-- ENDIF --></label></dt>
+			<dd><input type="text" name="challengee" id="challengee" class="inputbox autowidth" value="{GROUP_ID}" /><!-- IF not USERLADDER --> [ <a href="#" onclick="window.open('{U_FIND_GROUP}', '_phpbbsearch', 'HEIGHT=250,resizable=yes,WIDTH=650');return false;">{L_FIND_GROUP}</a> ]<!-- ENDIF --></dd>
+		</dl>
+		<dl>
+			<dt><label for="challenge_unranked">{L_CHALLENGE_UNRANKED}</label></dt>
+			<dd><input type="checkbox" name="challenge_unranked" id="challenge_unranked" value="1" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="ladder_id_sel">{L_LADDER}</label></dt>
+			<dd>
+				<select name="ladder_id_sel" id="ladder_id_sel" >
+					<!-- BEGIN block_ladders -->
+					<option value="{block_ladders.LADDER_ID}" {block_ladders.LADDER_SELECTED}>G: {block_ladders.PLATFORM}, L: {block_ladders.LADDER}, S: {block_ladders.SUBLADDER}</option>
+					<!-- END block_ladders -->
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="rival_extra">{L_EXTRA}</label></dt>
+			<dd><textarea cols="40" rows="5" name="extra" class="inputbox narrow" id="rival_extra" ></textarea></dd>
+		</dl>
+	</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<fieldset class="submit-buttons">
+	<input type="hidden" name="ulad" value="{ULAD}" />
+	<input type="reset" value="{L_RESET}" name="reset" class="rvbutton2" />&nbsp; 
+	<input type="submit" name="submit" value="{L_SUBMIT}" class="rvbutton2" />
+</fieldset>
+
+{S_HIDDEN_FIELDS}
+{S_FORM_TOKEN}
+</form>
+
+<!-- INCLUDE ucp_footer.html -->

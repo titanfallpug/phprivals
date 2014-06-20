@@ -1,0 +1,265 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF ERRORE -->
+	<p class="errorbox"><span class="gensmall">{ERRORE}</span></p>
+<!-- ENDIF -->
+
+<form method="post" action="{U_ACTION}" enctype="multipart/form-data">
+<fieldset>
+	<legend>{L_ACP_RIVALS_ADD_LADDER}</legend>
+	
+	<dl>
+		<dt><label for="ladder_type">{L_LADDER_TYPE}:</label></dt>
+		<dd>
+			<select name="ladder_type" id="ladder_type" class="inputbox autowidth" onchange="javascript:switch_it(this.value);">
+				<option value="0" selected="selected">{L_LADDER}</option>
+				<option value="1">{L_SUBLADDER}</option>
+				<option value="2">{L_SUBLADDER_1VS1}</option>
+			</select>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="ladder_name">{L_LADDER_NAME}:</label></dt>
+		<dd><input type="text" name="ladder_name" id="ladder_name" class="inputbox autowidth" /></dd>
+	</dl>
+	<div id="ladder_options" style="display: block;">
+		<dl>
+			<dt><label for="ladder_platform">{L_LADDER_PLATFORM}:</label></dt>
+			<dd>
+				<select name="ladder_platform" id="ladder_platform" class="inputbox autowidth">
+					<!-- BEGIN block_platforms -->
+					<option value="{block_platforms.PLATFORM_ID}">{block_platforms.PLATFORM_NAME}</option>
+					<!-- END block_platforms -->
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="ladder_logo">{L_LADDER_LOGO}:<br />{L_LADDER_LOGO_EXP}</label></dt>
+			<dd><input type="file" name="ladder_logo" id="ladder_logo" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="ladder_rules">{L_LADDER_RULES}:</label></dt>
+			<dd><textarea name="ladder_rules" id="ladder_rules" cols="20" rows="5" class="inputbox narrow"></textarea></dd>
+		</dl>
+	</div>
+
+	<div id="subladder_options" style="display: none;">
+		<dl>
+			<dt><label for="ladder_cl">{L_LADDER_CL}</label></dt>
+			<dd><input type="checkbox" name="ladder_cl" id="ladder_cl" class="radio" value="1" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="ladder_style">{L_LADDER_TYPE}:</label></dt>
+			<dd>
+			<select name="ladder_style" id="ladder_style" class="inputbox autowidth">
+					<option value="0">{L_STANDARD_LADDER}</option>
+					<option value="1">{L_DECERTO_LADDER}</option>
+					<option value="2">{L_CPC_LADDER}</option>
+					<option value="3">{L_CALCIO_LADDER}</option>
+			</select>
+			<a href="#" onmouseover="toggleDiv('divstyle',1)" onmouseout="toggleDiv('divstyle',0)"><img src="{INFOLOGO}" alt="" /></a>
+			</dd>
+        </dl>
+		<dl>
+		 	<dt><label for="shorty">{L_LADDER_SHORTY}</label></dt>
+			<dd>
+			<select name="shorty" id="shorty" class="inputbox autowidth" >
+			<option value="" selected="selected">-------------</option>
+			        <!-- BEGIN block_decerto -->
+					<option value="{block_decerto.NOMECORTO}">{block_decerto.NOMELUNGO} [{block_decerto.TIPO}]</option>
+					<!-- END block_decerto -->
+			</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="ladder_ranking">{L_LADDER_RANKING}:</label></dt>
+			<dd><input type="radio" name="ladder_ranking" id="ladder_ranking" value="0" class="radio" checked="checked" /> {L_ELO} | <input type="radio" name="ladder_ranking" id="ladder_ranking2" value="1" class="radio" /> {L_SWAP} 
+				| <input type="radio" name="ladder_ranking" id="ladder_ranking3" value="2" class="radio" /> {L_RTH} 
+				<a href="#" onmouseover="toggleDiv('divrank',1)" onmouseout="toggleDiv('divrank',0)"><img src="{INFOLOGO}" alt="" /></a></dd>
+		</dl>
+		<dl>
+			<dt><label for="ladder_rm">{L_LADDER_RM}: {L_OPTIONAL}</label></dt>
+			<dd><input type="text" name="ladder_rm" id="ladder_rm" class="inputbox autowidth" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="win_system">{L_LADDER_WIN_SYSTEM}:</label></dt>
+			<dd><input type="radio" name="win_system" id="win_system" value="0" class="radio" checked="checked" /> {L_SCORE_RELATED} | <input type="radio" name="win_system" id="win_system1a" value="1" class="radio" /> {L_WIN_RELATED}</dd>
+		</dl>
+		<dl>
+			<dt><label for="ladder_limit">{L_LADDER_LIMIT}:</label></dt>
+			<dd>
+			<select name="ladder_limit" id="ladder_limit" class="inputbox autowidth">
+					<option value="0">{L_APERTA_A_TUTTI}</option>
+					<option value="1">{L_APERTA_ALMENO_B}</option>
+					<option value="2">{L_APERTA_SOLO_A}</option>
+			</select>
+			</dd>
+        </dl>
+		<dl>
+			<dt><label for="ladder_mvp">{L_LADDER_MVP}</label></dt>
+			<dd><input type="checkbox" name="ladder_mvp" id="ladder_mvp" class="radio" value="1" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="ladder_advstats">{L_LADDER_ADVSTATS}</label></dt>
+			<dd><input type="checkbox" name="ladder_advstats" id="ladder_advstats" class="radio" value="1" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="ladder_parent">{L_LADDER_PARENT}:</label></dt>
+			<dd>
+				<select name="ladder_parent" id="ladder_parent" class="inputbox autowidth">
+					<!-- BEGIN block_ladders -->
+					<option value="{block_ladders.LADDER_ID}">{block_ladders.LADDER_NAME} (P: {block_ladders.LADDER_PLATFORM})</option>
+					<!-- END block_ladders -->
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="ladder_mod">{L_LADDER_MOD}: {L_OPTIONAL}</label></dt>
+			<dd><input type="text" name="ladder_mod" id="ladder_mod" class="inputbox autowidth" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="ladder_desc">{L_LADDER_DESC}:</label></dt>
+			<dd><textarea name="ladder_desc" id="ladder_desc" rows="5" cols="60" class="inputbox narrow"></textarea></dd>
+		</dl>
+	</div>
+	
+	<div id="a1vs1_options" style="display: none;">
+		<dl>
+			<dt><label for="ladder_cl1">{L_LADDER_CL}</label></dt>
+			<dd><input type="checkbox" name="ladder_cl1" id="ladder_cl1" class="radio" value="1" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="ladder_style1">{L_LADDER_TYPE}:</label></dt>
+			<dd>
+			<select name="ladder_style1" id="ladder_style1" class="inputbox autowidth">
+					<option value="0">{L_STANDARD_LADDER}</option>
+					<option value="1">{L_DECERTO_LADDER}</option>
+					<option value="2">{L_CPC_LADDER}</option>
+					<option value="3">{L_CALCIO_LADDER}</option>
+			</select>
+			<a href="#" onmouseover="toggleDiv('divstyle',1)" onmouseout="toggleDiv('divstyle',0)"><img src="{INFOLOGO}" alt="" /></a>
+			</dd>
+        </dl>
+		<dl>
+		 	<dt><label for="shorty1">{L_LADDER_SHORTY}</label></dt>
+			<dd>
+			<select name="shorty1" id="shorty1" class="inputbox autowidth" >
+			<option value="" selected="selected">-------------</option>
+			        <!-- BEGIN block_decerto -->
+					<option value="{block_decerto.NOMECORTO}">{block_decerto.NOMELUNGO} [{block_decerto.TIPO}]</option>
+					<!-- END block_decerto -->
+			</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="ladder_ranking1">{L_LADDER_RANKING}:</label></dt>
+			<dd><input type="radio" name="ladder_ranking1" id="ladder_ranking1" value="0" class="radio" checked="checked" /> {L_ELO} | <input type="radio" name="ladder_ranking1" id="ladder_ranking2a" value="1" class="radio" /> {L_SWAP}
+				| <input type="radio" name="ladder_ranking1" id="ladder_ranking3a" value="2" class="radio" /> {L_RTH} 
+				<a href="#" onmouseover="toggleDiv('divrank',1)" onmouseout="toggleDiv('divrank',0)"><img src="{INFOLOGO}" alt="" /></a></dd>
+		</dl>
+		<dl>
+			<dt><label for="win_system1">{L_LADDER_WIN_SYSTEM}:</label></dt>
+			<dd><input type="radio" name="win_system1" id="win_system1" value="0" class="radio" checked="checked" /> {L_SCORE_RELATED} | <input type="radio" name="win_system1" id="win_system2" value="1" class="radio" /> {L_WIN_RELATED}</dd>
+		</dl>
+		<dl>
+			<dt><label for="ladder_limit1">{L_LADDER_LIMIT}:</label></dt>
+			<dd>
+			<select name="ladder_limit1" id="ladder_limit1" class="inputbox autowidth">
+					<option value="0">{L_APERTA_A_TUTTI}</option>
+					<option value="1">{L_APERTA_ALMENO_B}</option>
+					<option value="2">{L_APERTA_SOLO_A}</option>
+			</select>
+			</dd>
+        </dl>
+		<dl>
+			<dt><label for="ladder_parent1">{L_LADDER_PARENT}:</label></dt>
+			<dd>
+				<select name="ladder_parent1" id="ladder_parent1" class="inputbox autowidth">
+					<!-- BEGIN block_ladders -->
+					<option value="{block_ladders.LADDER_ID}">{block_ladders.LADDER_NAME} (P: {block_ladders.LADDER_PLATFORM})</option>
+					<!-- END block_ladders -->
+				</select>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="ladder_mod1">{L_LADDER_MOD}: {L_OPTIONAL}</label></dt>
+			<dd><input type="text" name="ladder_mod1" id="ladder_mod1" class="inputbox autowidth" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="ladder_desc1">{L_LADDER_DESC}:</label></dt>
+			<dd><textarea name="ladder_desc1" id="ladder_desc1" rows="5" cols="60" class="inputbox narrow"></textarea></dd>
+		</dl>
+	</div>
+
+	<p class="quick">
+		<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	</p>
+</fieldset>
+</form>
+
+<div id="divstyle" class="acplegend1" style="display:none; width:430px; position:absolute; margin-left:200px; margin-top:-370px; z-index:3 ! important;  background: #c0c0c0; border: 1px solid #103f5a;">
+{L_LEGENDA_LADDER}
+</div>
+<div id="divrank" class="acplegend" style="display:none; width:430px; position:absolute; margin-left:200px; margin-top:-330px; z-index:3 ! important;  background: #c0c0c0; border: 1px solid #103f5a;">
+<ul>
+<li>{L_ELO_DESC}</li>
+<li>{L_SWAP_DESC}</li>
+<li>{L_RTH_DESC}</li>
+</ul>
+</div>
+
+<script type="text/javascript">
+function dE(n, s, type)
+{
+	if (!type)
+	{
+		type = 'block';
+	}
+
+	var e = document.getElementById(n);
+	if (!s)
+	{
+		s = (e.style.display == '' || e.style.display == 'block') ? -1 : 1;
+	}
+	e.style.display = (s == 1) ? type : 'none';
+}
+
+function switch_it ( value )
+{
+	if ( value == 0 )
+	{
+		dE ( 'ladder_options', 1 );
+		dE ( 'subladder_options', -1 );
+		dE ( 'a1vs1_options', -1 );
+	}
+	else if ( value == 1 )
+	{
+		dE ( 'ladder_options', -1 );
+		dE ( 'subladder_options', 1 );
+		dE ( 'a1vs1_options', -1 );
+	}
+	else
+	{
+		dE ( 'ladder_options', -1 );
+		dE ( 'subladder_options', -1 );
+		dE ( 'a1vs1_options', 1 );
+	}
+}
+<!--
+function toggleDiv(id,flagit) {
+if (flagit=="1"){
+if (document.layers) document.layers[''+id+''].display = "block"
+else if (document.all) document.all[''+id+''].style.display = "block"
+else if (document.getElementById) document.getElementById(''+id+'').style.display = "block"
+}
+else
+if (flagit=="0"){
+if (document.layers) document.layers[''+id+''].display = "none"
+else if (document.all) document.all[''+id+''].style.display = "none"
+else if (document.getElementById) document.getElementById(''+id+'').style.display = "none"
+}
+}
+//-->
+</script>
+
+<!-- INCLUDE overall_footer.html -->

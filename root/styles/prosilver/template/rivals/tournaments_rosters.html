@@ -1,0 +1,31 @@
+<!-- INCLUDE overall_header.html -->
+<div class="forumbg">
+	<div class="panel rvcenter"><span class="corners-top"><span></span></span>
+		<h2>{L_TOURNAMENT_SIGN_UP_ROSTERS}</h2>
+		
+		<!-- IF S_TUTTO_VUOTO -->
+		<fieldset>
+		<p>
+			{L_NO_ONE_COMPATIBILE_ROSTER}<br />
+			{L_TOURNAMENT_MIN_MBR}: {MIN_OK}<br />
+			{L_TOURNAMENT_MAX_MBR}: {MAX_OK}
+		</p>
+		</fieldset>
+		<!-- ELSE -->
+		<form action="{U_ACTION}" method="post">
+		<fieldset>
+		<p>
+			<select name="roster_link" id="roster_link">
+				<!-- BEGIN blocco_roster -->
+				<option value="{blocco_roster.ROSTER_ID}">{blocco_roster.ROSTER_NAME} ({blocco_roster.ROSTER_EXP} {L_POINTS})</option>
+				<!-- END blocco_roster -->
+			</select>
+		</p>
+		<p><input type="submit" name="addroster" value="{L_SUBMIT}" class="rvbutton2" /></p>
+		</fieldset>
+		</form>
+		<!-- ENDIF -->
+		
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- INCLUDE overall_footer.html -->

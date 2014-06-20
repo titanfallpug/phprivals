@@ -1,0 +1,24 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF ERROR -->
+	<p class="errorbox"><span class="gensmall">{ERROR}</span></p>
+<!-- ENDIF -->
+
+<form method="post" action="{U_ACTION}" enctype="multipart/form-data">
+<fieldset>
+	<legend>{L_ADD_PLATFORM}</legend>
+	<dl>
+		<dt><label for="platform_name">{L_PLATFORM_NAME}:</label></dt>
+		<dd><input type="text" size="25" id="platform_name" name="platform_name" class="inputbox autowidth" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="platform_logo">{L_PLATFORM_LOGO}:<br />{L_PLATFORM_LOGO_EXP}</label></dt>
+		<dd><input type="file" name="platform_logo" id="platform_logo" /></dd>
+	</dl>
+
+	<p class="quick">
+		<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	</p>
+</fieldset>
+</form>
+<!-- INCLUDE overall_footer.html -->

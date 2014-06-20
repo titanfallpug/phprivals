@@ -1,0 +1,229 @@
+<!-- INCLUDE ucp_header.html -->
+
+<p class="bigtitolo">{L_RIPORTA_RISULTATO_DI} {CHALLANGER} {L_VS} {CHALLANGEE}</p>
+
+<form action="{U_ACTION}" method="post">
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	<fieldset>
+		<fieldset>
+		<table class="tablebg" cellspacing="1">
+			<thead>
+			<tr class="genmed">
+				<th class="rvcenter"></th>
+				<th class="rvcenter">{L_CLAN}</th>
+				<!-- IF DECERTO --><th class="rvcenter">{L_RISULTATO_DECERTO}</th><!-- ENDIF -->
+				<th class="rvcenter">{L_RISULTATO}</th>
+				<th class="rvcenter">{L_INFORMAZIONI_WAR}</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr class="genmed">
+				<td class="subcat" colspan="5">
+					{L_PLATFORM_SHORT}: <strong>{PLATFORM}</strong>, {L_LADDER_SHORT}: <strong>{LADDER}</strong>, {L_SUBLADDER_SHORT}: <strong>{SUBLADDER}</strong>
+					 {LADDER_ICON} {IMG_ADVSTATS} {IMG_MVP} {IMG_RTH}
+				</td>
+			</tr>
+			<tr class="genmed">
+				<td rowspan="2" class="row1 rv20 tvh80"><img src="{ROOT_PATH}rivals/images/vs.gif" alt="" id="vsicon" /></td>
+				
+				<td class="row1" <!-- IF not DECERTO -->colspan="2"<!-- ENDIF -->>{TUOGRUPPO}
+					<!-- IF CALCIO --><span class="teamform">{L_TEAM_USED}: <input type="text" name="your_team_used" class="inputbox autowidth" size="15" maxlength="248" /></span><!-- ENDIF -->
+				</td>
+				<!-- IF DECERTO -->
+				<td class="row1 rvright rv120">
+					{L_MODE1}: <input name="your_mode1_score" type="text" class="inputbox autowidth" value="0" size="5" maxlength="4" /><br />
+					{L_MODE2}: <input name="your_mode2_score" type="text" class="inputbox autowidth" value="0" size="5" maxlength="4" /><br />
+					{L_MODE3}: <input name="your_mode3_score" type="text" class="inputbox autowidth" value="0" size="5" maxlength="4" /><br />
+				</td>
+				<!-- ENDIF -->
+				<td class="row1 rvcenter rv50">
+					<!-- IF SCORE_RELATED -->
+					<input type="hidden" name="winner_clan" value="0" />
+					<input name="your_point" type="text" class="inputbox autowidth" value="0" size="5" maxlength="4" />
+					<!-- ELSE IF -->
+					<input type="radio" name="winner_clan" id="winner_clan" value="{TUAID}" class="radio" />
+					<!-- ENDIF -->
+				</td>
+				<td rowspan="2" class="row1 rvleft rv240">
+					<ul>
+						<li class="rivalsli">{L_TYPE}: {CLASSIFICATA}</li>
+						<li class="rivalsli">{L_RIVALS_DATETIME}: {TIME}</li>
+						<li class="rivalsli">{L_MAPSET}
+							<!-- IF MAP1 eq '-' -->{L_LIBERO}</li>
+							<!-- ELSE IF -->
+							<br />-[1] {MAP1}
+							<br />-[2] {MAP2}
+							<br />-[3] {MAP3}</li>
+							<!-- ENDIF -->
+						<!-- IF DECERTO -->
+						<li class="rivalsli">{L_MODES_ORDER}
+							<br />-[1] {MODE1}
+							<br />-[2] {MODE2}
+							<br />-[3] {MODE3}</li>
+						<!-- ENDIF -->
+					</ul>
+				</td>
+			</tr>
+			<tr class="genmed">
+				<td class="row1" <!-- IF not DECERTO -->colspan="2"<!-- ENDIF -->>
+					<a href="{U_OPPONENT}">{OPPONENT}</a>
+					<!-- IF CALCIO --><span class="teamform">{L_TEAM_USED}: <input type="text" name="opponent_team_used" class="inputbox autowidth" size="15" maxlength="248" /></span><!-- ENDIF -->
+				</td>
+				<!-- IF DECERTO -->
+				<td class="row1 rvright rv120">
+					{L_MODE1}: <input name="opponent_mode1_score" type="text" class="inputbox autowidth" value="0" size="5" maxlength="4" /><br />
+					{L_MODE2}: <input name="opponent_mode2_score" type="text" class="inputbox autowidth" value="0" size="5" maxlength="4" /><br />
+					{L_MODE3}: <input name="opponent_mode3_score" type="text" class="inputbox autowidth" value="0" size="5" maxlength="4" /><br />
+				</td>
+				<!-- ENDIF -->
+				<td class="row1 rvcenter rv50">
+					<!-- IF SCORE_RELATED -->
+					<input type="text" name="other_point" value="0" class="inputbox autowidth" size="5" maxlength="4" />
+					<!-- ELSE IF -->
+					<input type="radio" name="winner_clan" id="winner_clan" value="{OPPONENT_ID}" class="radio" />
+					<!-- ENDIF -->
+				</td>
+			</tr>
+			<tr class="genmed">
+				<td colspan="6" class="row1 rvleft">>> {MATCHDESC}</td>
+			</tr>
+			</tbody>
+		</table>
+		</fieldset>
+
+		<p><br /></p>
+
+		<fieldset>
+			<p class="cat_title2 rvcenter">
+				{L_VOTA_COMPORTAMENTO_CLAN}:
+				<select name="vsrep">
+					<option value="1">1/5</option>
+					<option value="2">2/5</option>
+					<option value="3">3/5</option>
+					<option value="4">4/5</option>
+					<option value="5" selected="selected">5/5</option>
+				</select>
+			</p>
+		</fieldset>
+
+		<p><br /></p>
+
+		<!-- IF MVP -->
+		<fieldset>
+		<p class="cat_title2 rvcenter">{L_IMPOSTA_MVP_MATCH}</p>
+		<ul>
+			<li>
+			{L_ROUND1}:
+			<select name="mvp1">
+				<option value="0" class="nomvp" selected="selected">{L_NO_MVP}</option>
+				<option value="0" class="clanselect">{CHALLANGER}</option>
+				<!-- BEGIN blocco_er_memb -->
+					<option value="{blocco_er_memb.USER_ID}">-- {blocco_er_memb.USERNAME}</option>
+				<!-- END blocco_er_memb -->
+				<option value="0" class="clanselect">{CHALLANGEE}</option>
+				<!-- BEGIN blocco_ee_memb -->
+					<option value="{blocco_ee_memb.USER_ID}">-- {blocco_ee_memb.USERNAME}</option>
+				<!-- END blocco_ee_memb -->
+			</select>
+			</li>
+			<li>
+			{L_ROUND2}:
+			<select name="mvp2">
+				<option value="0" class="nomvp" selected="selected">{L_NO_MVP}</option>
+				<option value="0" class="clanselect">{CHALLANGER}</option>
+				<!-- BEGIN blocco_er_memb -->
+					<option value="{blocco_er_memb.USER_ID}">-- {blocco_er_memb.USERNAME}</option>
+				<!-- END blocco_er_memb -->
+				<option value="0" class="clanselect">{CHALLANGEE}</option>
+				<!-- BEGIN blocco_ee_memb -->
+					<option value="{blocco_ee_memb.USER_ID}">-- {blocco_ee_memb.USERNAME}</option>
+				<!-- END blocco_ee_memb -->
+			</select>
+			</li>
+			<li>
+			{L_ROUND3}:
+			<select name="mvp3">
+				<option value="0" class="nomvp" selected="selected">{L_NO_MVP}</option>
+				<option value="0" class="clanselect">{CHALLANGER}</option>
+				<!-- BEGIN blocco_er_memb -->
+					<option value="{blocco_er_memb.USER_ID}">-- {blocco_er_memb.USERNAME}</option>
+				<!-- END blocco_er_memb -->
+				<option value="0" class="clanselect">{CHALLANGEE}</option>
+				<!-- BEGIN blocco_ee_memb -->
+					<option value="{blocco_ee_memb.USER_ID}">-- {blocco_ee_memb.USERNAME}</option>
+				<!-- END blocco_ee_memb -->
+			</select>
+			</li>
+		</ul>
+		</fieldset>
+		<!-- ENDIF -->
+
+		<p><br /></p>
+
+		<!-- IF ADVSTATS -->
+		<fieldset>
+		<p class="cat_title2 rvcenter">{L_ADVANCED_STATS}</p>
+		<table class="tablebg" cellspacing="1">
+			<thead>
+			<tr>
+				<th class="rvcenter">{L_USERS}</th>
+				<th class="rvcenter rv200">{L_GAMERNAME}</th>
+				<th class="rvcenter rv80">{L_HA_GIOCATO}</th>
+				<!-- IF TPL eq 1 --><th class="rvcenter rv50">{L_KILLS}</th><!-- ENDIF -->
+				<!-- IF TPL eq 1 --><th class="rvcenter rv50">{L_DEADS}</th><!-- ENDIF -->
+				<!-- IF TPL eq 1 --><th class="rvcenter rv50">{L_ASSIST}</th><!-- ENDIF -->
+				<!-- IF TPL eq 2 --><th class="rvcenter rv80">{L_GOALF}</th><!-- ENDIF -->
+				<!-- IF TPL eq 2 --><th class="rvcenter rv80">{L_GOALS}</th><!-- ENDIF -->
+			</tr>
+			</thead>
+			<tbody>
+			<tr class="genmed">
+				<td class="subcat" colspan="8">-= {CHALLANGER}</td>
+			</tr>
+			<!-- BEGIN blocco_er_memb -->
+			<tr class="genmed">
+				<td class="row1 rvleft">{blocco_er_memb.USERNAME}<input type="hidden" name="stats[{blocco_er_memb.USER_ID}][user_id]" value="" /></td>
+				<td class="row1 rvcenter">{blocco_er_memb.GT}</td>
+				<td class="row1 rvcenter"><input type="checkbox" name="stats[{blocco_er_memb.USER_ID}][haigiocato]" class="radio" value="1" /></td>
+				<!-- IF TPL eq 1 --><td class="row1 rvcenter"><input name="stats[{blocco_er_memb.USER_ID}][kills]" type="text" class="inputbox autowidth" value="0" size="4" maxlength="8" /></td><!-- ENDIF -->
+				<!-- IF TPL eq 1 --><td class="row1 rvcenter"><input name="stats[{blocco_er_memb.USER_ID}][morti]" type="text" class="inputbox autowidth" value="0" size="4" maxlength="8" /></td><!-- ENDIF -->
+				<!-- IF TPL eq 1 --><td class="row1 rvcenter"><input name="stats[{blocco_er_memb.USER_ID}][assist]" type="text" class="inputbox autowidth" value="0" size="4" maxlength="8" /></td><!-- ENDIF -->
+				<!-- IF TPL eq 2 --><td class="row1 rvcenter"><input name="stats[{blocco_er_memb.USER_ID}][goalf]" type="text" class="inputbox autowidth" value="0" size="4" maxlength="8" /></td><!-- ENDIF -->
+				<!-- IF TPL eq 2 --><td class="row1 rvcenter"><input name="stats[{blocco_er_memb.USER_ID}][goals]" type="text" class="inputbox autowidth" value="0" size="4" maxlength="8" /></td><!-- ENDIF -->
+			</tr> 
+			<!-- END blocco_er_memb -->
+			<tr class="genmed">
+				<td class="subcat" colspan="8">-= {CHALLANGEE}</td>
+			</tr>
+			<!-- BEGIN blocco_ee_memb -->
+			<tr class="genmed">
+				<td class="row1 rvleft">{blocco_ee_memb.USERNAME}<input type="hidden" name="stats[{blocco_ee_memb.USER_ID}][user_id]" value="" /></td>
+				<td class="row1 rvcenter">{blocco_er_memb.GT}</td>
+				<td class="row1 rvcenter"><input type="checkbox" name="stats[{blocco_ee_memb.USER_ID}][haigiocato]" class="radio" value="1" /></td>
+				<!-- IF TPL eq 1 --><td class="row1 rvcenter"><input name="stats[{blocco_ee_memb.USER_ID}][kills]" type="text" class="inputbox autowidth" value="0" size="4" maxlength="8" /></td><!-- ENDIF -->
+				<!-- IF TPL eq 1 --><td class="row1 rvcenter"><input name="stats[{blocco_ee_memb.USER_ID}][morti]" type="text" class="inputbox autowidth" value="0" size="4" maxlength="8" /></td><!-- ENDIF -->
+				<!-- IF TPL eq 1 --><td class="row1 rvcenter"><input name="stats[{blocco_ee_memb.USER_ID}][assist]" type="text" class="inputbox autowidth" value="0" size="4" maxlength="8" /></td><!-- ENDIF -->
+				<!-- IF TPL eq 2 --><td class="row1 rvcenter"><input name="stats[{blocco_ee_memb.USER_ID}][goalf]" type="text" class="inputbox autowidth" value="0" size="4" maxlength="8" /></td><!-- ENDIF -->
+				<!-- IF TPL eq 2 --><td class="row1 rvcenter"><input name="stats[{blocco_ee_memb.USER_ID}][goals]" type="text" class="inputbox autowidth" value="0" size="4" maxlength="8" /></td><!-- ENDIF -->
+			</tr> 
+			<!-- END blocco_ee_memb -->
+			</tbody>
+		</table>
+		</fieldset>
+		 <!-- ENDIF -->
+		 
+		<p class="rvcenter">
+		<br />
+			<input type="hidden" name="matchid" value="{MATCHID}" />
+			<input type="hidden" name="ladderid" value="{LADDERID}" />
+			<input type="submit" name="submit" id="submit" value="{L_REPORT_RESULT}" class="rvbutton2" />
+		</p>
+	</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+</div> 
+{S_HIDDEN_FIELDS}
+{S_FORM_TOKEN}
+</form>
+
+<!-- INCLUDE ucp_footer.html -->

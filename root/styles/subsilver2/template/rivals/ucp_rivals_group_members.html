@@ -1,0 +1,47 @@
+<!-- INCLUDE ucp_header.html -->
+
+<div style="padding: 2px;">
+	<h2>{L_MANAGE_MEMBERS}</h2>
+
+	<p class="imgbutton"><a href="{U_PENDING_MEMBERS}">{PENDING_IMG}</a> <a href="{U_INVITE_MEMBERS}">{INVITE_IMG}</a></p>
+	
+		<form action="{U_ACTION}" method="post">
+			<table class="tablebg" width="100%" cellspacing="1">
+				<tr class="genmed">
+					<th class="row3 rvcenter">{L_USERNAME}</th>
+					<th class="row3 rvcenter">{L_OPTIONS}</th>
+				</tr>
+				<!-- BEGIN block_members -->
+				<tr class="genmed">
+					<td class="{block_members.ROW_COLOR}" valign="top"><span class="topictitle"><a href="{block_members.U_PROFILE}">{block_members.MEMBER_NAME}</a></span> - {block_members.MEMBER_COF}</td>
+					<td class="{block_members.ROW_COLOR}">
+						<input type="hidden" name="member_id[]" value="{block_members.MEMBER_ID}" />
+						[ <input type="radio" name="members[{block_members.MEMBER_ID}]" value="0" checked="checked" /> <b>{L_NOAZIONE}</b>] - [ 
+						<input type="radio" name="members[{block_members.MEMBER_ID}]" value="1" /> <b>{L_DELETE}</b>] - [ 
+						<input type="radio" name="members[{block_members.MEMBER_ID}]" value="2" /> <b>{L_ASSIGN_AS_COLEADER}</b> ]
+					</td>
+				</tr>
+				<!-- BEGINELSE -->
+				<tr class="genmed">
+					<td colspan="2" class="row2">{L_NO_MEMBERS}</td>
+				</tr>
+				<!-- END block_members -->
+				<tr>
+					<td class="cat rvcenter" colspan="2">
+						<!-- IF .block_members -->
+						<input type="submit" name="submit" value="{L_SUBMIT}" class="rvbutton2" />
+						<!-- ENDIF -->
+					</td>
+				</tr>
+			</table>
+		{S_HIDDEN_FIELDS}
+		{S_FORM_TOKEN}
+		</form>
+
+		<p><br /></p>
+		<p>** {L_LEGENDA_COFOUNDER}</p>
+		<p><br /></p>
+
+</div>
+	
+<!-- INCLUDE ucp_footer.html -->

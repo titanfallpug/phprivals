@@ -1,0 +1,148 @@
+<!-- INCLUDE ucp_header.html -->
+
+<div style="padding: 2px;">
+	<h2>{L_REPORTED_MATCHES}</h2>
+
+	<!-- IF ERROR -->
+	<fieldset>
+	<p class="error">{ERROR}</p>
+	</fieldset>
+	<!-- ENDIF -->
+
+	<form action="{U_ACTION}" method="post">
+
+		<fieldset>
+			<table class="tablebg" width="100%" cellspacing="1">
+			<!-- BEGIN block_reported -->
+				<tr class="genmed">
+					<td colspan="4" class="subcat rvleft">
+						&bull; {L_PLATFORM}: <strong>{block_reported.PLATFORM}</strong>, {L_LADDER}: <strong>{block_reported.LADDER}</strong>, {L_SUBLADDER}: <strong>{block_reported.SUBLADDER}</strong> [{block_reported.TIPO}]
+						<span class="clanvote"><a href="#" class="rvbutton_chat" onclick="window.open('{block_reported.MATCH_CHAT}', '_matchchat', 'HEIGHT=300,resizable=yes,WIDTH=750');return false;">{L_CLAN_CHAT}</a></span>
+					</td>
+				</tr>
+				<tr class="genmed">
+					<td colspan="4" class="{block_reported.ROW_COLOR} rvleft">
+						{block_reported.REPOTER_TXT}<br />
+						<a href="{block_reported.U_ER}">{block_reported.ER_CLAN}</a><!-- IF block_reported.CALCIO --> ({block_reported.ER_TEAM})<!-- ENDIF --><!-- IF block_reported.SCORE -->: {block_reported.ER_SCORE}<!-- ENDIF -->
+						<span class="score">{L_VS}</span>
+						<a href="{block_reported.U_EE}">{block_reported.EE_CLAN}</a><!-- IF block_reported.CALCIO --> ({block_reported.EE_TEAM})<!-- ENDIF --><!-- IF block_reported.SCORE -->: {block_reported.EE_SCORE}<!-- ENDIF -->
+						<!-- IF not block_reported.SCORE --><br />{L_VINCE} <a href="{block_reported.U_WINNER}">{block_reported.WINNER}</a><!-- ENDIF -->
+						<span class="clanvote">
+							{L_VOTA_COMPORTAMENTO_CLAN}:
+							<select name="vsrep_{block_reported.MATCH_ID}">
+								<option value="1">1/5</option>
+								<option value="2">2/5</option>
+								<option value="3">3/5</option>
+								<option value="4">4/5</option>
+								<option value="5" selected="selected">5/5</option>
+							</select>
+						</span>
+					</td>
+				</tr>
+				<tr class="genmed rvleft">
+					<td class="{block_reported.ROW_COLOR}" <!-- IF not block_reported.ADVSTATS -->colspan="2"<!-- ENDIF -->>
+						<ul>
+							<li class="rivalsli">{L_MAPSET}
+						<!-- IF block_reported.MAP1 eq '-' -->{L_LIBERO}</li>
+						<!-- ELSE IF --></li>
+							<li class="rivalsli">-[1] {block_reported.MAP1} - <!-- IF block_reported.DECERTO -->{block_reported.MODE1}: [{block_reported.MODE1_ER_SCOR} - {block_reported.MODE1_EE_SCOR}]<!-- ENDIF --></li>
+							<li class="rivalsli">-[2] {block_reported.MAP2} - <!-- IF block_reported.DECERTO -->{block_reported.MODE2}: [{block_reported.MODE2_ER_SCOR} - {block_reported.MODE2_EE_SCOR}]<!-- ENDIF --></li>
+							<li class="rivalsli">-[3] {block_reported.MAP3} - <!-- IF block_reported.DECERTO -->{block_reported.MODE3}: [{block_reported.MODE3_ER_SCOR} - {block_reported.MODE3_EE_SCOR}]<!-- ENDIF --></li>
+						<!-- ENDIF -->
+						</ul>
+					</td>
+					<!-- IF block_reported.ADVSTATS -->
+					<td class="{block_reported.ROW_COLOR} rv100 rvcenter">
+						<span class="imgbutton"><a href="#" onmouseover="ShowContent('div{block_reported.MATCH_ID}'); return true;" onmouseout="HideContent('div{block_reported.MATCH_ID}'); return true;">{ADVSTATIMG}</a></span>
+					</td>
+					<!-- ENDIF -->
+					<td class="{block_reported.ROW_COLOR} rvcenter rv50">
+						{L_CONFIRM} <input type="checkbox" name="confirmed[]" class="radio" value="{block_reported.MATCH_ID}" />
+					</td>
+					<td class="{block_reported.ROW_COLOR} rvcenter rv50">
+						{L_CONTEST} <input type="checkbox" name="contested[]" class="radio" value="{block_reported.MATCH_ID}" />
+					</td>
+				</tr>
+				<!-- IF block_reported.MVP -->
+				<tr class="genmed">
+					<td colspan="4" class="{block_reported.ROW_COLOR} rvleft">
+						<span class="rivalsmvp">[ {L_MVPS} ] {L_ROUND1}: <strong>{block_reported.MVP1}</strong>, {L_ROUND2}: <strong>{block_reported.MVP2}</strong>, {L_ROUND3}: <strong>{block_reported.MVP3}</strong></span>
+					</td>
+				</tr>
+				<!-- ENDIF -->
+			<!-- BEGINELSE -->
+				<tr class="genmed">
+					<td class="row1 rvcenter" colspan="4">{L_NO_UNREPORTED_MATCHES}</td>
+				</tr>
+			<!-- END block_reported -->
+				<tr class="genmed">
+					<th class="rvcenter" colspan="4"><input type="submit" name="submit" value="{L_SUBMIT}" class="rvbutton2" /></th>
+				</tr>
+			</table>
+		</fieldset>
+		
+	{S_FORM_TOKEN}
+	</form>
+		
+	<!-- BEGIN block_reported -->
+		<!-- IF block_reported.ADVSTATS -->
+		<div id="div{block_reported.MATCH_ID}" class="rivalpopup">
+			<table cellpadding="1" cellspacing="0" class="tablebg430" border="1">
+				<!-- IF block_reported.CALCIO -->
+				<thead>
+					<tr class="genmed rvcenter">
+						<th class="row1 rvleft">{L_USERNAME}</th>
+						<th class="row1 rv120">{L_GAMERNAME}</th>
+						<th class="row1 rv50">{L_RATIO}</th>
+						<th class="row1 rv30">{L_GOALSF}</th>
+						<th class="row1 rv30">{L_GOALSA}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- BEGIN block_advstats -->
+					<tr class="genmed rvcenter">
+						<td class="rvleft">{block_advstats.USERNAME}</td>
+						<td>{block_advstats.USERGT}</td>
+						<td class="rv50">{block_advstats.RATIOC}%</td>
+						<td class="rv30">{block_advstats.GOALS_F}</td>
+						<td class="tv30">{block_advstats.GOALS_S}</td>
+					</tr>
+					<!-- BEGINELSE -->
+					<tr class="genmed rvcenter">
+						<td></td>
+					</tr>
+					<!-- END block_advstats -->
+				<!-- ELSE IF -->
+				<thead>
+					<tr class="genmed rvcenter">
+						<th class="row1 rvleft">{L_USERNAME}</th>
+						<th class="row1 rv120">{L_GAMERNAME}</th>
+						<th class="row1 rv50">{L_RATIO}</th>
+						<th class="row1 rv30">{L_KILLS}</th>
+						<th class="row1 rv30">{L_DEADS}</th>
+						<th class="row1 rv30">{L_ASSISTS}</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- BEGIN block_advstats -->
+					<tr class="genmed rvcenter">
+						<td class="rvleft">{block_advstats.USERNAME}</td>
+						<td>{block_advstats.USERGT}</td>
+						<td class="rv50">{block_advstats.RATIO}%</td>
+						<td class="tv30">{block_advstats.KILLS}</td>
+						<td class="tv30">{block_advstats.DEADS}</td>
+						<td class="tv30">{block_advstats.ASSISTS}</td>
+					</tr>
+					<!-- BEGINELSE -->
+					<tr class="genmed rvcenter">
+						<td></td>
+					</tr>
+					<!-- END block_advstats -->
+				<!-- ENDIF -->
+				</tbody>
+			</table>
+		</div>
+		<!-- ENDIF -->
+	<!-- END block_reported -->
+</div>
+<!-- INCLUDE ucp_footer.html -->

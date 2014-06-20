@@ -1,0 +1,39 @@
+<!-- INCLUDE overall_header.html -->
+
+<div id="pagecontent">
+	<fieldset>
+		<p class="bigtitolo" id="clanchart">{L_TITOLO_PAGINA_MVP}</p>
+		<p class="rvcenter">{L_TITOLO_PAGINA_MVP_DESC}</p>
+	</fieldset>
+
+	<div class="forumbg">
+		<div class="inner"><span class="corners-top"><span></span></span>		
+			<fieldset>
+				<table id="memberlist" class="table1" cellspacing="1">
+					<thead>
+						<tr class="genmed rvcenter">
+							<th>{L_NU}</th>
+							<th>{L_PLATFORM}</th>
+							<th>{L_LADDER}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- BEGIN block_mvp -->
+						<tr class="genmed rvcenter">
+							<td class="{block_mvp.ROW_COLOR} rv15">{block_mvp.NUM}</td>
+							<td class="{block_mvp.ROW_COLOR}"><a href="{block_mvp.U_MVP}"><strong class="gen">{block_mvp.NOME_MVP}</strong></a></td>
+							<td class="{block_mvp.ROW_COLOR}">{block_mvp.DESCRIZIONE_MVP}</td>
+						</tr>
+						<!-- BEGINELSE -->
+						<tr>
+							<td class="row1 rvcenter" colspan="3">{L_NO_MEMBERS_MVP}</td>
+						</tr>
+						<!-- END block_mvp -->
+					</tbody>
+				</table>
+			</fieldset>
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+</div>
+
+<!-- INCLUDE overall_footer.html --> 

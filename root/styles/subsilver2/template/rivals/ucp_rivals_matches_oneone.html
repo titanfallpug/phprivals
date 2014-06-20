@@ -1,0 +1,281 @@
+<!-- INCLUDE ucp_header.html -->
+
+<div style="padding: 2px;">
+	<!-- INIZIO PENDING MATCH -->
+	<!-- IF .block_challenges -->
+	<h2>{L_PENDING_MATCHES}</h2>
+
+	<form action="{U_ACTION}" method="post">
+
+		<fieldset>
+		<table class="tablebg" width="100%" cellspacing="1">
+			<thead>
+				<tr class="genmed">
+					<th class="rvcenter">{L_USERNAME}</th>
+					<th class="rvcenter rv160">{L_RIVALS_DATETIME}</th>
+					<th class="rvcenter rv50">{L_ACCEPT}</th>
+					<th class="rvcenter rv50">{L_DECLINE}</th>
+				</tr>
+			</thead>
+			<tbody>
+			<!-- BEGIN block_challenges -->
+			<tr class="genmed">
+				<td class="subcat rvmiddle" colspan="4">{L_PLATFORM}: <strong>{block_challenges.PLATFORM}</strong>, {L_LADDER}: <strong>{block_challenges.LADDER}</strong>, {L_SUBLADDER}: <strong>{block_challenges.SUBLADDER}</strong> {block_challenges.LADDER_ICON}</td>
+			</tr>
+			<tr class="genmed">
+				<td class="{block_challenges.ROW_COLOR} rvcenter"><a href="{block_challenges.U_CHALLENGER}">{block_challenges.CHALLENGER}</a> ({block_challenges.CLASSIFICATA})</td>
+				<td class="{block_challenges.ROW_COLOR} rvcenter">{block_challenges.TIME}</td>
+				<td class="{block_challenges.ROW_COLOR} rvcenter" rowspan="2"><input type="checkbox" name="accept[]" value="{block_challenges.CHALLENGE_ID}" /></td>
+				<td class="{block_challenges.ROW_COLOR} rvcenter" rowspan="2"><input type="checkbox" name="decline[]" value="{block_challenges.CHALLENGE_ID}" /></td>
+			</tr>
+			<tr class="genmed">
+				<td class="{block_challenges.ROW_COLOR}" colspan="2">{L_COMMENT}: {block_challenges.DETAILS}</td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr class="bg1">
+				<td class="row1 rvcenter" colspan="4">{L_NO_PENDING_MATCHES}</td>
+			</tr>
+			<!-- END block_challenges -->
+			<tr class="bg1">
+				<th class="rvcenter" colspan="4"><input type="submit" name="submit" value="{L_SUBMIT}" class="rvbutton2" /></th>
+			</tr>
+			</tbody>
+		</table>
+		{S_FORM_TOKEN}
+		</fieldset>
+		
+	</form>
+
+	<p><br /></p>
+	<!-- ENDIF -->
+	
+	<!-- INIZIO ACCEPTED MATCH -->
+	<!-- IF .block_accepted -->
+	<h2>{L_UNREPORTED_MATCHES}</h2>
+
+	<form action="{U_ACTION}" method="post">
+
+		<fieldset>
+		<table class="tablebg" width="100%" cellspacing="1">
+			<thead>
+			<tr class="genmed">
+				<th class="rvcenter"></th>
+				<th class="rvcenter">{L_CLAN}</th>
+				<!-- BEGIN block_accepted --><!-- IF block_accepted.DECERTO --><td class="rvcenter">{L_RISULTATO_DECERTO}</td><!-- ENDIF --><!-- END block_accepted -->
+				<th class="rvcenter">{L_RISULTATO}</th>
+				<th class="rvcenter">{L_INFORMAZIONI_WAR}</th>
+				<th class="rvcenter">{L_AZIONI}</th>
+			</tr>
+			</thead>
+			<tbody>
+		<!-- BEGIN block_accepted -->
+			<tr class="genmed">
+				<td class="subcat rvleft" colspan="6">
+					{L_PLATFORM}: <strong>{block_accepted.PLATFORM}</strong>, {L_LADDER}: <strong>{block_accepted.LADDER}</strong>, {L_SUBLADDER}: <strong>{block_accepted.SUBLADDER}</strong>
+					 {block_accepted.LADDER_ICON}
+					 <span class="clanvote"><a href="#" class="rvbutton_chat" onclick="window.open('{block_accepted.MATCH_CHAT}', '_matchchat', 'HEIGHT=300,resizable=yes,WIDTH=750');return false;">{L_CLAN_CHAT}</a></span>
+				</td>
+			</tr>
+			<tr class="genmed">
+				<td rowspan="2" class="{block_accepted.ROW_COLOR} rv20 rvh80"><img src="{ROOT_PATH}rivals/images/vs.gif" alt="" class="vsicon" /></td>
+				<td class="{block_accepted.ROW_COLOR}"<!-- IF not block_accepted.DECERTO --> colspan="2"<!-- ENDIF -->>
+					<a href="{block_accepted.U_CHALLENGER}">{block_accepted.CHALLENGER}</a>
+					<!-- IF block_accepted.CALCIO --><span class="teamform">{L_TEAM_USED}: <input type="text" name="match[{block_accepted.MATCH_ID}][er_team_used]" class="inputbox autowidth" size="15" maxlength="248" /></span><!-- ENDIF -->
+				</td>
+				<!-- IF block_accepted.DECERTO -->
+				<td class="{block_accepted.ROW_COLOR} rv100 rvright">
+					{L_MODE1}: <input name="match[{block_accepted.MATCH_ID}][er_mode1_score]" type="text" class="inputbox autowidth" value="0" size="5" maxlength="4" /><br />
+					{L_MODE2}: <input name="match[{block_accepted.MATCH_ID}][er_mode2_score]" type="text" class="inputbox autowidth" value="0" size="5" maxlength="4" /><br />
+					{L_MODE3}: <input name="match[{block_accepted.MATCH_ID}][er_mode3_score]" type="text" class="inputbox autowidth" value="0" size="5" maxlength="4" /><br />
+				</td>
+				<!-- ENDIF -->
+				<td class="{block_accepted.ROW_COLOR} rvcenter rv50">
+					<!-- IF not block_accepted.WINBASED -->
+					<input type="hidden" name="match[{block_accepted.MATCH_ID}][winner_clan]" value="0" />
+					<input name="match[{block_accepted.MATCH_ID}][er_point]" type="text" class="inputbox autowidth" value="0" size="5" maxlength="4" />
+					<!-- ELSE IF -->
+					<input type="radio" name="match[{block_accepted.MATCH_ID}][winner_clan]" value="{block_accepted.TUAID}" class="radio" />
+					<!-- ENDIF -->
+				</td>
+				<td rowspan="2" class="{block_accepted.ROW_COLOR} rv200 rvleft">
+					<ul>
+						<li class="rivalsli">{L_TYPE}: {block_accepted.CLASSIFICATA}</li>
+						<li class="rivalsli">{L_RIVALS_DATETIME}: {block_accepted.TIME}</li>
+						<li class="rivalsli">{L_MAPSET}
+							<!-- IF block_accepted.MAP1 eq '-' -->{L_LIBERO}</li>
+							<!-- ELSE IF -->
+							<br />-[1] {block_accepted.MAP1}
+							<br />-[2] {block_accepted.MAP2}
+							<br />-[3] {block_accepted.MAP3}</li>
+							<!-- ENDIF -->
+						<!-- IF block_accepted.DECERTO -->
+						<li class="rivalsli">{L_MODES_ORDER}
+							<br />-[1] {block_accepted.MODE1}
+							<br />-[2] {block_accepted.MODE2}
+							<br />-[3] {block_accepted.MODE3}</li>
+						<!-- ENDIF -->
+					</ul>
+				</td>
+				<td rowspan="2" class="{block_accepted.ROW_COLOR} rv80 rvcenter">
+					{L_REPORT}: <input type="checkbox" name="match[{block_accepted.MATCH_ID}][matchrep]" class="radio" value="1" />
+				</td>
+			</tr>
+			<tr class="genmed">
+				<td class="{block_accepted.ROW_COLOR}"<!-- IF not block_accepted.DECERTO --> colspan="2"<!-- ENDIF -->>
+					<a href="{block_accepted.U_CHALLENGEE}">{block_accepted.CHALLENGEE}</a>
+					<!-- IF block_accepted.CALCIO --><span class="teamform">{L_TEAM_USED}: <input type="text" name="match[{block_accepted.MATCH_ID}][ee_team_used]" class="inputbox autowidth" size="15" maxlength="248" /></span><!-- ENDIF -->
+				</td>
+				<!-- IF block_accepted.DECERTO -->
+				<td class="{block_accepted.ROW_COLOR} rv100 right">
+					{L_MODE1}: <input name="match[{block_accepted.MATCH_ID}][ee_mode1_score]" type="text" class="inputbox autowidth" value="0" size="5" maxlength="4" /><br />
+					{L_MODE2}: <input name="match[{block_accepted.MATCH_ID}][ee_mode2_score]" type="text" class="inputbox autowidth" value="0" size="5" maxlength="4" /><br />
+					{L_MODE3}: <input name="match[{block_accepted.MATCH_ID}][ee_mode3_score]" type="text" class="inputbox autowidth" value="0" size="5" maxlength="4" /><br />
+				</td>
+				<!-- ENDIF -->
+				<td class="{block_accepted.ROW_COLOR} rv50 rvcenter">
+					<!-- IF not block_accepted.WINBASED -->
+					<input type="text" name="match[{block_accepted.MATCH_ID}][ee_point]" value="0" class="inputbox autowidth" size="5" maxlength="4" />
+					<!-- ELSE IF -->
+					<input type="radio" name="match[{block_accepted.MATCH_ID}][winner_clan]" value="{block_accepted.OPPONENT_ID}" class="radio" />
+					<!-- ENDIF -->
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="{block_accepted.ROW_COLOR} rvleft">
+					>> {block_accepted.DETAILS}
+					<span class="clanvote">
+						{L_VOTA_COMPORTAMENTO_CLAN}:
+						<select name="match[{block_accepted.MATCH_ID}][feedback]">
+							<option value="1">1/5</option>
+							<option value="2">2/5</option>
+							<option value="3">3/5</option>
+							<option value="4">4/5</option>
+							<option value="5" selected="selected">5/5</option>
+						</select>
+					</span>
+				</td>
+			</tr>
+		<!-- BEGINELSE -->
+			<tr class="genmed">
+				<td class="row1 rvcenter" colspan="6">{L_NO_UNREPORTED_MATCHES}</td>
+			</tr>
+		<!-- END block_accepted -->
+			<tr class="bg1">
+				<th class="rvcenter" colspan="6"><input type="submit" name="riportamelo" value="{L_REPORT}" class="rvbutton2" /></th>
+			</tr>
+			</tbody>
+		</table>
+		</fieldset>
+		
+	{S_HIDDEN_FIELDS}
+	{S_FORM_TOKEN}
+	</form>
+
+	<p><br /></p>
+	<!-- ENDIF -->
+	
+	<!-- INIZIO REPORTED MATCH -->
+	<!-- IF .block_reported -->
+	<h2>{L_REPORTED_MATCHES}</h2>
+
+	<form action="{U_ACTION}" method="post">
+
+		<fieldset>
+		<table class="tablebg" width="100%" cellspacing="1">
+		<!-- BEGIN block_reported -->	
+			<tr>
+				<td colspan="8" class="subcat">
+					{L_PLATFORM}: <strong>{block_reported.PLATFORM}</strong>, {L_LADDER}: <strong>{block_reported.LADDER}</strong>, {L_SUBLADDER}: <strong>{block_reported.SUBLADDER}</strong> {block_reported.LADDER_ICON}
+					<span class="clanvote"><a href="#" class="rvbutton_chat" onclick="window.open('{block_reported.MATCH_CHAT}', '_matchchat', 'HEIGHT=300,resizable=yes,WIDTH=750');return false;">{L_CLAN_CHAT}</a></span>
+				</td>
+			</tr>
+			<tr class="genmed rvcenter">
+				<td <!-- IF block_reported.SCORE -->rowspan="2"<!-- ENDIF --> class="{block_reported.ROW_COLOR}">
+					<a href="{block_reported.U_CHALLENGER}">{block_reported.CHALLENGER}</a>
+					<!-- IF block_reported.CALCIO --><br />({block_reported.ER_TEAM})<!-- ENDIF -->
+				</td>
+				<!-- IF block_reported.SCORE -->
+				<td class="{block_reported.ROW_COLOR} rvh60 rv40"><span class="score">{block_reported.ER_SCORE}</span></td>
+				<td class="{block_reported.ROW_COLOR} rv5 rvh60">VS</td>
+				<td class="{block_reported.ROW_COLOR} rvh60 rv40"><span class="score">{block_reported.EE_SCORE}</span></td>
+				<!-- ELSE -->
+				<td colspan="3" class="{block_reported.ROW_COLOR} rv100">
+					{L_VINCE} <a href="{block_reported.U_WINNER}">{block_reported.WINNER}</a>
+				</td>
+				<!-- ENDIF -->
+				
+				<td <!-- IF block_reported.SCORE -->rowspan="2"<!-- ENDIF --> class="{block_reported.ROW_COLOR}">
+					<a href="{block_reported.U_CHALLENGEE}">{block_reported.CHALLENGEE}</a>
+					<!-- IF block_reported.CALCIO --><br />({block_reported.EE_TEAM})<!-- ENDIF -->
+				</td>
+				<td <!-- IF block_reported.SCORE -->rowspan="2"<!-- ENDIF --> class="{block_reported.ROW_COLOR} rv200 rvleft">
+					<ul>
+						<li class="rivalsli">{L_TYPE}: {block_reported.CLASSIFICATA}</li>
+						<li class="rivalsli">{L_RIVALS_DATETIME}: {block_reported.TIME}</li>
+						<li class="rivalsli">{L_MAPSET}
+						<!-- IF block_reported.MAP1 eq '-' -->{L_LIBERO}</li>
+						<!-- ELSE IF --></li>
+						<li class="rivalsli">-[1] {block_reported.MAP1} - <!-- IF block_reported.DECERTO -->{block_reported.MODE1}: [{block_reported.MODE1_ER_SCOR} - {block_reported.MODE1_EE_SCOR}]<!-- ENDIF --></li>
+						<li class="rivalsli">-[2] {block_reported.MAP2} - <!-- IF block_reported.DECERTO -->{block_reported.MODE2}: [{block_reported.MODE2_ER_SCOR} - {block_reported.MODE2_EE_SCOR}]<!-- ENDIF --></li>
+						<li class="rivalsli">-[3] {block_reported.MAP3} - <!-- IF block_reported.DECERTO -->{block_reported.MODE3}: [{block_reported.MODE3_ER_SCOR} - {block_reported.MODE3_EE_SCOR}]<!-- ENDIF --></li>
+						<!-- ENDIF -->
+					</ul>
+				</td>
+				<td <!-- IF block_reported.SCORE -->rowspan="2"<!-- ENDIF --> class="{block_reported.ROW_COLOR} rv60">
+					{L_CONFIRM}<br />
+					<input type="checkbox" name="confirmed[]" class="radio" value="{block_reported.MATCH_ID}" />
+				</td>
+				<td <!-- IF block_reported.SCORE -->rowspan="2"<!-- ENDIF --> class="{block_reported.ROW_COLOR} rv60">
+					{L_CONTEST}<br />
+					<input type="checkbox" name="contested[]" class="radio" value="{block_reported.MATCH_ID}" />
+				</td>
+			</tr>
+			<!-- IF block_reported.SCORE -->
+			<tr class="genmed rvcenter">
+				<td colspan="3" class="{block_reported.ROW_COLOR} rv120">
+					{L_VINCE} <a href="{block_reported.U_WINNER}">{block_reported.WINNER}</a>
+				</td>
+			</tr>
+			<!-- ENDIF -->
+			<tr class="genmed">
+				<td class="{block_reported.ROW_COLOR} rvleft" colspan="8">
+					>>{block_reported.DETAILS}
+					<span class="clanvote">
+						{L_VOTA_COMPORTAMENTO_CLAN}:
+						<select name="vsrep_{block_reported.MATCH_ID}">
+							<option value="1">1/5</option>
+							<option value="2">2/5</option>
+							<option value="3">3/5</option>
+							<option value="4">4/5</option>
+							<option value="5" selected="selected">5/5</option>
+						</select>
+					</span>
+				</td>
+			</tr>
+		<!-- BEGINELSE -->
+			<tr class="genmed">
+				<td class="row1 rvcenter" colspan="8">{L_NO_UNREPORTED_MATCHES}</td>
+			</tr>
+		<!-- END block_reported -->
+			<tr class="bg1">
+				<th class="rvcenter" colspan="8"><input type="submit" name="confermamelo" value="{L_SUBMIT}" class="rvbutton2" /></th>
+			</tr>
+		</table>
+		</fieldset>
+		
+	{S_FORM_TOKEN}
+	</form>
+	<!-- ENDIF -->
+	
+	<!-- IF not .block_challenges && not .block_accepted && not .block_reported -->
+	<div class="panel">
+		<div class="inner"><span class="corners-top"><span></span></span>
+		<fieldset>
+			<h2 style="text-align:center;margin:20px 0 20px 0;">{L_ANY_MATCHES_FOUNDED}</h2>
+		</fieldset>
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+	<!-- ENDIF -->
+
+</div>
+<!-- INCLUDE ucp_footer.html -->

@@ -1,0 +1,120 @@
+<!-- INCLUDE ucp_header.html -->
+
+<div style="padding: 2px;">
+	<!-- IF ERROR -->
+		<p class="gensmall error rvcenter">{ERROR}</p>
+	<!-- ENDIF -->
+
+	<h2>{L_CLAN_ATTENDI_WAR_IO}</h2>
+
+		<fieldset>
+			<table class="tablebg" width="100%" cellspacing="1">
+			<!-- BEGIN blocco_clanattesa_io -->
+				<tr class="genmed">
+					<td class="{blocco_clanattesa_io.ROW_COLOR} rvleft">
+						{L_HAI_UN_MATCH_IN_CERCA}: [P] {blocco_clanattesa_io.NOME_PLATFORM} -[L] {blocco_clanattesa_io.NOME_MAINLADDER} -[S] {blocco_clanattesa_io.GROUP_LADDER} -=- ({blocco_clanattesa_io.CLASSIFICATA})
+						<!-- IF blocco_clanattesa_io.USER_ICON --><img src="{ROOT_PATH}rivals/images/1vs1.gif" alt="{L_1VS1LADDER}" title="{L_1VS1LADDER}" class="rivalsicon" /><!-- ENDIF -->
+					</td>
+					<td class="{blocco_clanattesa_io.ROW_COLOR} rvcenter">{L_FINO_ALLE}: {blocco_clanattesa_io.FINO_ALLE}</td>
+				</tr>
+			<!-- BEGINELSE -->
+				<tr class="genmed">
+					<td colspan="2" align="center" class="{blocco_clanattesa.ROW_COLOR}"><br />{L_NOUWAR_IO}<br /></td>
+				</tr>
+			<!-- END blocco_clanattesa_io -->
+			</table>
+		</fieldset>
+		
+
+	<hr />
+
+	<h2>{L_CLAN_ATTENDI_WAR}</h2>
+	<form action="{U_ACTION}" method="post">
+
+		<fieldset>
+			<table class="tablebg" width="100%" cellspacing="1">
+				<tr class="genmed rvcenter">
+					<th class="row3">{L_AZIONE}</th>
+					<th class="row3">{L_SU_LADDER}</th>
+					<th class="row3">{L_FINO_ALLE}</th>
+					<th class="row3">{L_WINS}</th>
+					<th class="row3">{L_LOSSES}</th>
+				</tr>
+				<!-- BEGIN blocco_clanattesa -->
+				<tr class="genmed">
+					<td class="{blocco_clanattesa.ROW_COLOR} rvcenter rv60"><input type="checkbox" name="accepted[]" class="radio" value="{blocco_clanattesa.MATCH_ID}" /></td>
+					<td class="{blocco_clanattesa.ROW_COLOR} rvcenter">
+						[P] {blocco_clanattesa.NOME_PLATFORM} -[L] {blocco_clanattesa.NOME_MAINLADDER} -[S] {blocco_clanattesa.GROUP_LADDER} -=- ({blocco_clanattesa.CLASSIFICATA}) 
+						<!-- IF blocco_clanattesa.USER_ICON --><img src="{ROOT_PATH}rivals/images/1vs1.gif" alt="{L_1VS1LADDER}" title="{L_1VS1LADDER}" class="rivalsicon" /><!-- ENDIF -->
+					</td>
+					<td class="{blocco_clanattesa.ROW_COLOR} rvcenter">{blocco_clanattesa.FINO_ALLE}</td>
+					<td class="{blocco_clanattesa.ROW_COLOR} rvcenter rv80">{blocco_clanattesa.GROUP_WINS}</td>
+					<td class="{blocco_clanattesa.ROW_COLOR} rvcenter rv80">{blocco_clanattesa.GROUP_LOSSES}</td>
+				</tr>
+				<!-- BEGINELSE -->
+				<tr class="genmed">
+					<td colspan="5" class="row2 rvcenter">{L_NOUWAR}</td>
+				</tr>
+				<!-- END blocco_clanattesa -->
+				<tr class="genmed">
+					<td colspan="5" class="cat rvcenter"><input type="submit" name="sfida" value="{L_U_SFIDA}" class="rvbutton2" /></td>
+				</tr>
+			</table>
+		</fieldset>
+		
+	{S_FORM_TOKEN}
+	</form>
+
+	<hr />
+
+	<h2>{L_CERCA_WAR_AGGIUNGITI}</h2>
+	<form action="{U_ACTION}" method="post">
+
+		<fieldset>
+			<table class="tablebg" width="100%" cellspacing="1">
+				<tr class="genmed">
+					<td class="row1">{L_DOVE_CERCHI}
+						<select name="group_ladder" class="rival_select">
+							<optgroup label="{L_CLAN_LADDER}">
+								<!-- BEGIN block_ladders -->
+								<option value="{block_ladders.SUBLADDER_ID}">P: {block_ladders.PLATFORM}, L: {block_ladders.LADDER}, S: {block_ladders.SUBLADDER}</option>
+								<!-- BEGINELSE -->
+								<option value="0">{L_EMPTY}</option>
+								<!-- END block_ladders -->
+							</optgroup>
+							<optgroup label="{L_USER_LADDER}">
+								<!-- BEGIN user_ladders -->
+								<option value="{user_ladders.SUBLADDER_ID}">P: {user_ladders.PLATFORM}, L: {user_ladders.LADDER}, S: {user_ladders.SUBLADDER}</option>
+								<!-- BEGINELSE -->
+								<option value="0">{L_EMPTY}</option>
+								<!-- END user_ladders -->
+							</optgroup>
+						</select>
+					</td>
+					<td rowspan="3" class="row2 rvcenter rv80"><input type="submit" name="submit" value="{L_SUBMIT}" class="rvbutton2" /></td>
+				</tr>
+				<tr class="genmed">
+					<td class="row1">
+						{L_CHALLENGE_UNRANKED} <input type="checkbox" name="challenge_unranked" id="challenge_unranked" value="1" />
+					</td>
+				</tr>
+				<tr class="genmed">
+					<td class="row1">{L_TRA_QUANTO}
+						<select name="match_time" class="rival_select">
+							<!-- BEGIN block_minutes -->
+							<option value="{block_minutes.MINUTE}">{block_minutes.MINUTE} {L_MINS}</option>
+							<!-- END block_minutes -->
+						</select>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+		
+	{S_FORM_TOKEN}
+	</form>
+
+	<p><br />
+	{L_MOTIVO_ANINIMI}
+	</p>
+</div>
+<!-- INCLUDE ucp_footer.html -->

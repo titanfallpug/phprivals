@@ -1,0 +1,44 @@
+<p class="userleaderboard">{L_USERS_LEADERBOARD}</p>
+
+<div class="forumbg">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<table class="table1" cellspacing="1" id="userstats">
+			<thead>
+				<tr class="cat rvcenter">
+					<th></th>
+					<th>{L_USERNAME}</th>
+					<th>{L_GAMERNAME}</th>
+					<th>{L_EXP}</th>
+					<!-- IF MVP --><th>{L_MVPS}</th><!-- ENDIF -->
+					<th>{L_RATIO}</th>
+					<!-- IF not SOCCER --><th>{L_KILLS}</th><!-- ENDIF -->
+					<!-- IF not SOCCER --><th>{L_DEADS}</th><!-- ENDIF -->
+					<!-- IF not SOCCER --><th>{L_ASSISTS}</th><!-- ENDIF -->
+					<!-- IF SOCCER --><th>{L_GOALSF}</th><!-- ENDIF -->
+					<!-- IF SOCCER --><th>{L_GOALSA}</th><!-- ENDIF -->
+				</tr>
+			</thead>
+			<tbody>
+				<!-- BEGIN user_chart -->
+				<tr class="genmed rvcenter">
+					<td class="{user_chart.ROW_COLOR} rv30"><strong>{user_chart.POS}</strong></td>
+					<td class="{user_chart.ROW_COLOR} rvleft"><a href="{user_chart.U_USER}">{user_chart.USERNAME}</a></td>
+					<td class="{user_chart.ROW_COLOR} rv160">{user_chart.GAMERNAME}</td>
+					<td class="{user_chart.ROW_COLOR} rv80">{user_chart.EXP}</td>
+					<!-- IF MVP --><td class="{user_chart.ROW_COLOR} rv40">{user_chart.MVPS}</td><!-- ENDIF -->
+					<td class="{user_chart.ROW_COLOR} rv60"><!-- IF not SOCCER -->{user_chart.RATIO}<!-- ELSE IF -->{user_chart.RATIO_FOT}<!-- ENDIF --></td>
+					<!-- IF not SOCCER --><td class="{user_chart.ROW_COLOR} rv40">{user_chart.KILLS}</td><!-- ENDIF -->
+					<!-- IF not SOCCER --><td class="{user_chart.ROW_COLOR} rv40">{user_chart.DEADS}</td><!-- ENDIF -->
+					<!-- IF not SOCCER --><td class="{user_chart.ROW_COLOR} rv40">{user_chart.ASSISTS}</td><!-- ENDIF -->
+					<!-- IF SOCCER --><td class="{user_chart.ROW_COLOR} rv40">{user_chart.GOAL_F}</td><!-- ENDIF -->
+					<!-- IF SOCCER --><td class="{user_chart.ROW_COLOR} rv40">{user_chart.GOAL_S}</td><!-- ENDIF -->
+				</tr>
+				<!-- BEGINELSE -->
+				<tr class="genmed rvcenter">
+					<td class="row1" colspan="11">{L_NO_MEMBERS_DATA}</td>
+				</tr>
+				<!-- END user_chart -->
+			</tbody>
+		</table>
+	<span class="corners-bottom"><span></span></span></div>
+</div>

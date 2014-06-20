@@ -1,0 +1,31 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF ERROR -->
+	<p class="errorbox"><span class="gensmall">{ERROR}</span></p>
+<!-- ENDIF -->
+
+<!-- BEGIN block_platforms -->
+<form method="post" action="{block_platforms.U_ACTION}" enctype="multipart/form-data">
+<fieldset>
+	<legend>{block_platforms.S_PLATFORMNAME}</legend>
+	<dl>
+		<dt><label for="platform_name_{block_platforms.PLATFORM_ID}">{L_PLATFORM_NAME}:</label></dt>
+		<dd><input type="text" size="25" name="platform_name" id="platform_name_{block_platforms.PLATFORM_ID}" value="{block_platforms.PLATFORM_NAME}" class="inputbox autowidth" /> | <b>{L_DELETE}</b> <input type="checkbox" name="delete" value="1" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="platform_logo_{block_platforms.PLATFORM_ID}">{L_PLATFORM_LOGO}:<br />{L_PLATFORM_LOGO_EXP}</label></dt>
+		<dd><input type="file" name="platform_logo" id="platform_logo_{block_platforms.PLATFORM_ID}" /></dd>
+	</dl>
+	<dl>
+		<dt>{L_CURRENT_LOGO}:</dt>
+		<dd><img src="{block_platforms.CURRENT_LOGO}" alt="{L_CURRENT_LOGO}" width="100" height="25" /></dd>
+	</dl>
+
+	<p class="quick">
+		<input type="hidden" name="platform_id" value="{block_platforms.PLATFORM_ID}" /><input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	</p>
+</fieldset>
+</form>
+<!-- END block_platforms -->
+
+<!-- INCLUDE overall_footer.html -->

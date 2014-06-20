@@ -1,0 +1,54 @@
+<!-- INCLUDE overall_header.html -->
+
+<h2>{L_ACP_RIVALS_NEW_RULES}</h2>
+<form method="post" action="{block_rules.U_ACTION}">
+<fieldset>
+	<dl>
+		<dt><label for="nid_ladder">{L_ABILITA_SU_LADDER}:</label></dt>
+		<dd>
+			<select name="nid_ladder" id="nid_ladder">{S_LADDER}</select>
+		</dd>
+	</dl>
+	<p class="quick">
+		<strong>{L_CREA_NUOVA}</strong> <input type="checkbox" name="addnew" value="1" class="radio" /> : 
+		<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	</p>
+</fieldset>
+{S_FORM_TOKEN}
+</form>
+
+<h2>{L_ACP_RIVALS_ALTRO_RULES}</h2>
+<p>&nbsp;</p>
+
+
+<fieldset>
+	<table width="100%" cellspacing="1">
+		<tr>
+		<td class="row1 rvcenter">ID</td>
+		<td class="row1 rvcenter">{L_SUBLADDER}</td>
+		<td class="row1 rvcenter">{L_LADDER}</td>
+		<td class="row1 rvcenter">{L_PLATFORM}</td>
+		<td class="row1 rvcenter">{L_AZIONE}</td>
+		</tr>
+		<!-- BEGIN block_rules -->
+		<tr>
+			<td class="row3 rvcenter">{block_rules.RULES_ID}</td>
+			<td class="row3 rvcenter">{block_rules.LADDER_NAME}</td>
+			<td class="row3 rvcenter">{block_rules.MAIN_LADDER}</td>
+			<td class="row3 rvcenter">{block_rules.PLATFORM}</td>
+			<td class="row3 rvcenter">
+				<form method="post" action="">
+				<p>
+					<input type="hidden" class="inputbox autowidth" name="id_lavorata" value="{block_rules.RULES_ID}" />
+					<input type="submit" name="editalo" value="{L_EDIT}" class="button1" /> - <input type="submit" name="delete" value="{L_DELETE}" class="button1" />
+				</p>
+				{S_HIDDEN_FIELDS}
+				{S_FORM_TOKEN}
+				</form>
+			</td>
+		</tr>
+		<!-- END block_rules -->
+	</table>
+</fieldset>
+	
+<!-- INCLUDE overall_footer.html -->

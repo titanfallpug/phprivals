@@ -1,0 +1,38 @@
+<!-- INCLUDE overall_header.html -->
+
+<table cellspacing="1">
+	<caption>{L_EDIT_TOURNAMENTS}</caption>
+	<col class="col1" />
+	<col class="col2" />
+	<col class="col1" />
+	<col class="col2" />
+	<col class="col1" />
+	<thead>
+		<tr>
+			<th>{L_TOURNAMENT_NAME}</th>
+			<th>{L_SPOTS}</th>
+			<th>{L_TOURNAMENT_ACCESS}</th>
+			<th>{L_TOURNAMENT_TYPE}</th>
+			<th>&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+		<!-- BEGIN block_tournaments -->
+		<tr>
+			<td class="row1"><strong>{block_tournaments.TOURNAMENT_NAME}</strong> {block_tournaments.USERBASED}</td>
+ 			<td class="row3" align="center" >{block_tournaments.SPOTS_TAKEN}/{block_tournaments.SPOTS_OPEN} [{block_tournaments.STATUS}]</td>
+			<td class="row1">{block_tournaments.ACESSIBILITA}</td>
+			<td class="row1">{block_tournaments.TIPO}</td>
+			<td align="right" class="row3">
+            {block_tournaments.ORGANIZZA_URL} | {block_tournaments.EDITA_URL} | {block_tournaments.CANCELLA_URL} | {block_tournaments.CHIUDI_URL}
+			</td>
+		</tr>
+		<!-- BEGINELSE -->
+		<tr>
+			<td class="row1" colspan="5">{L_NO_TOURNAMENTS}</td>
+		</tr>
+		<!-- END block_tournaments -->
+	</tbody>
+</table>
+
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,52 @@
+<!-- INCLUDE ucp_header.html -->
+
+<div style="padding: 2px;">
+	<h2>{L_ADD_CHALLENGE}</h2>
+	
+	<!-- IF ERROR -->
+	<p class="rv_errorbox"><span class="gensmall">{ERROR}</span></p>
+	<!-- ENDIF -->
+
+	<form action="{U_ACTION}" method="post" id="make_challenge">
+	<div class="panel">
+		<fieldset>
+			<table class="tablebg" width="100%" cellspacing="1">
+				<tr class="genmed">
+					<td class="row1 rvtop"><strong><!-- IF USERLADDER -->{L_USER_ID_NAME}<!-- ELSE IF -->{L_GROUP_ID}<!-- ENDIF --></strong>:</td>
+					<td class="row2">
+						<input type="text" name="challengee" id="challengee" class="inputbox autowidth" value="{GROUP_ID}" /><!-- IF not USERLADDER --> [ <a href="#" onclick="window.open('{U_FIND_GROUP}', '_phpbbsearch', 'HEIGHT=250,resizable=yes,WIDTH=650');return false;">{L_FIND_GROUP}</a> ]<!-- ENDIF -->
+					</td>
+				</tr>
+				<tr class="genmed">
+					<td class="row1 rvtop"><strong>{L_CHALLENGE_UNRANKED}</strong>?</td>
+					<td class="row2">
+						<input type="checkbox" name="challenge_unranked" id="challenge_unranked" value="1" />
+					</td>
+				</tr>
+				<tr class="genmed">
+					<td class="row1 rvtop"><strong>{L_LADDER}</strong>:</td>
+					<td class="row2">
+						<select name="ladder_id_sel" class="rival_select" >
+							<!-- BEGIN block_ladders -->
+							<option value="{block_ladders.LADDER_ID}" {block_ladders.LADDER_SELECTED}>G: {block_ladders.PLATFORM}, L: {block_ladders.LADDER}, S: {block_ladders.SUBLADDER}</option>
+							<!-- END block_ladders -->
+						</select>
+					</td>
+				</tr>
+				<tr class="genmed">
+					<td class="row1 rvtop"><strong>{L_EXTRA}</strong>:</td>
+					<td class="row2"><textarea cols="40" rows="5" name="extra" class="inputbox narrow" id="rival_select" ></textarea></td>
+				</tr>
+				<tr>
+					<td class="cat rvcenter" colspan="2">
+					<input type="hidden" name="ulad" value="{ULAD}" />
+					<input type="submit" name="submit" value="{L_SUBMIT}" class="rvbutton2" /></td>
+				</tr>
+			</table>
+		</fieldset>
+	</div>
+	{S_HIDDEN_FIELDS}
+	{S_FORM_TOKEN}
+	</form>
+</div>
+<!-- INCLUDE ucp_footer.html -->

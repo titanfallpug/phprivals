@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
+	<header>
+		<meta name="generator" content="MODX file generated with PP MODX Creator by tumba25 (online version)"/>
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<title lang="en"><![CDATA[phpRivals MOD 2.0]]></title>
+		<description lang="en"><![CDATA[PHPRivals MOD 2.0 is a mod version of phpRivals by Tyler N. King 1.12 version.
+
+A clan based ladder and tournament system that allows users to challenge other clans and record their matches. Be the no.1 on the chart!
+
+I've added so many new features like mvps, advanced stats, compatibly with decerto, random map for days and match, ladders for footballs games, reporting system by result or score, new point system RTH (Road To Heaven), hibernation function, ladder and tournaments for clans and users.
+Clans are in a new table and do not appear as groups anymore.
+
+Many more features have also been included.
+
+------------------------
+BETA TESTERS TEAM credit:
+- Sonoma
+- Dutch_com_freak
+- kapote
+- Chrome-Gaming
+- Mattigb
+- Super64
+- Addicted2Play.com
+
+
+*****************************
+
+------------------------
+Translation credit:
+- [ Portuguese ] : nenuc0
+- [ French ] : toxic
+
+*****************************
+
+Go to my site to find map packs for games, new languages and imagesets...
+http://www.nipponart.org
+
+Have fun!]]></description>
+		<description lang="it"><![CDATA[PHPRivals MOD 2.0 è una versione modificata di phpRivals by Tyler N. King 1.12 version.
+
+Un sistema per tornei, ladder e leghe che permette a persone e clan di sfidarsi nei loro videogiochi preferiti tracciando le loro statistiche... per scoprire chi è il migliore.
+
+Ho aggiunto numerose nuove features come il sistema mvp, le statistiche avanzate, la compatibilità con le modalità decerto, mappa random del giorno e per ogni matches, ladder e tornei per giochi di calcio, sistema ibernazione, sistema per riportare risultati basato sul punteggio o sul risultato secco, un nuovo sistema di punti RTH (road to heaven), ladder e tornei per utenti oltre che per clan...
+
+... ora i clan sono in una tabella separata e non incasinano più i gruppi...
+
+... e tanto altro.
+
+
+------------------------
+BETA TESTERS TEAM credit:
+- Sonoma
+- Dutch_com_freak
+- kapote
+- Chrome-Gaming
+- Mattigb
+- Super64
+- Addicted2Play.com
+
+
+*****************************
+
+------------------------
+Translation credit:
+- [ Portuguese ] : nenuc0
+- [ French ] : toxic
+
+*****************************
+
+Nel mio sito troverete map pack già fatti, nuovi file di lingua e imageset...
+http://www.nipponart.org
+
+Have fun!]]></description>
+		<author-notes lang="en"><![CDATA[The third party scripts belong to their respective creators.
+
+Open Flash Chart:
+http://teethgrinder.co.uk/open-flash-chart-2/
+
+CKEditor:
+http://ckeditor.com/]]></author-notes>
+		<author-notes lang="it"><![CDATA[Gli script aggiuntivi sono copyrights dei rispettivi creatori.
+
+Open Flash Chart:
+http://teethgrinder.co.uk/open-flash-chart-2/
+
+CKEditor:
+http://ckeditor.com/]]></author-notes>
+		<author-group>
+			<author>
+				<username><![CDATA[Soshen]]></username>
+				<homepage><![CDATA[http://www.nipponart.org/]]></homepage>
+				<email><![CDATA[soshen@nipponart.org]]></email>
+				<contributions-group>
+					<contributions status="current" position="Developer"/>
+				</contributions-group>
+			</author>
+		</author-group>
+		<mod-version>2.0.1</mod-version>
+		<installation>
+			<level>easy</level>
+			<time>300</time>
+			<target-version>3.0.10</target-version>
+		</installation>
+		<history>
+			<entry>
+				<date>2012/02/25</date>
+				<rev-version>2.0.1</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Fixed some bugs]]></change>
+					<change><![CDATA[Changed the Random map and Decerto acp admin page]]></change>
+					<change><![CDATA[Added users leaderboard page]]></change>
+					<change><![CDATA[Added challenge button in user profile page]]></change>
+					<change><![CDATA[Added the Roster LineUP system]]></change>
+				</changelog>
+				<changelog lang="it">
+					<change><![CDATA[Corretti alcuni bugs]]></change>
+					<change><![CDATA[Cambiato il gestionale admin per Decerto e Random map]]></change>
+					<change><![CDATA[Aggiunta la pagina users leaderboard]]></change>
+					<change><![CDATA[Aggiunto il bottone sfida nel profilo utente]]></change>
+					<change><![CDATA[Aggiunto il sistema Roster LineUP]]></change>
+				</changelog>
+			</entry>
+		</history>
+		<link-group>
+			<link type="language" href="contrib/it.xml" lang="en">Italian</link>
+			<link type="template" href="contrib/subsilver2.xml" lang="en">subsilver2</link>
+			<link type="contrib" href="contrib/update_1-3_to_2-0.xml" lang="en">Update from 1.3 to 2.0</link>
+			<link type="language" href="contrib/pt.xml" lang="en">Portuguese</link>
+			<link type="language" href="contrib/fr.xml" lang="en">French</link>
+			<link type="contrib" href="contrib/update_200_to_201.xml" lang="en">Update from 2.0.0 to 2.0.1</link>
+		</link-group>
+	</header>
+	<action-group>
+		<copy>
+			<file from="root/rivals.php" to="rivals.php"/>
+			<file from="root/open-flash-chart.swf" to="open-flash-chart.swf"/>
+			<file from="root/rivals/*.*" to="rivals/*.*"/>
+			<file from="root/images/rivals/*.*" to="images/rivals/*.*"/>
+			<file from="root/adm/style/rivals/*.*" to="adm/style/rivals/*.*"/>
+			<file from="root/adm/style/ckeditor/*.*" to="adm/style/ckeditor/*.*"/>
+			<file from="root/includes/acp/*.*" to="includes/acp/*.*"/>
+			<file from="root/includes/ucp/*.*" to="includes/ucp/*.*"/>
+			<file from="root/includes/mcp/*.*" to="includes/mcp/*.*"/>
+			<file from="root/language/en/mods/*.*" to="language/en/mods/*.*"/>
+			<file from="root/styles/prosilver/*.*" to="styles/prosilver/*.*"/>
+			<file from="root/install_phpRivalsMOD.php" to="install_phpRivalsMOD.php"/>
+		</copy>
+		<open src="memberlist.php">
+			<edit>
+				<find><![CDATA[$template_html = 'memberlist_view.html';]]></find>
+				<action type="after-add"><![CDATA[
+/************************************************************		
+*	PHPRIVALS MOD BEGIN
+**************************/
+		$user->setup('mods/lang_rivals');
+		include($phpbb_root_path . 'rivals/functions.' . $phpEx);
+		include($phpbb_root_path . 'rivals/classes/funzioni_numeriche.' . $phpEx);
+		
+		$mvp		= getuserdata('user_mvp', $user_id);
+		$ladderlvl	= getuserdata('user_ladder_value', $user_id);
+		$gamer_name	= getuserdata('gamer_name', $user_id);
+		$gexp		= getuserdata('user_exp', $user_id);
+		$gwins		= getuserdata('user_round_wins', $user_id);
+		$glosses	= getuserdata('user_round_losses', $user_id);
+		$pollo		= (getuserdata('user_chicken', $user_id) >= 3) ? floor(getuserdata('user_chicken', $user_id) / 3) : false;
+		$powns		= (getuserdata('user_powns', $user_id) > 0) ? getuserdata('user_chicken', $user_id) : false;
+		$ladderlic	= getuserdata('user_ladder_level', $user_id);
+		
+		// User reputation
+		$repvalue	= getuserdata('rep_value', $user_id);
+		$reptime	= getuserdata('rep_time', $user_id);
+		$therepint	= ($reptime > 0) ? (int) ceil($repvalue / $reptime) : $repvalue;
+		$therepval	= ($reptime > 0) ? round_up(($repvalue / $reptime), 3) : $repvalue;
+
+		switch ($therepint)
+		{
+			case 5:
+			default:
+				$repimg	= $phpbb_root_path . "rivals/images/rep5.png";
+			break;
+			case 4:
+				$repimg	= $phpbb_root_path . "rivals/images/rep4.png";
+			break;
+			case 3:
+				$repimg	= $phpbb_root_path . "rivals/images/rep3.png";
+			break;
+			case 2:
+				$repimg	= $phpbb_root_path . "rivals/images/rep2.png";
+			break;
+			case 1:
+			case 0:
+				$repimg	= $phpbb_root_path . "rivals/images/rep1.png";
+			break;
+		}
+		
+		// User ladder licence
+		switch ($ladderlic)
+		{
+			case 2:
+				$patente = "patenteA.gif";
+			break;
+			case 1:
+				$patente = "patenteB.gif";
+			break;
+			case 0:
+				$patente = "patenteC.gif";
+			break;
+		}
+		
+		// Check if this user play in some ladder
+		$sql_c		= "SELECT * FROM " . ONEVSONEDATA_TABLE . " WHERE user_id = {$user_id}";
+		$result_c	= $db->sql_query_limit($sql_c, 1);
+		$row_c		= $db->sql_fetchrow($result_c);
+		$db->sql_freeresult($result_c);
+		
+		// Check if a challenge link is to be showen.
+		if ($user->data['user_id'] != ANONYMOUS && $user->data['user_id'] != $user_id && !empty($row_c['user_id']))
+		{
+			// Show the challenge link.
+			$challenge_link	= append_sid("{$phpbb_root_path}ucp.$phpEx", 'i=rivals&amp;mode=add_challenge&amp;ulad=true&amp;user_id=' . $user_id);
+		}
+		else
+		{
+			// Don't show it.
+			$challenge_link	= '';
+		}
+		
+		$template->assign_vars(array(
+			'U_CHALLANGE'	=> $challenge_link,
+			'GAMERNAME'		=> $gamer_name,
+			'MVP'			=> $mvp,
+			'LADDER_LVL'	=> $ladderlvl,
+			'EXP'			=> $gexp,
+			'GWINS'			=> $gwins,
+			'GLOSSES'		=> $glosses,
+			'LICENCE'		=> $patente,
+			'POLLO'			=> $pollo,
+			'POWNER'		=> $powns,
+			'REPUTATION'	=> $repimg,
+			'REPVALUE'		=> $therepval
+		));
+		
+		if (!empty($row_c['user_id']))
+		{
+			include($phpbb_root_path . 'rivals/classes/class_ladder.' . $phpEx);
+			$ladder		= new ladder();
+			
+			$template->assign_vars(array(
+				'INLADDER'	=> true
+			));
+			
+			// Get the ladders the user is joined to.
+			$sql	= "SELECT * FROM " . ONEVSONEDATA_TABLE . " WHERE user_id = {$user_id}";
+			$result	= $db->sql_query($sql);
+			while($row = $db->sql_fetchrow($result))
+			{				
+				// Get the ladder's roots.
+				$ladder_data	= $ladder->get_roots($row['1vs1_ladder']);
+				$piu			= (is_numeric(substr($row['user_streak'], 0, 1))) ? '+' : '';
+				
+				// Assign the ladder and the stats to the template.
+				$template->assign_block_vars('block_ladders', array(
+					'U_LADDER'		=> append_sid("{$phpbb_root_path}rivals.$phpEx", "action=userssubladder&amp;ladder_id={$row['1vs1_ladder']}"),
+					'PLATFORM'		=> $ladder_data['PLATFORM_NAME'],
+					'LADDER'		=> $ladder_data['LADDER_NAME'],
+					'SUBLADDER'		=> $ladder_data['SUBLADDER_NAME'],
+					'WINS'			=> $row['user_wins'],
+					'LOSSES'		=> $row['user_losses'],
+					'PAREGGI'		=> $row['user_pari'],
+					'STREAK'		=> $piu . $row['user_streak'],
+					'SCORE'			=> $row['user_score'],
+					'CURRENT_RANK'	=> $row['user_current_rank'],
+					'LAST_RANK'		=> $row['user_last_rank'],
+					'BEST_RANK'		=> $row['user_best_rank'],
+					'WORST_RANK'	=> $row['user_worst_rank']
+				));
+			}
+			$db->sql_freeresult($result);			
+			
+			// MATCHES LIST
+			$sqlu		= "SELECT * FROM " . ONEVSONE_MATCH_DATA . " WHERE (1vs1_challanger = {$user_id} OR 1vs1_challangee = {$user_id})
+						AND 1vs1_confirmer > 0 AND end_time > 0 ORDER BY end_time DESC";
+			$resultu	= $db->sql_query_limit($sqlu, 20);
+			$i2			= 0;
+			while($rowu = $db->sql_fetchrow($resultu))
+			{
+				if (!empty($rowu['1vs1_challanger']))
+				{
+					// Get the ladder's roots.
+					$ladder_datau	= $ladder->get_roots($rowu['1vs1_ladder']);
+
+					// Assign each match to the template.
+					$template->assign_block_vars('block_matchhistory', array(
+						'PLATFORM'		=> $ladder_datau['PLATFORM_NAME'],
+						'LADDER' 		=> $ladder_datau['LADDER_NAME'],
+						'SUBLADDER' 	=> $ladder_datau['SUBLADDER_NAME'],
+						'U_LADDER'		=> append_sid("{$phpbb_root_path}rivals.$phpEx", "action=userssubladder&amp;ladder_id={$rowu['1vs1_ladder']}"),
+						'ROW_COLOR' 	=> ($i2 % 2) ? 'row1' : 'row2',
+						'DATE' 			=> ($rowu['end_time'] > 0) ? $user->format_date($rowu['end_time']) : $user->format_date($rowu['start_time']),
+						'MAP1'			=> $rowu['1vs1_mappa1'],
+						'MAP2'			=> $rowu['1vs1_mappa2'],
+						'MAP3'			=> $rowu['1vs1_mappa3'],
+						'DECERTO'		=> ($ladder_datau['SUBLADDER_STYLE'] == 1) ? true : false,
+						'MODE1'			=> ($ladder_datau['SUBLADDER_STYLE'] == 1) ? $rowu['mode1'] : '',
+						'MODE2'			=> ($ladder_datau['SUBLADDER_STYLE'] == 1) ? $rowu['mode2'] : '',
+						'MODE3'			=> ($ladder_datau['SUBLADDER_STYLE'] == 1) ? $rowu['mode3'] : '',
+						'CHALLANGER' 	=> ($rowu['1vs1_winner'] == $rowu['1vs1_challanger']) ? '<span class="rivalwinner">' . getusername($rowu['1vs1_challanger']) . '</span>' : getusername($rowu['1vs1_challanger']),
+						'CHALLANGEE'	=> ($rowu['1vs1_winner'] == $rowu['1vs1_challangee']) ? '<span class="rivalwinner">' . getusername($rowu['1vs1_challangee']) . '</span>' : getusername($rowu['1vs1_challangee']),
+						'U_ER'			=> append_sid("{$phpbb_root_path}memberlist.$phpEx", 'mode=viewprofile&amp;u=' . $rowu['1vs1_challanger']),
+						'U_EE'			=> append_sid("{$phpbb_root_path}memberlist.$phpEx", 'mode=viewprofile&amp;u=' . $rowu['1vs1_challangee']),
+						'CLASSIFICATA'	=> ($rowu['1vs1_unranked'] == 1) ? $user->lang['NONCLASSIFICATA'] : $user->lang['CLASSIFICATA'],
+						'ER_SCORE'		=> $rowu['1vs1_challanger_score'],
+						'EE_SCORE'		=> $rowu['1vs1_challangee_score'],
+						'ER_TEAM'		=> $rowu['1vs1_challanger_team'],
+						'EE_TEAM'		=> $rowu['1vs1_challangee_team'],
+						'MODE1_ER_SCOR' => $rowu['mode1_score_er'],
+						'MODE1_EE_SCOR' => $rowu['mode1_score_ee'],
+						'MODE2_ER_SCOR' => $rowu['mode2_score_er'],
+						'MODE2_EE_SCOR' => $rowu['mode2_score_ee'],
+						'MODE3_ER_SCOR' => $rowu['mode3_score_er'],
+						'MODE3_EE_SCOR' => $rowu['mode3_score_ee'],
+						'SCORE'			=> ($ladder_datau['SUBLADDER_WINSYS'] == 0) ? true : false,
+						'CALCIO'		=> ($ladder_datau['SUBLADDER_STYLE'] == 3) ? true : false
+					));
+				}
+				$i2++;
+			}
+			$db->sql_freeresult($resultu);
+		}
+		
+		// Tournaments stats
+		$playedtournament	= array();
+		$playedtournament	= unserialize(getuserdata('user_tournaments', $user_id));
+
+		if (!empty($playedtournament))
+		{
+			include($phpbb_root_path . 'rivals/classes/class_tournament.' . $phpEx);
+			$tournament	= new tournament();
+			
+			$template->assign_vars(array(
+				'INTOURNAMENT'	=> true
+			));
+			
+			foreach ($playedtournament AS $tourid)
+			{
+				if ($tournament->data('tournament_status', $tourid) >= 2)
+				{
+					$sql_tt		= "SELECT * FROM " . TGROUPS_TABLE . " WHERE group_tournament = {$tourid} AND group_id = {$user_id} ORDER BY group_bracket DESC";
+					$result_tt	= $db->sql_query_limit($sql_tt, 1);
+					$row_tt		= $db->sql_fetchrow($result_tt);
+					$db->sql_freeresult($result_tt);
+					
+					// find the best placement
+					if ($tournament->data('tournament_brackets', $tourid) > 2)
+					{
+						$rounds	= ($tournament->data('tournament_brackets', $tourid) / 2);
+						
+						if ($row_tt['group_bracket'] == $rounds)
+						{
+							$tresult	= $user->lang['WINNER_ROUND'];
+						}
+						else if ($row_tt['group_bracket'] == ($rounds-1))
+						{
+							$tresult	= $user->lang['FINAL_ROUND'];
+						}
+						else if ($row_tt['group_bracket'] == ($rounds-2))
+						{
+							$tresult	= $user->lang['SEMIFINAL_ROUND'];
+						}
+						else
+						{
+							$tresult	= sprintf($user->lang['ROUND'], $row_tt['group_bracket']);
+						}
+					}
+					else
+					{
+						if ($row_tt['group_bracket'] == 2)
+						{
+							$tresult	= $user->lang['WINNER_ROUND'];
+						}
+						else if ($row_tt['group_bracket'] == 1)
+						{
+							$tresult	= sprintf($user->lang['ROUND'], 1);
+						}
+					}
+					
+					switch ($tournament->data('tournament_status', $tourid))
+					{
+						case 2:
+							$tstatus	= $user->lang['INIZIATO'];
+						break;
+						case 3:
+							$tstatus	= $user->lang['CHIUSO'];
+						break;
+						default:
+							$tstatus	= $user->lang['PRONTO_A_PARTIRE'];
+						break;
+					}
+					
+					$template->assign_block_vars('block_tourstats', array(
+						'TOUR_NAME'		=> $tournament->data('tournament_name', $tourid),
+						'TOUR_STATUS'	=> $tstatus,
+						'TOUR_URL'		=> append_sid("{$phpbb_root_path}rivals.$phpEx", "action=tournaments_brackets&amp;tournament_id=" . $tourid),
+						'TOUR_POSITION'	=> $tresult
+					));
+				}
+			}
+		}
+		
+// PHPRIVALS MOD END]]></action>
+			</edit>
+		</open>
+		<open src="viewtopic.php">
+			<edit>
+				<find><![CDATA['from'			=> '',]]></find>
+				<action type="after-add"><![CDATA[				// RIVALS MOD START
+				'mvp'			    => '',
+				'gamername'		    => '',
+				'ratio'		    	=> '',
+				'ladderlvl'			=> '',
+				// RIVALS MOD END]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA['from'			=> (!empty($row['user_from'])) ? $row['user_from'] : '',]]></find>
+				<action type="after-add"><![CDATA[				// RIVALS MOD START
+				'mvp'			    => (!empty($row['user_mvp'])) ? $row['user_mvp'] : $user->lang['NESSUNO'],
+				'gamername'		    => (!empty($row['gamer_name'])) ? $row['gamer_name'] : '',
+				'ratio'		    	=> (!empty($row['user_ratio'])) ? $row['user_ratio'] : '',
+				'ladderlvl'			=> (!empty($row['user_ladder_value'])) ? $row['user_ladder_value'] : '',
+				// RIVALS MOD END]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA['POSTER_FROM'		=> $user_cache[$poster_id]['from'],]]></find>
+				<action type="after-add"><![CDATA[		// RIVALS MOD START
+		'MVP'			    => $user_cache[$poster_id]['mvp'],
+		'GAMERNAME'		    => $user_cache[$poster_id]['gamername'],
+		'RATIO'		    	=> $user_cache[$poster_id]['ratio'],
+		'LADDERLVL'			=> $user_cache[$poster_id]['ladderlvl'],
+		// RIVALS MOD END]]></action>
+			</edit>
+		</open>
+		<open src="adm/style/acp_users_profile.html">
+			<edit>
+				<find><![CDATA[<dd><input type="text" id="website" name="website" value="{WEBSITE}" /></dd>
+	</dl>]]></find>
+				<action type="after-add"><![CDATA[	<!-- phpRIVALSMOD START -->
+	<dl>
+		<dt><label for="gamer_name">{L_UCP_GAMER_NAME}:</label></dt>
+		<dd><input type="text" id="gamer_name" name="gamer_name" value="{GAMERNAME}" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="user_mvp">{L_MVP_TOPIC}:</label></dt>
+		<dd><input type="text" id="user_mvp" name="user_mvp" value="{MVPS}" /></dd>
+	</dl>
+	<!-- phpRIVALSMOD END -->]]></action>
+			</edit>
+		</open>
+		<open src="includes/constants.php">
+			<edit>
+				<find><![CDATA[// Additional tables]]></find>
+				<action type="after-add"><![CDATA[// RIVALSMOD START
+define('GROUPDATA_TABLE',			$table_prefix . 'rivals_groupdata');
+define('CHALLENGES_TABLE',			$table_prefix . 'rivals_challenges');
+define('MATCHES_TABLE',				$table_prefix . 'rivals_matches');
+define('LADDERS_TABLE',				$table_prefix . 'rivals_ladders');
+define('PLATFORMS_TABLE',			$table_prefix . 'rivals_platforms');
+define('TOURNAMENTS_TABLE',			$table_prefix . 'rivals_tournaments');
+define('TREPORTS_TABLE',			$table_prefix . 'rivals_treports');
+define('TGROUPS_TABLE',				$table_prefix . 'rivals_tgroups');
+define('MATCHFINDER_TABLE',			$table_prefix . 'rivals_matchfinder');
+define('CLANSMSG_TABLE',			$table_prefix . 'rivals_clansmsg');
+define('SEASONS_TABLE',				$table_prefix . 'rivals_seasons');
+define('SEASONDATA_TABLE',			$table_prefix . 'rivals_seasondata');
+define('RIVAL_MVP',					$table_prefix . 'rivals_mvp');
+define('RANDOM_TABLE',	            $table_prefix . 'rivals_random');
+define('RANDOM_IMGS_TABLE',	        $table_prefix . 'rivals_random_imgs');
+define('RIVAL_LADDER_RULES',	    $table_prefix . 'rivals_ladder_rules');
+define('TMATCHES',	                $table_prefix . 'rivals_tmatches');
+define('TUSER_DATA',	            $table_prefix . 'rivals_tuserdata');
+define('TDECERTO',	                $table_prefix . 'rivals_tdecerto');
+define('DECERTO_CAT',	            $table_prefix . 'rivals_decerto_cat');
+define('DECERTO_MAP',	            $table_prefix . 'rivals_decerto_map');
+define('CLANS_TABLE',	            $table_prefix . 'rivals_clans');
+define('USER_CLAN_TABLE',	        $table_prefix . 'rivals_user_clan');
+define('USER_LADDER_STATS',	        $table_prefix . 'rivals_ladders_userstats');
+define('MATCH_TEMP_USTATS',	        $table_prefix . 'rivals_match_stats_temp');
+define('ONEVSONE_MATCH_DATA',	    $table_prefix . 'rivals_1vs1_machdata');
+define('ONEVSONEDATA_TABLE',	    $table_prefix . 'rivals_1vs1_userdata');
+define('RTH_CHECK_TABLE',		    $table_prefix . 'rivals_challange_rth');
+define('RIVALS_MATCH_CHAT',		    $table_prefix . 'rivals_matchchat');
+define('RIVAL_ROSTERS',			    $table_prefix . 'rivals_rosters');
+// RIVALSMOD END]]></action>
+			</edit>
+		</open>
+		<open src="includes/functions.php">
+			<edit>
+				<find><![CDATA[// The following assigns all _common_ variables that may be used at any point in a template.]]></find>
+				<action type="before-add"><![CDATA[	// RIVALSMOD START
+	if (!empty($config['rivalsmod_version'])) /* works after you have installed! */
+	{
+		// Get contested match number
+		$resultj = $db->sql_query("SELECT COUNT(match_id) AS clancontested FROM " . MATCHES_TABLE . " WHERE match_status = 2");
+		$Ctotalcontest = (int) $db->sql_fetchfield('clancontested');
+		$db->sql_freeresult($resultj);
+		
+		$resultw = $db->sql_query("SELECT COUNT(1vs1_id) AS usercontested FROM " . ONEVSONE_MATCH_DATA . " WHERE 1vs1_contestested = 1");
+		$Utotalcontest = (int) $db->sql_fetchfield('usercontested');
+		$db->sql_freeresult($resultw);
+		
+		$resultz = $db->sql_query("SELECT COUNT(match_problem) AS tcontested FROM " . TMATCHES . " WHERE match_problem >= 1");
+		$Ttotalcontest = (int) $db->sql_fetchfield('tcontested');
+		$db->sql_freeresult($resultz);
+		
+		$clancontested	= (!empty($Ctotalcontest)) ? $Ctotalcontest : 0;
+		$usercontested	= (!empty($Utotalcontest)) ? $Utotalcontest : 0;
+		$tcontested		= (!empty($Ttotalcontest)) ? $Ttotalcontest : 0;
+		$matchcontested	= $clancontested + $usercontested + $tcontested;
+	}
+	else
+	{
+		$matchcontested	= 0;
+	}
+	//RIVALSMOD END
+	]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA['SITE_DESCRIPTION'				=> $config['site_desc'],]]></find>
+				<action type="after-add"><![CDATA[		// RIVALSMOD START
+		'L_GROUPCP'						=> $user->lang['RIVALS_GROUPCP'],
+		'U_GROUPCP'						=> append_sid("{$phpbb_root_path}ucp.$phpEx", 'i=rivals'),
+		'L_PLATFORMS'					=> $user->lang['RIVALS_PLATFORMS'],
+		'U_PLATFORMS'					=> append_sid("{$phpbb_root_path}rivals.$phpEx", 'action=platforms'),
+		'L_TOURNAMENTS'					=> $user->lang['RIVALS_TOURNAMENTS'],
+		'U_TOURNAMENTS'					=> append_sid("{$phpbb_root_path}rivals.$phpEx", 'action=tournaments'),
+		'L_ADDGROUP'					=> $user->lang['RIVALS_ADDGROUP'],
+		'L_MVP'							=> $user->lang['MVP_MENU'],
+		'U_MVP'							=> append_sid("{$phpbb_root_path}rivals.$phpEx", 'action=mvp'),
+		'L_UWAR'						=> $user->lang['UWAR_MENU'],
+		'U_UWAR'						=> append_sid("{$phpbb_root_path}rivals.$phpEx", 'action=latest_war'),
+		'L_RANDOM'						=> $user->lang['RIVALS_RANDOM'],
+		'U_RANDOM'						=> append_sid("{$phpbb_root_path}rivals.$phpEx", 'action=random'),
+		'L_LIST_FULL'					=> $user->lang['LIST_FULL'],
+		'U_LIST_FULL'					=> append_sid("{$phpbb_root_path}rivals.$phpEx", 'action=clan_full'),
+		'U_EVENTI'						=> append_sid("{$phpbb_root_path}eventi.$phpEx", 'action=main'),
+		'U_ADDGROUP'					=> append_sid("{$phpbb_root_path}rivals.$phpEx", 'action=add_group'),
+		'L_GROUPLIST'					=> $user->lang['RIVALS_GROUPLIST'],
+		'U_GROUPLIST'					=> append_sid("{$phpbb_root_path}rivals.$phpEx", 'action=group_list'),
+		'L_RIVALS_MCP'					=> $user->lang['RIVALS_MCP'],
+		'U_RIVALS_MCP'					=> append_sid("{$phpbb_root_path}mcp.$phpEx", 'i=rivals&amp;mode=main'),
+		'RIVALS_MCP_L'					=> $user->lang['RIVALS_MCP'] . ' (' . $matchcontested . ')',
+		'S_MOD_RIVALS'					=> (!$auth->acl_get('m_rivals')) ? false : true,
+		'U_ULEADERBOARD'				=> append_sid("{$phpbb_root_path}rivals.$phpEx", 'action=uleadrboard'),
+		//RIVALSMOD END]]></action>
+			</edit>
+		</open>
+		<open src="includes/acp/acp_bots.php">
+			<edit>
+				<find><![CDATA['user_allow_massemail'	=> 0,]]></find>
+				<action type="after-add"><![CDATA[								// RIVALSMOD START
+								'user_tournaments'		=> '',
+								// RIVALSMOD END]]></action>
+			</edit>
+		</open>
+		<open src="includes/acp/acp_users.php">
+			<edit>
+				<find><![CDATA['website'		=> request_var('website', $user_row['user_website']),]]></find>
+				<action type="after-add"><![CDATA[					// RIVALSMOD START
+					'gamer_name'	=> request_var('gamer_name', $user_row['gamer_name']),
+					'user_mvp'		=> request_var('user_mvp', $user_row['user_mvp']),
+					// RIVALSMOD END]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA['location'		=> array('string', true, 2, 100),]]></find>
+				<action type="before-add"><![CDATA[						// RIVALSMOD START
+						'gamer_name'	=> array('string', true, 4, 100),
+						'user_mvp'		=> array('num', true, 1, 99999),
+						// RIVALSMOD END]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA['user_website'	=> $data['website'],]]></find>
+				<action type="after-add"><![CDATA[							// RIVALSMOD START
+							'gamer_name'	=> $data['gamer_name'],
+							'user_mvp'		=> $data['user_mvp'],
+							// RIVALSMOD END]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA['WEBSITE'		=> $data['website'],]]></find>
+				<action type="after-add"><![CDATA[					// RIVALSMOD START
+					'GAMERNAME'		=> $data['gamer_name'],
+					'MVPS'			=> $data['user_mvp'],
+					// RIVALSMOD END]]></action>
+			</edit>
+		</open>
+		<open src="includes/ucp/ucp_profile.php">
+			<edit>
+				<find><![CDATA['interests'		=> utf8_normalize_nfc(request_var('interests', $user->data['user_interests'], true)),]]></find>
+				<action type="before-add"><![CDATA[					// RIVALS MOD START
+					'gamer_name'    => request_var('gamer_name', $user->data['gamer_name']),
+					// RIVALS MOD END]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA['interests'		=> array('string', true, 2, 500),]]></find>
+				<action type="before-add"><![CDATA[						// RIVALS MOD START
+                        'gamer_name'	=> array('string', true, 4, 100),
+						// RIVALS MOD END]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA['user_occ'		=> $data['occupation'],]]></find>
+				<action type="after-add"><![CDATA[							// RIVALS MOD START
+                            'gamer_name'	=> $data['gamer_name'],
+							// RIVALS MOD END]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA['INTERESTS'	=> $data['interests'],]]></find>
+				<action type="before-add"><![CDATA[					// RIVALS MOD START
+                    'GAMER_NAME'	=> $data['gamer_name'],
+					// RIVALS MOD END]]></action>
+			</edit>
+		</open>
+		<open src="includes/ucp/ucp_register.php">
+			<edit>
+				<find><![CDATA['user_inactive_time'	=> $user_inactive_time,]]></find>
+				<action type="after-add"><![CDATA[					// RIVALS MOD START
+					'group_session'			=> 0,
+					'user_mvp'				=> 0,
+					'gamer_name'			=> '',
+					'user_tournaments'		=> '',
+					'user_ladder_level'		=> 0,
+					'user_ladder_value'		=> 0,
+					'user_exp'				=> 0,
+					'user_round_wins'		=> 0,
+					'user_round_losses'		=> 0,
+					'user_chicken'			=> 0,
+					'user_powns'			=> 0,
+					'rep_value'				=> 5,
+					'rep_time'				=> 1,
+					// RIVALS MOD END]]></action>
+			</edit>
+		</open>
+		<open src="language/en/common.php">
+			<edit>
+				<find><![CDATA[?>]]></find>
+				<action type="before-add"><![CDATA[// RIVALSMOD START
+$lang = array_merge($lang, array(
+	'RIVALS_GROUPCP'		=> 'Clan CP',
+	'RIVALS_PLATFORMS'		=> 'Ladders',
+	'RIVALS_ADDGROUP'		=> 'Create a Clan',
+	'RIVALS_TOURNAMENTS'	=> 'Tournaments',
+	'RIVALS_GROUPLIST'		=> 'Active Clan List',
+	'NOME_CLAN'				=> 'Clan name',
+	'ID_CLAN'				=> 'Clan ID',
+	'MVP_PROFILE'			=> 'N. MVP',
+	'MVP_TOPIC'				=> 'Total MVP',
+    'MVP_MENU'				=> 'Top MVP',
+	'NESSUNO'				=> 'None',
+	'UWAR_MENU'				=> 'Latest matches',
+	'RIVALS_RANDOM'			=> 'Maps of the day',
+	'LIST_FULL'				=> 'Clan full list',
+	'UCP_GAMER_NAME'		=> 'Gamer Name',
+	'GAMER_NAME_EXPLAIN'	=> 'Yours nickname on XboX Live, Psn, Wii network, X-Fire, etc...',
+	'CLAN_LOGGATO'			=> 'You’re logged on',
+	'AMMINISTRA_CLAN'		=> 'clan control panel',
+	'SFIDE'					=> 'Challenge:',
+	'WARS_IN_CORSO'			=> 'Ongoin matches:',
+	'WARS_FINITE'			=> 'Finished matches:',
+	'NOT_LOGGED'			=> 'Non logged',
+	'LATEST_WAR_TITLE'		=> 'Latest matches played',
+	'TOTAL_CLANS'			=> 'Total clans registered',
+	'TOTAL_WARS'			=> 'Total matches played',
+	'EVENTI_MENU'			=> 'Events and tournaments',
+	'ULTIMI_CLANS'			=> 'Latest registered clans',
+	'HA_SCRITTO_ORE'		=> 'writed on',
+	'RIVALS_MCP'			=> 'Ladders moderation',
+	'RATIO'					=> 'Ratio',
+	'GAMERNAME'				=> 'Gamername',
+	'USER_LEADERBOARD'		=> 'User Leaderboard',
+));
+// RIVALSMOD END]]></action>
+			</edit>
+		</open>
+		<open src="language/en/acp/common.php">
+			<edit>
+				<find><![CDATA['LOG_WORD_EDIT'			=> '<strong>Edited word censor</strong><br />» %s',]]></find>
+				<action type="after-add"><![CDATA[	
+	//RIVALS ADDON
+	'LOG_MATCH_EDITED'					=> '<strong>Match ID:%s edited.</strong><br />» %s vs %s',]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/memberlist_view.html">
+			<edit>
+				<find><![CDATA[<!-- IF U_SWITCH_PERMISSIONS --> [ <a href="{U_SWITCH_PERMISSIONS}">{L_USE_PERMISSIONS}</a> ]<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[			<!-- PHPRIVALS MOD START -->
+				<!-- IF U_CHALLANGE --> [ <a href="{U_CHALLANGE}">{L_U_SFIDA}</a> ]<!-- ENDIF -->
+			<!-- PHPRIVALS MOD END -->]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[			<dt>{postrow.PROFILE_FIELD1_NAME}:</dt> <dd>{postrow.PROFILE_FIELD1_VALUE}</dd>
+		<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[<!-- PHPRIVALS MOD START -->
+		<dt>{L_LADDER_PROFILE_GSTATS}:</dt> <dd></dd>
+		<!-- IF GAMERNAME --><dt>{L_GAMERNAME}:</dt> <dd>{GAMERNAME}</dd><!-- ENDIF -->
+		<dt>{L_MVPS}:</dt> <dd>{MVP}</dd>
+		<dt>{L_USER_EXP}:</dt> <dd>{LADDER_LVL} {L_POINTS}</dd>
+		<dt>{L_EXP}:</dt> <dd>{EXP}</dd>
+		<!-- IF GWINS --><dt>{L_WINS}:</dt> <dd>{GWINS}</dd><!-- ENDIF -->
+		<!-- IF GLOSSES --><dt>{L_LOSSES}:</dt> <dd>{GLOSSES}</dd><!-- ENDIF -->
+		<dt>{L_LICENCE}:</dt> <dd><img src="{ROOT_PATH}rivals/images/{LICENCE}" alt="{L_PATENTEALT}" title="{L_PATENTETXT}" /></dd>
+		<!-- IF POLLO --><dt>{L_POLLI_PRESI}:</dt> <dd>{POLLO}x<img src="{ROOT_PATH}/rivals/images/chickenbig.gif" alt="{L_CHICKENALT}" title="{L_CHICKENTXT}" class="rvmiddle" /></dd><!-- ENDIF -->
+		<!-- IF POWNER --><dt>{L_POWNS_PRESI}:</dt> <dd>{POWNER}x<img src="{ROOT_PATH}/rivals/images/powner.gif" alt="{L_POWNERALT}" title="{L_POWNERTXT}" class="rvmiddle" /></dd><!-- ENDIF -->
+		<!-- IF REPVALUE --><dt>{L_REPUTATION_1VS1}:</dt> <dd><img src="{REPUTATION}" alt="{L_REPUTATION}" title="{REPVALUE}" class="rvmiddle" /> ({REPVALUE}/5)</dd><!-- ENDIF -->
+<!-- PHPRIVALS MOD END -->]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[<!-- INCLUDE jumpbox.html -->]]></find>
+				<action type="before-add"><![CDATA[<!-- PHPRIVALS MOD START -->
+<!-- IF INTOURNAMENT -->
+<div class="panel bg1">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+		<h3>{L_USER_TOURNAMENT_HISTORY}</h3>
+		
+		<fieldset>
+			<!-- BEGIN block_tourstats -->
+			<p><strong>{block_tourstats.TOUR_NAME}</strong> [<a href="{block_tourstats.TOUR_URL}">{L_VIEW_BRACKETS}</a>] &bull; {L_STATUS} {block_tourstats.TOUR_STATUS} &bull; {L_BEST_POSITION}: {block_tourstats.TOUR_POSITION}</p>
+			<!-- END block_tourstats -->
+		</fieldset>
+		
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ENDIF -->
+
+<!-- IF INLADDER -->
+<div class="panel bg1">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+		<h3>{L_USER_LADDER_HISTORY}</h3>
+
+				<table class="tablebgtrasparent">
+					<!-- BEGIN block_ladders -->
+					<tr>
+						<td colspan="2"><h4 class="h4profile"><a href="{block_ladders.U_LADDER}">P: {block_ladders.PLATFORM}, L: {block_ladders.LADDER}, S: {block_ladders.SUBLADDER}</a></h4></td>
+					</tr>
+					<tr>
+						<td class="gen rvright">{L_WINS}: </td>
+						<td><strong class="gen">{block_ladders.WINS}</strong></td>
+					</tr>
+					<tr>
+						<td class="gen rvright">{L_LOSSES}: </td>
+						<td><strong class="gen">{block_ladders.LOSSES}</strong></td>
+					</tr>
+					<tr>
+						<td class="gen rvright">{L_LADDER_GROUP_PARI}: </td>
+						<td><strong class="gen">{block_ladders.PAREGGI}</strong></td>
+					</tr>
+					<tr>
+						<td class="gen rvright">{L_STREAK}: </td>
+						<td><strong class="gen">{block_ladders.STREAK}</strong></td>
+					</tr>
+					<tr>
+						<td class="gen rvright">{L_SCORE}: </td>
+						<td><strong class="gen">{block_ladders.SCORE}</strong></td>
+					</tr>
+					<tr>
+						<td class="gen rvright">{L_CURRENT_RANK}: </td>
+						<td><strong class="gen">{block_ladders.CURRENT_RANK} ({L_LAST_RANK}: {block_ladders.LAST_RANK})</strong></td>
+					</tr>
+					<tr>
+						<td class="gen rvright">{L_BEST_RANK}: </td>
+						<td><strong class="gen">{block_ladders.BEST_RANK} ({L_WORST_RANK}: {block_ladders.WORST_RANK})</strong></td>
+					</tr>
+					<!-- END block_ladders -->
+				</table>
+
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<div class="panel bg1">
+	<div class="inner"><span class="corners-top"><span></span></span>
+
+		<h3>{L_USER_LADDER_LATESTMATCH}</h3>
+		
+		<table class="tablebg">
+			<tr>
+				<td class="cat rvcenter"><h4>{L_PLAYED_TIME}</h4></td>
+				<td class="cat rvcenter"><h4>{L_CHALLANGER}</h4></td>
+				<td class="cat rvcenter"></td>
+				<td class="cat rvcenter"><h4>{L_CHALLANGEE}</h4></td>
+				<td class="cat rvcenter"><h4>{L_INFORMAZIONI_WAR}</h4></td>
+				<td class="cat rvcenter"><h4>{L_LADDER}</h4></td>
+			</tr>
+			<!-- BEGIN block_matchhistory -->
+			<tr class="genmed">
+				<td class="{block_matchhistory.ROW_COLOR} rvcenter rv80">{block_matchhistory.DATE}</td>
+				<td class="{block_matchhistory.ROW_COLOR} rvcenter">
+					<a href="{block_matchhistory.U_ER}" class="clanname">{block_matchhistory.CHALLANGER}<!-- IF block_matchhistory.SCORE --> ({block_matchhistory.ER_SCORE})<!-- ENDIF --></a>
+					<!-- IF block_matchhistory.CALCIO --><br />({block_matchhistory.ER_TEAM})<!-- ENDIF -->
+				</td>
+				<td class="{block_matchhistory.ROW_COLOR} rvcenter rv15">
+					 VS
+				</td>
+				<td class="{block_matchhistory.ROW_COLOR} rvcenter">
+					<a href="{block_matchhistory.U_EE}" class="clanname">{block_matchhistory.CHALLANGEE}<!-- IF block_matchhistory.SCORE --> ({block_matchhistory.EE_SCORE})<!-- ENDIF --></a>
+					<!-- IF block_matchhistory.CALCIO --><br />({block_matchhistory.EE_TEAM})<!-- ENDIF -->
+				</td>
+				<td class="{block_matchhistory.ROW_COLOR} rv300">
+					<ul>
+						<li class="rivalsli">{L_MAPSET}<!-- IF block_matchhistory.MAP1 eq '-' -->{L_LIBERO}</li><!-- ELSE IF --></li>
+						<li class="rivalsli">-[1] {block_matchhistory.MAP1} - <!-- IF block_matchhistory.DECERTO -->{block_matchhistory.MODE1}: [{block_matchhistory.MODE1_ER_SCOR} - {block_matchhistory.MODE1_EE_SCOR}]<!-- ENDIF --></li>
+						<li class="rivalsli">-[2] {block_matchhistory.MAP2} - <!-- IF block_matchhistory.DECERTO -->{block_matchhistory.MODE2}: [{block_matchhistory.MODE2_ER_SCOR} - {block_matchhistory.MODE2_EE_SCOR}]<!-- ENDIF --></li>
+						<li class="rivalsli">-[3] {block_matchhistory.MAP3} - <!-- IF block_matchhistory.DECERTO -->{block_matchhistory.MODE3}: [{block_matchhistory.MODE3_ER_SCOR} - {block_matchhistory.MODE3_EE_SCOR}]<!-- ENDIF --></li>
+					<!-- ENDIF -->
+						<li class="rivalsli">{block_matchhistory.CLASSIFICATA}</li>
+					</ul>
+				</td>
+				<td class="{block_matchhistory.ROW_COLOR} rv200">
+					<a href="{block_matchhistory.U_LADDER}">
+						<strong>{L_PLATFORM}</strong>: {block_matchhistory.PLATFORM}<br />
+						<strong>{L_LADDER}</strong>: {block_matchhistory.LADDER}<br />
+						<strong>{L_SUBLADDER}</strong>: {block_matchhistory.SUBLADDER}
+					</a>
+				</td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr class="genmed" align="center">
+				<td class="row1" colspan="7">{L_NO_MATCHES}</td>
+			</tr>
+			<!-- END block_matchhistory -->
+		</table>
+
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ENDIF -->
+<!-- PHPRIVALS MOD END -->
+]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/overall_footer.html">
+			<edit>
+				<find><![CDATA[<!-- IF TRANSLATION_INFO --><br />{TRANSLATION_INFO}<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[		<!-- phpRIVALSMOD START --><br /><a href="http://www.nipponart.org/">phpRivals Mod</a> &copy; Soshen<!-- phpRIVALSMOD END -->]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/overall_header.html">
+			<edit>
+				<find><![CDATA[</head>]]></find>
+				<action type="before-add"><![CDATA[<!-- RIVALSMOD ADDON START -->
+<script type="text/javascript" src="{ROOT_PATH}rivals/jsfunction2.js"></script>
+<!-- RIVALSMOD ADDON END -->]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[<div class="navbar">]]></find>
+				<action type="before-add"><![CDATA[		<!-- MENU RIVALSMOD BEGIN -->
+		<div class="navbar" id="menurivals">
+		<div class="inner"><span class="corners-top"><span></span></span>
+			<ul class="linklist leftside">
+				<li><strong>&#8249;</strong><a href="{U_PLATFORMS}" title="{L_PLATFORMS}" class="icon-ucp">{L_PLATFORMS}</a></li>
+				<!-- IF S_USER_LOGGED_IN -->
+				<li><strong>&#8249;</strong><a href="{U_ADDGROUP}" title="{L_ADDGROUP}" class="icon-ucp">{L_ADDGROUP}</a></li>
+				<li><strong>&#8249;</strong><a href="{U_GROUPCP}" title="{L_GROUPCP}" class="icon-ucp">{L_GROUPCP}</a></li>
+				<!-- ENDIF -->
+				<li><strong>&#8249;</strong><a href="{U_LIST_FULL}" title="{L_LIST_FULL}">{L_LIST_FULL}</a></li>
+				<li><strong>&#8249;</strong><a href="{U_UWAR}" title="{L_UWAR_MENU}">{L_UWAR_MENU}</a></li>
+				<li><strong>&#8249;</strong><a href="{U_MVP}" title="{L_MVP_MENU}">{L_MVP_MENU}</a></li>
+				<li><strong>&#8249;</strong><a href="{U_ULEADERBOARD}" title="{L_USER_LEADERBOARD}">{L_USER_LEADERBOARD}</a></li>
+				<li><strong>&#8249;</strong><a href="{U_TOURNAMENTS}" title="{L_TOURNAMENTS}">{L_TOURNAMENTS}</a></li>
+				<li><strong>&#8249;</strong><a href="{U_RANDOM}" title="{L_RANDOM}">{L_RANDOM}</a></li>
+				<!-- IF S_USER_LOGGED_IN and S_MOD_RIVALS --><li><strong>&#8249;</strong><a href="{U_RIVALS_MCP}" title="{L_RIVALS_MCP}">{RIVALS_MCP_L}</a></li><!-- ENDIF -->
+			</ul>
+		<span class="corners-bottom"><span></span></span></div>
+		</div>
+        <!-- MENU RIVALSMOD END -->
+		]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/ucp_profile_profile_info.html">
+			<edit>
+				<find><![CDATA[	<dl>
+		<dt><label for="location">{L_LOCATION}:</label></dt>
+		<dd><input type="text" name="location" id="location" maxlength="255" value="{LOCATION}" class="inputbox" /></dd>
+	</dl>]]></find>
+				<action type="after-add"><![CDATA[	<!-- phpRIVALSMOD START -->
+	<dl>
+		<dt><label for="gamer_name">{L_UCP_GAMER_NAME}:</label><br /><span>{L_GAMER_NAME_EXPLAIN}</span></dt>
+		<dd><input type="text" name="gamer_name" id="gamer_name" maxlength="100" value="{GAMER_NAME}" class="inputbox" /></dd>
+	</dl>
+	<!-- phpRIVALSMOD END -->]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/viewtopic_body.html">
+			<edit>
+				<find><![CDATA[<!-- IF postrow.POSTER_FROM --><dd><strong>{L_LOCATION}:</strong> {postrow.POSTER_FROM}</dd><!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[		
+	<!-- phpRIVALSMOD START -->
+		<!-- IF postrow.MVP --><dd><strong>{L_MVP_TOPIC}:</strong> {postrow.MVP}</dd><!-- ENDIF -->
+		<!-- IF postrow.GAMERNAME --><dd><strong>{L_GAMERNAME}:</strong> {postrow.GAMERNAME}</dd><!-- ENDIF -->
+		<!-- IF postrow.RATIO --><dd><strong>{L_RATIO}:</strong> {postrow.RATIO}</dd><!-- ENDIF -->
+	<!-- phpRIVALSMOD END -->
+]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/theme/stylesheet.css">
+			<edit>
+				<find><![CDATA[@import url("colours.css");]]></find>
+				<action type="after-add"><![CDATA[@import url("phprivalmod.css");]]></action>
+			</edit>
+		</open>
+		<php-installer><![CDATA[install_phpRivalsMOD.php]]></php-installer>
+		<diy-instructions lang="en"><![CDATA[Refresh your template(s), theme(s) and imageset(s).
+
+After all delete install_phpRivalsMOD.php from your directory.
+
+Maybe you must give 755 chmod to images/rivals directory (and subdirectory).]]></diy-instructions>
+		<diy-instructions lang="it"><![CDATA[Ricordati di svuotare la cache template, theme e imageset.
+
+Finita l'installazione rimuovi dalla root del tuo sito il file install_phpRivalsMOD.php
+
+Potrebbe essere necessario dare i permessi chmod 755 alla cartella images/rivals directory + sottocartelle.]]></diy-instructions>
+	</action-group>
+</mod>

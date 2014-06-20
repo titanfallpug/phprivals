@@ -1,0 +1,45 @@
+<!-- INCLUDE simple_header.html -->
+
+<script type="text/javascript">
+function refresh_group(selected_group)
+{
+	opener.document.forms['make_challenge'].challengee.value = selected_group;
+	opener.focus();
+	window.close();
+}
+</script>
+
+<form action="{U_ACTION}" method="post">
+<div class="forumbg forumbg-table">
+	<div class="inner">	
+		<div style="overflow:auto!important;min-height:140px;max-height:250px!important;">
+			<table class="table1" cellspacing="1">
+				<tbody>
+					<tr class="bg1">
+						<td class="row1"><input type="text" name="group_search" size="25" /></td>
+						<td class="row2"><input type="submit" name="submit" value="{L_SUBMIT}" class="rvbutton2" /></td>
+					</tr>
+					<!-- BEGIN block_groups -->
+					<tr class="bg2">
+						<td class="{block_groups.ROW_COLOR}">
+							<strong><a href="{block_groups.U_GROUP}">{block_groups.GROUP_NAME}</a></strong><br />
+							{L_PLATFORM}: <strong>{block_groups.PLATFORM}</strong>, {L_LADDER}: <strong>{block_groups.LADDER}</strong>, {L_SUBLADDER}: <strong>{block_groups.SUBLADDER}</strong>
+						</td>
+						<td class="{block_groups.ROW_COLOR}">
+							<a href="#" onClick="javascript:refresh_group({block_groups.GROUP_ID});">{L_CHALLENGE}</a>
+						</td>
+					</tr>
+					<!-- BEGINELSE -->
+					<tr class="bg2">
+						<td class="row1" colspan="2"><span style="display:block; text-align:center; height:76px;">{L_NO_GROUPS_FOUND}</span></td>
+					</tr>
+					<!-- END block_groups -->
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+{S_FORM_TOKEN}
+</form>
+
+<!-- INCLUDE simple_footer.html -->

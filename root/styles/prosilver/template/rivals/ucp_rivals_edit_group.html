@@ -1,0 +1,82 @@
+<!-- INCLUDE ucp_header.html -->
+
+<h2>{L_EDIT_GROUP}</h2>
+
+<form id="editclan" action="{U_ACTION}" method="post" enctype="multipart/form-data">
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		
+		<fieldset>
+			<!-- IF ERROR --><p class="error">{ERROR}</p><!-- ENDIF -->
+			
+			<dl>
+				<dt><label for="group_name">{L_GROUP_NAME}</label></dt>
+				<dd>
+					<input type="text" name="group_name" id="group_name" value="{GROUP_NAME}" class="inputbox autowidth" size="50" maxlength="248" />
+					 - <strong>{L_DELETE}</strong> <input type="checkbox" name="group_delete" value="1" />
+				</dd>
+			</dl>
+			<dl>
+				<dt><label for="group_sito">{L_GROUP_SITO}</label></dt>
+				<dd><input type="text" name="group_sito" id="group_sito" value="{GROUP_SITO}" class="inputbox autowidth" size="50" maxlength="248" /></dd>
+			</dl>
+			<dl>
+				<dt><label for="group_desc">{L_GROUP_DESC}</label></dt>
+				<dd><textarea cols="40" rows="5" name="group_desc" id="group_desc" class="inputbox narrow">{GROUP_DESC}</textarea></dd>
+			</dl>
+			<!-- IF AVATAR -->
+			<dl>
+				<dt><label for="logo_delete">{L_CURRENT_IMAGE}</label></dt>
+				<dd>
+					<img src="{ROOT_PATH}images/rivals/clanlogo/{AVATAR}" alt="{AVATAR}" width="{AVATAR_X}" height="{AVATAR_Y}" /><br />
+					<br /><input type="checkbox" class="radio" name="logo_delete" id="logo_delete" />&nbsp;<span class="gensmall">{L_DELETE_AVATAR}</span>
+				</dd>
+			</dl>
+			<!-- ENDIF -->
+			<dl>
+				<dt><label for="group_logo">{L_GROUP_LOGO}</label></dt>
+				<dd><input type="file" name="group_logo" id="group_logo" /><br /><span class="gensmall">{L_UPLOAD_AVATAR_URL_EXPLAIN}</span></dd>
+			</dl>
+			<dl>
+				<dt><label for="clan_favouritemap">{L_FAVOURITE_MAP}</label></dt>
+				<dd>
+					<input type="text" name="clan_favouritemap" id="clan_favouritemap" size="50" maxlength="248" value="{FAVMAP}" class="inputbox autowidth" />
+					<br /><span class="gensmall">{L_FAVOURITE_MAP_EXPLAIN}</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label for="clan_favouriteteam">{L_FAVOURITE_TEAM}</label></dt>
+				<dd>
+					<input type="text" name="clan_favouriteteam" id="clan_favouriteteam" size="50" maxlength="248" class="inputbox autowidth" value="{FAVTEAM}" />
+					<br /><span class="gensmall">{L_FAVOURITE_TEAM_EXPLAIN}</span>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label for="guid">{L_GUID}</label></dt>
+				<dd>
+					<input type="text" name="guid" id="guid" size="10" maxlength="8" class="inputbox autowidth" value="{GUID}" /> 
+					{L_GUID_CHARA} <input type="button" value="{L_RANDOM_GEN}" onclick="randomGUID();" class="rvbutton2" />
+				</dd>
+			</dl>
+			<dl>
+				<dt><label for="uac">{L_UAC}</label></dt>
+				<dd>
+					<input type="text" name="uac" id="uac" size="8" maxlength="6" class="inputbox autowidth" value="{UAC}" /> 
+					{L_UAC_CHARA} <input type="button" value="{L_RANDOM_GEN}" onclick="randomUAC();" class="rvbutton2" />
+				</dd>
+			</dl>
+		</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<fieldset class="submit-buttons">
+	<input type="hidden" name="group_id" value="{GROUP_ID}" />
+    <input type="reset" value="{L_RESET}" name="reset" class="rvbutton2" />&nbsp; 
+	<input type="submit" name="submit" value="{L_SUBMIT}" class="rvbutton2" />
+</fieldset>
+
+{S_HIDDEN_FIELDS}
+{S_FORM_TOKEN}
+</form>
+
+<!-- INCLUDE ucp_footer.html -->

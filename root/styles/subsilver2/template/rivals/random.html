@@ -1,0 +1,37 @@
+<!-- INCLUDE overall_header.html -->
+
+<div class="forumbg">
+    
+	<p class="bigtitolo">{L_TITOLO_PAGINA_RANDOM}</p>
+	<p class="subtitle">{L_TITOLO_PAGINA_RANDOM_DESC}</p>
+	
+	<div class="random-menu">
+		{L_GAMES}
+		<ul>
+			<!-- BEGIN block_ranmenu -->
+			<li><a href="{block_ranmenu.LINK}">{block_ranmenu.NOME_GIOCO}</a></li>
+			<!-- BEGINELSE -->
+			<li></li>
+			<!-- END block_ranmenu -->
+		</ul>
+	</div>
+	
+	<div class="randomimg">
+		<table class="tablebg" width="100%" cellspacing="1">
+			<!-- BEGIN block_random -->
+			<tr>
+				<td class="cat rvcenter"><span class="cat_title" id="{block_random.ANCHOR}">{block_random.NOME_GIOCO}</span></td>
+			</tr>
+			<tr>
+				<td class="row2 rvcenter"><img src="{block_random.HOMEURL}/{block_random.MAPPA}" alt="{block_random.NOME_GIOCO}" /></td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr>
+				<td class="row2 rvcenter" colspan="2">{L_NO_MEMBERS_DATA}</td>
+			</tr>
+			<!-- END block_random -->
+		</table>
+	</div>
+</div>
+
+<!-- INCLUDE overall_footer.html --> 

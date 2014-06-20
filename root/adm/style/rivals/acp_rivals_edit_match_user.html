@@ -1,0 +1,162 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF NOTWO -->
+<fieldset>
+	<p class="error">{NOTWO}</p>
+	<p class="error">{XZONELAD}</p>
+</fieldset>
+<!-- ENDIF -->
+
+<!-- IF SELECTOR -->
+<form method="post" action="{U_ACTION}">
+<fieldset>
+	<legend>{L_EDIT_MATCH}</legend>
+	<dl>
+		<dt>
+		  <label for="group_id">{L_SELECT_USERS_MATCH}:</label>
+		</dt>
+		<dd>
+			<select name="clan1" id="group_id">
+				<option value="0">----------------------------</option>
+				<!-- BEGIN clan_select -->
+				<option value="{clan_select.CLAN_ID}"> {clan_select.CLAN_NAME}</option>
+				<!-- END clan_select -->
+			</select>
+			<strong>{L_VS}</strong>
+			<select name="clan2" id="group_id2">
+				<option value="0">----------------------------</option>
+				<!-- BEGIN clan_select -->
+				<option value="{clan_select.CLAN_ID}"> {clan_select.CLAN_NAME}</option>
+				<!-- END clan_select -->
+			</select>
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+		  <label for="zonelad">{L_LADDER}:</label>
+		</dt>
+		<dd>
+			<select name="zonelad" id="zonelad" class="inputbox autowidth">{S_LADDER}</select>
+		</dd>
+	</dl>
+
+	<p class="quick">
+		<input type="submit" value="{L_SUBMIT}" name="select" class="button1" />
+	</p>
+</fieldset>
+</form>
+<!-- ENDIF -->
+<!-- IF DETAILS -->
+<form method="post" action="{U_ACTION}">
+<fieldset>
+	<legend>{L_LATEST_MATCHES_REPORTED_USER}</legend>
+	<!-- BEGIN block_recursive -->
+	<!-- IF block_recursive.MATCH_ID -->
+	{L_MATCH_ID}: {block_recursive.MATCH_ID}
+	<dl>
+		<dt>{block_recursive.CHALLANGER} {L_VS} {block_recursive.CHALLANGEE}</dt>
+		<dd>{L_WINNER} <strong>{block_recursive.WINNER}</strong> ({block_recursive.ER_POINT} - {block_recursive.EE_POINT})</dd>
+	</dl>
+	<!-- IF block_recursive.RESETTABLE1 || block_recursive.RESETTABLE2 -->
+		<input type="hidden" name="clan1" value="{block_recursive.CLAN1}" />
+		<input type="hidden" name="clan2" value="{block_recursive.CLAN2}" />
+		<input type="hidden" name="xmatch" value="{block_recursive.MATCH_ID}" />
+		<input type="hidden" name="referente" value="{block_recursive.REFMATCH}" />
+		<input type="hidden" name="xladder" value="{block_recursive.XLADDER}" />
+		<input type="submit" value="{L_RESET}" name="resettable" class="button1" />
+	<!-- ELSE IF -->
+		{L_MATCH_NON_RESETTABLE}
+	<!-- ENDIF -->
+	<!-- ELSE IF -->
+	{L_NO_MATCH_RECURSIVE_USER}
+	<!-- ENDIF -->
+	<!-- END block_recursive -->
+</fieldset>
+</form>
+<p style="font-size:20px;text-align:center;">{L_UNREPORTED_MATCHES}</p>
+
+<!-- BEGIN match_unreported -->
+<form method="post" action="{U_ACTION}">
+<fieldset>
+	<legend>{L_MATCH_ID}: {match_unreported.MATCH_ID} - {L_RIVALS_DATETIME} {match_unreported.MATCHTIME} ({match_unreported.RANKED})</legend>
+	<table width="100%" cellspacing="1">
+	<tr>
+		<th style="text-align: center !important;">{L_CLAN}</th>
+		<th style="text-align: center !important;">{L_WINNER}</th>
+		<!-- IF match_unreported.POINTRESULT --><th style="text-align: center !important;">{L_SCORE}</th><!-- ENDIF -->
+		<!-- IF match_unreported.DECERTO --><th style="text-align: center !important;">{L_SCORE} {match_unreported.MODE1}</th><!-- ENDIF -->
+		<!-- IF match_unreported.DECERTO --><th style="text-align: center !important;">{L_SCORE} {match_unreported.MODE2}</th><!-- ENDIF -->
+		<!-- IF match_unreported.DECERTO --><th style="text-align: center !important;">{L_SCORE} {match_unreported.MODE3}</th><!-- ENDIF -->
+		<th style="text-align: center !important;">{L_REPORTER}</th>
+	</tr>
+	<tr>
+	    <td class="row3" style="text-align: center !important;">{match_unreported.CHALLANGER} [{L_IP}: <a href="{match_unreported.U_IP_ER}" onclick="popup(this.href, 700, 500, '_whois'); return false;">{match_unreported.IP_ER}</a>]</td>
+		<td class="row3" style="text-align: center !important;" rowspan="2">
+			<select name="winner" class="inputbox autowidth">
+				<option value="{match_unreported.ID_ER}" {match_unreported.WINNERER}>{match_unreported.CHALLANGER}</option>
+				<option value="{match_unreported.ID_EE}" {match_unreported.WINNEREE}>{match_unreported.CHALLANGEE}</option>
+				<option value="{match_unreported.ID_PP}" {match_unreported.WINNERPP}>{L_PAREGGIO}</option>
+			</select>
+		</td>
+		<!-- IF match_unreported.POINTRESULT --><td class="row3" style="text-align: center !important;"><input name="er_score" type="text" class="inputbox autowidth" value="{match_unreported.ER_POINT}" size="5" maxlength="4" /></td><!-- ENDIF -->
+		<!-- IF match_unreported.DECERTO --><td class="row3" style="text-align: center !important;"><input name="er_scorem1" type="text" class="inputbox autowidth" value="{match_unreported.ER_POINT_M1}" size="5" maxlength="4" /></td><!-- ENDIF -->
+		<!-- IF match_unreported.DECERTO --><td class="row3" style="text-align: center !important;"><input name="er_scorem2" type="text" class="inputbox autowidth" value="{match_unreported.ER_POINT_M2}" size="5" maxlength="4" /></td><!-- ENDIF -->
+		<!-- IF match_unreported.DECERTO --><td class="row3" style="text-align: center !important;"><input name="er_scorem3" type="text" class="inputbox autowidth" value="{match_unreported.ER_POINT_M3}" size="5" maxlength="4" /></td><!-- ENDIF -->
+		<td class="row3" style="text-align: center !important;" rowspan="2">
+			<select name="reporter" class="inputbox autowidth">
+				<option value="0" {match_unreported.REPORTER_NO}>{L_UNREPORTED}</option>
+				<option value="{match_unreported.ID_ER}" {match_unreported.REPORTER_ER}>{match_unreported.CHALLANGER}</option>
+				<option value="{match_unreported.ID_EE}" {match_unreported.REPORTER_EE}>{match_unreported.CHALLANGEE}</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+	    <td class="row3" style="text-align: center !important;">{match_unreported.CHALLANGEE} [{L_IP}: <a href="{match_unreported.U_IP_EE}" onclick="popup(this.href, 700, 500, '_whois'); return false;">{match_unreported.IP_EE}</a>]</td>
+		<!-- IF match_unreported.POINTRESULT --><td class="row3" style="text-align: center !important;"><input name="ee_score" type="text" class="inputbox autowidth" value="{match_unreported.EE_POINT}" size="5" maxlength="4" /></td><!-- ENDIF -->
+		<!-- IF match_unreported.DECERTO --><td class="row3" style="text-align: center !important;"><input name="ee_scorem1" type="text" class="inputbox autowidth" value="{match_unreported.EE_POINT_M1}" size="5" maxlength="4" /></td><!-- ENDIF -->
+		<!-- IF match_unreported.DECERTO --><td class="row3" style="text-align: center !important;"><input name="ee_scorem2" type="text" class="inputbox autowidth" value="{match_unreported.EE_POINT_M2}" size="5" maxlength="4" /></td><!-- ENDIF -->
+		<!-- IF match_unreported.DECERTO --><td class="row3" style="text-align: center !important;"><input name="ee_scorem3" type="text" class="inputbox autowidth" value="{match_unreported.EE_POINT_M3}" size="5" maxlength="4" /></td><!-- ENDIF -->
+	</tr>
+	</table>
+	<p class="quick">
+		<input type="hidden" name="edited1vs1_id" value="{match_unreported.MATCH_ID}" />
+		<input type="hidden" name="er_id" value="{match_unreported.ID_ER}" />
+		<input type="hidden" name="ee_id" value="{match_unreported.ID_EE}" />
+		<input type="submit" name="submit" value="{L_EDIT}" class="button1" />
+	</p>
+</fieldset>
+</form>
+<!-- END match_unreported -->
+
+<h2>{L_CONFIRMED_MATCHES}</h2>
+
+<fieldset>
+	<table width="100%" cellspacing="1">
+		<tr>
+			<th class="cat" style="text-align: center !important;">{L_USERS}</th>
+			<th class="cat" style="text-align: center !important;">{L_WINNER}</th>
+			<th class="cat" style="text-align: center !important;">{L_REPORTED}</th>
+			<th class="cat" style="text-align: center !important;">{L_TYPE}</th>
+			<th class="cat" style="text-align: center !important;">{L_LADDER}</th>
+		</tr>
+	<!-- BEGIN match_reported -->
+		<tr>
+			<td class="row3" style="text-align: center !important;">
+				{match_reported.CHALLANGER} [{L_IP}: <a href="{match_reported.U_IP_ER}" onclick="popup(this.href, 700, 500, '_whois'); return false;">{match_reported.IP_ER}</a>] {L_VS}
+				{match_reported.CHALLANGEE} [{L_IP}: <a href="{match_reported.U_IP_EE}" onclick="popup(this.href, 700, 500, '_whois'); return false;">{match_reported.IP_EE}</a>]
+			</td>
+			<td class="row3" style="text-align: center !important;">{match_reported.WINNER}</td>
+			<td class="row3" style="text-align: center !important;">{match_reported.MATCHTIME}</td>
+			<td class="row3" style="text-align: center !important;">{match_reported.RANKED}</td>
+			<td class="row3" style="text-align: center !important;">{match_reported.LADDER}</td>
+		</tr>
+	<!-- BEGINELSE -->
+		<tr>
+			<td class="row3" style="text-align: center !important;" colspan="5">{L_NO_RECORD_DATA}</td>
+		</tr>
+	<!-- END match_reported -->
+	</table>
+</fieldset>
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->

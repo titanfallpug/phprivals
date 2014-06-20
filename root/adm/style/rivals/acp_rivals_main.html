@@ -1,0 +1,78 @@
+<!-- INCLUDE overall_header.html -->
+<h1>{L_WELCOME_RIVALS}</h1>
+<p>{L_WELCOME_RIVALSTXT}</p>
+
+<!-- IF BYE_GROUP eq 0 -->
+<div class="errorbox notice">
+	<p>{L_CONFIGURATION_NOT_COMPLETE}</p>
+</div>
+<!-- ENDIF -->
+<!-- IF SHOWALARM -->
+<fieldset class="errorbox notice">
+	<!-- IF CHKFAILED -->
+	{L_VERSIONCHECK_FAIL}
+	<!-- ELSE -->
+	{L_YOUR_VERSION} {TUAV} {L_LATEST_VERSION}<strong>{LATESTV}</strong><br />
+	<a href="http://www.nipponart.org/">{L_UPDATE_NOW}</a>
+	<!-- ENDIF -->
+</fieldset>
+<!-- ENDIF -->
+
+<fieldset>
+	<legend>{L_STATISTICS}</legend>
+	<dl>
+		<dt>{L_NUMBER_OF_GROUPS}:</dt>
+		<dd>{L_TOTALS}: {GROUPS} - {L_ACTIVES}: {ACTIVE_GROUPS} - {L_CLOSED}: {CLOSED_GROUPS}</dd>
+	</dl>
+	<dl>
+		<dt>{L_PENDING_MATCHES}:</dt>
+		<dd>{CHALLENGES}</dd>
+	</dl>
+	<dl>
+		<dt>{L_ONGOING_MATCHES}:</dt>
+		<dd>{ONGOING_MATCHES}</dd>
+	</dl>
+	<dl>
+		<dt>{L_FINISHED_MATCHES}:</dt>
+		<dd>{FINISHED_MATCHES}</dd>
+	</dl>
+	<dl>
+		<dt>{L_CONTESTED_MATCHES}:</dt>
+		<dd>{CONTESTED_MATCHES}</dd>
+	</dl>
+	
+	<hr />
+	
+	<dl>
+		<dt>{L_PENDING_MATCHES_USER}:</dt>
+		<dd>{CHALLENGES_USER}</dd>
+	</dl>
+	<dl>
+		<dt>{L_ONGOING_MATCHES_USER}:</dt>
+		<dd>{ONGOING_MATCHES_U}</dd>
+	</dl>
+	<dl>
+		<dt>{L_FINISHED_MATCHES_USER}:</dt>
+		<dd>{USER_MATCHES_FINS}</dd>
+	</dl>
+	<dl>
+		<dt>{L_CONTESTED_MATCHES_USER}:</dt>
+		<dd>{USER_CONT_MATCHES}</dd>
+	</dl>
+	
+	<hr />
+	
+	<dl>
+		<dt>{L_ONGOING_TOURNAMENTS}:</dt>
+		<dd>{ONGOING_TOURNAMNT}</dd>
+	</dl>
+</fieldset>
+
+<p><em>phpRivals Mod 2.0 by Soshen - based on phpBB Rivals by Tyler N. King</em></p>
+
+<div>
+	<p style="float:left;"><a href="http://www.nipponart.org"><img src="{RIVAL_LOGO}" style="vertical-align:middle;" alt="" /></a></p>
+	<p style="float:right;"><a href="http://www.nipponart.org/forum/lwdonate.php" title="{L_DONATE_US}"><img src="{RIVAL_DONATE}" alt="{L_DONATE_US}"/></a></p>
+</div>
+
+<!-- INCLUDE overall_footer.html -->

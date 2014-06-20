@@ -1,0 +1,84 @@
+<!-- INCLUDE ucp_header.html -->
+
+<div style="padding: 2px;">
+	<h2>{L_SETUP_ROSTER}</h2>
+
+	<!-- IF ERROR -->
+		<p class="rv_errorbox"><span class="gensmall">{ERROR}</span></p>
+	<!-- ENDIF -->
+
+	<div class="panel">
+		<div class="inner"><span class="corners-top"><span></span></span>
+		
+			<form action="{U_ACTION}" method="post">
+			<fieldset>
+				<legend>{L_CREA_UN_ROSTER}</legend>
+				<dl>
+					<dt><label for="roster_name">{L_ROSTER_NAME}</label></dt>
+					<dd>
+						<input type="text" name="roster_name" id="roster_name" class="inputbox autowidth" />
+						<span class="rvright"><input type="submit" name="addroster" value="{L_MAKE}" class="rvbutton2" /></span>
+					</dd>
+				</dl>
+				<hr />
+				<dl>
+					<dt><label for="roster">{L_ADD_USER_TO_ROSTER}</label></dt>
+					<dd>
+						<select name="roster_user" id="roster">
+							<!-- BEGIN blocco_member_select -->
+							<option value="{blocco_member_select.USER_ID}">{blocco_member_select.USERNAME}</option>
+							<!-- END blocco_member_select -->
+						</select>
+						&nbsp;&nbsp;
+						<select name="roster_link" id="roster_link">
+							<!-- BEGIN blocco_roster -->
+							<option value="{blocco_roster.ROSTER_ID}">{blocco_roster.ROSTER_NAME}</option>
+							<!-- END blocco_roster -->
+						</select>
+						&nbsp;&nbsp;
+						<span class="rvright"><input type="submit" name="adduser" value="{L_ADD}" class="rvbutton2" /></span>
+					</dd>
+				</dl>
+			</fieldset>
+			{S_FORM_TOKEN}
+			</form>
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+
+	<hr />
+
+	<!-- IF .blocco_roster -->
+	<h2>{L_ROSTER_LIST}</h2>
+		
+	<div class="panel">	
+		<div class="inner"><span class="corners-top"><span></span></span>
+			<!-- BEGIN blocco_roster -->
+			<form action="{U_ACTION}" method="post">
+			<fieldset>
+				<p>
+					<input type="text" name="rostername" id="rostername" class="inputbox autowidth" value="{blocco_roster.ROSTER_NAME}" /> - {L_ROSTER_EXP}: {blocco_roster.ROSTER_EXP} {L_POINTS}
+					<input type="hidden" name="rosteridx" value="{blocco_roster.ROSTER_ID}" />
+					<input type="submit" name="editroster" value="{L_EDIT_ROSTER}" class="rvbutton2" /> 
+					<input type="submit" name="deleteroster" value="{L_DELETE_ROSTER}" class="rvbutton2" />
+				</p>
+				<!-- BEGIN the_rosters -->
+				<dl>
+					<dt><input type="checkbox" name="toberemoved[]" id="toberemoved" class="radio" value="{the_rosters.USER_ID}" title="{L_DELETE}" /> &bull; <strong>{the_rosters.USER_NAME}</strong> = ({L_LEADER}: <input type="radio" name="leader_id" value="{the_rosters.USER_ID}" class="radio"{the_rosters.THELEADER} title="{L_SET_LEADER}" />)</dt>
+					<dd>{L_GAMERNAME}: {the_rosters.GAMERNAME} &nbsp;&nbsp; {L_USER_EXP}: {the_rosters.USER_EXP} {L_POINTS}
+					</dd>
+				</dl>
+				<!-- END the_rosters -->
+				<input type="submit" name="deletembrs" value="{L_REMOVE_MBRS}" class="rvbutton2" /> 
+				<input type="submit" name="setleader" value="{L_SET_LEADER}" class="rvbutton2" />
+			</fieldset>
+			{S_HIDDEN_FIELDS}
+			{S_FORM_TOKEN}
+			</form>
+			<hr />
+			<!-- END blocco_roster -->
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+	<p>{L_ROSTER_LEADER_TEXT}</p>
+	<!-- ENDIF -->
+</div>
+<!-- INCLUDE ucp_footer.html -->

@@ -1,0 +1,221 @@
+<!-- INCLUDE overall_header.html -->
+
+<form method="post" action="{U_ACTION}" enctype="multipart/form-data">
+<fieldset>
+	<legend>{L_ADD_TOURNAMENT}</legend>
+	
+	<!-- IF ERRORE --><p class="error">{ERRORE}</p><!-- ENDIF -->
+	
+	<dl>
+		<dt><label for="tourn_name">{L_TOURNAMENT_NAME}:</label></dt>
+		<dd><input type="text" name="tourn_name" id="tourn_name" size="25" class="inputbox autowidth" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="tournament_logo">{L_TOURNAMENT_LOGO}:<br />{L_TOURNAMENT_LOGO_EXP}</label></dt>
+		<dd><input type="file" name="tournament_logo" id="tournament_logo" /></dd>
+	</dl>
+	<dl>
+		<dt><label for="tourn_userb">{L_TOURNAMENT_USERBASED}:</label></dt>
+		<dd>
+			{L_CLAN_BASED}: <input type="radio" name="tourn_userb" id="tourn_userb" value="0" class="radio" checked="checked" onclick="ShowClan(this);" />
+			{L_USER_BASED}: <input type="radio" name="tourn_userb" value="1" class="radio" onclick="HideClan(this);" />
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="tourn_brackets">{L_NUMBER_OF_GROUPS}:</label></dt>
+		<dd>
+		<select name="tourn_brackets" id="tourn_brackets" class="inputbox autowidth">
+				<option value="2">2</option>
+				<option value="4">4</option>
+				<option value="8">8</option>
+				<option value="16">16</option>
+				<option value="32">32</option>
+				<option value="64">64</option>
+				<option value="128">128</option>
+		</select>
+        </dd>
+	</dl>
+	<dl>
+		<dt><label for="tourn_type">{L_TOURNAMENT_ACCESS}:</label></dt>
+		<dd>
+			<select name="tourn_type" id="tourn_type" class="inputbox autowidth" onchange="javascript:switch_it(this.value);">
+				<option value="1">{L_TOURNAMENT_FORALL}</option>
+				<option value="2">{L_TOURNAMENT_INVITE}</option>
+			</select>
+		</dd>
+	</dl>
+	<div id="invite_options" style="display: none;">
+		<dl>
+			<dt><label for="tourn_invite">{L_INVITED_CLANS}:</label></dt>
+			<dd>
+				<textarea name="tourn_invite" id="tourn_invite" cols="40" rows="5"></textarea>
+			</dd>
+		</dl>
+	</div>
+	<dl>
+	<dt><label for="ladder_limit">{L_LICENZE_LIMIT}:</label></dt>
+		<dd>
+			<select name="ladder_limit" id="ladder_limit" class="inputbox autowidth">
+					<option value="0" selected="selected">{L_APERTA_A_C}</option>
+					<option value="1">{L_APERTA_ALMENO_B}</option>
+					<option value="2">{L_APERTA_SOLO_A}</option>
+			</select>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="tourn_tipo">{L_TOURNAMENT_TYPE}:</label></dt>
+		<dd>
+			<select name="tourn_tipo" id="tourn_tipo" class="inputbox autowidth">
+				<option value="1">{L_TOURNAMENT_DIRECTELIM}</option>
+				<option value="2">{L_TOURNAMENT_HOMEAWAY}</option>
+				<!-- <option value="3">{L_TOURNAMENT_ROUNDROBIN}</option> -->
+			</select>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="tourn_advstats">{L_TOURNAMENT_ADVSTATS}:</label></dt>
+		<dd>
+			<input type="checkbox" name="tourn_advstats" id="tourn_advstats" class="radio" value="1" />
+		</dd>
+	</dl>
+	<!-- IF S_DECERTO -->
+	<dl>
+		<dt><label for="tourn_decerto">{L_TOURNAMENT_DECERTO}:</label></dt>
+		<dd>
+			<select name="tourn_decerto" id="tourn_decerto" class="inputbox autowidth">
+				<option value="0">{L_STANDARD_T}</option>
+				<option value="1">{L_DECERTO_T}</option>
+				<option value="2">{L_CPC_T}</option>
+			</select>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label for="shorty">{L_LADDER_SHORTY}</label></dt>
+		<dd>
+		<select name="shorty" id="shorty" class="inputbox autowidth" >
+			<option value="" selected="selected">-------------</option>
+			<!-- BEGIN block_decerto -->
+			<option value="{block_decerto.NOMECORTO}">{block_decerto.NOMELUNGO} [{block_decerto.TIPO}]</option>
+			<!-- END block_decerto -->
+		</select>
+		</dd>
+	</dl>
+	<!-- ENDIF -->
+	<div id="divClans">
+		<dl>
+			<dt><label for="tourn_stricted">{L_TOURNAMENT_STRICTED}:</label><br />{L_MAX_FOR_ROSTER}</dt>
+			<dd>
+				<input type="checkbox" name="tourn_stricted" id="tourn_stricted" class="radio" value="1" onclick="showMe('divUmax', this);" />
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="tourn_minuser">{L_TOURNAMENT_MIN_MBR}</label></dt>
+			<dd><input type="text" name="tourn_minuser" id="tourn_minuser" class="inputbox autowidth" value="0" /> {L_ZERO_FREE}</dd>
+		</dl>
+		<div id="divUmax" style="display:none">
+			<dl>
+				<dt><label for="tourn_maxuser">{L_TOURNAMENT_MAX_MBR}</label></dt>
+				<dd><input type="text" name="tourn_maxuser" id="tourn_maxuser" class="inputbox autowidth" value="0" /> {L_ONLY_STRICTED}</dd>
+			</dl>
+		</div>
+	</div>
+	<dl>
+		<dt><label for="tourn_startdate">{L_TOURNAMENT_STARTDATE}:</label><br />MM/DD/YY<br />HH:MM</dt>
+		<dd>
+			<select name="tourn_startdate[]" id="tourn_startdate" class="inputbox autowidth">
+				<!-- BEGIN block_months -->
+				<option value="{block_months.MONTH}">{block_months.MONTH_NAME}</option>
+				<!-- END block_months -->
+			</select>
+
+			<select name="tourn_startdate[]" class="inputbox autowidth">
+				<!-- BEGIN block_days -->
+				<option value="{block_days.DAY}">{block_days.DAY}</option>
+				<!-- END block_days -->
+			</select>
+
+			<select name="tourn_startdate[]" class="inputbox autowidth">
+				<!-- BEGIN block_years -->
+				<option value="{block_years.YEAR}">{block_years.YEAR}</option>
+				<!-- END block_years -->
+			</select>
+			<br />
+			<select name="tourn_startdate[]" class="inputbox autowidth">
+				<!-- BEGIN block_hours -->
+				<option value="{block_hours.HOUR}">{block_hours.HOUR}</option>
+				<!-- END block_hours -->
+			</select>
+			<select name="tourn_startdate[]" class="inputbox autowidth">
+				<!-- BEGIN block_minutes -->
+				<option value="{block_minutes.MINUTE}">{block_minutes.MINUTE}</option>
+				<!-- END block_minutes -->
+			</select>
+		</dd>
+	</dl>
+
+	<dl>
+		<dt><label for="tourn_info">{L_TOURNAMENT_INFO}:</label></dt>
+		<dd><textarea name="tourn_info" id="tourn_info" cols="40" rows="5" class="inputbox narrow"></textarea></dd>
+	</dl>
+
+	<p class="quick">
+		<input type="submit" name="submit" value="{L_SUBMIT}" class="button1" />
+	</p>
+</fieldset>
+{S_FORM_TOKEN}
+</form>
+
+<script type="text/javascript">
+// <![CDATA[
+	function dE(n, s, type)
+	{
+		if (!type)
+		{
+			type = 'block';
+		}
+
+		var e = document.getElementById(n);
+		if (!s)
+		{
+			s = (e.style.display == '' || e.style.display == 'block') ? -1 : 1;
+		}
+		e.style.display = (s == 1) ? type : 'none';
+	}
+
+	function switch_it(value)
+	{
+		if (value != 2)
+		{
+			dE('invite_options', -1);
+		}
+		else
+		{
+			dE('invite_options', 1);
+		}
+	}
+
+	function showMe(it, box)
+	{ 
+	  var vis = (box.checked) ? "block" : "none"; 
+	  document.getElementById(it).style.display = vis;
+	}
+	
+	function HideClan(it)
+	{
+		if (it.checked)
+		{
+			document.getElementById("divClans").style.display = 'none';
+		}
+	}
+	
+	function ShowClan(it)
+	{
+		if (it.checked)
+		{
+			document.getElementById("divClans").style.display = 'block';
+		}
+	}
+// ]]>
+</script>
+
+<!-- INCLUDE overall_footer.html -->

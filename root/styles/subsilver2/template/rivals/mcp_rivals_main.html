@@ -1,0 +1,86 @@
+<!-- INCLUDE mcp_header.html -->
+
+<h2>{L_EDIT_RIVALS_CONTESTED_MATCH}</h2>
+
+	<fieldset id="split-panel1" class="fields2">
+		<legend>{L_MATCHES_CLANS}</legend>
+	
+	<!-- BEGIN block_match_contested -->
+	<dl>
+		<dt><a href="{block_match_contested.EDIT_URL}"><img src="{ROOT_PATH}rivals/images/edit.gif" alt="{L_EDIT}" /></a></dt>
+		<dt>{L_MATCH_ID}: {block_match_contested.MATCH_ID}</dt>
+		<dt><strong>{block_match_contested.MATCH_ER}</strong> {L_VS} <strong>{block_match_contested.MATCH_EE}</strong></dt>
+		<dt>{L_REPORTER} {block_match_contested.REPORTER}</dt>
+		<dd>({L_PLATFORM_SHORT}) {block_match_contested.PLATFORM}, ({L_LADDER_SHORT}) {block_match_contested.LADDER}, ({L_SUBLADDER_SHORT}) {block_match_contested.SUBLADDER}</dd>
+	</dl>
+	<!-- END block_match_contested -->
+	</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+	
+</div>	
+
+	<fieldset id="split-panel2" class="fields2">
+		<legend>{L_MATCHES_USERS}</legend>
+	
+	<!-- BEGIN block_user_match_contested -->
+	<dl>
+		<dt><a href="{block_user_match_contested.EDIT_URL}"><img src="{ROOT_PATH}rivals/images/edit.gif" alt="{L_EDIT}" /></a></dt>
+		<dt>{L_MATCH_ID}: {block_user_match_contested.MATCH_ID}</dt>
+		<dt><strong>{block_user_match_contested.MATCH_ER}</strong> {L_VS} <strong>{block_user_match_contested.MATCH_EE}</strong></dt>
+		<dt>{L_REPORTER} {block_user_match_contested.REPORTER}</dt>
+		<dd>({L_PLATFORM_SHORT}) {block_user_match_contested.PLATFORM}, ({L_LADDER_SHORT}) {block_user_match_contested.LADDER}, ({L_SUBLADDER_SHORT}) {block_user_match_contested.SUBLADDER}</dd>
+	</dl>
+	<!-- END block_user_match_contested -->
+	</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+
+</div>
+
+	<fieldset id="split-panel3" class="fields2">
+		<legend>{L_TOURNAMENT}</legend>
+	
+	<!-- BEGIN block_tournament_match_contested -->
+	<dl>
+		<dt><a href="{block_tournament_match_contested.EDIT_URL}"><img src="{ROOT_PATH}rivals/images/edit.gif" alt="{L_EDIT}" /></a></dt>
+		<dt><strong>{block_tournament_match_contested.CHALLANGER}</strong> {L_VS} <strong>{block_tournament_match_contested.CHALLANGEE}</strong></dt>
+		<dt>{L_REPORTER} {block_tournament_match_contested.REPORTER}</dt>
+		<dd>({L_TOURNAMENT}) {block_tournament_match_contested.TOURNAMENT}</dd>
+	</dl>
+	<!-- END block_tournament_match_contested -->
+	</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+
+</div>	
+
+<fieldset id="split-panel4" class="fields2">
+		<legend>{L_ULTIME_AZIONI_MODERATORI}</legend>
+	
+<table cellspacing="1" class="table1" width="100%">
+	<thead>
+	<tr>
+		<th>{L_USERNAME}</th>
+		<th style="text-align: center">{L_IP}</th>
+		<th style="text-align: center">{L_TIME}</th>
+		<th>{L_ACTION}</th>
+	</tr>
+	</thead>
+		<tbody>
+	<!-- BEGIN block_match_logs -->
+		<tr class="bg1">
+			<td>{block_match_logs.USERNAME}</td>
+			<td style="text-align: center">{block_match_logs.IP}</td>
+			<td style="text-align: center">{block_match_logs.DATE}</td>
+			<td>{block_match_logs.ACTION}<br />
+			{block_match_logs.DATA}
+			</td>
+		</tr>
+	<!-- BEGINELSE -->
+		<tr>
+			<td class="bg1" colspan="4" align="center"><span class="gen">{L_NO_ENTRIES}</span></td>
+		</tr>
+	<!-- END block_match_logs -->
+	</tbody>
+</table>
+</fieldset>	
+
+<!-- INCLUDE mcp_footer.html -->

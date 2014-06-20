@@ -1,0 +1,84 @@
+<!-- INCLUDE overall_header.html -->
+
+<div class="forumbg">
+	<fieldset>
+		<table class="tablebg" cellspacing="1" cellpadding="0" style="margin-top: 5px;" width="100%">
+			<tr>
+				<td class="row1">
+					<p class="imgbutton"><!-- IF U_MEMBERSHIP --><a href="{U_MEMBERSHIP}">{JIMAGES}</a> <!-- ENDIF -->
+					<!-- IF U_HIBERNATION --><a href="{U_HIBERNATION}">{HIBERNAT_IMG}</a> <!-- ENDIF -->
+					<a href="{U_RULES}">{RULESIMG}</a> .:. {L_NUM_USERS}: {TOT_CLANS} .:. {L_FINISHED_MATCHES_USERS}: {TOT_WARS}</p>
+					<p class="breadcrumbs">{PAGE_NUMBER}</p>
+					<!-- IF PAGINATION --><p class="datetime">{PAGINATION}</p><!-- ENDIF -->
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+
+
+	<!-- IF LAD_WINNER --><fieldset><p class="ladwinner">{L_LADDER_WINNER_IS}<a href="{U_LADWINNER}">{LAD_WINNER}</a></p></fieldset><!-- ENDIF -->
+
+	<fieldset>
+		<table class="tablebg" width="100%" cellspacing="1">
+			<tr class="rvcenter">
+				<th class="rv60">{L_POS}</th>
+				<th>{L_USERNAME}</th>
+				<th class="rv80">{L_LADDER_GROUP_SCORE}</th>
+				<th class="rv60">{L_LADDER_GROUP_WINS}</th>
+				<th class="rv60">{L_LADDER_GROUP_LOSSES}</th>
+				<!-- IF SOCCER --><th class="rv60">{L_LADDER_GROUP_PARI}</th><!-- ENDIF -->
+				<th class="rv60">{L_LADDER_GROUP_STREAK}</th>
+				<th class="rv60">{L_RATIO}</th>
+				<th class="rv80"><!-- IF SOCCER -->{L_GOALSF}<!-- ELSE IF -->{L_ROUND_W} o Kills<!-- ENDIF --></th>
+				<th class="rv80"><!-- IF SOCCER -->{L_GOALSA}<!-- ELSE IF -->{L_ROUND_L} o Deads<!-- ENDIF --></th>
+				<th class="rv60">{L_LADDER_STATUS}</th>
+				<th class="rv40">{L_LADDER_GROUP_ID}</th>
+			</tr>
+			<!-- BEGIN block_usersres -->
+			<tr class="genmed rvcenter">
+				<td class="{block_usersres.ROW_COLOR}"><strong>{block_usersres.POS}</strong> {block_usersres.UP_DOWN}</td>
+				<td class="{block_usersres.ROW_COLOR} rvleft"><a href="{block_usersres.U_ACTION}">{block_usersres.USER_NAME}</a> <!-- IF block_usersres.U_CHALLENGE_LINK -->[<a href="{block_usersres.U_CHALLENGE_LINK}">{L_CHALLENGE}</a>]<!-- ENDIF --> &nbsp; {block_usersres.HOT_COLD} &nbsp; {block_usersres.BEST}<!-- IF block_usersres.CALCIO -->  &nbsp; {block_usersres.CANNONIERE}<!-- ENDIF --></td>
+				<td class="{block_usersres.ROW_COLOR}">{block_usersres.USER_SCORE}</td>
+				<td class="{block_usersres.ROW_COLOR}">{block_usersres.USER_WINS}</td>
+				<td class="{block_usersres.ROW_COLOR}">{block_usersres.USER_LOSSES}</td>
+				<!-- IF SOCCER --><td class="{block_usersres.ROW_COLOR}">{block_usersres.PAREGGI}</td><!-- ENDIF -->
+				<td class="{block_usersres.ROW_COLOR}">{block_usersres.USER_STREAK}</td>
+				<td class="{block_usersres.ROW_COLOR}">{block_usersres.RATIO}</td>
+				<td class="{block_usersres.ROW_COLOR}">{block_usersres.SCORE_OK}</td>
+				<td class="{block_usersres.ROW_COLOR}">{block_usersres.SCORE_BAD}</td>
+				<td class="{block_usersres.ROW_COLOR}">{block_usersres.STATUS}</td>
+				<td class="{block_usersres.ROW_COLOR}">{block_usersres.USER_ID}</td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr class="genmed rvcenter">
+				<td class="row1" colspan="12">{L_NO_MEMBERS_DATA}</td>
+			</tr>
+			<!-- END block_usersres -->
+		</table>
+	</fieldset>
+
+	<fieldset>
+		<table class="tablebg" cellspacing="1" cellpadding="0" style="margin-top: 5px;" width="100%">
+			<tr>
+				<td class="row1">
+					<p class="breadcrumbs">{PAGE_NUMBER}</p>
+					<p class="datetime">{PAGINATION}</p>
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+</div>
+
+<hr />
+<fieldset>
+	{L_LEGENDA}
+	<p><img src="{T_TEMPLATE_PATH}/rivals/imgs_rival/crown.gif" class="rvmiddle" alt="{L_LEGENDA}" /> {L_CORONA}</p>
+	<p><img src="{T_TEMPLATE_PATH}/rivals/imgs_rival/tomb.png" class="rvmiddle" alt="{L_LEGENDA}" /> {L_TOMBA}</p>
+	<p><img src="{T_TEMPLATE_PATH}/rivals/imgs_rival/hot.png" class="rvmiddle" alt="{L_LEGENDA}" /> {L_CALDO}</p>
+	<p><img src="{T_TEMPLATE_PATH}/rivals/imgs_rival/cold.png" class="rvmiddle" alt="{L_LEGENDA}" /> {L_FREDDO}</p>
+	<!-- IF block_usersres.CALCIO -->
+	<p><img src="{T_TEMPLATE_PATH}/rivals/imgs_rival/scarpaoro.png" class="rvmiddle" alt="{L_LEGENDA}" /> {L_LEG_CAPOCAN}</p>
+	<p><img src="{T_TEMPLATE_PATH}/rivals/imgs_rival/saponetta.png" class="rvmiddle" alt="{L_LEGENDA}" /> {L_LEG_PIUGOAL}</p>
+	<!-- ENDIF -->
+</fieldset>
+<!-- INCLUDE overall_footer.html -->
