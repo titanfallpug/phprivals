@@ -1,0 +1,204 @@
+<!-- INCLUDE ucp_header.html -->
+
+<script type="text/javascript">
+function setVisibility(id, visibility) {
+document.getElementById(id).style.display = visibility;
+}
+</script>
+
+<!-- IF .non_riportate -->
+<h2>{L_UNREPORTED_TOURNAMENTS}</h2>
+
+<form action="{U_ACTION}" method="post">
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<fieldset>
+		<table class="tablebg">
+			<tr class="genmed">
+				<td class="row3 rvcenter rv200">{L_TOURNAMENT} ({L_ROUNDS})</td>
+				<td class="row3 rvcenter" colspan="2">{L_OPTIONS}</td>
+			</tr>
+			<!-- BEGIN non_riportate -->
+			<tr class="genmed">
+				<td class="{non_riportate.ROW_COLOR} rvcenter">
+					<strong>{non_riportate.TORNEO} ({non_riportate.ROUND})</strong>
+					<span class="clanvote"><a href="#" class="rvbutton_chat" onclick="window.open('{non_riportate.MATCH_CHAT}', '_matchchat', 'HEIGHT=300,resizable=yes,WIDTH=750');return false;">{L_CHAT}</a></span>
+				</td>
+				<td class="{non_riportate.ROW_COLOR} rvleft">
+					<!-- IF non_riportate.HOME_AWAY -->
+					{L_FIRST_HOME}: {non_riportate.FIRST_HOME}<br />
+					{L_ANDATA}>> <a href="{non_riportate.MIOURL}">{non_riportate.MIOCLAN}</a>: <input name="tournament[{non_riportate.ID_TORNEO}][miei_point_home]" type="text" class="inputbox autowidth" value="0" size="4" maxlength="3" /> 
+					- vs -
+					<a href="{non_riportate.AVV_URL}">{non_riportate.AVVERSARIO}</a>: <input type="text" name="tournament[{non_riportate.ID_TORNEO}][vs_point_home]" value="0" class="inputbox autowidth" size="4" maxlength="3" />
+					<br />
+					{L_RITORNO}>>
+					<!-- ENDIF -->
+					<a href="{non_riportate.MIOURL}">{non_riportate.MIOCLAN}</a>: <input name="tournament[{non_riportate.ID_TORNEO}][miei_point]" type="text" class="inputbox autowidth" value="0" size="4" maxlength="3" />
+					- vs -
+					<a href="{non_riportate.AVV_URL}">{non_riportate.AVVERSARIO}</a>: <input type="text" name="tournament[{non_riportate.ID_TORNEO}][vs_point]" value="0" class="inputbox autowidth" size="4" maxlength="3" />
+					<span class="clanvote">
+						{L_VOTA_COMPORTAMENTO_CLAN}:
+						<select name="tournament[{non_riportate.ID_TORNEO}][vsrep]">
+							<option value="1">1/5</option>
+							<option value="2">2/5</option>
+							<option value="3">3/5</option>
+							<option value="4">4/5</option>
+							<option value="5">5/5</option>
+						</select>
+					</span>
+				</td>
+				<td class="{non_riportate.ROW_COLOR} rvcenter rv120">
+					{L_REPORT}: <input type="checkbox" name="tournament[{non_riportate.ID_TORNEO}][tournamentrep]" class="radio" value="1" />
+					<input type="hidden" name="tournament[{non_riportate.ID_TORNEO}][tournamentroud]" value="{non_riportate.ROUND}" />
+					<input type="hidden" name="tournament[{non_riportate.ID_TORNEO}][rep_pos]" value="{non_riportate.MIAPOS}" />
+				</td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr class="genmed">
+				<td class="row1 rvcenter" colspan="3">{L_NO_TOURNAMENTS}</td>
+			</tr>
+			<tr>
+				<td class="cat" colspan="3">&nbsp;</td>
+			</tr>
+			<!-- END non_riportate -->
+			<tr>
+				<td class="cat rvcenter" colspan="3">
+					<input type="submit" name="submit" value="{L_REPORT_CALCIO}" class="rvbutton2" />
+				</td>
+			</tr>
+		</table>
+		</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+{S_HIDDEN_FIELDS}
+{S_FORM_TOKEN}
+</form>
+<!-- ENDIF -->
+
+<!-- IF .riportate -->
+<h2>{L_REPORTED_TOURNAMENTS}</h2>
+
+<form action="{U_ACTION}" method="post">
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<fieldset>
+		<table class="tablebg">
+			<tr class="genmed">
+				<td class="row3 rvcenter rv200">{L_TOURNAMENT} ({L_ROUNDS})</td>
+				<td class="row3 rvcenter">{L_INFOS}</td>
+				<td class="row3 rvcenter rv60">{L_CONFIRM}</td>
+				<td class="row3 rvcenter rv60">{L_CONTEST}</td>
+			</tr>
+			<!-- BEGIN riportate -->
+			<tr class="genmed">
+				<td class="{riportate.ROW_COLOR}">
+					<strong>{riportate.TORNEO} ({riportate.ROUND})</strong>
+					<span class="clanvote"><a href="#" class="rvbutton_chat" onclick="window.open('{riportate.MATCH_CHAT}', '_matchchat', 'HEIGHT=300,resizable=yes,WIDTH=750');return false;">{L_CHAT}</a></span>
+				</td>
+				<!-- IF riportate.HOME_AWAY -->
+				<td class="{riportate.ROW_COLOR}">
+					{L_FIRST_HOME}: {riportate.FIRST_HOME}<br />
+					{L_ANDATA}>> <a href="{riportate.MIOURL}">{riportate.MIOCLAN}</a>: {riportate.MIEI_PUNTI_HM} - vs - {riportate.AVV_PUNTI_HM} :<a href="{riportate.AVV_URL}">{riportate.AVVERSARIO}</a><br />
+					{L_RITORNO}>> <a href="{riportate.MIOURL}">{riportate.MIOCLAN}</a>: {riportate.MIEI_PUNTI} - vs - {riportate.AVV_PUNTI} :<a href="{riportate.AVV_URL}">{riportate.AVVERSARIO}</a>
+					<span class="clanvote">
+						{L_VOTA_COMPORTAMENTO_CLAN}:
+						<select name="vsrep_{riportate.ID_TORNEO}">
+							<option value="1">1/5</option>
+							<option value="2">2/5</option>
+							<option value="3">3/5</option>
+							<option value="4">4/5</option>
+							<option value="5">5/5</option>
+						</select>
+					</span>
+				</td>
+				<!-- ELSE -->
+				<td class="{riportate.ROW_COLOR}">
+					<a href="{riportate.MIOURL}">{riportate.MIOCLAN}</a>: {riportate.MIEI_PUNTI} - vs - {riportate.AVV_PUNTI} :<a href="{riportate.AVV_URL}">{riportate.AVVERSARIO}</a>
+					<span class="clanvote">
+						{L_VOTA_COMPORTAMENTO_CLAN}:
+						<select name="vsrep_{riportate.ID_TORNEO}">
+							<option value="1">1/5</option>
+							<option value="2">2/5</option>
+							<option value="3">3/5</option>
+							<option value="4">4/5</option>
+							<option value="5">5/5</option>
+						</select>
+					</span>
+				</td>
+				<!-- ENDIF -->
+				<td class="{riportate.ROW_COLOR} rvcenter rv60">
+					<input type="checkbox" name="confirmed[]" class="radio" value="{riportate.ID_TORNEO}" />
+				</td>
+				<td class="{riportate.ROW_COLOR} rvcenter rv60">
+					<input type="checkbox" name="contested[]" class="radio" value="{riportate.ID_TORNEO}" />
+				</td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr class="genmed">
+				<td class="row1 rvcenter" colspan="4">{L_NO_TOURNAMENTS}</td>
+			</tr>
+			<!-- END riportate -->
+			<tr>
+				<td class="cat rvcenter" colspan="4"><input type="submit" name="confirm" value="{L_SUBMIT}" class="rvbutton2" /></td>
+			</tr>
+		</table>
+		</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+{S_FORM_TOKEN}
+</form>
+<!-- ENDIF -->
+
+<!-- IF .in_attesa -->
+<h2>{L_WAITED_TOURNAMENTS}</h2>
+
+<form action="{U_ACTION}" method="post">
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	
+		<fieldset>
+		<table class="tablebg">
+			<!-- BEGIN in_attesa -->
+			<tr class="genmed">
+				<td colspan="2" class="{in_attesa.ROW_COLOR} rvcenter">
+					<a href="{in_attesa.MIOURL}">{in_attesa.MIOCLAN}</a> - VS - <a href="{in_attesa.AVV_URL}">{in_attesa.AVVERSARIO}</a> 
+					-=- {L_GIOCATA_SU} {in_attesa.TORNEO} {L_ROUNDS} {in_attesa.ROUND} ({in_attesa.STIME})
+				</td>
+				
+				<td class="{in_attesa.ROW_COLOR} rvcenter rv160">
+					{L_REPORT}: <input type="checkbox" name="tournament2[{in_attesa.ID_TORNEO}][tournamentrep]" class="radio" value="1" />
+					<input type="hidden" name="tournament2[{in_attesa.ID_TORNEO}][uid]" value="{in_attesa.UID}" />
+					<input type="hidden" name="tournament2[{in_attesa.ID_TORNEO}][round]" value="{in_attesa.ROUND}" />
+				</td>
+			</tr>
+			<!-- BEGINELSE -->
+			<tr class="genmed">
+				<td class="row1 rvcenter" colspan="3">{L_NO_TOURNAMENTS}</td>
+			</tr>
+			<!-- END in_attesa -->
+			<tr>
+				<td class="cat rvcenter" colspan="3">
+					<input type="submit" name="inattivo" value="{L_SEGNALA_INATTIVITA}" class="rvbutton2" />
+				</td>
+			</tr>
+		</table>
+		</fieldset>
+
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+{S_HIDDEN_FIELDS}
+{S_FORM_TOKEN}
+</form>
+<!-- ENDIF -->
+
+<!-- IF not .non_riportate && not .riportate && not .in_attesa -->
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	<fieldset>
+		<h2 style="text-align:center;margin:20px 0 20px 0;">{L_ANY_MATCHES_FOUNDED}</h2>
+	</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+<!-- ENDIF -->
+
+<!-- INCLUDE ucp_footer.html -->

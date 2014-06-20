@@ -1,0 +1,44 @@
+<!-- INCLUDE overall_header.html -->
+<div id="pagecontent">
+    
+	<fieldset>
+		<p class="bigtitolo" id="clanchart">{L_TITOLO_PAGINA_MVP_CHART}: <!-- BEGIN block_ladder --><a href="{block_ladder.U_LADDERURL}">{block_ladder.NOME_LADDER}</a><!-- END block_ladder --></p>
+	</fieldset>
+
+	<div class="forumbg">
+		<div class="inner"><span class="corners-top"><span></span></span>	
+			<fieldset>
+				<table id="memberlist" class="table1" cellspacing="1">
+					<thead>
+						<tr class="genmed rvcenter">
+							<th>{L_NU}</th>
+							<th>{L_UTENTE}</th>
+							<th>{L_GAMERNAME}</th>
+							<th>{L_CLAN}</th>
+							<th>{L_REGISTRATO}</th>
+							<th>{L_MVP}</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- BEGIN block_members -->
+						<tr class="genmed">
+							<td class="{block_members.ROW_COLOR} rv15 rvcenter">{block_members.NUM}</td>
+							<td class="{block_members.ROW_COLOR}"><a href="{block_members.U_MEMBERPROFILE}"><strong class="gen">{block_members.MEMBER_NAME}</strong></a></td>
+							<td class="{block_members.ROW_COLOR} rvcenter">{block_members.GAMERNAME}</td>
+							<td class="{block_members.ROW_COLOR} rvcenter">{L_GIOCANDO_PER} <a href="{block_members.U_CLAN}">{block_members.MEMBER_CLAN}</a></td>
+							<td class="{block_members.ROW_COLOR} rv200 rvcenter">{L_DAL} {block_members.ONLINE_DA}</td>
+							<td class="{block_members.ROW_COLOR} rv80 rvcenter">{block_members.MEMBER_MVP}</td>
+						</tr>
+						<!-- BEGINELSE -->
+						<tr>
+							<td class="row1 rvcenter" colspan="6">{L_NO_MEMBERS_MVP}</td>
+						</tr>
+						<!-- END block_members -->
+					</tbody>
+				</table>
+			</fieldset>
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+</div>
+
+<!-- INCLUDE overall_footer.html --> 

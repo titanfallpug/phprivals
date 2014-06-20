@@ -1,0 +1,84 @@
+<!-- INCLUDE ucp_header.html -->
+
+<h2>{L_UNREPORTED_MATCHES}</h2>
+
+<!-- IF ERROR -->
+<fieldset>
+<p class="error">{ERROR}</p>
+</fieldset>
+<!-- ENDIF -->
+
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+	<fieldset>
+		<table class="tablebg" cellspacing="1">
+			<tr class="genmed">
+				<th class="rvcenter"></th>
+				<th class="rvcenter">{L_CLAN}</th>
+				<!-- IF DECERTO --><th class="rvcenter">{L_RISULTATO_DECERTO}</th><!-- ENDIF -->
+				<th class="rvcenter">{L_RISULTATO}</th>
+				<th class="rvcenter">{L_INFORMAZIONI_WAR}</th>
+				<th class="rvcenter">{L_AZIONI}</th>
+			</tr>
+		<!-- BEGIN block_unreported -->
+			<tr class="genmed">
+				<td class="subcat" colspan="5">
+					{L_PLATFORM_SHORT}: <strong>{block_unreported.PLATFORM}</strong>, {L_LADDER_SHORT}: <strong>{block_unreported.LADDER}</strong>, {L_SUBLADDER_SHORT}: <strong>{block_unreported.SUBLADDER}</strong>
+					 {block_unreported.LADDER_ICON} {block_unreported.IMG_ADVSTATS} {block_unreported.IMG_MVP} {block_unreported.IMG_RTH}
+					<span class="clanvote"><a href="#" class="rvbutton_chat" onclick="window.open('{block_unreported.MATCH_CHAT}', '_matchchat', 'HEIGHT=300,resizable=yes,WIDTH=750');return false;">{L_CLAN_CHAT}</a></span>
+				</td>
+			</tr>
+			<tr class="genmed">
+				<td rowspan="2" class="{block_unreported.ROW_COLOR} rv20 rvh80"><img src="{ROOT_PATH}rivals/images/vs.gif" alt="" class="rvmiddle" /></td>
+				<td class="{block_unreported.ROW_COLOR}" <!-- IF not block_unreported.DECERTO -->colspan="2"<!-- ENDIF -->>{block_unreported.TUOGRUPPO}
+					<!-- IF block_unreported.CALCIO --><span class="teamform">{L_TEAM_USED}: <input type="text" name="your_team_used" class="inputbox autowidth" size="15" maxlength="248" /></span><!-- ENDIF -->
+				</td>
+
+				<td rowspan="2" class="{block_unreported.ROW_COLOR} rvleft rv200">
+					<ul>
+					<li class="rivalsli">{L_TYPE}: {block_unreported.CLASSIFICATA}</li>
+					<li class="rivalsli">{L_RIVALS_DATETIME}: {block_unreported.TIME}</li>
+					<li class="rivalsli">{L_MAPSET}
+						<!-- IF block_unreported.MAP1 eq '-' -->{L_LIBERO}</li>
+						<!-- ELSE IF -->
+						<br />-[1] {block_unreported.MAP1}
+						<br />-[2] {block_unreported.MAP2}
+						<br />-[3] {block_unreported.MAP3}</li>
+						<!-- ENDIF -->
+					</ul>
+				</td>
+				
+				<!-- IF block_unreported.DECERTO -->
+				<td rowspan="2" class="{block_unreported.ROW_COLOR} rvleft rv200">
+					<ul>
+						<li class="rivalsli">{L_MODES_ORDER}
+							<br />-[1] {block_unreported.MODE1}
+							<br />-[2] {block_unreported.MODE2}
+							<br />-[3] {block_unreported.MODE3}</li>
+					</ul>
+				</td>
+				<!-- ENDIF -->
+				
+				<td rowspan="2" class="{block_unreported.ROW_COLOR} rvcenter rv120">
+					<span class="imgbutton"><a href="{block_unreported.REPORTLINK}">{block_unreported.REPORTBUTTON}</a></span>
+				</td>
+			</tr>
+			<tr class="genmed">
+				<td class="{block_unreported.ROW_COLOR}" <!-- IF not block_unreported.DECERTO -->colspan="2"<!-- ENDIF -->>
+					<a href="{block_unreported.U_OPPONENT}">{block_unreported.OPPONENT}</a>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="6" class="{block_unreported.ROW_COLOR} rvleft">>> {block_unreported.MATCHDESC}</td>
+			</tr>
+		<!-- BEGINELSE -->
+			<tr class="genmed">
+				<td class="row1 rvcenter" colspan="6">{L_NO_UNREPORTED_MATCHES}</td>
+			</tr>
+		<!-- END block_unreported -->
+		</table>
+	</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<!-- INCLUDE ucp_footer.html -->

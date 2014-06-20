@@ -1,0 +1,46 @@
+<!-- INCLUDE ucp_header.html -->
+
+<!-- IF FROMMATCH -->
+	<h2>{L_RIPORTI_TICKET_FOR}: {CHALLENGER} {L_VS} {CHALLENGEE}</h2>
+<!-- ELSE -->
+	<h2>{L_ISSUE_A_TICKET}</h2>
+<!-- ENDIF -->
+
+<form action="{U_ACTION}" method="post" enctype="multipart/form-data">
+<div class="panel">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<fieldset>
+			<dl>
+				<dt><label for="type">{L_TICKET_TYPE}</label></dt>
+				<dd>
+					<select name="type" id="type">
+						<option value="{L_CHEATING}">{L_CHEATING}</option>
+						<option value="{L_MATCHRESULTS}">{L_MATCH_RESULTS}</option>
+						<option value="{L_NOSHOW}">{L_NO_SHOW}</option>
+						<option value="{L_OTHER}">{L_OTHER_TYPE}</option>	
+					</select>
+				</dd>
+			</dl>
+			<dl>
+				<dt><label for="send_file">{L_TICKET_FILE}</label></dt>
+				<dd><input type="file" class="inputbox autowidth" name="attachment" id="send_file" /></dd>
+			</dl>
+			<dl>
+				<dt><label for="ticked_txt">{L_TICKED_TEXT}</label></dt>
+				<dd><textarea cols="40" rows="5" class="inputbox narrow" name="ticket" id="ticked_txt"></textarea></dd>
+			</dl>
+		</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<fieldset class="submit-buttons">
+	<input type="hidden" name="userm" value="{USERLAD}" />
+	<input type="hidden" name="match_id" value="{MATCHID}" />
+    <input type="reset" value="{L_RESET}" name="reset" class="rvbutton2" />&nbsp; 
+	<input type="submit" name="submit" value="{L_SUBMIT}" class="rvbutton2" />
+</fieldset>
+
+{S_HIDDEN_FIELDS}
+{S_FORM_TOKEN}
+</form>
+<!-- INCLUDE ucp_footer.html -->
